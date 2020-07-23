@@ -1,0 +1,93 @@
+﻿<Window x:Class="HotListReports.Windows.Products.LabourTypeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:HotListReports.Windows.Demand"
+        mc:Ignorable="d"
+        Title="Labour Type" Height="700" Width="1200" Closing="Window_Closing" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="205*"/>
+            <RowDefinition Height="18*"/>
+        </Grid.RowDefinitions>
+        <TabControl x:Name="mainTabControl" SelectionChanged="mainTabControl_SelectionChanged" Margin="0,0,0,-1" Grid.RowSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <TabItem x:Name="hdrTabItem" Header="View" >
+                <Grid x:Name="hdrMGrid" Margin="0,0,-3,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28*"/>
+                        <RowDefinition Height="557*"/>
+                        <RowDefinition Height="53*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid x:Name="viewTabItemTopGrid" Margin="0,0,0,1.528" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Label x:Name="recordsLabel" Content="Records :" HorizontalAlignment="Left" Margin="0,0.474,0,-0.474" Width="55" FontWeight="Bold"/>
+                        <TextBox x:Name="recordsTextBox" HorizontalAlignment="Left" Margin="70,0.474,0,0" TextWrapping="Wrap" Text="" Width="65" MaxLength="8"/>
+                    </Grid>
+
+                    <ListView x:Name="hdrListView" Grid.Row="1" MouseDoubleClick="hdrListView_MouseDoubleClick" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" FontSize="11">
+                        <ListView.View>
+                            <GridView>
+
+
+
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Canvas x:Name="bottomCanvas" Margin="-7,1.528,0,0" Grid.Row="2" d:LayoutOverrides="VerticalAlignment, LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+                        <Label x:Name="searchForLabel" Content="Search For" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="444.032" Canvas.Top="0.179"/>
+                        <ComboBox x:Name="searchByComboBox" HorizontalAlignment="Left" Width="101.639" Canvas.Left="337.393" Canvas.Top="4.18"/>
+                        <Label x:Name="searchByLabel" Content="Search By" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="257.386" Canvas.Top="0.357"/>
+                        <TextBox x:Name="searchForTextBox" TextWrapping="Wrap" Canvas.Left="511.646" Canvas.Top="0.357" Width="202.64"/>
+                        <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Width="75" Click="searchButton_Click" Canvas.Left="169" FontWeight="Bold"/>
+
+                        <Button x:Name="firstButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                        <Button x:Name="prevButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="28" Canvas.Top="1" />
+                        <Button x:Name="nextButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                        <Button x:Name="lastButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+                        <Button x:Name="addButton" Width="23" Content="+" Height="21.277" Canvas.Left="97" Canvas.Top="1" Click="addButton_Click"/>
+                        <Button x:Name="delButton" Width="23" Content="-" Height="21.277" Canvas.Left="120" Canvas.Top="1" Click="delButton_Click"/>
+
+                    </Canvas>
+
+
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="dtlTabItem" Header="Detail" >
+                <Grid Name="dtlTabGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="203*"/>
+                        <RowDefinition Height="11*"/>
+                    </Grid.RowDefinitions>
+
+                    <GroupBox Grid.Row="0" Name="dtlTabGroupBox" Height="86.038" VerticalAlignment="Top" Margin="0,0,10,0">
+                        <Canvas Height="91.038" VerticalAlignment="Top"  Name="subDtlTopCanvas">
+                            <Label x:Name="idLabel" Content="Id" Canvas.Left="10" Canvas.Top="0.04" Width="80" FontWeight="Bold"/>
+                            <TextBox x:Name="dtlTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Id}" Width="80" Canvas.Left="94" IsReadOnly="True" IsEnabled="False"/>
+
+                            <Label x:Name="codeLabel" Content="Code" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="236" Canvas.Top="0.04" Width="49"/>
+                            <TextBox x:Name="codeTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Code}" Width="80" Canvas.Left="285" IsReadOnly="False" IsEnabled="True" MaxLength="10"/>
+
+                            <Label x:Name="labNameLabel" Content="Name" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="440" Canvas.Top="0.04" Width="58"/>
+                            <TextBox x:Name="labNameTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding LabName}" Width="257" Canvas.Left="503" IsReadOnly="False" IsEnabled="True" MaxLength="30" RenderTransformOrigin="5.275,0.348"/>
+
+                            <Label x:Name="dirIndDtlLabel" Content="Dir/Ind" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="39" Width="75"/>
+                            <ComboBox x:Name="dirIndDtlComboBox" HorizontalAlignment="Left" Width="80" Canvas.Left="94" Canvas.Top="42" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Path=DirInd}" DisplayMemberPath="Display"/>
+
+                        </Canvas>
+                    </GroupBox>
+
+                    <Canvas x:Name="dtlTabBottomCanvas" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Button x:Name="okDtlButton" Content="OK" HorizontalAlignment="Left" Width="75" Click="okDtlButton_Click" RenderTransformOrigin="-0.467,0.769" FontWeight="Bold" />
+                        <Button x:Name="cancelDtlButton" Content="Cancel" HorizontalAlignment="Left" Width="75" Click="cancelDtlButton_Click" RenderTransformOrigin="-0.467,0.769" Canvas.Left="80" FontWeight="Bold" />
+                    </Canvas>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>

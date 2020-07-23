@@ -1,0 +1,226 @@
+﻿<Window x:Class="HotListReports.Windows.Demand.DemandCompareWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:HotListReports.Windows"
+        xmlns:localConverters="clr-namespace:Nujit.NujitWms.WinForms.Util.Converters;assembly=Utilities" 
+        xmlns:localUtil="clr-namespace:HotListReports.Windows.Util"             
+        xmlns:dsx="clr-namespace:DsxGridCtrl;assembly=DsxGridCtrl"
+        mc:Ignorable="d"
+        Title="Demand Compare / 830" Height="700" Width="1200" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <localConverters:DateTimeToStringConverter x:Key="dateTimeConverter" />
+        <localConverters:DecimalToStringConverter x:Key="decimalConverter" />
+        <localConverters:ConstantYesNoToStringConverter x:Key="yesNoToStringConverter" />
+        <localConverters:ConstantYesNoToBoolConverter x:Key="yesNoToBoolConverter" />
+        <localUtil:DecimalToStringConverterNew x:Key="decimalConverterNew" />
+    </Window.Resources>
+
+    <Grid Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="195*"/>
+            <RowDefinition Height="18*"/>
+        </Grid.RowDefinitions>
+
+        <Canvas Name="topCanvas" Grid.Row="0">
+            <Label x:Name="tPartnerSelLabel" Content="TPartner" HorizontalAlignment="Left" FontWeight="Bold" Width="62.457"/>
+            <TextBox x:Name="tPartnerTextBox" Height="23" TextWrapping="Wrap"  Text="" Width="120" Canvas.Left="62.457" MaxLength="40" IsEnabled="False" FontWeight="Bold"/>
+
+            <Label x:Name="shipLocSelLabel" Content="Ship Loc." HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="187.457" Width="62.457" Canvas.Top="0.04"/>
+            <TextBox x:Name="shipLocSelTextBox" Height="23" TextWrapping="Wrap"  Text="" Width="180" Canvas.Left="254.914" MaxLength="40" IsEnabled="False" Canvas.Top="0.04" FontWeight="Bold"/>
+
+            <Label x:Name="partSelLabel" Content="Part" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="439.914" Width="61.586"/>
+            <TextBox x:Name="partSelTextBox" Height="23" TextWrapping="Wrap"  Text="" Width="200" Canvas.Left="501.5" Canvas.Top="-0.04" MaxLength="40" IsEnabled="False" FontWeight="Bold"/>
+
+
+        </Canvas>
+
+        <TabControl Name="mainTabControl" Grid.Row="1">
+            <TabItem Name="compareTabItem"  Header="Compare">
+                <Grid Name="compareTabItemGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="167*"/>
+                        <RowDefinition Height="111*"/>
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="compareListView" Grid.Row="0"/>
+
+
+                    <dsx:DsxDataGrid x:Name="dataGrid"
+                         Grid.Row="1" 
+                         Margin="5"
+						 
+                         AllowCheckAnyTime="True"
+                         
+                         SortField="RelDate"
+                         
+                         HorizontalGridLinesIsVisible="True"
+                         VerticalGridLinesIsVisible="False"
+                         
+                         CellAdornerIsVisible="True"
+                         CellEditingIsEnabled="True"
+
+                         HeaderVisibility="Visible"
+                         FilterVisibility="Hidden"
+                         FooterVisibility="Auto"
+
+                         ItemMinHeight="0"
+                         ItemMaxHeight="0"
+                         ItemFixHeight="20"
+                         
+                         AreaLeftWidth="Auto"
+                         AreaCenterWidth="Auto"
+                         AreaRightWidth="0"                         
+                         
+                         SplitterLeftWidth="2"                         
+                         SplitterLeftIsSizing="False"
+                         SplitterRightWidth="0"
+                         SplitterRightIsSizing="False"
+                         
+                         IsVirtualizing="False">
+
+                        <dsx:DsxDataGrid.Columns>
+                            <dsx:DsxColumn  FieldName="RelNum" ColumnArea="Left" 
+                                Header="RelNum" Width="65" IsSizable="False"
+                                ViewType="Text" FilterType="TextBox" FooterType="None" EditType="None"
+                                CellHAlign="Left"/>
+
+                            <dsx:DsxColumn  FieldName="RelDate" ColumnArea="Left" 
+                                Header="RelDate" Width="120"    
+                                ViewType="Date" FilterType="DatePicker" FooterType="None" EditType="DatePicker"
+                                CellHAlign="Left"/>
+
+                            <dsx:DsxColumn  FieldName="Day001" ColumnArea="Center" 
+                                Header="Day001" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+                            <dsx:DsxColumn  FieldName="Day002" ColumnArea="Center" 
+                                Header="Day002" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+                            <dsx:DsxColumn  FieldName="Day003" ColumnArea="Center" 
+                                Header="Day003" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+                            <dsx:DsxColumn  FieldName="Day004" ColumnArea="Center" 
+                                Header="Day004" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+                            <dsx:DsxColumn  FieldName="Day005" ColumnArea="Center" 
+                                Header="Day005" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+                            <dsx:DsxColumn  FieldName="Day006" ColumnArea="Center" 
+                                Header="Day006" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+                            <dsx:DsxColumn  FieldName="Day007" ColumnArea="Center" 
+                                Header="Day007" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+                            <dsx:DsxColumn  FieldName="Day008" ColumnArea="Right" 
+                                Header="Day008" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+
+                            <dsx:DsxColumn  FieldName="Day009" ColumnArea="Right" 
+                                Header="Day009" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+                            <dsx:DsxColumn  FieldName="Day010" ColumnArea="Right" 
+                                Header="Day010" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+                            <dsx:DsxColumn  FieldName="Day011" ColumnArea="Right" 
+                                Header="Day011" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+                            <dsx:DsxColumn  FieldName="Day012" ColumnArea="Right" 
+                                Header="Day012" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+                            <dsx:DsxColumn  FieldName="Day013" ColumnArea="Right" 
+                                Header="Day013" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+                            <dsx:DsxColumn  FieldName="Day014" ColumnArea="Right" 
+                                Header="Day014" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+                            <dsx:DsxColumn  FieldName="Day015" ColumnArea="Right" 
+                                Header="Day015" Width="95"
+                                ViewType="Decimal" FilterType="TextBox" FilterCriteria="GreaterOrEqual" FooterType="Max" EditType="TextBox"
+                                CellHAlign="Right"
+                                CellBackground="#33C7C7C7"/>
+
+
+                        </dsx:DsxDataGrid.Columns>
+                    </dsx:DsxDataGrid>
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+        <Canvas x:Name="bottomCanvas" Grid.Row="2" >
+            <Button x:Name="firstButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5"/>
+            <Button x:Name="prevButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="28" Canvas.Top="1" />
+            <Button x:Name="nextButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+            <Button x:Name="lastButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+            <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Width="75" Click="searchButton_Click" Canvas.Left="117" FontWeight="Bold"/>
+
+            <Label x:Name="plantLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="205.386" Canvas.Top="1" Width="75.006"/>
+            <ComboBox x:Name="plantComboBox" HorizontalAlignment="Left" Width="95" Canvas.Left="285.392" SelectedValuePath="Content" DisplayMemberPath="Display" Canvas.Top="1" SelectionChanged="plantComboBox_SelectionChanged"/>
+
+            <Label x:Name="tPartnerLabel" Content="TPartner" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="392.032" Width="62.457"/>
+            <ComboBox x:Name="tPartnerComboBox" HorizontalAlignment="Left" Width="210" Canvas.Left="459.646" SelectedValuePath="Content" DisplayMemberPath="Display" FontFamily="Courier New" Height="22.277" FontSize="14" SelectionChanged="tPartnerComboBox_SelectionChanged" MaxDropDownHeight="500"/>
+
+            <Label x:Name="shipLocLabel" Content="Ship Loc." HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="677.543" Width="62.457" Canvas.Top="0.999"/>
+            <ComboBox x:Name="shipLocComboBox" HorizontalAlignment="Left" Width="170" Canvas.Left="740" SelectedValuePath="Content" DisplayMemberPath="Display" SelectionChanged="shipLocComboBox_SelectionChanged" MaxDropDownHeight="500"/>
+
+            <Label x:Name="fromCretedLabel" Content="From Release" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="205.386" Canvas.Top="25.14"/>
+            <DatePicker x:Name="fromDatePicker" Canvas.Left="285.392" Canvas.Top="25.14" Width="101.64"/>
+            <Label x:Name="toCretedLabel" Content="To Release" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="392.032" Canvas.Top="26.139"/>
+            <DatePicker x:Name="toDatePicker" Canvas.Left="459.646" Canvas.Top="25.14" Width="101.64"/>
+
+            <Label x:Name="partLabel" Content="Part" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="678.828" Canvas.Top="27.138" Width="61.586"/>
+            <TextBox x:Name="partTextBox" Height="23" TextWrapping="Wrap"  Text="" Width="200" Canvas.Left="740.414" Canvas.Top="26.244" MaxLength="40" IsEnabled="False"/>
+            <Button x:Name="partSearchButton" Width="23" Content="&gt;" Height="25.96" Canvas.Left="940.414" Canvas.Top="26.139" RenderTransformOrigin="10.783,0.772" Click="partSearchButton_Click"/>
+            <ComboBox x:Name="partComboBox" HorizontalAlignment="Left" Width="230" Canvas.Left="968.414" SelectedValuePath="Content" DisplayMemberPath="Display" Canvas.Top="27.138" SelectionChanged="partComboBox_SelectionChanged" MaxDropDownHeight="500"/>
+
+
+        </Canvas>
+
+
+    </Grid>
+</Window>

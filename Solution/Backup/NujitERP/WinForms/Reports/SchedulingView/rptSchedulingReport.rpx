@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3" PrintWidth="14940" DocumentName="ActiveReports Document" ScriptLang="C#" CodeFile="rptSchedulingReport.cs">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0; " />
+    <Style Name="Heading1" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading3" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; " />
+  </StyleSheet>
+  <Sections>
+    <Section Type="ReportHeader" Name="ReportHeader" Height="1063" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label4" MOD="4" Left="6120" Top="90" Width="2880" Height="360" Caption="Scheduling Report" Style="text-align: center; font-weight: bold; font-style: italic; font-size: 15pt; " />
+      <Control Type="AR.Label" Name="Label5" MOD="4" Left="4050" Top="630" Width="1620" Height="360" Caption="From Date: " Style="text-align: center; font-weight: bold; font-style: italic; font-size: 13pt; " />
+      <Control Type="AR.Label" Name="Label6" MOD="4" Left="7740" Top="630" Width="1440" Height="360" Caption="To Date:" Style="text-align: center; font-weight: bold; font-style: italic; font-size: 13pt; " />
+      <Control Type="AR.Field" Name="TextBox1" MOD="4" Left="5670" Top="630" Width="1710" Height="360" Text="today" Style="text-align: center; font-weight: bold; font-size: 13pt; " />
+      <Control Type="AR.Field" Name="TextBox2" MOD="4" Left="9180" Top="630" Width="1440" Height="360" Text="today + 13 days" Style="text-align: center; font-weight: bold; font-size: 13pt; " />
+    </Section>
+    <Section Type="PageHeader" Name="PageHeader" Height="644" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label7" MOD="4" Left="720" Top="360" Width="1080" Height="270" Caption="Part" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label8" MOD="4" Left="0" Top="360" Width="720" Height="270" Caption="Machine" Style="text-decoration: none; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label9" MOD="4" Left="2070" Top="360" Width="540" Height="270" Caption="Seq" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label10" MOD="4" Left="2610" Top="360" Width="540" Height="270" Caption="Stat" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label11" MOD="4" Left="3150" Top="0" Width="450" Height="630" Caption="Min Qty Req" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label12" MOD="4" Left="3690" Top="180" Width="450" Height="450" Caption="Sch. Qty" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label13" MOD="4" Left="4140" Top="360" Width="630" Height="270" Caption="Pcs/Hr" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label14" MOD="4" Left="4770" Top="180" Width="360" Height="450" Caption="Hrs Util" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label15" MOD="4" Left="5400" Top="360" Width="630" Height="270" Caption="Boxes" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day1" MOD="4" Left="6120" Top="180" Width="450" Height="270" Caption="Day1" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day2" MOD="4" Left="6750" Top="180" Width="450" Height="270" Caption="Day2" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day3" MOD="4" Left="7380" Top="180" Width="540" Height="270" Caption="Day3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day4" MOD="4" Left="8010" Top="180" Width="540" Height="270" Caption="Day4" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day5" MOD="4" Left="8640" Top="180" Width="540" Height="270" Caption="Day5" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day6" MOD="4" Left="9270" Top="180" Width="540" Height="270" Caption="Day6" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day7" MOD="4" Left="9900" Top="180" Width="540" Height="270" Caption="Day7" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day8" MOD="4" Left="10530" Top="180" Width="450" Height="270" Caption="Day8" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day9" MOD="4" Left="11160" Top="180" Width="540" Height="270" Caption="Day9" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day10" MOD="4" Left="11790" Top="180" Width="540" Height="270" Caption="Day10" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day11" MOD="4" Left="12420" Top="180" Width="540" Height="270" Caption="Day11" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day12" MOD="4" Left="13050" Top="180" Width="540" Height="270" Caption="Day12" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day13" MOD="4" Left="13680" Top="180" Width="540" Height="270" Caption="Day13" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="day14" MOD="4" Left="14310" Top="180" Width="540" Height="270" Caption="Day14" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label16" MOD="4" Left="6750" Top="360" Width="540" Height="270" Caption="1  2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label17" MOD="4" Left="7380" Top="360" Width="540" Height="270" Caption="1  2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label18" MOD="4" Left="8010" Top="360" Width="540" Height="270" Caption="1  2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label19" MOD="4" Left="8640" Top="360" Width="540" Height="270" Caption="1  2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label20" MOD="4" Left="9270" Top="360" Width="540" Height="270" Caption="1  2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label21" MOD="4" Left="9900" Top="360" Width="540" Height="270" Caption="1  2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label22" MOD="4" Left="10530" Top="360" Width="540" Height="270" Caption="1  2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label23" MOD="4" Left="11160" Top="360" Width="540" Height="270" Caption="1  2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label24" MOD="4" Left="11790" Top="360" Width="540" Height="270" Caption="1  2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label25" MOD="4" Left="12420" Top="360" Width="540" Height="270" Caption="1  2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label26" MOD="4" Left="13050" Top="360" Width="540" Height="270" Caption="1  2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label27" MOD="4" Left="13680" Top="360" Width="540" Height="270" Caption="1  2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label28" MOD="4" Left="14310" Top="360" Width="540" Height="270" Caption="1  2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label29" MOD="4" Left="6120" Top="360" Width="540" Height="270" Caption="1   2  3" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Line" Name="Line1" MOD="4" X1="0" Y1="630" X2="14850" Y2="630" />
+    </Section>
+    <Section Type="GroupHeader" Name="GroupHeader1" Height="225" DataField="PDM_Mach" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="PDM_Mach1" DataField="PDM_Mach" MOD="4" Left="0" Top="0" Width="14850" Height="270" Text="machine" Style="background-color: Gainsboro; font-size: 8pt; " />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="270" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="txtPart" DataField="SPH_ProdID" MOD="0" Left="720" Top="0" Width="1350" Height="270" Text="part" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtSeq" DataField="SPH_Seq" MOD="4" Left="2070" Top="0" Width="540" Height="270" Text="seq" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtStat" MOD="4" Left="2610" Top="0" Width="540" Height="270" Text="0" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtMinQtyReq" MOD="4" Left="3150" Top="0" Width="450" Height="270" Text="N/A" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtSchQty" MOD="4" Left="3690" Top="0" Width="450" Height="270" Text="N/A" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtPcsHr" DataField="SPH_UtilPer" MOD="4" Left="4140" Top="0" Width="630" Height="270" Text="pcsHr" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtHrsUtil" DataField="SPH_HrPr" MOD="4" Left="4770" Top="0" Width="630" Height="270" Text="HrsUtil" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtBoxes" MOD="4" Left="5400" Top="0" Width="630" Height="270" Text="0" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD1T1" MOD="4" Left="6120" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD1T2" MOD="4" Left="6300" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD1T3" MOD="4" Left="6480" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD2T1" MOD="4" Left="6750" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD2T2" MOD="4" Left="6930" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD2T3" MOD="4" Left="7110" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD3T1" MOD="4" Left="7380" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD3T2" MOD="4" Left="7560" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD3T3" MOD="4" Left="7740" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD4T1" MOD="4" Left="8010" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD4T2" MOD="4" Left="8190" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD4T3" MOD="4" Left="8370" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD5T1" MOD="4" Left="8640" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD5T2" MOD="4" Left="8820" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD5T3" MOD="4" Left="9000" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD6T1" MOD="4" Left="9270" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD6T2" MOD="4" Left="9450" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD6T3" MOD="4" Left="9630" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD7T1" MOD="4" Left="9900" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD7T2" MOD="4" Left="10080" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD7T3" MOD="4" Left="10260" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD8T1" MOD="4" Left="10530" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD8T2" MOD="4" Left="10710" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD8T3" MOD="4" Left="10890" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD9T1" MOD="4" Left="11160" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD9T2" MOD="4" Left="11340" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD9T3" MOD="4" Left="11520" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD10T1" MOD="4" Left="11790" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD10T2" MOD="4" Left="11970" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD10T3" MOD="4" Left="12150" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD11T1" MOD="4" Left="12420" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD11T2" MOD="4" Left="12600" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD11T3" MOD="4" Left="12780" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD12T1" MOD="4" Left="13050" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD12T2" MOD="4" Left="13230" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD12T3" MOD="4" Left="13410" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD13T1" MOD="4" Left="13680" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD13T2" MOD="4" Left="13860" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD13T3" MOD="4" Left="14040" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD14T1" MOD="4" Left="14310" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD14T2" MOD="4" Left="14490" Top="0" Width="180" Height="270" Text="" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtD14T3" MOD="4" Left="14670" Top="0" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="tBSMHTmStart" DataField="SMH_TmStart" MOD="4" Left="3150" Top="1080" Width="720" Height="270" Text="TextBox3" />
+      <Control Type="AR.Field" Name="tBSMHHrPr" DataField="SMH_HrPr" MOD="4" Left="4140" Top="1170" Width="900" Height="270" Text="TextBox4" />
+      <Control Type="AR.Field" Name="txtMachine" DataField="PDM_Mach" MOD="4" Left="90" Top="1440" Width="14850" Height="270" Text="machine" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox3" MOD="4" Left="6300" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox4" MOD="4" Left="6930" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox5" MOD="4" Left="7560" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox6" MOD="4" Left="8190" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox7" MOD="4" Left="8820" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox8" MOD="4" Left="9450" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox9" MOD="4" Left="10080" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox10" MOD="4" Left="10710" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox11" MOD="4" Left="11340" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox12" MOD="4" Left="11970" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox13" MOD="4" Left="12600" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox14" MOD="4" Left="13230" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox15" MOD="4" Left="13860" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox16" MOD="4" Left="14490" Top="1080" Width="180" Height="270" Text="" Style="background-color: Gainsboro; font-size: 8pt; " />
+    </Section>
+    <Section Type="GroupFooter" Name="GroupFooter1" Height="945" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="txtBEmpty" MOD="4" Left="5130" Top="90" Width="6300" Height="810" Text="" Style="font-weight: bold; font-size: 12pt; " />
+    </Section>
+    <Section Type="PageFooter" Name="PageFooter" Height="15" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Line" Name="Line2" MOD="4" X1="0" Y1="0" X2="14850" Y2="0" />
+    </Section>
+    <Section Type="ReportFooter" Name="ReportFooter" Height="360" BackColor="16777215" CanShrink="0" />
+  </Sections>
+  <PageSettings LeftMargin="432" RightMargin="432" PaperSize="1" PaperWidth="12240" PaperHeight="15840" PaperName="" Orientation="2" />
+</ActiveReportsLayout>

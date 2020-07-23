@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3" PrintWidth="13950" DocumentName="ActiveReports Document" ScriptLang="C#" CodeFile="rptInventoryReport.cs">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0; " />
+    <Style Name="Heading1" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading3" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; " />
+  </StyleSheet>
+  <Sections>
+    <Section Type="ReportHeader" Name="ReportHeader" Height="540" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="labelTitle" MOD="4" Left="90" Top="180" Width="1800" Height="270" Caption="Inventory for: " Style="font-weight: bold; font-size: 12pt; " />
+      <Control Type="AR.Field" Name="txtProdId" DataField="IPL_ProdID" MOD="4" Left="1890" Top="180" Width="1890" Height="270" Text="IPL_ProdID" />
+      <Control Type="AR.Field" Name="txtDes1" DataField="PFS_Des1" MOD="4" Left="4050" Top="180" Width="3960" Height="270" Text="PFS_Des1" />
+    </Section>
+    <Section Type="PageHeader" Name="PageHeader" Height="720" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label12" MOD="4" Left="180" Top="360" Width="1080" Height="270" Caption="Sequence" />
+      <Control Type="AR.Label" Name="Label13" MOD="4" Left="1260" Top="360" Width="990" Height="270" Caption="Lot ID" />
+      <Control Type="AR.Label" Name="Label14" MOD="4" Left="2340" Top="360" Width="990" Height="270" Caption="Stk Loc" />
+      <Control Type="AR.Label" Name="Label15" MOD="4" Left="3510" Top="360" Width="1710" Height="270" Caption="Quantity on Hand" Style="text-align: right; " />
+      <Control Type="AR.Label" Name="Label16" MOD="4" Left="5490" Top="360" Width="1530" Height="270" Caption="Quantity H. Avail" Style="text-align: right; " />
+      <Control Type="AR.Label" Name="Label17" MOD="4" Left="8550" Top="360" Width="990" Height="270" Caption="QoH 2" Style="text-align: right; " />
+      <Control Type="AR.Label" Name="Label18" MOD="4" Left="9630" Top="360" Width="1350" Height="270" Caption="QoH Avail 2" Style="text-align: right; " />
+      <Control Type="AR.Label" Name="Label19" MOD="4" Left="7380" Top="360" Width="990" Height="270" Caption="Uom" />
+      <Control Type="AR.Label" Name="Label20" MOD="4" Left="11160" Top="360" Width="990" Height="270" Caption="Uom2" />
+      <Control Type="AR.Label" Name="Label21" MOD="4" Left="12420" Top="360" Width="990" Height="270" Caption="Prod 2" />
+      <Control Type="AR.Line" Name="Line2" MOD="4" X1="90" Y1="630" X2="13680" Y2="630" />
+      <Control Type="AR.Field" Name="txtDataHour" MOD="4" Left="9270" Top="0" Width="4320" Height="270" Text="Data+Hour" Style="text-align: right; " />
+    </Section>
+    <Section Type="GroupHeader" Name="GroupHeader1" Height="299" DataField="IPL_Seq" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="IPL_Seq1" DataField="IPL_Seq" MOD="4" Left="270" Top="0" Width="1080" Height="270" Text="IPL_Seq" />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="299" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="txtSeq" DataField="IPL_Seq" MOD="4" Left="270" Top="540" Width="1080" Height="270" Text="IPL_Seq" />
+      <Control Type="AR.Field" Name="txtLotID" DataField="IPL_LotID" MOD="4" Left="1350" Top="0" Width="990" Height="270" Text="IPL_LotID" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtStkLoc" DataField="IPL_StkLoc" MOD="4" Left="2430" Top="0" Width="1080" Height="270" Text="IPL_StkLoc" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtQoh" DataField="IPL_Qoh" MOD="4" Left="3600" Top="0" Width="1710" Height="270" Text="IPL_Qoh" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtQohAvail" DataField="IPL_QohAvail" MOD="4" Left="5490" Top="0" Width="1530" Height="270" Text="IPL_QohAvail" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtUom" DataField="IPL_Uom" MOD="4" Left="7380" Top="0" Width="1080" Height="270" Text="IPL_Uom" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtQoh2" DataField="IPL_Qoh2" MOD="4" Left="8550" Top="0" Width="990" Height="270" Text="IPL_Qoh2" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtQohAvail2" DataField="IPL_QohAvail2" MOD="4" Left="9720" Top="0" Width="1260" Height="270" Text="IPL_QohAvail2" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtUom2" DataField="IPL_Uom2" MOD="4" Left="11160" Top="0" Width="1260" Height="270" Text="IPL_Uom2" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtProd2" DataField="IPL_Prod2" MOD="4" Left="12510" Top="0" Width="1260" Height="270" Text="IPL_Prod2" Style="font-size: 8pt; " />
+    </Section>
+    <Section Type="GroupFooter" Name="GroupFooter1" Height="390" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label22" MOD="4" Left="90" Top="0" Width="2520" Height="270" Caption="Totals for Sequence:" Style="font-weight: bold; " />
+      <Control Type="AR.Field" Name="TextBox1" DataField="IPL_QohAvail" MOD="4" Left="5490" Top="0" Width="1530" Height="270" Text="SumQohAvail" Style="text-align: right; font-size: 8pt; " SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="TextBox2" DataField="IPL_Qoh" MOD="4" Left="3600" Top="0" Width="1710" Height="270" Text="SumQoh" Style="text-align: right; font-size: 8pt; " SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="TextBox3" DataField="IPL_Qoh2" MOD="4" Left="8550" Top="0" Width="990" Height="270" Text="SumQoh2" Style="text-align: right; font-size: 8pt; " SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="TextBox4" DataField="IPL_QohAvail2" MOD="4" Left="9720" Top="0" Width="1260" Height="270" Text="SumQohAvail" Style="text-align: right; font-size: 8pt; " SummaryGroup="GroupHeader1" />
+    </Section>
+    <Section Type="PageFooter" Name="PageFooter" Height="0" BackColor="16777215" CanShrink="0" />
+    <Section Type="ReportFooter" Name="ReportFooter" Height="209" BackColor="16777215" CanShrink="0" />
+  </Sections>
+  <PageSettings Orientation="2" />
+</ActiveReportsLayout>

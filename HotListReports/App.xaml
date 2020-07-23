@@ -1,0 +1,168 @@
+﻿<Application x:Class="HotListReports.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HotListReports"
+             Startup="AppStart"
+             Exit="Application_Exit"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/System.Windows.xaml"/>
+                <ResourceDictionary Source="/Themes/Telerik.Windows.Controls.xaml"/>
+                <ResourceDictionary Source="/Themes/Telerik.Windows.Controls.Input.xaml"/>
+                <ResourceDictionary Source="/Themes/Telerik.Windows.Controls.Navigation.xaml"/>
+                <ResourceDictionary Source="/Themes/Telerik.ReportViewer.Wpf.xaml"/>
+                
+                
+            </ResourceDictionary.MergedDictionaries>
+            
+            <Color x:Key="COLOR_Red">#B03060</Color>
+            <Color x:Key="COLOR_Orange">#FE9A76</Color>
+            <Color x:Key="COLOR_Yellow">#FFD700</Color>
+            <Color x:Key="COLOR_Olive">#32CD32</Color>
+            <Color x:Key="COLOR_Green">#016936</Color>
+            <Color x:Key="COLOR_Teal">#008080</Color>
+            <Color x:Key="COLOR_Blue">#0E6EB8</Color>
+            <Color x:Key="COLOR_Violet">#EE82EE</Color>
+            <Color x:Key="COLOR_Purple">#B413EC</Color>
+            <Color x:Key="COLOR_Pink">#FF1493</Color>
+            <Color x:Key="COLOR_Brown">#A52A2A</Color>
+            <Color x:Key="COLOR_Grey">#A0A0A0</Color>
+            <Color x:Key="COLOR_Black">#000000</Color>
+
+            <Style TargetType="{x:Type Window}">
+                <Setter Property="FontFamily" Value="Arial" />
+                <Setter Property="Background" Value="White" />
+            </Style>
+            
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="CornflowerBlue" />
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Height" Value="25"/>
+                <Setter Property="BorderBrush" Value="Black" />
+
+                <Setter Property="FontSize" Value="13" />
+
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+
+                    </Trigger>
+
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter Property="Background" Value="Green" />
+                        <Setter Property="Foreground" Value="White"/>
+                    </Trigger>
+
+                    <Trigger Property="IsEnabled" Value="false">
+                        <Setter Property="Background" Value="White" />
+                        <Setter Property="Foreground" Value="Gray"/>
+                    </Trigger>
+
+                </Style.Triggers>
+                
+           
+            </Style>
+
+            <Style TargetType="{x:Type ListViewItem}">
+                
+                <Style.Triggers>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Background" Value="Gray"/>
+                        <Setter Property="BorderBrush" Value="Black" />
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        
+                    </Trigger>
+                                        
+                </Style.Triggers>
+
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="BorderBrush" Value="Gray" />
+                <Setter Property="BorderThickness" Value="0,0,0,1" />
+            </Style>
+
+            <Style TargetType="{x:Type GridViewColumnHeader}">
+                <Setter Property="Background" Value="White" />
+                <Setter Property="Foreground" Value="Black"/>
+            </Style>
+
+            <Style TargetType="{x:Type ListView}">
+                <Setter Property="Background" Value="White" />
+                <Setter Property="Foreground" Value="Black"/>
+            </Style>
+
+            <Style TargetType="{x:Type ComboBox}">
+                <Setter Property="Background" Value="White" />
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="BorderBrush" Value="Black" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="MaxDropDownHeight" Value="500"/>
+            </Style>
+
+
+            <Style TargetType="{x:Type ComboBoxItem}">
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                            <Border x:Name="myBorder">
+                                <ContentPresenter />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" TargetName="myBorder" Value="Gray" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+            <Style TargetType="TabItem">
+                <Setter Property="Background" Value="LightSkyBlue" />
+                
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TabItem">
+                            <Border Name="Border" BorderThickness="1,1,1,0" BorderBrush="Gainsboro" CornerRadius="4,4,0,0" Margin="2,0">
+                                <ContentPresenter x:Name="ContentSite"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        ContentSource="Header"
+                                        Margin="10,2"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="Border" Property="Background" Value="Gray" />
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="False">
+                                    <Setter TargetName="Border" Property="Background" Value="GhostWhite" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            
+            </Style>
+                       
+
+            <Style TargetType="{x:Type CheckBox}">
+                <Setter Property="Background" Value="LightGray" />
+                <Setter Property="BorderBrush" Value="Gray" />
+            </Style>
+
+            <Style TargetType="{x:Type RadioButton}">
+                <Setter Property="Background" Value="Gray" />
+                <Setter Property="BorderBrush" Value="Gray" />
+            </Style>
+
+
+        </ResourceDictionary>
+                
+        
+    </Application.Resources>
+</Application>

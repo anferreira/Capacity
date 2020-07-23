@@ -1,0 +1,68 @@
+﻿<Window x:Class="HotListReports.Windows.EmployeeSchedule.MachineScheduleRptWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:HotListReports.Windows.Demand"
+        xmlns:localUtil="clr-namespace:HotListReports.Windows.Util"  
+        xmlns:localConverters="clr-namespace:Nujit.NujitWms.WinForms.Util.Converters;assembly=Utilities" 
+        mc:Ignorable="d"
+        Title="Machine Shift Assignment" Height="700" Width="1200" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="595*"/>
+            <RowDefinition Height="34*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Name="topGrupBox" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <Canvas Name="topCanvas"  d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+                <Label x:Name="dateLabel" Content="Date" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="2.386" Canvas.Top="5" Width="48.614"/>
+                <DatePicker x:Name="datePicker" Canvas.Left="56" Canvas.Top="5" Width="92" Height="25"/>
+
+                <Label x:Name="plantFilterLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="166" Width="45.666" Canvas.Top="5"/>
+                <ComboBox x:Name="plantFilterComboBox" HorizontalAlignment="Left" Width="95" Canvas.Left="205.666" SelectedValuePath="Content" DisplayMemberPath="Display"  Canvas.Top="5" SelectionChanged="plantFilterComboBox_SelectionChanged"/>
+
+                <Label x:Name="deptFilterLabel" Content="Dept" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="318" Width="45.666" Canvas.Top="5"/>
+                <ComboBox x:Name="deptFilterComboBox" HorizontalAlignment="Left" Width="95" Canvas.Left="355.666" Canvas.Top="5" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+                <Label x:Name="shiftNumFilterLabel" Content="Shift" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="470" Canvas.Top="5" Width="40"/>
+                <ComboBox x:Name="shiftNumFilterComboBox" HorizontalAlignment="Left" Width="55.032" Canvas.Left="510" SelectedValuePath="Content" DisplayMemberPath="Display" Canvas.Top="5"/>
+
+                <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Width="75" Click="searchButton_Click" Canvas.Left="749" FontWeight="Bold" Canvas.Top="3.821"/>
+
+                <CheckBox Name="priorityCheckBox" Content="Only Priority" IsChecked="false" Canvas.Left="579" Canvas.Top="5.666" RenderTransformOrigin="-12.177,1.065" Width="150" FontWeight="Bold"/>
+            </Canvas>
+        </GroupBox>
+
+        <ListView x:Name="machSheduleListView" Grid.Row="1" >
+            <ListView.Resources>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Background" Value="DarkBlue" />
+
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Background" Value="DarkBlue"/>
+                            <Setter Property="BorderBrush" Value="DarkBlue" />
+                        </Trigger>
+                    </Style.Triggers>
+
+                </Style>
+            </ListView.Resources>
+
+            <ListView.View>
+                <GridView/>
+            </ListView.View>
+        </ListView>
+
+        <Canvas x:Name="bottomCanvas"  Grid.Row="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <Button x:Name="firstButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+            <Button x:Name="prevButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="28" Canvas.Top="1" />
+            <Button x:Name="nextButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+            <Button x:Name="lastButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+        </Canvas>
+    </Grid>
+</Window>

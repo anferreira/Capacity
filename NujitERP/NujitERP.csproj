@@ -1,0 +1,1498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>7.10.3077</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7EF6DD66-030B-479F-B81C-CDE85076D945}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>Images\funnelcloud_logo_inverted_icon.ico</ApplicationIcon>
+    <AssemblyKeyContainerName />
+    <AssemblyName>FunnelSch</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Nujit.NujitERP</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject />
+    <WebReference_EnableProperties>true</WebReference_EnableProperties>
+    <WebReference_EnableSQLTypes>false</WebReference_EnableSQLTypes>
+    <WebReference_EnableLegacyEventingModel>true</WebReference_EnableLegacyEventingModel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE;MARTINREA</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <COMReference Include="COMSVCSLib">
+      <Guid>{2A005C00-A5DE-11CF-9E66-00AA00A3F464}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+    </COMReference>
+    <COMReference Include="mscoree">
+      <Guid>{5477469E-83B1-11D2-8B49-00A0C9B7C9C4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+    </COMReference>
+    <COMReference Include="MSDATASRC">
+      <Guid>{7C0FFAB0-CD84-11D0-949A-00A0C91110ED}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+    </COMReference>
+    <ProjectReference Include="..\ClassLib\ClassLib.csproj">
+      <Name>ClassLib</Name>
+      <Project>{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\HotListReports\HotListReports.csproj">
+      <Project>{264e7370-97e5-4ae1-9cc0-f88fbf9c964b}</Project>
+      <Name>HotListReports</Name>
+    </ProjectReference>
+    <Reference Include="ActiveReports.HtmlExport">
+      <Name>ActiveReports.HtmlExport</Name>
+      <HintPath>..\..\..\Archivos de programa\Archivos comunes\Data Dynamics\ActiveReports for .NET\ActiveReports.HtmlExport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.Interop">
+      <Name>ActiveReports.Interop</Name>
+      <HintPath>..\..\..\Archivos de programa\Archivos comunes\Data Dynamics\ActiveReports for .NET\ActiveReports.Interop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.PdfExport">
+      <Name>ActiveReports.PdfExport</Name>
+      <HintPath>..\..\..\Archivos de programa\Archivos comunes\Data Dynamics\ActiveReports for .NET\ActiveReports.PdfExport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.RtfExport">
+      <Name>ActiveReports.RtfExport</Name>
+      <HintPath>..\..\..\Archivos de programa\Archivos comunes\Data Dynamics\ActiveReports for .NET\ActiveReports.RtfExport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.TextExport">
+      <Name>ActiveReports.TextExport</Name>
+      <HintPath>..\..\..\Archivos de programa\Archivos comunes\Data Dynamics\ActiveReports for .NET\ActiveReports.TextExport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.TiffExport">
+      <Name>ActiveReports.TiffExport</Name>
+      <HintPath>..\..\..\Archivos de programa\Archivos comunes\Data Dynamics\ActiveReports for .NET\ActiveReports.TiffExport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.Viewer3, Version=5.2.983.2, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Controls\ActiveReports.Viewer3.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveReports.Web">
+      <Name>activereports.web</Name>
+      <HintPath>..\..\..\Archivos de programa\Archivos comunes\Data Dynamics\ActiveReports for .NET\activereports.web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.Web.Design">
+      <Name>ActiveReports.Web.Design</Name>
+      <HintPath>..\..\..\Archivos de programa\Archivos comunes\Data Dynamics\ActiveReports for .NET\ActiveReports.Web.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.Wizards.Addin">
+      <Name>ActiveReports.Wizards.Addin</Name>
+      <HintPath>..\..\..\Archivos de programa\Archivos comunes\Data Dynamics\ActiveReports for .NET\ActiveReports.Wizards.Addin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.XlsExport">
+      <Name>ActiveReports.XlsExport</Name>
+      <HintPath>..\..\..\Archivos de programa\Archivos comunes\Data Dynamics\ActiveReports for .NET\ActiveReports.XlsExport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports3, Version=5.2.983.2, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Controls\ActiveReports3.dll</HintPath>
+    </Reference>
+    <Reference Include="ADODB">
+      <Name>adodb1</Name>
+      <HintPath>..\..\..\Archivos de programa\Microsoft.NET\Primary Interop Assemblies\adodb.dll</HintPath>
+      <AssemblyFolderKey>hklm\primary interop assemblies</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AGVBN20">
+      <Name>AGVBN20</Name>
+      <HintPath>..\..\..\Program Files\SourceCodeStore\ActiveGanttVBN\bin\AGVBN20.DLL</HintPath>
+    </Reference>
+    <Reference Include="AppUpdater">
+      <Name>AppUpdater</Name>
+      <HintPath>Controls\AppUpdater.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine">
+      <Name>crystaldecisions.crystalreports.engine</Name>
+      <HintPath>..\..\..\windows\assembly\gac\crystaldecisions.crystalreports.engine\9.1.5000.0__692fbea5521e1304\crystaldecisions.crystalreports.engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource">
+      <Name>crystaldecisions.reportsource</Name>
+      <HintPath>..\..\..\windows\assembly\gac\crystaldecisions.reportsource\9.1.5000.0__692fbea5521e1304\crystaldecisions.reportsource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared">
+      <Name>crystaldecisions.shared</Name>
+      <HintPath>..\..\..\windows\assembly\gac\crystaldecisions.shared\9.1.5000.0__692fbea5521e1304\crystaldecisions.shared.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <Name>ICSharpCode.SharpZipLib</Name>
+      <HintPath>Controls\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Controls\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="netchartdir">
+      <Name>netchartdir</Name>
+      <HintPath>Controls\netchartdir.dll</HintPath>
+    </Reference>
+    <Reference Include="netchartdir_internal">
+      <Name>netchartdir_internal</Name>
+      <HintPath>Controls\netchartdir_internal.dll</HintPath>
+    </Reference>
+    <Reference Include="NujitCustomWinControls">
+      <Name>NujitCustomWinControls</Name>
+      <HintPath>Controls\NujitCustomWinControls.dll</HintPath>
+    </Reference>
+    <Reference Include="NujitWms.ReportLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Controls\NujitWms.ReportLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Office">
+      <Name>office</Name>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>system.web.services</Name>
+      <HintPath>..\..\..\windows\assembly\gac\system.web.services\1.0.5000.0__b03f5f7f11d50a3a\system.web.services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="Telerik.Reporting, Version=9.2.15.1216, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Telerik.Reporting.XpsRendering, Version=9.2.15.1216, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.WinForms, Version=9.2.15.1216, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="TimeCtrl">
+      <Name>timectrl</Name>
+      <HintPath>controls\timectrl.dll</HintPath>
+    </Reference>
+    <Reference Include="WinFormsControls">
+      <Name>WinFormsControls</Name>
+      <HintPath>Controls\WinFormsControls.dll</HintPath>
+    </Reference>
+    <Reference Include="WizardControlLibrary">
+      <Name>WizardControlLibrary</Name>
+      <HintPath>Controls\WizardControlLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationStart.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\NujitWebService\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Capacity\FormABMCapacity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Capacity\FormABMShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Capacity\TimeCodes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\Charts\GenericChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Charts\HotListHours\HotListHoursChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Charts\ImageReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Charts\PrHist\PrHistComplScrappedChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Charts\PrHist\PrHistPieChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Charts\rptChartReport1.cs">
+      <DependentUpon>rptChartReport.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\CustomControls\ColumnStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\CustomControls\ListBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\CustomControls\OEListBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\CustomControls\TypedTreeNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\Demo\FormDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\ExcelReports\ExcelReportSetupEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\ExcelReports\ExcelReportsMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\ExcelReports\ExcelReportsQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\FormException.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\CustomerDemandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\DaysOnHandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\DetailCustomerDemandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\GridView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\MatReleaseHistoricalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Model\CapacityNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Model\DataStructure\DateList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Model\DataStructure\DateListNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Model\Demand\DemandFG.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Model\Demand\DemandWIP.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Model\Demand\IDemand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Model\MachineNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Model\PrioritizedMachine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Model\ScheduleModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Model\TaskNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Model\UpdatableForm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\schedule\AddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\schedule\BusyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\schedule\DepartmentMachineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\schedule\EditItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\schedule\EditPackagingItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\schedule\GridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\schedule\GridPaintOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\schedule\GridPaintOrdersDtl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\schedule\MaterialsGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\schedule\NewVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\schedule\PaintForPartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Tooling\JobInquiry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Tooling\Schedule\ScheduleTreeViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Tooling\Schedule\View2Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Tooling\Schedule\View3Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Tooling\ToolSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\GridScheduling\Tooling\ToolScheduleSeq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Inventory\CompanyEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\M1\FormChildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\AddInvPltLocForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\ChartsReports\FormChartProductionHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\ChartsReports\FormCharts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormAddBOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormAddMacToCfg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormAddMacToCfgConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormBOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormChartsAndReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormEditCapMacCfg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormEditMac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormEditPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormEditPlt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormEditPltDept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormMatUsage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\FormServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\InvPltLocForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\MessForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\PlantSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\ProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\Production\FormProductPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Master\Production\FormProductPlanView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Production\SchdLogEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Production\SchLogSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Register\FormRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Register\FormRegisterReminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\BomErrorsReport\BomReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\BomErrorsReport\rptBomReport1.cs">
+      <DependentUpon>rptBomReport.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\BOMReport\BOMReport.cs">
+      <DependentUpon>BOMReport.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\BOMReport\FormBOMReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\DemandReport\DemandReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\DemandReport\rptDemandReport2.cs">
+      <DependentUpon>rptDemandReport.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\GenerateReportFormat.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\GenericReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\HotList Report\HotListBomReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\HotList Report\HotListReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\HotList Report\HotListReportByMajorMinorGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\HotList Report\HotListReportByMGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\HotList Report\HotListReportByMGroupMainMat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\HotList Report\HotListReportByResource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\HotList Report\HotListReportCaller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\HotList Report\HotListReportMainMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\HotList Report\HotListTotals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\HotList Report\HotListTotalsResume.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\HotList\HotList1268ReportViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\HotList\HotList1268ReportViewerForm.Designer.cs">
+      <DependentUpon>HotList1268ReportViewerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Reports\InventoryReport\InventoryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\InventoryReport\rptInventoryReport.cs">
+      <DependentUpon>rptInventoryReport.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\JobCard\JobCardReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\JobCard\rptProdReport1.cs">
+      <DependentUpon>rptJobCard.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialRelease\MaterialReleaseReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialRelease\rptMaterialRelease1.cs">
+      <DependentUpon>rptMaterialRelease.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\MaterialsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\MaterialsReportByMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\MaterialsReportDueDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\MaterialsReportDueDateDemand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\MaterialsReportDueDateVendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\rptMaterialsReport.cs">
+      <DependentUpon>rptMaterialsReport.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\rptMaterialsReportByMaterial1.cs">
+      <DependentUpon>rptMaterialsReportByMaterial.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDate.cs">
+      <DependentUpon>rptMaterialsReportGroupByDate.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateDemand.cs">
+      <DependentUpon>rptMaterialsReportGroupByDateDemand.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateDemandMartinRea.cs">
+      <DependentUpon>rptMaterialsReportGroupByDateDemandMartinRea.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateMartinRea.cs">
+      <DependentUpon>rptMaterialsReportGroupByDateMartinRea.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateVendor.cs">
+      <DependentUpon>rptMaterialsReportGroupByDateVendor.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateVendorExc.cs">
+      <DependentUpon>rptMaterialsReportGroupByDateVendorExc.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateVendorExcMartinRea.cs">
+      <DependentUpon>rptMaterialsReportGroupByDateVendorExcMartinRea.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateVendorMartinRea.cs">
+      <DependentUpon>rptMaterialsReportGroupByDateVendorMartinRea.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\PossibleMaterials\PosMaterialsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\PossibleMaterials\rptPosMaterialsReport1.cs">
+      <DependentUpon>rptPosMaterialsReport.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\ProductsReport\ProductReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\ProductsReport\rptProductReport1.cs">
+      <DependentUpon>rptProductReport.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\ProductsReport\SelectProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\SchedulingView\NotScheduledDemands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\SchedulingView\rptNotScheduledDemands.cs">
+      <DependentUpon>rptNotScheduledDemands.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\SchedulingView\rptScheduleInMachineReport.cs">
+      <DependentUpon>rptScheduleInMachineReport.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\SchedulingView\rptSchedulingReport.cs">
+      <DependentUpon>rptSchedulingReport.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\SchedulingView\ScheduleInMachineReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\SchedulingView\SchedulingViewReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\ShippingSchedule\rptShippingSchAcummulated.cs">
+      <DependentUpon>rptShippingSchAcummulated.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\ShippingSchedule\rptShippingSchDtl.cs">
+      <DependentUpon>rptShippingSchDtl.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\ShippingSchedule\ShippingScheduleDtlReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\ShippingSchedule\ShippingScheduleReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\ShortageReport\GenReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\ShortageReport\rptShortageReport1.cs">
+      <DependentUpon>rptShortageReport.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\ShortageReport\ShortageReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\utilReports\NumberUtilReports.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\VendorReleaseInquiry\rptVRIReport2.cs">
+      <DependentUpon>rptVRIReport.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\VendorReleaseInquiry\VRIReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Reports\WipbReport\rptWipbReport1.cs">
+      <DependentUpon>rptWipbReport.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WinForms\Reports\WipbReport\WipbReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\HotList\ExportModel.cs" />
+    <Compile Include="WinForms\Schedule\HotList\GenerateReleasesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\HotList\HotListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\HotList\HotListMachineHours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\HotList\HotListReducedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\HotList\HotListVersionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\HotList\LoadHotListGrid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\HotList\MaterialsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\HotList\PossibleMaterialsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\HotList\VendorReleaseInquiryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\LoadUpLoad\AutomateDateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\LoadUpLoad\DataTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\LoadUpLoad\GeneratedRecords\DeptsInsertedDiscardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\LoadUpLoad\GeneratedRecords\DiscardBomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\LoadUpLoad\GeneratedRecords\DiscardInsertedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Schedule\LoadUpLoad\GeneratedRecords\DiscardWipbForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Screen\FutureInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Screen\PastInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Screen\RealTimePress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\SearchForms\Capacity\ShiftHdrSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\SearchForms\General\CompanySearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\SearchForms\General\DepartmentSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\SearchForms\General\EmployeeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\SearchForms\General\FamilyPartSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\SearchForms\General\MachineSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\SearchForms\General\PersonSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\SearchForms\General\PlantSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\SearchForms\General\ProductSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\SearchForms\General\ToolSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserAdmin\FormAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserAdmin\FormChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserAdmin\FormEditUserSingin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserAdmin\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserAdmin\FormUserAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Util\ComboBoxItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\Util\FilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Util\Grid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinForms\Util\MailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Util\NujitMessageBox.cs" />
+    <Compile Include="WinForms\Util\NujitMessageTimerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Util\NujitMessageTimerForm.Designer.cs">
+      <DependentUpon>NujitMessageTimerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Util\PasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Util\SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Util\WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Content Include="App.ico" />
+    <Content Include="Config\setting.xml" />
+    <Content Include="Controls\AGVBN20.dll" />
+    <Content Include="Controls\WinFormsControls.dll" />
+    <Content Include="Controls\WizardControlLibrary.dll" />
+    <Content Include="Images\funnelcloud_logo_inverted_icon.ico" />
+    <Content Include="Images\icon_chart_report.jpg" />
+    <Content Include="Images\icon_production.jpg" />
+    <Content Include="Images\icon_small_chart.jpg" />
+    <Content Include="Images\icon_small_chart_prod.jpg" />
+    <Content Include="Images\icon_small_report.jpg" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Capacity\FormABMCapacity.resx">
+      <DependentUpon>FormABMCapacity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Capacity\FormABMShift.resx">
+      <DependentUpon>FormABMShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Charts\GenericChart.resx">
+      <DependentUpon>GenericChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Charts\ImageReport.resx">
+      <DependentUpon>ImageReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Charts\rptChartReport.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptChartReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\CustomControls\ColumnStyle.resx">
+      <DependentUpon>ColumnStyle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Demo\FormDemo.resx">
+      <DependentUpon>FormDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\ExcelReports\ExcelReportSetupEditForm.resx">
+      <DependentUpon>ExcelReportSetupEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\ExcelReports\ExcelReportsMaintenance.resx">
+      <DependentUpon>ExcelReportsMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\ExcelReports\ExcelReportsQueryForm.resx">
+      <DependentUpon>ExcelReportsQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\FormException.resx">
+      <DependentUpon>FormException.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\CustomerDemandForm.resx">
+      <DependentUpon>CustomerDemandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\DaysOnHandForm.resx">
+      <DependentUpon>DaysOnHandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\DetailCustomerDemandForm.resx">
+      <DependentUpon>DetailCustomerDemandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\GridView.resx">
+      <DependentUpon>GridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\MatReleaseHistoricalForm.resx">
+      <DependentUpon>MatReleaseHistoricalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\schedule\AddForm.resx">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\schedule\BusyForm.resx">
+      <DependentUpon>BusyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\schedule\DepartmentMachineForm.resx">
+      <DependentUpon>DepartmentMachineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\schedule\EditItem.resx">
+      <DependentUpon>EditItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\schedule\EditPackagingItem.resx">
+      <DependentUpon>EditPackagingItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\schedule\GridForm.resx">
+      <DependentUpon>GridForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\schedule\GridPaintOrders.resx">
+      <DependentUpon>GridPaintOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\schedule\GridPaintOrdersDtl.resx">
+      <DependentUpon>GridPaintOrdersDtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\schedule\MaterialsGridForm.resx">
+      <DependentUpon>MaterialsGridForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\schedule\NewVersion.resx">
+      <DependentUpon>NewVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\schedule\PaintForPartForm.resx">
+      <DependentUpon>PaintForPartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\Tooling\JobInquiry.resx">
+      <DependentUpon>JobInquiry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\Tooling\Schedule\ScheduleTreeViewForm.resx">
+      <DependentUpon>ScheduleTreeViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\Tooling\Schedule\View2Form.resx">
+      <DependentUpon>View2Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\Tooling\Schedule\View3Form.resx">
+      <DependentUpon>View3Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\Tooling\ToolSchedule.resx">
+      <DependentUpon>ToolSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GridScheduling\Tooling\ToolScheduleSeq.resx">
+      <DependentUpon>ToolScheduleSeq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Inventory\CompanyEditForm.resx">
+      <DependentUpon>CompanyEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Inventory\Culture\CompanyEdit.resx" />
+    <EmbeddedResource Include="WinForms\Inventory\Culture\PlantEdit.resx" />
+    <EmbeddedResource Include="WinForms\M1\FormChildForm.resx">
+      <DependentUpon>FormChildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\AddInvPltLocForm.resx">
+      <DependentUpon>AddInvPltLocForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\ChartsReports\FormChartProductionHistory.resx">
+      <DependentUpon>FormChartProductionHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\ChartsReports\FormCharts.resx">
+      <DependentUpon>FormCharts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormAddBOM.resx">
+      <DependentUpon>FormAddBOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormAddMacToCfg.resx">
+      <DependentUpon>FormAddMacToCfg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormAddMacToCfgConfirmation.resx">
+      <DependentUpon>FormAddMacToCfgConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormBOM.resx">
+      <DependentUpon>FormBOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormChartsAndReports.resx">
+      <DependentUpon>FormChartsAndReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormEditCapMacCfg.resx">
+      <DependentUpon>FormEditCapMacCfg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormEditMac.resx">
+      <DependentUpon>FormEditMac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormEditPerson.resx">
+      <DependentUpon>FormEditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormEditPlt.resx">
+      <DependentUpon>FormEditPlt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormEditPltDept.resx">
+      <DependentUpon>FormEditPltDept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormItems.resx">
+      <DependentUpon>FormItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormMaster.resx">
+      <DependentUpon>FormMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormMatUsage.resx">
+      <DependentUpon>FormMatUsage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\FormServer.resx">
+      <DependentUpon>FormServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\InvPltLocForm.resx">
+      <DependentUpon>InvPltLocForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\MessForm.resx">
+      <DependentUpon>MessForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\ProductForm.resx">
+      <DependentUpon>ProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\Production\FormProductPlan.resx">
+      <DependentUpon>FormProductPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Master\Production\FormProductPlanView.resx">
+      <DependentUpon>FormProductPlanView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Production\SchdLogEditForm.resx">
+      <DependentUpon>SchdLogEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Production\SchLogSearchForm.resx">
+      <DependentUpon>SchLogSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Register\FormRegister.resx">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Register\FormRegisterReminder.resx">
+      <DependentUpon>FormRegisterReminder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\BomErrorsReport\BomReport.resx">
+      <DependentUpon>BomReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\BomErrorsReport\rptBomReport.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptBomReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\BOMReport\BOMReport.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>BOMReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\BOMReport\FormBOMReport.resx">
+      <DependentUpon>FormBOMReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\DemandReport\DemandReport.resx">
+      <DependentUpon>DemandReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\DemandReport\rptDemandReport.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptDemandReport2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\GenericReport.resx">
+      <DependentUpon>GenericReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\HotList Report\HotListBomReport.resx">
+      <DependentUpon>HotListBomReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\HotList Report\HotListReport.resx">
+      <DependentUpon>HotListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\HotList Report\HotListReportByMajorMinorGroup.resx">
+      <DependentUpon>HotListReportByMajorMinorGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\HotList Report\HotListReportByMGroup.resx">
+      <DependentUpon>HotListReportByMGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\HotList Report\HotListReportByMGroupMainMat.resx">
+      <DependentUpon>HotListReportByMGroupMainMat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\HotList Report\HotListReportByResource.resx">
+      <DependentUpon>HotListReportByResource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\HotList Report\HotListReportCaller.resx">
+      <DependentUpon>HotListReportCaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\HotList Report\HotListReportMainMaterial.resx">
+      <DependentUpon>HotListReportMainMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\HotList Report\HotListTotals.resx">
+      <DependentUpon>HotListTotals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\HotList Report\HotListTotalsResume.resx">
+      <DependentUpon>HotListTotalsResume.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\HotList\HotList1268ReportViewerForm.resx">
+      <DependentUpon>HotList1268ReportViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\InventoryReport\InventoryReport.resx">
+      <DependentUpon>InventoryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\InventoryReport\rptInventoryReport.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptInventoryReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\JobCard\JobCardReport.resx">
+      <DependentUpon>JobCardReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\JobCard\rptJobCard.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptProdReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialRelease\MaterialReleaseReport.resx">
+      <DependentUpon>MaterialReleaseReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialRelease\rptMaterialRelease.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptMaterialRelease1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\MaterialsReport.resx">
+      <DependentUpon>MaterialsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\MaterialsReportByMaterial.resx">
+      <DependentUpon>MaterialsReportByMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\MaterialsReportDueDate.resx">
+      <DependentUpon>MaterialsReportDueDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\MaterialsReportDueDateDemand.resx">
+      <DependentUpon>MaterialsReportDueDateDemand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\MaterialsReportDueDateVendor.resx">
+      <DependentUpon>MaterialsReportDueDateVendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\rptMaterialsReport.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptMaterialsReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\rptMaterialsReportByMaterial.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptMaterialsReportByMaterial1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDate.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptMaterialsReportGroupByDate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateDemand.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptMaterialsReportGroupByDateDemand.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateDemandMartinRea.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptMaterialsReportGroupByDateDemandMartinRea.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateMartinRea.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptMaterialsReportGroupByDateMartinRea.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateVendor.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptMaterialsReportGroupByDateVendor.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateVendorExc.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptMaterialsReportGroupByDateVendorExc.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateVendorExcMartinRea.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptMaterialsReportGroupByDateVendorExcMartinRea.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\MaterialsReport\rptMaterialsReportGroupByDateVendorMartinRea.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptMaterialsReportGroupByDateVendorMartinRea.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\PossibleMaterials\PosMaterialsReport.resx">
+      <DependentUpon>PosMaterialsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\PossibleMaterials\rptPosMaterialsReport.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptPosMaterialsReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\ProductsReport\ProductReport.resx">
+      <DependentUpon>ProductReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\ProductsReport\rptProductReport.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptProductReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\ProductsReport\SelectProductForm.resx">
+      <DependentUpon>SelectProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\SchedulingView\NotScheduledDemands.resx">
+      <DependentUpon>NotScheduledDemands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\SchedulingView\rptNotScheduledDemands.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptNotScheduledDemands.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\SchedulingView\rptScheduleInMachineReport.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptScheduleInMachineReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\SchedulingView\rptSchedulingReport.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptSchedulingReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\SchedulingView\ScheduleInMachineReport.resx">
+      <DependentUpon>ScheduleInMachineReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\SchedulingView\SchedulingViewReport.resx">
+      <DependentUpon>SchedulingViewReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\ShippingSchedule\rptShippingSchAcummulated.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptShippingSchAcummulated.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\ShippingSchedule\rptShippingSchDtl.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptShippingSchDtl.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\ShippingSchedule\ShippingScheduleDtlReport.resx">
+      <DependentUpon>ShippingScheduleDtlReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\ShippingSchedule\ShippingScheduleReport.resx">
+      <DependentUpon>ShippingScheduleReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\ShortageReport\GenReportForm.resx">
+      <DependentUpon>GenReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\ShortageReport\rptShortageReport.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptShortageReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\ShortageReport\ShortageReport.resx">
+      <DependentUpon>ShortageReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\VendorReleaseInquiry\rptVRIReport.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptVRIReport2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\VendorReleaseInquiry\VRIbReport.resx" />
+    <EmbeddedResource Include="WinForms\Reports\VendorReleaseInquiry\VRIReport.resx">
+      <DependentUpon>VRIReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\WipbReport\rptWipbReport.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptWipbReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Reports\WipbReport\WipbReport.resx">
+      <DependentUpon>WipbReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\HotList\GenerateReleasesForm.resx">
+      <DependentUpon>GenerateReleasesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\HotList\HotListForm.resx">
+      <DependentUpon>HotListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\HotList\HotListMachineHours.resx">
+      <DependentUpon>HotListMachineHours.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\HotList\HotListReducedForm.resx">
+      <DependentUpon>HotListReducedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\HotList\HotListVersionForm.resx">
+      <DependentUpon>HotListVersionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\HotList\MaterialsForm.resx">
+      <DependentUpon>MaterialsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\HotList\PossibleMaterialsForm.resx">
+      <DependentUpon>PossibleMaterialsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\HotList\VendorReleaseInquiryForm.resx">
+      <DependentUpon>VendorReleaseInquiryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\LoadUpLoad\AutomateDateForm.resx">
+      <DependentUpon>AutomateDateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\LoadUpLoad\DataTransfer.resx">
+      <DependentUpon>DataTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\LoadUpLoad\GeneratedRecords\DeptsInsertedDiscardForm.resx">
+      <DependentUpon>DeptsInsertedDiscardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\LoadUpLoad\GeneratedRecords\DiscardBomForm.resx">
+      <DependentUpon>DiscardBomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\LoadUpLoad\GeneratedRecords\DiscardInsertedForm.resx">
+      <DependentUpon>DiscardInsertedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Schedule\LoadUpLoad\GeneratedRecords\DiscardWipbForm.resx">
+      <DependentUpon>DiscardWipbForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Screen\FutureInventory.resx">
+      <DependentUpon>FutureInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Screen\PastInventory.resx">
+      <DependentUpon>PastInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Screen\RealTimePress.resx">
+      <DependentUpon>RealTimePress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\SearchForms\General\FamilyPartSearchForm.resx">
+      <DependentUpon>FamilyPartSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\SearchForms\General\MachineSearchForm.resx">
+      <DependentUpon>MachineSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\SearchForms\General\ToolSearchForm.resx">
+      <DependentUpon>ToolSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserAdmin\Culture\FormEditUserSingin.resx" />
+    <EmbeddedResource Include="WinForms\UserAdmin\FormAddUser.resx">
+      <DependentUpon>FormAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserAdmin\FormChangePassword.resx">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserAdmin\FormEditUserSingin.resx">
+      <DependentUpon>FormEditUserSingin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserAdmin\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserAdmin\FormUserAdm.resx">
+      <DependentUpon>FormUserAdm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Util\Culture\MailForm.resx" />
+    <EmbeddedResource Include="WinForms\Util\Culture\SearchForm.resx" />
+    <EmbeddedResource Include="WinForms\Util\FilterForm.resx">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Util\MailForm.resx">
+      <DependentUpon>MailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Util\NujitMessageTimerForm.resx">
+      <DependentUpon>NujitMessageTimerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Util\PasswordForm.resx">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Util\SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Util\WaitForm.resx">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="NujitERP.exe.config" />
+    <None Include="Web References\NujitWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\NujitWebService\updateService.disco" />
+    <None Include="Web References\NujitWebService\updateService.wsdl" />
+    <WebReferences Include="Web References\" />
+    <WebReferenceUrl Include="http://nujit.com/nujit_webservice/webservice/updateService.asmx">
+      <RelPath>Web References\NujitWebService\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

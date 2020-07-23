@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3" PrintWidth="13935" DocumentName="ActiveReports Document" ScriptLang="C#" CodeFile="rptProductReport1.cs">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0; " />
+    <Style Name="Heading1" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading3" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; " />
+  </StyleSheet>
+  <Sections>
+    <Section Type="ReportHeader" Name="ReportHeader" Height="1005" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label1" MOD="4" Left="5850" Top="90" Width="1890" Height="270" Caption="Product Report" Style="font-weight: bold; font-size: 12pt; " />
+      <Control Type="AR.Label" Name="Label2" MOD="4" Left="3960" Top="630" Width="2610" Height="270" Caption="From Major Group Code: " Style="font-weight: bold; " />
+      <Control Type="AR.Field" Name="txtMinMajorG" MOD="4" Left="6570" Top="630" Width="1260" Height="270" Text="" Style="font-weight: bold; " />
+      <Control Type="AR.Label" Name="Label3" MOD="4" Left="7830" Top="630" Width="360" Height="270" Caption="To:" Style="font-weight: bold; " />
+      <Control Type="AR.Field" Name="txtMaxMajorGroup" MOD="4" Left="8280" Top="630" Width="1260" Height="270" Text="" Style="font-weight: bold; " />
+    </Section>
+    <Section Type="PageHeader" Name="PageHeader" Height="0" BackColor="16777215" CanShrink="0" />
+    <Section Type="GroupHeader" Name="GroupHeader1" Height="315" DataField="PFS_MajorGroup" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label4" MOD="4" Left="90" Top="0" Width="1530" Height="270" Caption="Major Group Code:" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtPFS_MajorGroup" DataField="PFS_MajorGroup" MOD="4" Left="1620" Top="0" Width="1620" Height="270" Text="PFS_MajorGroup" Style="font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label6" MOD="4" Left="450" Top="1080" Width="1620" Height="270" Caption="Minor Group Code" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label7" MOD="4" Left="2160" Top="1080" Width="900" Height="270" Caption="Part Id" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label8" MOD="4" Left="4050" Top="900" Width="990" Height="450" Caption="Description Line 1" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label9" MOD="4" Left="7290" Top="900" Width="450" Height="450" Caption="Part Type" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label10" MOD="4" Left="7920" Top="900" Width="540" Height="450" Caption="Inv. Status" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label11" MOD="4" Left="8550" Top="900" Width="810" Height="450" Caption="Gl Expense" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label12" MOD="4" Left="9900" Top="900" Width="990" Height="450" Caption="GL Distributior" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label13" MOD="4" Left="11250" Top="900" Width="540" Height="450" Caption="Major Sales" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label14" MOD="4" Left="12600" Top="900" Width="540" Height="450" Caption="Minor Sales" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Line" Name="Line1" MOD="4" X1="90" Y1="1350" X2="13860" Y2="1350" />
+    </Section>
+    <Section Type="GroupHeader" Name="GroupHeader2" Height="825" DataField="PFS_MinorGroup" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label15" MOD="4" Left="450" Top="90" Width="1620" Height="270" Caption="Minor Group Code:" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label16" MOD="4" Left="720" Top="540" Width="900" Height="270" Caption="Part Id" Style="font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label17" MOD="4" Left="3150" Top="360" Width="990" Height="450" Caption="Description Line 1" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label18" MOD="4" Left="7200" Top="360" Width="450" Height="450" Caption="Part Type" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label19" MOD="4" Left="7830" Top="360" Width="540" Height="450" Caption="Inv. Status" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label20" MOD="4" Left="8460" Top="360" Width="810" Height="450" Caption="Gl Expense" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label21" MOD="4" Left="9810" Top="360" Width="990" Height="450" Caption="GL Distributior" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label22" MOD="4" Left="11160" Top="360" Width="540" Height="450" Caption="Major Sales" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label23" MOD="4" Left="12510" Top="360" Width="540" Height="450" Caption="Minor Sales" Style="text-align: center; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Line" Name="Line2" MOD="4" X1="360" Y1="810" X2="13590" Y2="810" />
+      <Control Type="AR.Field" Name="txtPFS_MinorGroup" DataField="PFS_MinorGroup" MOD="4" Left="2160" Top="90" Width="1530" Height="270" Text="PFS_MinorGroup" Style="font-size: 8pt; " />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="360" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="txtPFS_ProdID" DataField="PFS_ProdID" MOD="4" Left="720" Top="0" Width="2250" Height="270" Text="PFS_ProdID" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox3" DataField="PFS_Des1" MOD="4" Left="3135" Top="0" Width="3795" Height="270" Text="PFS_Des1" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox4" DataField="PFS_PartType" MOD="4" Left="7200" Top="0" Width="450" Height="270" Text="PFS_PartType" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox5" DataField="PFS_InvStatus" MOD="4" Left="7830" Top="0" Width="450" Height="270" Text="PFS_InvStatus" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox6" DataField="PFS_Glexp" MOD="4" Left="8445" Top="0" Width="1275" Height="270" Text="PFS_Glexp" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox7" DataField="PFS_GlDistr" MOD="4" Left="9810" Top="0" Width="1275" Height="270" Text="PFS_GlDistr" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox8" DataField="PFS_MajorSales" MOD="4" Left="11160" Top="0" Width="1260" Height="270" Text="PFS_MajorSales" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="TextBox9" DataField="PFS_MinorSales" MOD="4" Left="12510" Top="0" Width="1260" Height="270" Text="PFS_MinorSales" Style="font-size: 8pt; " />
+    </Section>
+    <Section Type="GroupFooter" Name="GroupFooter2" Height="0" BackColor="16777215" CanShrink="0" />
+    <Section Type="GroupFooter" Name="GroupFooter1" Height="0" BackColor="16777215" CanShrink="0" />
+    <Section Type="PageFooter" Name="PageFooter" Height="0" BackColor="16777215" CanShrink="0" />
+    <Section Type="ReportFooter" Name="ReportFooter" Height="360" BackColor="16777215" CanShrink="0" />
+  </Sections>
+  <PageSettings Orientation="2" />
+</ActiveReportsLayout>

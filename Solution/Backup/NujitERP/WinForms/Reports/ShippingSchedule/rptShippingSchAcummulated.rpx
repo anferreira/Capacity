@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3" PrintWidth="16620" DocumentName="ActiveReports Document" ScriptLang="C#" CodeFile="rptShippingSchAcummulated.cs">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0; " />
+    <Style Name="Heading1" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading3" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; " />
+  </StyleSheet>
+  <Sections>
+    <Section Type="ReportHeader" Name="ReportHeader" Height="765" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="tBoxDate" MOD="4" Left="15030" Top="270" Width="1440" Height="270" Text="Date:" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label2" MOD="4" Left="4500" Top="0" Width="4770" Height="288" Caption="Shipping Schedule Acummulated  From As400" Style="font-weight: bold; font-size: 10pt; " />
+      <Control Type="AR.Field" Name="tBoxBy" MOD="4" Left="180" Top="450" Width="3240" Height="288" Text="By:" Style="font-weight: bold; font-size: 8pt; " />
+    </Section>
+    <Section Type="PageHeader" Name="PageHeader" Height="15" BackColor="16777215" CanShrink="0" />
+    <Section Type="GroupHeader" Name="GroupHeader1" Height="495" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label43" MOD="4" Left="15750" Top="90" Width="720" Height="180" Caption="&gt; 14 Day's" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label44" MOD="4" Left="180" Top="0" Width="1620" Height="180" Caption="Ship to Location" Style="font-weight: normal; font-size: 6.75pt; font-family: Microsoft Sans Serif; " />
+      <Control Type="AR.Label" Name="Label45" MOD="4" Left="360" Top="270" Width="1530" Height="180" Caption="Customer Part #" Style="font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label46" MOD="4" Left="1920" Top="270" Width="990" Height="180" Caption="Internal Part Number" Style="font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label47" MOD="4" Left="3600" Top="270" Width="720" Height="180" Caption="Past Due" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label48" MOD="4" Left="4410" Top="90" Width="720" Height="180" Caption="Day 1" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label49" MOD="4" Left="5220" Top="90" Width="720" Height="180" Caption="Day 2" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label50" MOD="4" Left="6030" Top="90" Width="720" Height="180" Caption="Day 3" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label51" MOD="4" Left="6840" Top="90" Width="720" Height="180" Caption="Day 4 " Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label52" MOD="4" Left="7650" Top="90" Width="720" Height="180" Caption="Day 5" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label53" MOD="4" Left="8460" Top="90" Width="720" Height="180" Caption="Day 6" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label54" MOD="4" Left="9270" Top="90" Width="720" Height="180" Caption="Day 7" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label55" MOD="4" Left="10080" Top="90" Width="720" Height="180" Caption="Day 8" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label56" MOD="4" Left="10890" Top="90" Width="720" Height="180" Caption="Day 9" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label57" MOD="4" Left="11700" Top="90" Width="720" Height="180" Caption="Day 10" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label58" MOD="4" Left="12510" Top="90" Width="720" Height="180" Caption="Day 11" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label59" MOD="4" Left="13320" Top="90" Width="720" Height="180" Caption="Day 12" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label60" MOD="4" Left="14130" Top="90" Width="720" Height="180" Caption="Day 13" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="Label61" MOD="4" Left="14940" Top="90" Width="720" Height="180" Caption="Day 14" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday15" MOD="4" Left="15750" Top="270" Width="720" Height="180" Caption="&gt; 14 Day's" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday1" MOD="4" Left="4410" Top="270" Width="720" Height="180" Caption="Day 1" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday2" MOD="4" Left="5220" Top="270" Width="720" Height="180" Caption="Day 2" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday3" MOD="4" Left="6030" Top="270" Width="720" Height="180" Caption="Day 3" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday4" MOD="4" Left="6840" Top="270" Width="720" Height="180" Caption="Day 4 " Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday5" MOD="4" Left="7650" Top="270" Width="720" Height="180" Caption="Day 5" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday6" MOD="4" Left="8460" Top="270" Width="720" Height="180" Caption="Day 6" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday7" MOD="4" Left="9270" Top="270" Width="720" Height="180" Caption="Day 7" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday8" MOD="4" Left="10080" Top="270" Width="720" Height="180" Caption="Day 8" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday9" MOD="4" Left="10890" Top="270" Width="720" Height="180" Caption="Day 9" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday10" MOD="4" Left="11700" Top="270" Width="720" Height="180" Caption="Day 10" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday11" MOD="4" Left="12510" Top="270" Width="720" Height="180" Caption="Day 11" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday12" MOD="4" Left="13320" Top="270" Width="720" Height="180" Caption="Day 12" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday13" MOD="4" Left="14130" Top="270" Width="720" Height="180" Caption="Day 13" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Label" Name="lday14" MOD="4" Left="14940" Top="270" Width="720" Height="180" Caption="Day 14" Style="text-align: right; font-weight: bold; font-size: 6pt; " />
+      <Control Type="AR.Line" Name="Line4" MOD="4" X1="90" Y1="450" X2="16470" Y2="450" />
+      <Control Type="AR.Field" Name="SMSTXL3" DataField="SMSTXL" MOD="4" Left="1890" Top="0" Width="990" Height="180" Text="SMSTXL" Style="font-size: 6.75pt; font-family: Microsoft Sans Serif; " />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="225" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="tBoxPastDue" DataField="pastDue" MOD="4" Left="3510" Top="0" Width="810" Height="180" Text="PastDue" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay2" DataField="day2" MOD="4" Left="5220" Top="0" Width="720" Height="180" Text="Day2" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay1" DataField="day1" MOD="4" Left="4410" Top="0" Width="720" Height="180" Text="Day1" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay3" DataField="day3" MOD="4" Left="6030" Top="0" Width="720" Height="180" Text="Day3" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay4" DataField="day4" MOD="4" Left="6840" Top="0" Width="720" Height="180" Text="Day 4" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay5" DataField="day5" MOD="4" Left="7650" Top="0" Width="720" Height="180" Text="Day 5" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay6" DataField="day6" MOD="4" Left="8460" Top="0" Width="720" Height="180" Text="Day 6" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay7" DataField="day7" MOD="4" Left="9270" Top="0" Width="720" Height="180" Text="Day 7" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay8" DataField="day8" MOD="4" Left="10080" Top="0" Width="720" Height="180" Text="Day  8" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay9" DataField="day9" MOD="4" Left="10890" Top="0" Width="720" Height="180" Text="Day 9" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay10" DataField="day10" MOD="4" Left="11700" Top="0" Width="720" Height="180" Text="Day 10" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay12" DataField="day12" MOD="4" Left="13320" Top="0" Width="720" Height="180" Text="Day 12" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay11" DataField="day11" MOD="4" Left="12510" Top="0" Width="720" Height="180" Text="Day 11" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay13" DataField="day13" MOD="4" Left="14130" Top="0" Width="720" Height="180" Text="Day 13" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxDay14" DataField="day14" MOD="4" Left="14940" Top="0" Width="720" Height="180" Text="Day 14" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="TextBox1" DataField="SMCPT#" MOD="4" Left="390" Top="0" Width="1500" Height="180" Text="SMCPT#" Style="font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBoxSMPART" DataField="SMPART" MOD="4" Left="1920" Top="0" Width="1500" Height="180" Text="SMPART" Style="font-size: 6pt; " />
+      <Control Type="AR.Field" Name="tBox15" DataField="day15" MOD="4" Left="15750" Top="0" Width="720" Height="180" Text="&gt; 14 Days" Style="text-align: right; font-size: 6pt; " />
+    </Section>
+    <Section Type="GroupFooter" Name="GroupFooter1" Height="0" BackColor="16777215" CanShrink="0" />
+    <Section Type="PageFooter" Name="PageFooter" Height="344" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="tBoxPage" MOD="4" Left="15030" Top="0" Width="1440" Height="288" Text="Page:" Style="text-align: right; font-weight: bold; font-size: 8pt; " />
+    </Section>
+    <Section Type="ReportFooter" Name="ReportFooter" Height="30" BackColor="16777215" CanShrink="0" />
+  </Sections>
+  <PageSettings LeftMargin="0" RightMargin="0" Orientation="2" />
+</ActiveReportsLayout>

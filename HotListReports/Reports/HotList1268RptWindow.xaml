@@ -1,0 +1,16 @@
+﻿<Window x:Class="HotListReports.Reports.HotList1268RptWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/wpf"
+        xmlns:telerikReporting="clr-namespace:Telerik.Reporting;assembly=Telerik.Reporting"
+        Title="HotList 1268 Report" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <telerik:ReportViewer Name="hotList1268RptViewer"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch">
+
+        </telerik:ReportViewer>
+
+    </Grid>
+</Window>

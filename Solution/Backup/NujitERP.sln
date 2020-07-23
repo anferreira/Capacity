@@ -1,0 +1,37 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NujitERP", "..\NujitERP\NujitERP.csproj", "{7EF6DD66-030B-479F-B81C-CDE85076D945}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLib", "..\ClassLib\ClassLib.csproj", "{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGen", "..\CodeGen\CodeGen.csproj", "{D028C8AD-236D-4589-83E7-050281B06470}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{7EF6DD66-030B-479F-B81C-CDE85076D945}.Debug.ActiveCfg = Debug|.NET
+		{7EF6DD66-030B-479F-B81C-CDE85076D945}.Debug.Build.0 = Debug|.NET
+		{7EF6DD66-030B-479F-B81C-CDE85076D945}.Release.ActiveCfg = Release|.NET
+		{7EF6DD66-030B-479F-B81C-CDE85076D945}.Release.Build.0 = Release|.NET
+		{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}.Debug.ActiveCfg = Debug|.NET
+		{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}.Debug.Build.0 = Debug|.NET
+		{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}.Release.ActiveCfg = Release|.NET
+		{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}.Release.Build.0 = Release|.NET
+		{D028C8AD-236D-4589-83E7-050281B06470}.Debug.ActiveCfg = Debug|.NET
+		{D028C8AD-236D-4589-83E7-050281B06470}.Debug.Build.0 = Debug|.NET
+		{D028C8AD-236D-4589-83E7-050281B06470}.Release.ActiveCfg = Release|.NET
+		{D028C8AD-236D-4589-83E7-050281B06470}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

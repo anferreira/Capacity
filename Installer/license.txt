@@ -1,0 +1,5 @@
+Copyright (C) 2005 Nujit, Inc.
+
+This license applies to everything in the Nujit package, except where otherwise noted.
+
+This software is provided 'as-is', without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software. 

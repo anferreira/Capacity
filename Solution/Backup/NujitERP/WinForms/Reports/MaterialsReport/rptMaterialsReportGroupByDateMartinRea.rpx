@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3" PrintWidth="15150" DocumentName="ActiveReports Document" ScriptLang="C#" CodeFile="rptMaterialsReportGroupByDateMartinRea.cs">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0; " />
+    <Style Name="Heading1" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading3" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; " />
+  </StyleSheet>
+  <Sections>
+    <Section Type="ReportHeader" Name="ReportHeader" Height="1275" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label1" MOD="4" Left="2430" Top="90" Width="4500" Height="270" Caption="Report Format By Material Due Date" Style="font-weight: bold; font-size: 12pt; " />
+      <Control Type="AR.Line" Name="Line1" MOD="4" X1="0" Y1="1155" X2="14940" Y2="1170" />
+      <Control Type="AR.Label" Name="dateLbl" MOD="4" Left="13230" Top="180" Width="1440" Height="288" Caption="DATE" />
+      <Control Type="AR.Label" Name="Label22" MOD="4" Left="360" Top="810" Width="2160" Height="288" Caption="Material Explosion on :" />
+      <Control Type="AR.Label" Name="Label23" MOD="4" Left="360" Top="450" Width="2160" Height="288" Caption="HotList Generated on" />
+      <Control Type="AR.Field" Name="beginTextBox" MOD="4" Left="2520" Top="450" Width="2610" Height="288" Text="beginTextBox" />
+      <Control Type="AR.Field" Name="endTextBox" MOD="4" Left="2520" Top="810" Width="2610" Height="288" Text="endTextBox" />
+      <Control Type="AR.Label" Name="Label32" MOD="4" Left="9810" Top="810" Width="4500" Height="288" Caption="Material Dates are advanced 3 days from demand" Style="ddo-char-set: 1; font-size: 8pt; " />
+    </Section>
+    <Section Type="PageHeader" Name="PageHeader" Height="689" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label31" MOD="4" Left="180" Top="270" Width="14850.72" Height="216" Caption="Label31" Style="color: Black; background-color: Silver; " />
+      <Control Type="AR.Label" Name="Label33" MOD="4" Left="1350" Top="270" Width="2610" Height="216" Caption="Description" Style="color: Black; ddo-char-set: 1; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label2" MOD="4" Left="180" Top="270" Width="900" Height="216" Caption="Material" Style="color: Black; ddo-char-set: 1; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label3" MOD="4" Left="4050" Top="270" Width="450.72" Height="216" Caption="Seq" Style="color: Black; ddo-char-set: 1; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label8" MOD="4" Left="4590" Top="270" Width="900" Height="216" Caption="Supplier" Style="color: Black; ddo-char-set: 1; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label11" MOD="4" Left="6480" Top="270" Width="630.72" Height="216" Caption="Past Due" Style="color: Black; ddo-char-set: 1; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="lblEnt1" MOD="4" Left="7200" Top="270" Width="720" Height="216" Caption="Week 11-22" Style="color: Black; ddo-char-set: 1; text-align: right; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="lblEnt2" MOD="4" Left="7920" Top="270" Width="720" Height="216" Caption="E2" Style="color: Black; ddo-char-set: 1; text-align: right; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="lblEnt3" MOD="4" Left="8640" Top="270" Width="720" Height="216" Caption="E3" Style="color: Black; ddo-char-set: 1; text-align: right; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="lblEnt4" MOD="4" Left="9360" Top="270" Width="720" Height="216" Caption="E4" Style="color: Black; ddo-char-set: 1; text-align: right; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="lblEnt5" MOD="4" Left="10080" Top="270" Width="720" Height="216" Caption="E5" Style="color: Black; ddo-char-set: 1; text-align: right; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="lblEnt6" MOD="4" Left="10890" Top="270" Width="720" Height="216" Caption="E6" Style="color: Black; ddo-char-set: 1; text-align: right; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label19" MOD="4" Left="15300" Top="4410" Width="540" Height="288" Caption="E6" Style="ddo-char-set: 1; font-weight: bold; " />
+      <Control Type="AR.Label" Name="lblEnt7" MOD="4" Left="11790" Top="270" Width="720" Height="216" Caption="E7" Style="color: Black; ddo-char-set: 1; text-align: right; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label21" MOD="4" Left="5760" Top="270" Width="450.72" Height="216" Caption="Qoh" Style="color: Black; ddo-char-set: 1; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="lblEnt8" MOD="4" Left="12510" Top="270" Width="720" Height="216" Caption="E7" Style="color: Black; ddo-char-set: 1; text-align: right; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="lblEnt9" MOD="4" Left="13320" Top="270" Width="720" Height="216" Caption="E7" Style="color: Black; ddo-char-set: 1; text-align: right; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="lblEnt10" MOD="4" Left="14130" Top="270" Width="720" Height="216" Caption="E7" Style="color: Black; ddo-char-set: 1; text-align: right; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="barLbl1" MOD="4" Left="180" Top="0" Width="14850.72" Height="270" Caption="Label32" Style="color: Black; ddo-char-set: 1; font-weight: bold; background-color: Silver; font-size: 5pt; vertical-align: bottom; " />
+      <Control Type="AR.Label" Name="barLbl2" MOD="4" Left="180" Top="450" Width="14850.72" Height="216" Caption="Label33" Style="color: Black; ddo-char-set: 1; background-color: Silver; font-size: 5pt; vertical-align: middle; " />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="299" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="supplierText" DataField="Supplier" MOD="4" Left="4680" Top="0" Width="1170" Height="270" Text="Supplier" Style="ddo-char-set: 1; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="seqText" DataField="MaterialSeq" MOD="4" Left="4230" Top="0" Width="450" Height="270" Text="MaterialSeq" Style="ddo-char-set: 1; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="PastDue" DataField="PastDue" MOD="4" Left="6630" Top="0" Width="720" Height="288" Text="PastDue" Style="ddo-char-set: 1; text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="Product" DataField="Material" MOD="4" Left="180" Top="0" Width="1260" Height="270" Text="Material" Style="ddo-char-set: 1; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="E1" DataField="Ent1" MOD="4" Left="7395" Top="0" Width="720" Height="288" Text="E1" Style="ddo-char-set: 1; text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="E2" DataField="Ent2" MOD="4" Left="8130" Top="0" Width="720" Height="288" Text="E2" Style="ddo-char-set: 1; text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="E3" DataField="Ent3" MOD="4" Left="8880" Top="0" Width="720" Height="288" Text="E3" Style="ddo-char-set: 1; text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="E4" DataField="Ent4" MOD="4" Left="9630" Top="0" Width="720" Height="288" Text="E4" Style="ddo-char-set: 1; text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="E5" DataField="Ent5" MOD="4" Left="10350" Top="0" Width="720" Height="288" Text="E5" Style="ddo-char-set: 1; text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="E6" DataField="Ent6" MOD="4" Left="11100" Top="0" Width="720" Height="288" Text="E6" Style="ddo-char-set: 1; text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="E7" DataField="Ent7" MOD="4" Left="11835" Top="0" Width="720" Height="288" Text="E7" Style="ddo-char-set: 1; text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="qohTextBox" DataField="Qoh" MOD="4" Left="5880" Top="0" Width="720" Height="288" Text="Qty on Hand" Style="ddo-char-set: 1; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="Ent8" DataField="Ent8" MOD="4" Left="12600" Top="0" Width="720" Height="288" Text="Ent8" Style="ddo-char-set: 1; text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="Ent9" DataField="Ent9" MOD="4" Left="13365" Top="0" Width="720" Height="288" Text="Ent9" Style="ddo-char-set: 1; text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="Ent10" DataField="Ent10" MOD="4" Left="14130" Top="0" Width="720" Height="288" Text="Ent10" Style="ddo-char-set: 1; text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="MaterialDescription" DataField="MaterialDescription" MOD="4" Left="1440" Top="0" Width="2790" Height="270" Text="Description" Style="ddo-char-set: 1; font-size: 5pt; " />
+    </Section>
+    <Section Type="PageFooter" Name="PageFooter" Height="480" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="pageLbl" MOD="4" Left="14130" Top="90" Width="810" Height="288" Caption="Page Number" Style="ddo-char-set: 1; font-weight: bold; " />
+      <Control Type="AR.Label" Name="Label7" MOD="4" Left="13410" Top="90" Width="630" Height="288" Caption="Page" Style="ddo-char-set: 1; font-weight: bold; " />
+    </Section>
+    <Section Type="ReportFooter" Name="ReportFooter" Height="360" BackColor="16777215" CanShrink="0" />
+  </Sections>
+  <PageSettings LeftMargin="0" RightMargin="0" TopMargin="288" Orientation="2" />
+</ActiveReportsLayout>

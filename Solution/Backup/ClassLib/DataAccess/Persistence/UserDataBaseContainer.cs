@@ -1,0 +1,42 @@
+using System;
+using MySql.Data;
+using System.Collections;
+using Nujit.NujitERP.ClassLib.DataAccess.Persistence.UtilDB;
+using Nujit.NujitERP.ClassLib.DataAccess.Persistence.Access;
+
+namespace Nujit.NujitERP.ClassLib.DataAccess.Persistence{
+
+public 
+class UserDataBaseContainer : GenericDataBaseContainer{
+
+public
+UserDataBaseContainer(DataBaseAccess dataBaseAccess) : base(dataBaseAccess){
+}
+
+public
+void read(){
+	NotNullDataReader reader = null;
+	try{
+		string sql = "select * from users";
+
+		reader = dataBaseAccess.executeQuery(sql);
+		while(reader.Read()){
+			UserDataBase userDataBase = new UserDataBase(dataBaseAccess);
+			userDataBase.load(reader);
+			this.Add(userDataBase);
+		}
+	}catch(System.Data.SqlClient.SqlException se){
+		throw new PersistenceException("Error in class " + this.GetType().Name + " <read> : " + se.Message, se);
+	}catch(System.Data.DataException de){
+		throw new PersistenceException("Error in class " + this.GetType().Name + " <read> : " + de.Message, de);
+	}catch(MySql.Data.MySqlClient.MySqlException mySqlExc){
+		throw new PersistenceException("Error in class " + this.GetType().Name + " <read> : " + mySqlExc.Message, mySqlExc);
+	}finally{
+		if (reader != null)
+			reader.Close();
+	}
+}
+
+} // class
+
+} // namespace

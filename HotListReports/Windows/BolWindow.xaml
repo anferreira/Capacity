@@ -1,0 +1,126 @@
+﻿<Window x:Class="HotListReports.Windows.BolWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotListReports.Windows"
+        mc:Ignorable="d"
+        Title="BOL" Height="700" Width="900" Closing="Window_Closing" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="60*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="middleGrid" Grid.Row="1">
+            <TabControl x:Name="mainTabControl" VerticalAlignment="Top" SelectionChanged="mainTabControl_SelectionChanged" Height="638.095">
+                <TabItem x:Name="bolMTabItem" Header="Bol M" >
+                    <Grid x:Name="bolMGrid" Margin="0,0,-3,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="278*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <ListView x:Name="bolMListView" Margin="0,0,0,3.472" Grid.Row="0">
+                            <ListView.View>
+                                <GridView>
+
+                                    <GridViewColumn Header="BOL#" Width="70" x:Name="bolGridColumn">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Right" TextAlignment="Right" Width="70" Text="{Binding RAMBOL}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn Header="Date Created" Width="100" x:Name="dateCreatedGridColumn">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Width="100" Text="{Binding RACDAT}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn Header="Shipped Ind" Width="100" x:Name="shippedIndGridColumn">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Width="100" Text="{Binding RASIND}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn Header="Shipping Date" Width="100" x:Name="shippingDateGridColumn">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Width="100" Text="{Binding RASDAT}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn Header="Ship Via" Width="100" x:Name="shipViaGridColumn">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Width="100" Text="{Binding RASVIA}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn Header="Truck ID" Width="70" x:Name="truckIDGridColumn">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Width="70" Text="{Binding RATKID}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+
+                                    <GridViewColumn Header="Route" Width="100" x:Name="routeViaGridColumn">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Width="100" Text="{Binding RAROUT}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Canvas x:Name="bottomCanvas" Margin="-7,1.528,0,0" Grid.Row="1" d:LayoutOverrides="VerticalAlignment">
+
+                            <Label x:Name="searchForLabel" Content="Search For" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="542.736"/>
+                            <ComboBox x:Name="searchByComboBox" HorizontalAlignment="Left" Width="120" Canvas.Left="421" Canvas.Top="4.001"/>
+                            <Label x:Name="searchByLabel" Content="Search By" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="350.386" Canvas.Top="0.178"/>
+                            <TextBox x:Name="searchForTextBox" TextWrapping="Wrap" Canvas.Left="610.349" Canvas.Top="0.178" Width="157.651"/>
+                            <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Width="75" Click="searchButton_Click" Canvas.Left="244" Canvas.Top="-0.179"/>
+                        </Canvas>
+
+
+                    </Grid>
+                </TabItem>
+
+                <TabItem x:Name="bolHTabItem" Header="Bol H" >
+                    <Grid x:Name="bolhGrid" Margin="0,0,-3,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="76*"/>
+                            <RowDefinition Height="165*"/>
+                            <RowDefinition Height="365*"/>
+                        </Grid.RowDefinitions>
+                        <ListView x:Name="bolHListView" Margin="0,5.393,0,15" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                            <ListView.View>
+                                <GridView>
+
+
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+
+
+                    </Grid>
+                </TabItem>
+
+            </TabControl>
+        </Grid>
+
+    </Grid>
+</Window>
+

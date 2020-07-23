@@ -1,0 +1,41 @@
+select * from               (
+/*Standard PO*/
+select 
+'ST' Type , pi.KBPO# PoNum,  ( pi.kbqtyo - pi.kbqtyr ) as NetQty , pi.KBQTYR QtyReceived, KAODAT as HDate,  pi.KBRDAT DDate,pi.KBPT# Part
+ from cmsdat.POH as ph , cmsdat.POI as pi       
+where ph.KAOTYP =  'S'  /*AND  ph.KAOSTS  in ('C','H') */ and ph.KAPO# = pi.KBPO#
+
+union 
+/*Blanket*/
+select   
+'BL' Type ,pori.KGPO# PoNum,  ( pori.kgqtyo - pori.kgqtyr ) as NetQty , pori.kgqtyr  QtyReceived, KAODAT as HDate,  pori.KGRDAT DDate,pori.KGPT# Part
+
+from cmsdat.POH as ph , cmsdat.pori as pori 
+where
+ph.KAPO# = pori.KGPO# and ph.KAOTYP  = 'B'  /* AND    ph.KAOSTS not in ('C','H' ) and pori.KGISTS  <> 'C' */
+
+union
+
+select
+'CB' Type ,prh.KLPO# PoNum,  ( prd.KMQTYR ) as NetQty , prd.KMQTYR QtyReceived, prh.KLSDAT as HDate, prd.KMSDAT DDate ,prh.KLPT# Part
+from cmsdat.POPRH prh , cmsdat.POPRD prd
+where 
+prh.KLPO# = prd.KMPO#   
+and prh.KLITM#=prd.KMITM#  
+and prh.KLCREL=prd.KMRELN  
+and prh.KLCRCM = '1'  
+and  prd.KMQTYR <> 0
+
+) as query
+
+where        Part  in ('RTTEN6460-B','RTTEN6460-A')
+
+
+
+/*('RTBAY9090')    ('RTTEN0614B','RTTEN0614A')  ('RTTEN0614B')         ('RTA6175','RTA6200')                                        */
+
+    /*    ('RTHIN0240190','RTHIN0240180')*/
+                                         /*('RTG2113')        ('RTDIT3841')        ('RTDET3908')     ('RTA6400') ('RTA6225','RTA6200','RTA4250')*/
+
+and DDate > '2018-12-24' and DDate < '2019-01-31'
+order by part desc,ddate

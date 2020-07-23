@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE dotfuscator SYSTEM "http://www.preemptive.com/dotfuscator/dtd/dotfuscator_v1.1.dtd">
+<dotfuscator version="1.1">
+  <!--This is application generated code. Do not edit manually.-->
+  <trigger>
+    <filelist>
+      <file dir="C:\Proyectos\Nujit\NujitERP\bin\Release\" name="NujitCustomWinControls.dll" />
+      <file dir="C:\Proyectos\Nujit\NujitERP\bin\Release\" name="NujitERP.exe" />
+      <file dir="C:\Proyectos\Nujit\NujitERP\bin\Release\" name="NujitERPClassLib.dll" />
+      <file dir="C:\Proyectos\Nujit\NujitERP\bin\Release\" name="TimeCtrl.dll" />
+    </filelist>
+  </trigger>
+  <output>
+    <file dir="C:\Proyectos\NujitOfuscada" />
+  </output>
+  <tempdir>
+    <file dir="C:\Temp\" />
+  </tempdir>
+  <renaming>
+    <option>keepnamespace</option>
+    <excludelist>
+      <namespace name="Nujit.NujitERP.ClassLib.Reports.UtilReports" />
+      <namespace name="Nujit.NujitERP.NujitWebService" />
+      <namespace name="Nujit.NujitERP.WinForms.Charts" />
+      <namespace name="Nujit.NujitERP.WinForms.Charts.HotListHoursChart" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.BomErrorsReport" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.BOMReport" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.DemandReport" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.HotList_Report" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.InventoryReport" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.JobCard" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.MaterialRelease" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.MaterialsReport" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.PossibleMaterials" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.ProductsReport" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.SchedulingView" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.ShippingSchedule" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.ShortageReport" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.VendorReleaseInquiry" />
+      <namespace name="Nujit.NujitERP.WinForms.Reports.WipbReport" />
+      <namespace name="Nujit.NujitERP.WinForms.Util" />
+      <namespace name="NujitERP.WinForms.Reports.SchedulingView" />
+      <namespace name="Nujit.NujitERP.ClassLib.Reports" />
+      <namespace name="Nujit.NujitERP.ClassLib.Reports.HotList" />
+    </excludelist>
+  </renaming>
+</dotfuscator>

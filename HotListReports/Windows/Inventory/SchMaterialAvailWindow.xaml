@@ -1,0 +1,166 @@
+﻿<Window x:Class="HotListReports.Windows.Inventories.SchMaterialAvailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"                
+        xmlns:local="clr-namespace:HotListReports.Windows.Demand"        
+        xmlns:localUtil="clr-namespace:HotListReports.Windows.Util"            
+        xmlns:NujitWPFUtilities="clr-namespace:NujitWPFUtilities;assembly=NujitWPFUtilities"         
+        xmlns:localConverters="clr-namespace:Nujit.NujitWms.WinForms.Util.Converters;assembly=Utilities" 
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+        xmlns:Util="clr-namespace:HotListReports.Windows.Util" xmlns:viblendEditors="clr-namespace:VIBlend.WPF.Controls;assembly=VIBlend.WPF.Editors"         
+        mc:Ignorable="d"
+        Title="Material Availability" Height="700" Width="1000" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" >
+
+    <Window.Resources>
+        <localConverters:DateTimeToStringConverter x:Key="dateTimeConverter" />
+        <localConverters:DecimalToStringConverter x:Key="decimalConverter" />
+        <localConverters:ConstantYesNoToStringConverter x:Key="yesNoToStringConverter" />
+        <localConverters:ConstantYesNoToBoolConverter x:Key="yesNoToBoolConverter" />
+        <localUtil:DecimalToStringConverterNew x:Key="decimalConverterNew" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="165*"/>
+            <RowDefinition Height="264*"/>
+            <RowDefinition Height="206*"/>
+            <RowDefinition Height="34*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Name="topGroupBox" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+            <Canvas x:Name="topGroupBoxCanvas">
+
+                <Label x:Name="partLabel" Content="Part" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Width="44" Canvas.Top="6"/>
+                <TextBox x:Name="partTextBox" Height="23" TextWrapping="Wrap"   Text="{Binding ProdID}" Width="250" Canvas.Left="54" MaxLength="40" IsEnabled="False" Canvas.Top="6" FontWeight="Bold"/>
+
+                <Label x:Name="seqLabel" Content="Seq" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="349" Width="44" Canvas.Top="6"/>
+                <TextBox x:Name="seqTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Seq, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="40" Canvas.Left="393" MaxLength="40" IsEnabled="False" Canvas.Top="6" FontWeight="Bold"/>
+
+                <Label x:Name="runSizeLabel" Content="Run Size" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="480" Width="73" Canvas.Top="5.96"/>
+                <TextBox x:Name="runSizeTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding OptimRunPurchSize, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="90" Canvas.Left="553" MaxLength="40" IsEnabled="False" TextAlignment="Right" Canvas.Top="6.04"/>
+
+                <Label x:Name="partDescLabel" Content="Desc1" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Width="44" Canvas.Top="34"/>
+                <TextBox x:Name="partDescTextBox" Height="23" TextWrapping="Wrap"   Text="{Binding Des1}" Width="290" Canvas.Left="54" MaxLength="40" IsEnabled="False" Canvas.Top="34" FontWeight="Bold"/>
+
+                <Label x:Name="partDesc2Label" Content="Desc2" HorizontalAlignment="Left" Canvas.Left="349" Width="44" Canvas.Top="34"/>
+                <TextBox x:Name="partDesc2TextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Des2}" Width="250" Canvas.Left="393" MaxLength="40" IsEnabled="False" Canvas.Top="34"/>
+
+                <Label x:Name="familyLabel" Content="Family" HorizontalAlignment="Left" Canvas.Left="648" Width="71" Canvas.Top="6.04" RenderTransformOrigin="8.182,0.578"/>
+                <TextBox x:Name="familyTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FamilyPart}" Width="250" Canvas.Left="719" MaxLength="40" IsEnabled="False" Canvas.Top="5.96"/>
+
+                <Label x:Name="familyDescLabel" Content="FamilyDesc" HorizontalAlignment="Left" Canvas.Left="648" Width="71" Canvas.Top="34.04" RenderTransformOrigin="8.182,0.578"/>
+                <TextBox x:Name="familyDescTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FamilyPartDesc}" Width="250" Canvas.Left="719" MaxLength="40" IsEnabled="False" Canvas.Top="34"/>
+
+
+                <GroupBox Name="topQtySelectionGroupBox" Header="Qty.Selection" Canvas.Top="60" Height="103" Width="980" FontWeight="Bold">
+                    <Canvas Name="topQtySelectionGroupBoxCanvas">
+                        
+                        <Label x:Name="qtyLabel" Content="Sched.Qty." HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="11" Width="73" Canvas.Top="-1.88"/>
+                        <TextBox x:Name="qtyTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Qty, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="90" Canvas.Left="84" MaxLength="40" IsEnabled="False" Canvas.Top="-1.88" TextAlignment="Right"/>
+
+                        <Label x:Name="qtyAdjustLabel" Content="Qty.Adjust" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Width="74" Canvas.Top="26.12"/>
+                        <TextBox x:Name="qtyAdjustTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding QtyAdjust, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="90" Canvas.Left="84" MaxLength="10" IsEnabled="True" Canvas.Top="26.12" TextAlignment="Right" LostFocus="qtyAdjustTextBox_LostFocus" KeyUp="qtyAdjustTextBox_KeyUp"/>
+
+                        <Label x:Name="dateLabel" Content="Date" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="198" Width="45" Canvas.Top="-1.88"/>
+                        <TextBox x:Name="dateTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding DateTime, ConverterParameter=Date, Converter={StaticResource dateTimeConverter}}" Width="115" Canvas.Left="243" MaxLength="40" IsEnabled="False" Canvas.Top="-1.88"/>
+
+                        <Button x:Name="moveNextDateButton" Content="Next &gt;" HorizontalAlignment="Left" Width="75" Click="moveNextDateButton_Click" FontWeight="Bold"  Canvas.Left="283" Canvas.Top="26.12" />
+                        <Button x:Name="movePriorDateButton" Content="&lt; Prior" HorizontalAlignment="Left" Width="75" Click="movePriorDateButton_Click" FontWeight="Bold"  Canvas.Left="198" Canvas.Top="26.12" />
+
+
+                        <Label x:Name="qohLabel" Content="Qoh" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="383" Width="70" Canvas.Top="-1.92"/>
+                        <TextBox x:Name="qohTextBox" Height="23" TextWrapping="Wrap"   Text="{Binding Qoh, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="81" Canvas.Left="453" MaxLength="40" IsEnabled="False" Canvas.Top="-2" TextAlignment="Right" FontWeight="Bold"/>
+
+                        <Label x:Name="minLabel" Content="Min.Qty." HorizontalAlignment="Left" Canvas.Left="383" Width="70" Canvas.Top="26.08"/>
+                        <TextBox x:Name="minTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding MinQty, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="81" Canvas.Left="453" MaxLength="40" IsEnabled="False" Canvas.Top="26.08" TextAlignment="Right" FontWeight="Bold"/>
+
+                        <Label x:Name="maxLabel" Content="Max.Qty." HorizontalAlignment="Left" Canvas.Left="383" Width="70" Canvas.Top="54.08"/>
+                        <TextBox x:Name="maxTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding MaxQty, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="81" Canvas.Left="453" MaxLength="40" IsEnabled="False" Canvas.Top="54.08" TextAlignment="Right" FontWeight="Bold"/>
+
+
+                    </Canvas>
+
+                </GroupBox>
+
+
+            </Canvas>
+
+        </GroupBox>
+
+        <TabControl Name="dtlTabControl"  Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+            <TabItem Name="matUsedTabItem" Header="Main">
+
+                <Grid Name="matUsedTabItemGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="209*"/>
+                        <RowDefinition Height="26*"/>
+                    </Grid.RowDefinitions>
+
+                    <ListView x:Name="hdrListView" Grid.Row="0" SelectionChanged="hdrListView_SelectionChanged" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+                    </ListView>
+
+                    <Canvas Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Button x:Name="firstButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                        <Button x:Name="prevButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="28" Canvas.Top="1" />
+                        <Button x:Name="nextButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                        <Button x:Name="lastButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+                    </Canvas>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="serialTabItem" Header="Serials">
+
+                <Grid Name="serialTabItemGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="209*"/>
+                        <RowDefinition Height="26*"/>
+                    </Grid.RowDefinitions>
+
+                    <ListView x:Name="serialsListView" Grid.Row="0" SelectionChanged="serialsListView_SelectionChanged" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <ListView.View>
+                            <GridView/>
+                        </ListView.View>
+                    </ListView>
+
+                    <Canvas Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Button x:Name="firstSButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                        <Button x:Name="prevSButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="28" Canvas.Top="1" />
+                        <Button x:Name="nextSButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                        <Button x:Name="lastSButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+                        <Button x:Name="addSButton" Width="23" Content="+" Height="21.277" Canvas.Left="97" Canvas.Top="1" Click="addSButton_Click"/>
+                        <Button x:Name="delSButton" Width="23" Content="-" Height="21.277" Canvas.Left="120" Canvas.Top="1" Click="delSButton_Click"/>
+                    </Canvas>
+
+                </Grid>
+
+            </TabItem>
+
+        </TabControl>
+
+        <TabControl Name="dtl2TabControl"  Grid.Row="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+            <TabItem Name="matUsed2TabItem" Header="Material Used">
+                <Grid>
+                    <ListView x:Name="detailsListView">
+                        <ListView.View>
+                            <GridView/>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+
+        <Canvas x:Name="bottomCanvas" Grid.Row="3" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <Button x:Name="closeButton" Content="Cancel" HorizontalAlignment="Left" Width="75" Click="closeButton_Click" FontWeight="Bold" />
+            <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Width="75" Click="saveButton_Click" FontWeight="Bold" Canvas.Left="80" />
+            <Button x:Name="saveNextButton" Content="Save/Next" HorizontalAlignment="Left" Width="75" Click="saveNextButton_Click" FontWeight="Bold" RenderTransformOrigin="1.8,0.577" Canvas.Left="160" />
+            <Button x:Name="moveNextButton" Content="Next" HorizontalAlignment="Left" Width="75" Click="moveNextButton_Click" FontWeight="Bold" RenderTransformOrigin="1.8,0.577" Canvas.Left="240" />
+        </Canvas>
+
+    </Grid>
+</Window>

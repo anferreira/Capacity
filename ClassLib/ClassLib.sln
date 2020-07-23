@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLib", "ClassLib.csproj", "{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}.Debug.ActiveCfg = Debug|.NET
+		{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}.Debug.Build.0 = Debug|.NET
+		{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}.Release.ActiveCfg = Release|.NET
+		{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

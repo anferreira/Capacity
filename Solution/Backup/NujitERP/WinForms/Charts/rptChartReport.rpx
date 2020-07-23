@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3" PrintWidth="14970" DocumentName="ActiveReports Document" ScriptLang="C#" CodeFile="rptChartReport1.cs">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0; " />
+    <Style Name="Heading1" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading3" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; " />
+  </StyleSheet>
+  <Sections>
+    <Section Type="ReportHeader" Name="ReportHeader" Height="149" BackColor="16777215" CanShrink="0" />
+    <Section Type="Detail" Name="Detail" Height="10319" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="TextBox1" DataField="A" MOD="4" BorderLeftStyle="13" BorderTopStyle="13" BorderRightStyle="13" BorderBottomStyle="13" Left="270" Top="9270" Width="14580" Height="990" Text="TextBox1" />
+      <Control Type="AR.Image" Name="picture1" MOD="4" Left="180" Top="180" Width="14670.72" Height="2880" LineColor="16777215" LineWeight="0" HyperLink="" />
+      <Control Type="AR.Image" Name="picture2" MOD="4" Left="180" Top="3240" Width="14670.72" Height="2880" LineColor="16777215" LineWeight="0" HyperLink="" />
+      <Control Type="AR.Image" Name="picture3" MOD="4" Left="180" Top="6390" Width="14670.72" Height="2790" LineColor="16777215" LineWeight="0" HyperLink="" />
+    </Section>
+    <Section Type="ReportFooter" Name="ReportFooter" Height="360" BackColor="16777215" CanShrink="0" />
+  </Sections>
+  <PageSettings LeftMargin="144" RightMargin="144" TopMargin="720" BottomMargin="144" Orientation="2" />
+</ActiveReportsLayout>

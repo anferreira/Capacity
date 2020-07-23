@@ -1,0 +1,403 @@
+﻿<Window x:Class="HotListReports.Windows.Demand.DemandWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:HotListReports.Windows"
+        xmlns:localConverters="clr-namespace:Nujit.NujitWms.WinForms.Util.Converters;assembly=Utilities" 
+        xmlns:localUtil="clr-namespace:HotListReports.Windows.Util"     
+        mc:Ignorable="d"
+        Title="Demand" Height="700" Width="1200" Closing="Window_Closing" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <localConverters:DateTimeToStringConverter x:Key="dateTimeConverter" />
+        <localConverters:DecimalToStringConverter x:Key="decimalConverter" />
+        <localConverters:ConstantYesNoToStringConverter x:Key="yesNoToStringConverter" />
+        <localConverters:ConstantYesNoToBoolConverter x:Key="yesNoToBoolConverter" />
+        <localUtil:DecimalToStringConverterNew x:Key="decimalConverterNew" />
+    </Window.Resources>
+
+    <Grid x:Name="mainGrid">
+
+        <TabControl x:Name="mainTabControl" SelectionChanged="mainTabControl_SelectionChanged">
+            <TabItem x:Name="hdrTabItem" Header="View" >
+                <Grid x:Name="hdrMGrid" Margin="0,0,-3,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28*"/>
+                        <RowDefinition Height="557*"/>
+                        <RowDefinition Height="53*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid x:Name="viewTabItemTopGrid" Margin="0,0,0,1.528" Grid.Row="0">
+                        <Label x:Name="recordsLabel" Content="Records :" HorizontalAlignment="Left" Width="55" FontWeight="Bold"/>
+                        <TextBox x:Name="recordsTextBox" HorizontalAlignment="Left" Margin="70,0,0,0.474" TextWrapping="Wrap" Text="" Width="65" MaxLength="8"/>
+                    </Grid>
+
+                    <ListView x:Name="hdrListView" Grid.Row="1" MouseDoubleClick="hdrListView_MouseDoubleClick" >
+                        <ListView.View>
+                            <GridView>
+
+                                <GridViewColumn Header="Id" Width="70" x:Name="bolGridColumn">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Right" TextAlignment="Right" Width="70" Text="{Binding Id}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Date Created" Width="110" x:Name="dateCreatedGridColumn">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Width="110" Text="{Binding DateTime}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Status" Width="50" x:Name="statusGridColumn">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Width="50" Text="{Binding Status}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Start Date" Width="60" x:Name="startDateGridColumn">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Width="60" Text="{Binding StaDate}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="End Date" Width="60" x:Name="endDateGridColumn">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Width="60" Text="{Binding EndDate}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+
+
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Canvas x:Name="bottomCanvas" Margin="-7,1.528,0,0" Grid.Row="2" d:LayoutOverrides="VerticalAlignment, LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+                        <Label x:Name="searchForLabel" Content="Search For" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="392.032" Canvas.Top="2"/>
+                        <ComboBox x:Name="searchByComboBox" HorizontalAlignment="Left" Width="101.639" Canvas.Left="285.393" Canvas.Top="3"/>
+                        <Label x:Name="searchByLabel" Content="Search By" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="205.386" Canvas.Top="2"/>
+                        <TextBox x:Name="searchForTextBox" TextWrapping="Wrap" Canvas.Left="459.646" Canvas.Top="0.357" Width="101.64"/>
+                        <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Width="75" Click="searchButton_Click" Canvas.Left="117" FontWeight="Bold"/>
+
+
+                        <Label x:Name="stsLabel" Content="Sts" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="566.286" Canvas.Top="2"/>
+                        <ComboBox x:Name="stsComboBox" HorizontalAlignment="Left" Width="55.032" Canvas.Left="605.453" Canvas.Top="3" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+                        <Label x:Name="plantLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="566.286" Canvas.Top="27"/>
+                        <ComboBox x:Name="plantComboBox" HorizontalAlignment="Left" Width="95" Canvas.Left="605.453" Canvas.Top="28" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+
+                        <Label x:Name="fromCretedLabel" Content="From Create" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="205.386" Canvas.Top="25.14"/>
+                        <DatePicker x:Name="fromDatePicker" Canvas.Left="285.392" Canvas.Top="25.14" Width="101.64"/>
+                        <Label x:Name="toCretedLabel" Content="To Create" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="392.032" Canvas.Top="26.139"/>
+                        <DatePicker x:Name="toDatePicker" Canvas.Left="459.646" Canvas.Top="25.14" Width="101.64"/>
+
+                        <Button x:Name="firstButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5"/>
+                        <Button x:Name="prevButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="28" Canvas.Top="1" />
+                        <Button x:Name="nextButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                        <Button x:Name="lastButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+                        <Button x:Name="demDumpButton" Content="Demand Dump" HorizontalAlignment="Left" Width="110" Click="demDumpButton_Click" Canvas.Left="709" FontWeight="Bold" Canvas.Top="0.357"/>
+                        <Button x:Name="transformButton" Content="Dem.Transform" HorizontalAlignment="Left" Width="110" Click="transformButton_Click" Canvas.Left="709" Canvas.Top="25.318" FontWeight="Bold"/>
+                        <Button x:Name="merge830862Button" Content="Merge 830/862" HorizontalAlignment="Left" Width="110" Click="merge830862Button_Click" Canvas.Left="922" Canvas.Top="1" FontWeight="Bold" Visibility="Hidden"/>
+                        <Button x:Name="createHotListButton" Content="Create Hot-List" HorizontalAlignment="Left" Width="110" Click="createHotListButton_Click" Canvas.Left="824" Canvas.Top="0.357" FontWeight="Bold" />
+                        <Button x:Name="dumpTransCreateHotListButton" Content="D/Tr/Cr Hot-List" HorizontalAlignment="Left" Width="110" Click="dumpTransCreateHotListButton_Click" Canvas.Left="824" Canvas.Top="25.318" FontWeight="Bold" />
+                    </Canvas>
+
+
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="dtlTabItem" Header="Detail" >
+                <Grid x:Name="dtlGrid" Margin="0,0,-3,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="33*"/>
+                        <RowDefinition Height="561*"/>
+                        <RowDefinition Height="46*"/>
+                    </Grid.RowDefinitions>
+
+                    <TabControl Name="dtlTabControl" Grid.Row="1" SelectionChanged="dtlTabControl_SelectionChanged" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <TabItem x:Name="dtlView1Item" Header="Details" >
+                            <Grid >
+                                <ListView x:Name="dtlListView" Grid.Row="1"  MouseDoubleClick="dtlListView_MouseDoubleClick" SelectionChanged="dtlListView_SelectionChanged">
+                                    <ListView.View>
+                                        <GridView>
+
+                                            <GridViewColumn Header="Dtl#" Width="30" x:Name="detailGridColumn">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock HorizontalAlignment="Right" TextAlignment="Right" Width="40" Text="{Binding Detail}"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+
+                                            <GridViewColumn Header="Source" Width="60" DisplayMemberBinding="{Binding Source}"/>
+                                            <GridViewColumn Header="TPartner" Width="70" DisplayMemberBinding="{Binding TPartner}"/>
+
+                                            <GridViewColumn Header="RelDate" Width="65" DisplayMemberBinding="{Binding RelDate}"/>
+                                            <GridViewColumn Header="RelNum" Width="70" DisplayMemberBinding="{Binding RelNum}"/>
+
+
+
+                                            <GridViewColumn Header="Part" Width="70" DisplayMemberBinding="{Binding Part}"/>
+                                            <GridViewColumn Header="Cust Part" Width="100" DisplayMemberBinding="{Binding CustPart}"/>
+                                            <GridViewColumn Header="TimeC" Width="40" DisplayMemberBinding="{Binding TimeCode}"/>
+
+                                            <GridViewColumn Header="CurCum" Width="50" x:Name="currCumGridColumn">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock HorizontalAlignment="Right" TextAlignment="Right" Width="50" Text="{Binding CurrCum}"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+
+                                            <GridViewColumn Header="QtyCum" Width="50" x:Name="qtyCumGridColumn">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock HorizontalAlignment="Right" TextAlignment="Right" Width="50" Text="{Binding QtyCum}"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+
+                                            <GridViewColumn Header="NetQty" Width="50" x:Name="netQtyGridColumn">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock HorizontalAlignment="Right" TextAlignment="Right" Width="50" Text="{Binding NetQty}"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+
+                                            <GridViewColumn Header="ShipDate" Width="65" DisplayMemberBinding="{Binding SDateStr}"/>
+
+                                            <GridViewColumn Header="FaACum" Width="50" x:Name="faAutCumGridColumn">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock HorizontalAlignment="Right" TextAlignment="Right" Width="50" Text="{Binding FaAutCum}"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+
+                                            <GridViewColumn Header="MaACum" Width="50" x:Name="maAutCumGridColumn">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock HorizontalAlignment="Right" TextAlignment="Right" Width="50" Text="{Binding MaAutCum}"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+
+                                            <GridViewColumn Header="Bill To" Width="70" DisplayMemberBinding="{Binding BillTo}"/>
+                                            <GridViewColumn Header="Ship To" Width="70" DisplayMemberBinding="{Binding ShipTo}"/>
+                                            <GridViewColumn Header="ShipLoc" Width="70" DisplayMemberBinding="{Binding ShipLoc}"/>
+                                            <GridViewColumn Header="ShipLTim" Width="50" DisplayMemberBinding="{Binding ShipLTimStr}"/>
+                                            <GridViewColumn Header="ShipLTUn" Width="50" DisplayMemberBinding="{Binding ShipLTUn}"/>
+                                            <GridViewColumn Header="CurShDoc" Width="70" DisplayMemberBinding="{Binding CurShDoc}"/>
+
+                                            <GridViewColumn Header="AdjNQty" Width="50" x:Name="adjNQtyGridColumn">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock HorizontalAlignment="Right" TextAlignment="Right" Width="50" Text="{Binding AdjNQty}"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+
+
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+
+                            </Grid>
+                        </TabItem>
+
+                        <TabItem x:Name="dtlView2Item" Header="By Dates" >
+                            <Grid >
+                                <ListView x:Name="dtlDaysListView" MouseDoubleClick="dtlDaysListView_MouseDoubleClick" SelectionChanged="dtlDaysListView_SelectionChanged">
+                                    <ListView.View>
+                                        <GridView>
+
+
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+
+                            </Grid>
+                        </TabItem>
+
+                        <TabItem x:Name="detailAuthorizTabItem" Header="Detail/Authoriz" >
+                            <Grid >
+                                <ListView x:Name="dtlDaysAuhorizListView" SelectionChanged="dtlDaysAuhorizListView_SelectionChanged" MouseDoubleClick="dtlDaysAuhorizListView_MouseDoubleClick">
+                                    <ListView.View>
+                                        <GridView>
+
+
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+
+                            </Grid>
+                        </TabItem>
+
+                        <TabItem x:Name="detailPlanVsProductionTabItem" Header="Plan/Production" >
+                            <Grid >
+                                <ListView x:Name="dtlPlanVsProductionListView" SelectionChanged="dtlPlanVsProductionListView_SelectionChanged" MouseDoubleClick="dtlPlanVsProductionListView_MouseDoubleClick">
+                                    <ListView.View>
+                                        <GridView>
+
+
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+
+                            </Grid>
+                        </TabItem>
+
+                    </TabControl>
+
+
+                    <Canvas Name="dtlTopCanvas" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Label x:Name="idLabel" Content="Id" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="1" Width="59"/>
+                        <TextBox x:Name="idTextBox" TextWrapping="Wrap" Canvas.Left="50" Canvas.Top="1" Width="85" IsEnabled="False" IsReadOnly="True" Text="{Binding Id}" />
+
+                        <Label x:Name="dateTimeLabel" Content="DateCreated" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="146" Width="84"/>
+                        <TextBox x:Name="dateTimeTextBox" TextWrapping="Wrap" Canvas.Left="225" Canvas.Top="1" Width="151" IsEnabled="False" IsReadOnly="True" Text="{Binding DateTime, ConverterParameter=DateTime, Converter={StaticResource dateTimeConverter}}" />
+
+                        <Label x:Name="statusLabel" Content="Status" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="381" Width="59" Canvas.Top="0.04"/>
+                        <TextBox x:Name="statusTextBox" TextWrapping="Wrap" Canvas.Left="440" Canvas.Top="1" Width="30" IsEnabled="False" IsReadOnly="True" Text="{Binding Status}"/>
+
+                        <Label x:Name="from2CretedLabel" Content="Start Date" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="482.923" Canvas.Top="0.04"/>
+                        <TextBox x:Name="fromTextBox" TextWrapping="Wrap" Canvas.Left="555" Canvas.Top="1" Width="100" IsEnabled="False" IsReadOnly="True" Text="{Binding StaDate, ConverterParameter=Date, Converter={StaticResource dateTimeConverter}}" />
+
+                        <Label x:Name="to2CretedLabel" Content="To Date" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="657.923" Width="74" Canvas.Top="0.04"/>
+                        <TextBox x:Name="endTextBox" TextWrapping="Wrap" Canvas.Left="716.923" Canvas.Top="1" Width="100" IsEnabled="False" IsReadOnly="True" Text="{Binding EndDate, ConverterParameter=Date, Converter={StaticResource dateTimeConverter}}"/>
+                    </Canvas>
+
+                    <Canvas Grid.Row="2" Name="dtlBottomCanvas" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Button x:Name="firstDButton" Width="23" Height="21.277" Content="|&lt;"/>
+                        <Button x:Name="prevDButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="23"/>
+                        <Button x:Name="nextDButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="46" />
+                        <Button x:Name="lastDButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="69" />
+
+                        <Button x:Name="firstD2Button" Width="23" Height="21.277" Content="|&lt;"/>
+                        <Button x:Name="prevD2Button" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="23"/>
+                        <Button x:Name="nextD2Button" Width="23" Content="&gt;" Height="21.277" Canvas.Left="46" />
+                        <Button x:Name="lastD2Button" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="69"/>
+
+                        <Button x:Name="firstD3Button" Width="23" Height="21.277" Content="|&lt;"/>
+                        <Button x:Name="prevD3Button" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="23"/>
+                        <Button x:Name="nextD3Button" Width="23" Content="&gt;" Height="21.277" Canvas.Left="46" />
+                        <Button x:Name="lastD3Button" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="69"/>
+
+                        <Button x:Name="firstD4Button" Width="23" Height="21.277" Content="|&lt;"/>
+                        <Button x:Name="prevD4Button" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="23"/>
+                        <Button x:Name="nextD4Button" Width="23" Content="&gt;" Height="21.277" Canvas.Left="46" />
+                        <Button x:Name="lastD4Button" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="69"/>
+
+                        <Button x:Name="searchDtlButton" Content="Search" HorizontalAlignment="Left" Width="75" Click="searchDtlButton_Click" Canvas.Left="207" FontWeight="Bold" Canvas.Top="-0.178"/>
+
+                        <Button x:Name="detailButton" Content="Edit Dtl" HorizontalAlignment="Left" Width="70" Click="detailButton_Click" Canvas.Left="112" FontWeight="Bold" Canvas.Top="26.002"/>
+                        <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Width="70" Click="saveButton_Click" Canvas.Left="112" FontWeight="Bold" Canvas.Top="-0.999"/>
+                        <Button x:Name="exportButton" Content="Export" HorizontalAlignment="Left" Width="70" Click="exportButton_Click" Canvas.Left="112" FontWeight="Bold" Canvas.Top="26.002"/>
+
+                        <Label x:Name="sourceLabel" Content="Soure" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="289.453" Canvas.Top="-0.999"/>
+                        <ComboBox x:Name="sourceComboBox" HorizontalAlignment="Left" Width="80" Canvas.Left="332" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+                        <Label x:Name="billToLabel" Content="BillTo" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="412" />
+                        <ComboBox x:Name="billToComboBox" HorizontalAlignment="Left" Width="75" Canvas.Left="451.167" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+                        <Label x:Name="shipToLabel" Content="ShipTo" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="532" />
+                        <ComboBox x:Name="shipToComboBox" HorizontalAlignment="Left" Width="75" Canvas.Left="580.09" SelectedValuePath="Content" DisplayMemberPath="Display" Canvas.Top="-0.999"/>
+
+                        <Label x:Name="timeCoedeLabel" Content="TimeC" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="661.585" Canvas.Top="-0.999" Width="51.913"/>
+                        <ComboBox x:Name="timeCodeComboBox" HorizontalAlignment="Left" Width="75" Canvas.Left="711.998" SelectedValuePath="Content" DisplayMemberPath="Display" Canvas.Top="0.999"/>
+
+                        <Label x:Name="discardFilterLabel" Content="Discard" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="661.585" Canvas.Top="26.002"/>
+                        <ComboBox x:Name="discardFilterComboBox" HorizontalAlignment="Left" Width="75" Canvas.Left="711.998" SelectedValuePath="Content" DisplayMemberPath="Display" Canvas.Top="27.959"/>
+
+
+                        <Label x:Name="searchForPartLabel" Content="Part" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="798.68" Canvas.Top="-0.999" Width="48.68"/>
+                        <TextBox x:Name="searchForPartTextBox" TextWrapping="Wrap" Canvas.Left="847.36" Width="129.64" Canvas.Top="-0.999" Height="13.167"/>
+
+                        <Label x:Name="searchTrlpKeyLabel" Content="TrlpKey" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="797.68" Canvas.Top="26.002" Width="59.32"/>
+                        <TextBox x:Name="searchTrlpKeyTextBox" TextWrapping="Wrap" Canvas.Left="847.36" Width="89.64" Canvas.Top="25.001" Height="13.167" MaxLength="10" Text="{Binding TrlpKey, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" TextAlignment="Right"/>
+
+                        <Label x:Name="timeLabel" Content="Time 0 secs" Canvas.Left="207" Canvas.Top="26.042" Width="164.01" FontWeight="Bold"/>
+                        <CheckBox x:Name="includeProductionCheckBox" Content="IncludeProduction" Canvas.Left="982" Canvas.Top="0.999" FontWeight="Bold" Click="includeProductionCheckBox_Click"/>
+                        <CheckBox x:Name="includeZeroQtyCheckBox" Content="Include Zero Qty" Canvas.Left="982" Canvas.Top="23.692" FontWeight="Bold" Click="includeZeroQtyCheckBox_Click"/>
+
+                    </Canvas>
+
+
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="transformTabItem" Header="Transform" >
+                <Grid x:Name="transformGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="69*"/>
+                        <RowDefinition Height="540*"/>
+                        <RowDefinition Height="31*"/>
+                    </Grid.RowDefinitions>
+
+                    <GroupBox x:Name="transformTopGroupBox" Header="" Grid.Row="0"  >
+                        <Canvas  Name="transformTopCanvas"  Canvas.Top="-1" Margin="0,-8,0,8">
+
+                            <Label x:Name="timeCodeLabel" Content="TimeCode" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="1" Width="74" Canvas.Top="3.08"/>
+                            <TextBox x:Name="timeCodeTextBox" TextWrapping="Wrap" Canvas.Left="75" Width="30" IsEnabled="False" IsReadOnly="True" Text="{Binding TimeCode}" Canvas.Top="3.04"/>
+
+                            <Label x:Name="discardLabel" Content="Discard" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="105" Width="51" Canvas.Top="3.12"/>
+                            <TextBox x:Name="discardTextBox" TextWrapping="Wrap" Canvas.Left="156" Width="30" IsEnabled="False" IsReadOnly="True" Text="{Binding Discard}" Canvas.Top="3.08"/>
+
+                            <Label x:Name="partLabel" Content="Part" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="201" Canvas.Top="3.12" Width="60"/>
+                            <TextBox x:Name="partTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Part}" Width="200" Canvas.Left="266" Canvas.Top="3.08" MaxLength="40" IsEnabled="False"/>
+
+                            <Label x:Name="netQtyLabel" Content="Net Qty" HorizontalAlignment="Left" FontWeight="Bold" Width="75" Canvas.Left="471" Canvas.Top="3.04"/>
+                            <TextBox x:Name="netQtyTextBox" TextWrapping="Wrap" Canvas.Left="551" Width="95" IsEnabled="False" IsReadOnly="True" Text="{Binding NetQty}" Canvas.Top="3.04"  />
+
+                            <Label x:Name="shipDateLabel" Content="ShipDate" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="651" Width="74" Canvas.Top="3.04"/>
+                            <TextBox x:Name="shipDateTextBox" TextWrapping="Wrap" Canvas.Left="729" Width="151" IsEnabled="False" IsReadOnly="True" Text="{Binding SDate, ConverterParameter=Date, Converter={StaticResource dateTimeConverter}}" Canvas.Top="2" />
+
+                            <Label x:Name="sourceTLabel" Content="Source" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="1" Width="74" Canvas.Top="31.044"/>
+                            <TextBox x:Name="sourceTTextBox" TextWrapping="Wrap" Canvas.Left="75" Width="111" IsEnabled="False" IsReadOnly="True" Text="{Binding Source}" Canvas.Top="31.004"/>
+
+                            <Label x:Name="billToTLabel" Content="BillTo" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="201" Width="59" Canvas.Top="30.04"/>
+                            <TextBox x:Name="billToTTextBox" TextWrapping="Wrap" Canvas.Left="266" Width="102" IsEnabled="False" IsReadOnly="True" Text="{Binding BillTo}" Canvas.Top="30"/>
+
+                            <Label x:Name="shipToTLabel" Content="ShipTo" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="471" Width="74" Canvas.Top="29.96"/>
+                            <TextBox x:Name="shipToTextBox" TextWrapping="Wrap" Canvas.Left="551" Width="95" IsEnabled="False" IsReadOnly="True" Text="{Binding ShipTo}" Canvas.Top="30"/>
+
+                            <Label x:Name="shipLocTLabel" Content="ShipLoc" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="651" Width="74" Canvas.Top="29.96"/>
+                            <TextBox x:Name="shipLocTextBox" TextWrapping="Wrap" Canvas.Left="729" Width="151" IsEnabled="False" IsReadOnly="True" Text="{Binding ShipLoc}" Canvas.Top="31.044"/>
+
+
+                        </Canvas>
+                    </GroupBox>
+
+                    <ListView x:Name="transformListView" Grid.Row="1" >
+                        <ListView.View>
+                            <GridView>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <Canvas  Name="transformBottomCanvas" Grid.Row="2">
+                        <Button x:Name="cancelTransformButton" Content="Cancel" HorizontalAlignment="Left" Width="70" Click="cancelTransformButton_Click" FontWeight="Bold" Canvas.Left="1" Canvas.Top="4"/>
+                    </Canvas>
+
+                </Grid>
+            </TabItem>
+
+
+        </TabControl>
+    </Grid>
+</Window>

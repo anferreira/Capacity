@@ -1,0 +1,119 @@
+﻿<Window x:Class="HotListReports.Windows.Labour.LabourViewsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:HotListReports.Windows.Machines"
+        mc:Ignorable="d"
+        Title="Labour Views" Height="700" Width="1200" Closing="Window_Closing" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+
+    <Grid x:Name="mainGridy">
+        <TabControl x:Name="mainTabControl" Grid.Row="0" SelectionChanged="mainTabControl_SelectionChanged">
+
+            <TabItem x:Name="labourPlanningTabItem" Header="Labour Planning"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <Grid x:Name="labourPlanningTabItemGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="205*"/>
+                        <RowDefinition Height="18*"/>
+                    </Grid.RowDefinitions>
+
+                    <ListView x:Name="labourPlanningListView" Grid.Row="0" SelectionChanged="labourPlanningListView_SelectionChanged" MouseDoubleClick="labourPlanningListView_MouseDoubleClick"/>
+
+                    <Canvas x:Name="bottomCanvas" Margin="-7,1.528,0,0" Grid.Row="1" d:LayoutOverrides="VerticalAlignment, LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+                        <Label x:Name="searchForLabel" Content="Search For" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="377.746" Canvas.Top="2"/>
+                        <ComboBox x:Name="searchByComboBox" HorizontalAlignment="Left" Width="101.639" Canvas.Left="271.107" Canvas.Top="3"/>
+                        <Label x:Name="searchByLabel" Content="Search By" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="205.386" Canvas.Top="2"/>
+                        <TextBox x:Name="searchForTextBox" TextWrapping="Wrap" Canvas.Left="445.36" Width="101.64"/>
+                        <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Width="75" Click="searchButton_Click" Canvas.Left="117" FontWeight="Bold"/>
+
+                        <Label x:Name="timeLabel" Content="Time 0 secs" Canvas.Left="197" Canvas.Top="28.379" Width="164.01" FontWeight="Bold"/>
+
+                        <Button x:Name="firstButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Left="10" />
+                        <Button x:Name="prevButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="33"/>
+                        <Button x:Name="nextButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="56" />
+                        <Button x:Name="lastButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="79" />
+
+                        <Label x:Name="plantLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="552"  Canvas.Top="2"/>
+                        <ComboBox x:Name="plantComboBox" HorizontalAlignment="Left" Width="95" Canvas.Left="591" Canvas.Top="3" SelectedValuePath="Content" DisplayMemberPath="Display" SelectionChanged="plantComboBox_SelectionChanged" />
+
+                        <Label x:Name="deptLabel" Content="Dept" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="552"  Canvas.Top="27.969"/>
+                        <ComboBox x:Name="deptComboBox" HorizontalAlignment="Left" Width="95" Canvas.Left="591" Canvas.Top="28" SelectedValuePath="Content" DisplayMemberPath="Display" SelectionChanged="deptComboBox_SelectionChanged" />
+
+                        <Label x:Name="machineLabel" Content="Machine" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="691.167" Canvas.Top="2"/>
+                        <ComboBox x:Name="machineComboBox" HorizontalAlignment="Left" Width="175.296" Canvas.Left="754.254" Canvas.Top="3" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+                        <Label x:Name="partLabel" Content="Part" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="934.55" Canvas.Top="2"/>
+                        <TextBox x:Name="partTextBox" TextWrapping="Wrap" Canvas.Left="972.87" Width="129.64" Height="25.674" Canvas.Top="1"/>
+
+                        <CheckBox x:Name="includeProductionCheckBox" Content="IncludeProduction" Canvas.Left="972.87" Canvas.Top="27.969" FontWeight="Bold" Click="includeProductionCheckBox_Click"/>
+
+                    </Canvas>
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="labourShiftPlanningTabItem" Header="Labour Shift Planning" >
+
+                <Grid Name="labourShiftPlanningBottomGrid">
+                    
+                    <ScrollViewer Name="scrollView" Grid.Row="1" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Background="White">
+                        <Grid Name="scrollViewGrid">
+                            <StackPanel Name="mainStack">
+
+                            </StackPanel>
+                        </Grid>                            
+                    </ScrollViewer>
+
+                </Grid>
+
+            </TabItem>
+
+            <TabItem x:Name="labourShiftPlanningSumTabItem" Header="Labour Shift Summary Planning" >
+                <Grid x:Name="labourShiftPlanningSumTabItemGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="379*"/>
+                        <RowDefinition Height="30*"/>
+                        <RowDefinition Height="231*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Name="labourShiftPlanningSumTopGrid" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+                        <ScrollViewer Name="scrollSummaryView" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Visible" Background="White">
+                            <StackPanel Name="mainSummaryStack">
+
+                            </StackPanel>
+                        </ScrollViewer>
+
+                    </Grid>
+
+                    <Canvas Name="middleCanvas" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Button x:Name="autoEmpShiftScheduleButton" Width="102" Height="20" Content="Auto Temp" Canvas.Left="10" Click="autoEmpShiftScheduleButton_Click"/>
+                    </Canvas>
+
+                    <Grid Name="labourShiftPlanningSumBottomGrid" Grid.Row="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+                        <ScrollViewer Name="scrollSummaryShiftView" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Visible" Background="White">
+                            <StackPanel Name="mainSummaryShiftStack">
+
+                            </StackPanel>
+                        </ScrollViewer>
+
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+
+            <TabItem x:Name="labourTabItem" Header="Labour Capacity"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <Grid x:Name="labourTabItemGrid">
+                    <ListView x:Name="labourListView"/>
+                </Grid>
+            </TabItem>
+
+
+        </TabControl>
+
+
+    </Grid>
+
+</Window>

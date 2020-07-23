@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{264E7370-97E5-4AE1-9CC0-F88FBF9C964B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HotListReports</RootNamespace>
+    <AssemblyName>HotListReports</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>funnelcloud_logo_inverted_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AS400WPFLib">
+      <HintPath>..\NujitERP\Controls\Concord\AS400WPFLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\NujitERP\Controls\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=1.0.7.22053, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NujitERP\Controls\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NujitWms.ReportLibrary">
+      <HintPath>..\NujitERP\Controls\NujitWms.ReportLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="NujitWmsClassLib">
+      <HintPath>..\NujitERP\Controls\Concord\NujitWmsClassLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NujitWPFUtilities">
+      <HintPath>..\NujitERP\Controls\Concord\NujitWPFUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess">
+      <HintPath>..\NujitERP\Controls\Telerik.OpenAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.40.Extensions">
+      <HintPath>..\NujitERP\Controls\Telerik.OpenAccess.40.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.Runtime">
+      <HintPath>..\NujitERP\Controls\Telerik.OpenAccess.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting, Version=9.2.15.1216, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NujitERP\Controls\Telerik.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Wpf, Version=9.2.15.1216, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NujitERP\Controls\Telerik.ReportViewer.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\NujitERP\Controls\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>..\NujitERP\Controls\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\NujitERP\Controls\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\NujitERP\Controls\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="Utilities">
+      <HintPath>..\NujitERP\Controls\Concord\Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="VIBlend.WPF.Editors">
+      <HintPath>..\NujitERP\Controls\VIBlend.WPF.Editors.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFWinformsIntegration">
+      <HintPath>..\NujitERP\Controls\Concord\WPFWinformsIntegration.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Reports\EDI870RptWindow.xaml.cs">
+      <DependentUpon>EDI870RptWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\HotList1268-3RptStoredWindow.xaml.cs">
+      <DependentUpon>HotList1268-3RptStoredWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\HotList1268-3RptWindow.xaml.cs">
+      <DependentUpon>HotList1268-3RptWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\HotList1268RptWindow.xaml.cs">
+      <DependentUpon>HotList1268RptWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ShowReport.cs" />
+    <Compile Include="Windows\AddMainMaterialWindow.xaml.cs">
+      <DependentUpon>AddMainMaterialWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\BolWindow.xaml.cs">
+      <DependentUpon>BolWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Bom\BomWindow.xaml.cs">
+      <DependentUpon>BomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Bom\Models\BomModel.cs" />
+    <Compile Include="Windows\Customer\CustLeadAdjustWindow.xaml.cs">
+      <DependentUpon>CustLeadAdjustWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Customer\CustLeadWindow.xaml.cs">
+      <DependentUpon>CustLeadWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Customer\CustomerShipNoteWindow.xaml.cs">
+      <DependentUpon>CustomerShipNoteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Customer\CustomerWindow.xaml.cs">
+      <DependentUpon>CustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Customer\CustomViewWindow.xaml.cs">
+      <DependentUpon>CustomViewWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Customer\Models\CustLeadAdjustModel.cs" />
+    <Compile Include="Windows\Customer\Models\CustomerShipNoteModel.cs" />
+    <Compile Include="Windows\Customer\Models\CustLeadModel.cs" />
+    <Compile Include="Windows\Customer\Models\CustomViewModel.cs" />
+    <Compile Include="Windows\Customer\Models\CustomerModel.cs" />
+    <Compile Include="Windows\Customer\Models\ShipReleaseColorConverter.cs" />
+    <Compile Include="Windows\Customer\Models\ValueBiggerColorConverter.cs" />
+    <Compile Include="Windows\Customer\Models\QtyShipOrderColorConverter.cs" />
+    <Compile Include="Windows\Customer\Models\DayLateColorConverter.cs" />
+    <Compile Include="Windows\Demand\CapacityHdrWindow.xaml.cs">
+      <DependentUpon>CapacityHdrWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Demand\CapacityOptionsWindow.xaml.cs">
+      <DependentUpon>CapacityOptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Demand\CapacityReportWindow.xaml.cs">
+      <DependentUpon>CapacityReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Demand\CapSelMachineHotListWindow.xaml.cs">
+      <DependentUpon>CapSelMachineHotListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Demand\CapSelMachineWindow.xaml.cs">
+      <DependentUpon>CapSelMachineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Demand\CapShiftProfile.xaml.cs">
+      <DependentUpon>CapShiftProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Demand\CapShiftTaskWindow.xaml.cs">
+      <DependentUpon>CapShiftTaskWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Demand\Converters\CapacityValueColorConverter2.cs" />
+    <Compile Include="Windows\Demand\Converters\PriorityConverter.cs" />
+    <Compile Include="Windows\Demand\DemandCompareWindow.xaml.cs">
+      <DependentUpon>DemandCompareWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Demand\DemandDtlWindow.xaml.cs">
+      <DependentUpon>DemandDtlWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Demand\DemandTransformOptionsWindow.xaml.cs">
+      <DependentUpon>DemandTransformOptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Demand\DemandOptionsWindow.xaml.cs">
+      <DependentUpon>DemandOptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Demand\DemandWindow.xaml.cs">
+      <DependentUpon>DemandWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Demand\Converters\CapacityValueColorConverter.cs" />
+    <Compile Include="Windows\Demand\Converters\HoursColorConverter.cs" />
+    <Compile Include="Windows\Demand\Models\DemandCompareModel.cs" />
+    <Compile Include="Windows\Demand\Models\CapacityOptionsModel.cs" />
+    <Compile Include="Windows\Demand\Models\DemandTransformOptionsModel.cs" />
+    <Compile Include="Windows\Demand\Models\DemandOptionsModel.cs" />
+    <Compile Include="Windows\Demand\Models\HotListModel.cs" />
+    <Compile Include="Windows\Demand\Models\CapacitySelMachineModel.cs" />
+    <Compile Include="Windows\Demand\Models\MachineSel.cs" />
+    <Compile Include="Windows\EmployeeSchedule\EmployeeSheduleRptWindow.xaml.cs">
+      <DependentUpon>EmployeeSheduleRptWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EmployeeSchedule\MachineScheduleRptWindow.xaml.cs">
+      <DependentUpon>MachineScheduleRptWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EmployeeSchedule\Model\ScheduleRptModel.cs" />
+    <Compile Include="Windows\EmployeeSchedule\Model\PriorityColorConverter.cs" />
+    <Compile Include="Windows\EmployeeSchedule\Model\MachineSheduleRptModel.cs" />
+    <Compile Include="Windows\EmployeeSchedule\Model\EmployeeSheduleRptModel.cs" />
+    <Compile Include="Windows\HotList\HotListScheduleWindow.xaml.cs">
+      <DependentUpon>HotListScheduleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HotList\Models\HotListInvAnalysisViewSel.cs" />
+    <Compile Include="Windows\HotList\Models\HotListScheduleModel.cs" />
+    <Compile Include="Windows\Inventory\Model\SeriModel.cs" />
+    <Compile Include="Windows\Inventory\Model\SchMaterialAvailModel.cs" />
+    <Compile Include="Windows\Inventory\SchMaterialAvailWindow.xaml.cs">
+      <DependentUpon>SchMaterialAvailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Inventory\SeriWindow.xaml.cs">
+      <DependentUpon>SeriWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Schedule\AddDownWindow.xaml.cs">
+      <DependentUpon>AddDownWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Demand\Models\HotListCellSel.cs" />
+    <Compile Include="Windows\Schedule\Models\ScheduleHdModel.cs" />
+    <Compile Include="Windows\Demand\Models\ScheduleHdrModel.cs" />
+    <Compile Include="Windows\Demand\Models\DemandDtlModel.cs" />
+    <Compile Include="Windows\Demand\Models\CapacityHdrModel.cs" />
+    <Compile Include="Windows\Demand\Models\DemandModel.cs" />
+    <Compile Include="Windows\Demand\Models\CapacityReportModel.cs" />
+    <Compile Include="Windows\Demand\Models\CapShiftTaskModel.cs" />
+    <Compile Include="Windows\Demand\Models\CapShiftProfileModel.cs" />
+    <Compile Include="Windows\Schedule\ScheduleHdWindow.xaml.cs">
+      <DependentUpon>ScheduleHdWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Employee\EmployeeWindow.xaml.cs">
+      <DependentUpon>EmployeeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Employee\Models\EmployeeModel.cs" />
+    <Compile Include="Windows\HotList\HotListWindow.xaml.cs">
+      <DependentUpon>HotListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HotList\Models\HotListModel.cs" />
+    <Compile Include="Windows\Inventory\InventoryObjectivesWindow.xaml.cs">
+      <DependentUpon>InventoryObjectivesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Inventory\Model\InventoryObjectivesModel.cs" />
+    <Compile Include="Windows\Labour\LabourViewsWindow.xaml.cs">
+      <DependentUpon>LabourViewsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Labour\LTestWindow.xaml.cs">
+      <DependentUpon>LTestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Labour\Model\ReportTypeViewsModel.cs" />
+    <Compile Include="Windows\Labour\Model\LabourViewsModel.cs" />
+    <Compile Include="Windows\Location\DepartmentWindow.xaml.cs">
+      <DependentUpon>DepartmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Location\Models\DepartmentModel.cs" />
+    <Compile Include="Windows\Machine\MachineAlterPlanWindow.xaml.cs">
+      <DependentUpon>MachineAlterPlanWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Machine\MachineViewsWindow.xaml.cs">
+      <DependentUpon>MachineViewsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Machine\MachineWindow.xaml.cs">
+      <DependentUpon>MachineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Machine\Models\MachineAlterPlanModel.cs" />
+    <Compile Include="Windows\Machine\Models\MachineModel.cs" />
+    <Compile Include="Windows\Machine\Models\MachineViewsModel.cs" />
+    <Compile Include="Windows\MainMatWindow.xaml.cs">
+      <DependentUpon>MainMatWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Product\Converters\LabourTypeToolConverter.cs" />
+    <Compile Include="Windows\Product\Models\ToolModel.cs" />
+    <Compile Include="Windows\Product\Models\RoutingModel.cs" />
+    <Compile Include="Windows\Product\Models\ProductModel.cs" />
+    <Compile Include="Windows\Product\ProductWindow.xaml.cs">
+      <DependentUpon>ProductWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Product\RoutingWindow.xaml.cs">
+      <DependentUpon>RoutingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Product\ToolWindow.xaml.cs">
+      <DependentUpon>ToolWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ShiftProfile\CapProfileHolidayWindow.xaml.cs">
+      <DependentUpon>CapProfileHolidayWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ShiftProfile\Models\CapProfileHolidayModel.cs" />
+    <Compile Include="Windows\Transfer\DataTransferWindow.xaml.cs">
+      <DependentUpon>DataTransferWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Transfer\Models\DataTransferModel.cs" />
+    <Compile Include="Windows\Util\BaseModel2.cs" />
+    <Compile Include="Windows\Util\BaseModel.cs" />
+    <Compile Include="Windows\Util\BaseModelObjects.cs" />
+    <Compile Include="Windows\Util\ButtonsListViewFunctions.cs" />
+    <Compile Include="Windows\Util\Colors\UIColors.cs" />
+    <Compile Include="Windows\Util\Columns\ButtonColumnListView.cs" />
+    <Compile Include="Windows\Util\Columns\RadNumericTextboxColumnListView.cs" />
+    <Compile Include="Windows\Util\Columns\RadTimePickerColumnListView.cs" />
+    <Compile Include="Windows\Util\Columns\RadDatePickerColumnListView.cs" />
+    <Compile Include="Windows\Util\Columns\TextBlockNewColumnListView.cs" />
+    <Compile Include="Windows\Util\Columns\TextNumericNewColumnListView.cs" />
+    <Compile Include="Windows\Util\Columns\ShiftTaskComboColumnListView.cs" />
+    <Compile Include="Windows\Util\Columns\MachineComboColumnListView.cs" />
+    <Compile Include="Windows\Util\Columns\EmployeeComboColumnListView.cs" />
+    <Compile Include="Windows\Util\Columns\ComboColumnListView.cs" />
+    <Compile Include="Windows\Util\ContextMenuListViewFunctions.cs" />
+    <Compile Include="Windows\Util\Converters\ConstantYesNoToBoolConverter.cs" />
+    <Compile Include="Windows\Util\Converters\DateTimeToStringConverterNew.cs" />
+    <Compile Include="Windows\Util\Converters\DecimalToStringConverter.cs" />
+    <Compile Include="Windows\Util\Converters\BoolDifferentColorConverter.cs" />
+    <Compile Include="Windows\Util\Converters\ValueHotStringColorConverter.cs" />
+    <Compile Include="Windows\Util\Converters\ValueDifferentZeroColorConverter.cs" />
+    <Compile Include="Windows\Util\Converters\ValueBiggerColorConverter.cs" />
+    <Compile Include="Windows\Util\Export\ExportListView.cs" />
+    <Compile Include="Windows\Util\Export\ExportModel.cs" />
+    <Compile Include="Windows\Util\ListViewColFr.cs" />
+    <Compile Include="Windows\Util\ListViewColManual.cs" />
+    <Compile Include="Windows\Util\ListViewCol.cs" />
+    <Compile Include="Windows\Util\BaseModelDatesReport.cs" />
+    <Compile Include="Windows\Util\Message\CustomMessageBoxWindow.xaml.cs">
+      <DependentUpon>CustomMessageBoxWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Util\ReportTypeViewsModel.cs" />
+    <Compile Include="Windows\Util\DateRadColumnListView.cs" />
+    <Compile Include="Windows\Util\Time\MathUtil.cs" />
+    <Compile Include="Windows\Util\Time\TimeHelper.cs" />
+    <Compile Include="Windows\Util\Time\TimePicker.cs" />
+    <Compile Include="Windows\Util\Time\TimeControl.xaml.cs">
+      <DependentUpon>TimeControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Reports\EDI870RptWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reports\HotList1268-3RptStoredWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reports\HotList1268-3RptWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reports\HotList1268RptWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\AddMainMaterialWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\BolWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Bom\BomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Customer\CustLeadAdjustWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Customer\CustLeadWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Customer\CustomerShipNoteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Customer\CustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Customer\CustomViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Demand\CapacityHdrWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Demand\CapacityOptionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Demand\CapacityReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Demand\CapSelMachineHotListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Demand\CapSelMachineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Demand\CapShiftProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Demand\CapShiftTaskWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Demand\DemandCompareWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Demand\DemandDtlWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Demand\DemandTransformOptionsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Demand\DemandOptionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Demand\DemandWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EmployeeSchedule\EmployeeSheduleRptWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EmployeeSchedule\MachineScheduleRptWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HotList\HotListScheduleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Inventory\SchMaterialAvailWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Inventory\SeriWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Schedule\AddDownWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Schedule\ScheduleHdWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Employee\EmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HotList\HotListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Inventory\InventoryObjectivesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Labour\LabourViewsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Labour\LTestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Location\DepartmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Machine\MachineAlterPlanWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Machine\MachineViewsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Machine\MachineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainMatWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Product\ProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Product\RoutingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Product\ToolWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ShiftProfile\CapProfileHolidayWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Transfer\DataTransferWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Util\Message\CustomMessageBoxWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Util\Time\TimeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLib\ClassLib.csproj">
+      <Project>{88ed0dd9-04f8-4eda-98af-f8b8982dea09}</Project>
+      <Name>ClassLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="funnelcloud_logo_inverted_icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

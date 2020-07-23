@@ -1,0 +1,5 @@
+/*
+ALTER TABLE funnel.rp1268d2 ADD COLUMN AVMING varchar(20)
+*/
+ALTER TABLE funnel.rp1268d2 ADD COLUMN AVMAJG varchar(20)
+

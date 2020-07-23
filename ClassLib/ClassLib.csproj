@@ -1,0 +1,2017 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>7.10.3077</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon />
+    <AssemblyKeyContainerName />
+    <AssemblyName>FunnelERPClassLib</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Nujit.NujitERP.ClassLib</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE;</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActiveReports.HtmlExport">
+      <Name>ActiveReports.HtmlExport</Name>
+      <HintPath>..\NujitERP\Controls\ActiveReports.HtmlExport.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\activereports for .net</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="ActiveReports.Interop">
+      <Name>ActiveReports.Interop</Name>
+      <HintPath>..\NujitERP\Controls\ActiveReports.Interop.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\activereports for .net</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="ActiveReports.PdfExport">
+      <Name>ActiveReports.PdfExport</Name>
+      <HintPath>..\NujitERP\Controls\ActiveReports.PdfExport.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\activereports for .net</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="ActiveReports.RtfExport">
+      <Name>ActiveReports.RtfExport</Name>
+      <HintPath>..\NujitERP\Controls\ActiveReports.RtfExport.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\activereports for .net</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="ActiveReports.TextExport">
+      <Name>ActiveReports.TextExport</Name>
+      <HintPath>..\NujitERP\Controls\ActiveReports.TextExport.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\activereports for .net</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="ActiveReports.TiffExport">
+      <Name>ActiveReports.TiffExport</Name>
+      <HintPath>..\NujitERP\Controls\ActiveReports.TiffExport.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\activereports for .net</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="ActiveReports.Viewer3, Version=5.2.983.2, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NujitERP\Controls\ActiveReports.Viewer3.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveReports.Web">
+      <Name>activereports.web</Name>
+      <HintPath>..\..\..\Archivos de programa\Archivos comunes\Data Dynamics\ActiveReports for .NET\activereports.web.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\activereports for .net</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="ActiveReports.Web.Design">
+      <Name>ActiveReports.Web.Design</Name>
+      <HintPath>..\..\..\Archivos de programa\Archivos comunes\Data Dynamics\ActiveReports for .NET\ActiveReports.Web.Design.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\activereports for .net</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="ActiveReports.XlsExport">
+      <Name>ActiveReports.XlsExport</Name>
+      <HintPath>..\..\..\Archivos de programa\Archivos comunes\Data Dynamics\ActiveReports for .NET\ActiveReports.XlsExport.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\activereports for .net</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="ActiveReports3, Version=5.2.983.2, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NujitERP\Controls\ActiveReports3.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NujitERP\Controls\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NujitERP\Controls\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=1.98.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NujitERP\Controls\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting">
+      <Name>System.Runtime.Remoting</Name>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\Configuration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\Constants.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\Culture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\CultureLocal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\Enums.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\LogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\RegexBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\StringUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\Structs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\TimeLine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\Utils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\XMLBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Bom\BomObjectivesView.cs" />
+    <Compile Include="Core\Bom\Bom.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Bom\BomContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Bom\BomSum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Bom\BomSumTempContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Bom\BomSumContainer.cs" />
+    <Compile Include="Core\BusinessObject.cs" />
+    <Compile Include="Core\Capacity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\CapacityContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Capacity\CapacityMachPriority.cs" />
+    <Compile Include="Core\Capacity\CapacityMachPriorityContainer.cs" />
+    <Compile Include="Core\Capacity\CellPlanningLabType.cs" />
+    <Compile Include="Core\Capacity\CellTitles.cs" />
+    <Compile Include="Core\Capacity\Demand\CellMachinePart.cs" />
+    <Compile Include="Core\Capacity\Demand\PlanProductionReportView.cs" />
+    <Compile Include="Core\Capacity\Labour\LabourPlanningNewHireShift.cs" />
+    <Compile Include="Core\Capacity\Labour\LabourPlanningReportShiftView.cs" />
+    <Compile Include="Core\Capacity\Labour\LabourPlanningReportShiftViewContainer.cs" />
+    <Compile Include="Core\Capacity\PartReportWeeksView.cs" />
+    <Compile Include="Core\Capacity\PartReportWeeksViewContainer.cs" />
+    <Compile Include="Core\Capacity\ReportWeeksViewContainer.cs" />
+    <Compile Include="Core\Capacity\ReportWeeksView.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapProfileHoliday.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapProfileHolidayContainer.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftProfileDtlView.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftProfileMachPlan.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftProfileMachPlanContainer.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftProfileMachPlanEmployee.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftProfileMachPlanEmployeeContainer.cs" />
+    <Compile Include="Core\Cms\Custom\EdiTransTP.cs" />
+    <Compile Include="Core\Cms\Custom\EdiTransTPContainer.cs" />
+    <Compile Include="Core\Cms\Custom\LastExported.cs" />
+    <Compile Include="Core\Cms\Custom\LastExportedContainer.cs" />
+    <Compile Include="Core\Cms\Custom\ShipExport.cs" />
+    <Compile Include="Core\Cms\Custom\LeadTimeBase.cs" />
+    <Compile Include="Core\Cms\Custom\ShipExportContainer.cs" />
+    <Compile Include="Core\Cms\Custom\ShipExportDtl.cs" />
+    <Compile Include="Core\Cms\Custom\ShipExportDtlContainer.cs" />
+    <Compile Include="Core\Cms\Custom\ShipExportRelease.cs" />
+    <Compile Include="Core\Cms\Custom\ShipExportReleaseContainer.cs" />
+    <Compile Include="Core\Cms\Custom\ShipExportBase.cs" />
+    <Compile Include="Core\Cms\Custom\ShipExportSum.cs" />
+    <Compile Include="Core\Cms\Custom\ShipExportSumContainer.cs" />
+    <Compile Include="Core\Cms\Custom\ShipExportSumCompare.cs" />
+    <Compile Include="Core\Cms\Custom\UpCum01PViewContainer.cs" />
+    <Compile Include="Core\Cms\Custom\UpCum01PView.cs" />
+    <Compile Include="Core\Cms\Custom\UpCum01P.cs" />
+    <Compile Include="Core\Cms\Custom\UpCum01PContainer.cs" />
+    <Compile Include="Core\Cms\Demand\CellDemandDCompareReport.cs" />
+    <Compile Include="Core\Cms\Demand\DemandDay.cs" />
+    <Compile Include="Core\Cms\Demand\DemandDayContainer.cs" />
+    <Compile Include="Core\Cms\Demand\DemandDCompareLeftView.cs" />
+    <Compile Include="Core\Cms\Demand\DemandDCompareView.cs" />
+    <Compile Include="Core\Cms\Demand\DemandDCompareLeftViewContainer.cs" />
+    <Compile Include="Core\Cms\Demand\DemandDCompareReportViewContainer.cs" />
+    <Compile Include="Core\Cms\Demand\DemandDCompareViewContainer.cs" />
+    <Compile Include="Core\Cms\Demand\DemandWeek.cs" />
+    <Compile Include="Core\Cms\Demand\DemandWeekContainer.cs" />
+    <Compile Include="Core\Cms\Demand\DemTransformOptions.cs" />
+    <Compile Include="Core\Cms\Demand\DemandRelease.cs" />
+    <Compile Include="Core\Cms\Demand\DemandDCompareReportView.cs" />
+    <Compile Include="Core\Cms\Inventory\Seri.cs" />
+    <Compile Include="Core\Cms\Inventory\SeriContainer.cs" />
+    <Compile Include="Core\Cms\Jitdm.cs" />
+    <Compile Include="Core\Cms\JitdmContainer.cs" />
+    <Compile Include="Core\Cms\Rrldm.cs" />
+    <Compile Include="Core\Cms\RrldmContainer.cs" />
+    <Compile Include="Core\Customer\CustLead.cs" />
+    <Compile Include="Core\Customer\CustLeadContainer.cs" />
+    <Compile Include="Core\Customer\TradingPartner.cs" />
+    <Compile Include="Core\Customer\TradingPartnerContainer.cs" />
+    <Compile Include="Core\Employee\EmpShiftScheduleDtlView.cs" />
+    <Compile Include="Core\Employee\EmpShiftScheduleDtl.cs" />
+    <Compile Include="Core\Employee\EmpShiftScheduleDtlContainer.cs" />
+    <Compile Include="Core\Employee\EmpShiftScheduleHdrSumViewContainer.cs" />
+    <Compile Include="Core\Employee\EmpShiftScheduleHdrSumView.cs" />
+    <Compile Include="Core\Employee\EmpShiftScheduleHdr.cs" />
+    <Compile Include="Core\Employee\EmpShiftScheduleHdrContainer.cs" />
+    <Compile Include="Core\Employee\EmpShiftScheduleNotes.cs" />
+    <Compile Include="Core\Employee\EmpShiftScheduleNotesContainer.cs" />
+    <Compile Include="Core\Employee\EmpShiftScheduleReportTransformView.cs" />
+    <Compile Include="Core\Employee\EmpShiftScheduleReportView.cs" />
+    <Compile Include="Core\Employee\EmpShiftScheduleReportTransformViewContainer.cs" />
+    <Compile Include="Core\Employee\EmpShiftScheduleReportViewContainer.cs" />
+    <Compile Include="Core\HotList\HotListStringDays.cs" />
+    <Compile Include="Core\HotList\HotListBoolDays.cs" />
+    <Compile Include="Core\Inventory\SchProductAvail.cs" />
+    <Compile Include="Core\Inventory\SchMaterialAvail.cs" />
+    <Compile Include="Core\Inventory\SchMaterialAvailContainer.cs" />
+    <Compile Include="Core\PersonContainer.cs" />
+    <Compile Include="Core\Products\CustParts.cs" />
+    <Compile Include="Core\Products\CustPartsContainer.cs" />
+    <Compile Include="Core\Products\ProductPlanDt.cs" />
+    <Compile Include="Core\Products\ProductPlanDtContainer.cs" />
+    <Compile Include="Core\Products\ProductView.cs" />
+    <Compile Include="Core\Schedule\ScheduleDown.cs" />
+    <Compile Include="Core\Schedule\ScheduleDownContainer.cs" />
+    <Compile Include="Core\Schedule\ScheduleMachine.cs" />
+    <Compile Include="Core\Util\CmsCustomCoreFactory.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapShiftProfileMachPlanEmployeeDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapShiftProfileMachPlanEmployeeDataBaseContainer.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftProfileSubDtl.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftProfileSubDtlContainer.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CellShiftProfileDtl.cs" />
+    <Compile Include="Core\Cms\Demand\DemandDViewContainer.cs" />
+    <Compile Include="Core\Cms\Demand\DemandDView.cs" />
+    <Compile Include="Core\Cms\Employee\Tazm.cs" />
+    <Compile Include="Core\Cms\Employee\TazmContainer.cs" />
+    <Compile Include="Core\Cms\PackSlip\Bol.cs" />
+    <Compile Include="Core\Cms\PackSlip\BolContainer.cs" />
+    <Compile Include="Core\Cms\PackSlip\Bold.cs" />
+    <Compile Include="Core\Cms\PackSlip\BoldContainer.cs" />
+    <Compile Include="Core\Cms\PackSlip\Bolhref.cs" />
+    <Compile Include="Core\Cms\PackSlip\BolhrefContainer.cs" />
+    <Compile Include="Core\Cms\PackSlip\Boll.cs" />
+    <Compile Include="Core\Cms\PackSlip\BollContainer.cs" />
+    <Compile Include="Core\Cms\PackSlip\BolNp.cs" />
+    <Compile Include="Core\Cms\PackSlip\BolNpContainer.cs" />
+    <Compile Include="Core\Cms\Production\PrHistSumViewContainer.cs" />
+    <Compile Include="Core\Cms\Production\PrHistSumView.cs" />
+    <Compile Include="Core\Cms\Production\PrHist.cs" />
+    <Compile Include="Core\Cms\Production\PrHistContainer.cs" />
+    <Compile Include="Core\Cms\Raca.cs" />
+    <Compile Include="Core\Cms\RacaContainer.cs" />
+    <Compile Include="Core\EDI\CmsTransfer\CustomerEdi.cs" />
+    <Compile Include="Core\EDI\CmsTransfer\CustomerEdiContainer.cs" />
+    <Compile Include="Core\EDI\CmsTransfer\Shcr.cs" />
+    <Compile Include="Core\EDI\CmsTransfer\ShcrContainer.cs" />
+    <Compile Include="Core\Employee\EmployeeLabourView.cs" />
+    <Compile Include="Core\Employee\EmployeeLabour.cs" />
+    <Compile Include="Core\Employee\EmployeeLabourContainer.cs" />
+    <Compile Include="Core\Employee\EmployeeShift.cs" />
+    <Compile Include="Core\Employee\EmployeeContainer.cs" />
+    <Compile Include="Core\Employee\EmployeeShiftContainer.cs" />
+    <Compile Include="Core\HotList\HotListDayContainer.cs" />
+    <Compile Include="Core\HotList\HotListDay.cs" />
+    <Compile Include="Core\HotList\HotListInvAnalysisView.cs" />
+    <Compile Include="Core\HotList\HotListPlanned.cs" />
+    <Compile Include="Core\Inventory\InventoryObjectiveHdr.cs" />
+    <Compile Include="Core\Inventory\InventoryObjectiveHdrContainer.cs" />
+    <Compile Include="Core\Inventory\InventoryObjectivePart.cs" />
+    <Compile Include="Core\Inventory\InventoryObjectivePartContainer.cs" />
+    <Compile Include="Core\Inventory\InventoryObjectivePartDtl.cs" />
+    <Compile Include="Core\Inventory\InventoryObjectivePartDtlContainer.cs" />
+    <Compile Include="Core\Inventory\InventoryObjectiveReportView.cs" />
+    <Compile Include="Core\Machine\MachineView.cs" />
+    <Compile Include="Core\Planned\PlannedHdr.cs" />
+    <Compile Include="Core\Planned\PlannedHdrContainer.cs" />
+    <Compile Include="Core\Planned\PlannedLabour.cs" />
+    <Compile Include="Core\Planned\PlannedLabourContainer.cs" />
+    <Compile Include="Core\Planned\PlannedPart.cs" />
+    <Compile Include="Core\Planned\PlannedPartContainer.cs" />
+    <Compile Include="Core\Planned\PlannedPriority.cs" />
+    <Compile Include="Core\Planned\PlannedPriorityContainer.cs" />
+    <Compile Include="Core\Planned\PlannedReq.cs" />
+    <Compile Include="Core\Planned\PlannedReqContainer.cs" />
+    <Compile Include="Core\Products\LabourTypeRequired.cs" />
+    <Compile Include="Core\Capacity\MachinePartReportView.cs" />
+    <Compile Include="Core\Capacity\CellMachinePart.cs" />
+    <Compile Include="Core\Capacity\Labour\LabourPlanningReportView.cs" />
+    <Compile Include="Core\Capacity\Labour\LabourPlanningReportViewContainer.cs" />
+    <Compile Include="Core\Capacity\MachineReportViewContainer.cs" />
+    <Compile Include="Core\Capacity\MachineReportView.cs" />
+    <Compile Include="Core\Capacity\HotListViewHdrContainer.cs" />
+    <Compile Include="Core\Capacity\HotListViewBase.cs" />
+    <Compile Include="Core\Capacity\HotListViewHdr.cs" />
+    <Compile Include="Core\Capacity\HotListViewContainer.cs" />
+    <Compile Include="Core\Capacity\CapacityViewPart.cs" />
+    <Compile Include="Core\Capacity\HotListView.cs" />
+    <Compile Include="Core\HotList\HotListDays.cs" />
+    <Compile Include="Core\HotList\HotList.cs" />
+    <Compile Include="Core\HotList\HotListContainer.cs" />
+    <Compile Include="Core\HotList\HotListHdr.cs" />
+    <Compile Include="Core\HotList\HotListHdrContainer.cs" />
+    <Compile Include="Core\Machine\MachineDef.cs" />
+    <Compile Include="Core\Machine\MachineDefContainer.cs" />
+    <Compile Include="Core\ProductPlanContainer.cs" />
+    <Compile Include="Core\ProductContainer.cs" />
+    <Compile Include="Core\Capacity\CapacityViewHdrContainer.cs" />
+    <Compile Include="Core\Capacity\CapacityViewHdr.cs" />
+    <Compile Include="Core\Capacity\CapacityViewBase.cs" />
+    <Compile Include="Core\Capacity\CapacityView.cs" />
+    <Compile Include="Core\Capacity\CapacityViewContainer.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftProfileView.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftProfileDtl.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftProfileDtlContainer.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftTask.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftTaskContainer.cs" />
+    <Compile Include="Core\Machine\MachineContainer.cs" />
+    <Compile Include="Core\CapacityVersion.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Capacity\CapacityHdr.cs" />
+    <Compile Include="Core\Capacity\CapacityHdrContainer.cs" />
+    <Compile Include="Core\Capacity\CapacityPart.cs" />
+    <Compile Include="Core\Capacity\CapacityPartContainer.cs" />
+    <Compile Include="Core\Capacity\CapacityPartDtl.cs" />
+    <Compile Include="Core\Capacity\CapacityPartDtlContainer.cs" />
+    <Compile Include="Core\Capacity\CapacityReq.cs" />
+    <Compile Include="Core\Capacity\CapacityReqContainer.cs" />
+    <Compile Include="Core\Cms\Demand\DemandD.cs" />
+    <Compile Include="Core\Cms\Demand\DemandDContainer.cs" />
+    <Compile Include="Core\Cms\Demand\DemandH.cs" />
+    <Compile Include="Core\Cms\Demand\DemandHContainer.cs" />
+    <Compile Include="Core\Cms\Demand\DemTransformD.cs" />
+    <Compile Include="Core\Cms\Demand\DemTransformDContainer.cs" />
+    <Compile Include="Core\Cms\Demand\DemTransformH.cs" />
+    <Compile Include="Core\Cms\Demand\DemTransformHContainer.cs" />
+    <Compile Include="Core\Company.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\CoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Departament.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\DepartamentContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Employee.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\Engine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\GenericTaskCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskDepts.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskEdiCrossRef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskFamilyParts.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskHotList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskHotListReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskHotListTotals.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskIcstm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskIcstp.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskItems.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskLbhist.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskMachines.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskMatRelease.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskPrHist.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskPssc.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskSchippingSchedule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskScrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskSprsn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskStkr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskCode\TaskSuppliers.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Engine\TaskNodeContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\ExcelReports\ExcelException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\ExcelReports\ExcelFileException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\ExcelReports\ExcelReportSetup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Inventory\Inventory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Inventory\InventoryContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\MacConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Machine\Machine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Person.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Plant.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\PlantContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Plt.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Print\PrintManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Print\PrintServer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Proccess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Product.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\ProductActCost.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\ProductionHistory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Production\MainMat.cs" />
+    <Compile Include="Core\Production\MainMatContainer.cs" />
+    <Compile Include="Core\Production\SchLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Production\SchLogContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\ProductPlan.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Products\RoutingLabTool.cs" />
+    <Compile Include="Core\Products\LabourTypeRequiredContainer.cs" />
+    <Compile Include="Core\Products\RoutingLabToolContainer.cs" />
+    <Compile Include="Core\Remote\LocalCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Remote\RemoteCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Reports\1268\RP1268D.cs" />
+    <Compile Include="Core\Reports\1268\RP1268DContainer.cs" />
+    <Compile Include="Core\Reports\1268\RP1268H.cs" />
+    <Compile Include="Core\Reports\1268\RP1268HContainer.cs" />
+    <Compile Include="Core\Reports\1268\RP1268S.cs" />
+    <Compile Include="Core\Reports\1268\RP1268SContainer.cs" />
+    <Compile Include="Core\Products\Routing.cs" />
+    <Compile Include="Core\Products\RoutingContainer.cs" />
+    <Compile Include="Core\Sales\PackSlips\Bolm.cs" />
+    <Compile Include="Core\Sales\PackSlips\BolmContainer.cs" />
+    <Compile Include="Core\Sales\PackSlips\PackSlip.cs" />
+    <Compile Include="Core\Sales\PackSlips\PackSlipContainer.cs" />
+    <Compile Include="Core\Sales\PackSlips\PackSlipDtl.cs" />
+    <Compile Include="Core\Sales\PackSlips\PackSlipDtlContainer.cs" />
+    <Compile Include="Core\Schedule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Schedule\ScheduleHdr.cs" />
+    <Compile Include="Core\Schedule\ScheduleHdrContainer.cs" />
+    <Compile Include="Core\Schedule\ScheduleMaterialConsumPart.cs" />
+    <Compile Include="Core\Schedule\ScheduleMaterialConsumPartContainer.cs" />
+    <Compile Include="Core\Schedule\SchedulePart.cs" />
+    <Compile Include="Core\Schedule\SchedulePartContainer.cs" />
+    <Compile Include="Core\Schedule\SchedulePartDtl.cs" />
+    <Compile Include="Core\Schedule\SchedulePartDtlContainer.cs" />
+    <Compile Include="Core\Schedule\ScheduleReceiptPart.cs" />
+    <Compile Include="Core\Schedule\ScheduleReceiptPartContainer.cs" />
+    <Compile Include="Core\Schedule\ScheduleReqView.cs" />
+    <Compile Include="Core\Schedule\ScheduleTask.cs" />
+    <Compile Include="Core\Schedule\ScheduleReqViewContainer.cs" />
+    <Compile Include="Core\Schedule\ScheduleTaskContainer.cs" />
+    <Compile Include="Core\SchQohAssignation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Shift.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\ShiftContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Task.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\TaskConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\TimeCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\User.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\UserContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\UserSignin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\UtilCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Utility\CumulativeInventory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Utility\CumulativeInventoryContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Utility\HotListHour.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Utility\HotListHourContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Utility\MaterialBom.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Utility\MaterialBomContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Utility\MaterialDueDate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Utility\MaterialDueDateContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Utility\VendorReleaseInquiry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Utility\VendorReleaseInquiryContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\BaseCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\BomCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\CapacityCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\CapacityDemandCoreFactory.cs" />
+    <Compile Include="Core\Util\CmsCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\CompanyCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\DemandCoreFactory.cs" />
+    <Compile Include="Core\Util\DepartamentCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\EmployeeCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\ExcelReportsCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\HotListCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\InventoryCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\MacConfigurationCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\MachineCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\PackSlipCoreFactory.cs" />
+    <Compile Include="Core\Util\PersonCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\PlantCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\PlannedCoreFactory.cs" />
+    <Compile Include="Core\Util\PrhistCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\ProccessCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\ProductActCostCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\ProductCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\ProductPlanCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\ReportsCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\ScheduleCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\SchLogCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\ShiftCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\TaskCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\TimeCodesCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\UserCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\UtilityCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util\VersionCoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Access\ConnectionManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Access\DataBaseAccess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Access\GenericDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Access\GenericDataBaseElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Access\NotNullDataReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapCfgDayDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapCfgDayDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapCfgProdPrefDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapCfgProdPrefDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapCfgShfDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapCfgShfDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapCfgWkDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapCfgWkDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacCfgADataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacCfgADataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacCfgDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacCfgDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacDayDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacDayDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacHrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacHrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacShfDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacShfDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacTimeTypePorcDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacTimeTypePorcDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacWkDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\CapMacWkDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityHdrDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityHdrDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityMachPriorityDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityMachPriorityDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityPartDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityPartDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityPartDtlDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityPartDtlDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityReqDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityReqDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityViewPartDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityViewPartDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\CapacityViewDataBaseContainer.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftProfile.cs" />
+    <Compile Include="Core\Capacity\ShiftProfile\CapShiftProfileContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapProfileHolidayDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapProfileHolidayDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapShiftProfileDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapShiftProfileDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapShiftProfileDtlDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapShiftProfileDtlDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapShiftProfileMachPlanDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapShiftProfileMachPlanDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapShiftProfileSubDtlDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapShiftProfileSubDtlDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapShiftTaskDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\Demand\ShiftProfile\CapShiftTaskDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Capacity\ShiftDayDetailDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\ShiftDayDetailDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\ShiftDayDetailTransDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\ShiftDayDetailTransDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\ShiftHdrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Capacity\ShiftHdrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\CsptDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\CsptDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\CustDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\CustDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\Custom\EdiTransTPDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\EdiTransTPDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\LastExportedDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\LastExportedDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\ShipExportSumCompareDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\ShipExportViewSumDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\ShipExportDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\ShipExportDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\ShipExportDtlDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\ShipExportDtlDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\ShipExportReleaseDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\ShipExportReleaseDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\ShipExportSumDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\ShipExportSumDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\ShipExportSumCompareDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\UpCum01PViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\UpCum01PDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\UpCum01PDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Custom\UpCum01PViewDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemandDayDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemandDayDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemandDCompareViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemandDViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemandDDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemandDCompareViewDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemandDViewDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemandDDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemandHDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemandHDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemandWeekDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemandWeekDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemTransformDDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemTransformDDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemTransformHDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Demand\DemTransformHDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\DeptsDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\DeptsDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\Employee\TazmDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\Employee\TazmDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\IcstmDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\IcstmDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\IcstpDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\IcstpDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\IndlbrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\IndlbrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\JitdDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\JitdDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\JitdmDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\JitdmDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\JithDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\JithDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\LbHistDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\LbHistDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\MainMatDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\MainMatDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\MetHdaDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\MetHdaDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\MetHdmDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\MetHdmDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\MetHdrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\MetHdrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\MmgpDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\MmgpDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\MTHLDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\MTHLDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\PackSlip\BoldDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\PackSlip\BoldDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\PackSlip\BolhDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\PackSlip\BolhDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\PdfcDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\PdfcDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\PdfmDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\PdfmDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\PlntDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\PlntDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\PopTvnDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\PopTvnDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\PrhistSumViewDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\PrhistSumViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\PrhistDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\PrhistDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\PsscDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\PsscDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RacaDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\RacaDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\ResreDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\ResreDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RprdDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RprdDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RPRHDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RPRHDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RPRPDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RPRPDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RprrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RprrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RprsDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RprsDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RrldDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RrldDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RrldmDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\RrldmDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\RrlhDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\RrlhDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\ScrapDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\ScrapDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\SprsnDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\SprsnDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\SschDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\SschDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\StkaDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\StkaDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\StkbDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\StkbDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\StkMMDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\StkMMDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\StkMPDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\StkMPDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\StkrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\StkrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\StktDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\StktDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Cms\Stxh.cs" />
+    <Compile Include="Core\Cms\StxhContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\StxhDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\StxhDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Cms\TMSTDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\TMSTDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\TrlpDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\TrlpDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\TrplDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\TrplDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\TrptDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\TrptDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\VendDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\VendDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\WipbDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Cms\WipbDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Customer\CustLeadDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Customer\CustLeadDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Customer\TradingPartnerDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Customer\TradingPartnerDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\CustPartDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\CustPartDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\CustVendDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\CustVendDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\DelForDtlDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\DelForDtlDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\DelForHdrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\DelForHdrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\DelJitDtlDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\DelJitDtlDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\DelJitHdrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\DelJitHdrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\DemandDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\DemandDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\DemDetailDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\DemDetailDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\EmployeeDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\EmployeeDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Employee\EmployeeLabourDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Employee\EmployeeLabourDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Employee\EmployeeShiftDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Employee\EmployeeShiftDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Employee\EmpShiftScheduleDtlDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Employee\EmpShiftScheduleDtlDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Employee\EmpShiftScheduleReportViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Employee\EmpShiftScheduleHdrSumViewDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Employee\EmpShiftScheduleHdrSumViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Employee\EmpShiftScheduleHdrDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Employee\EmpShiftScheduleHdrDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Employee\EmpShiftScheduleNotesDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Employee\EmpShiftScheduleNotesDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Employee\EmpShiftScheduleReportViewDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\ExcelReports\ExcelAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\ExcelReports\ExcelPersistenceException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\ExcelReports\ExcelReportsSetupDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\ExcelReports\ExcelReportsSetupDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\ExcelReports\ExcelUserQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\ExcelReports\ReportsExcelAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\HotList\HotListBlockDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\HotList\HotListInvAnalysisViewDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\HotList\HotListInvAnalysisViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\HotList\HotListDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\HotList\HotListDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\HotList\HotListHdrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\HotList\HotListHdrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Inventory\CompanyDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Inventory\CompanyDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Inventory\InventoryObjectiveHdrDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Inventory\InventoryObjectiveHdrDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Inventory\InventoryObjectivePartDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Inventory\InventoryObjectivePartDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Inventory\InventoryObjectivePartDtlDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Inventory\InventoryObjectivePartDtlDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Inventory\InvPltLocDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Inventory\InvPltLocDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Inventory\PlantDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Inventory\PlantDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Inventory\SchMaterialAvailDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Inventory\SchMaterialAvailDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Inventory\SeriDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Inventory\SeriDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\MachineDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\MachinesDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Machine\PltDeptMachViewDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Machine\PltDeptMachViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Machine\PltDeptMachDefDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Machine\PltDeptMachDefDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\MeHistHdrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\MeHistHdrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\MeHistLabDtlDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\MeHistLabDtlDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\MeHistMachDtlDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\MeHistMachDtlDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\MonthEndMachineStatsDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\MonthEndMachineStatsDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\ObjectDtlDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\ObjectDtlDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\ObjectHdrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\ObjectHdrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\OrgChartDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\OrgChartDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\OrgChartPosDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\OrgChartPosDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\PersistenceException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Planned\PlannedPartViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Planned\PlannedPartViewDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Planned\PlannedHdrDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Planned\PlannedHdrDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Planned\PlannedLabourDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Planned\PlannedLabourDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Planned\PlannedPartDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Planned\PlannedPartDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Planned\PlannedPriorityDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Planned\PlannedPriorityDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Planned\PlannedReqDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Planned\PlannedReqDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\PltDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\PltDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\PltDeptDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\PltDeptDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Machine\PltDeptMachDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Machine\PltDeptMachDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\PltInvLocDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\PltInvLocDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Production\PdToolDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Production\PdToolDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Production\PdToolPartDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Production\PdToolPartDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Production\SchLogDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Production\SchLogDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Bom\BomSumDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Bom\BomSumDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdFmInfoViewDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Products\ProdFmInfoViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Products\PartCrossRefDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\PartCrossReftDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdFmActCostDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdFmActCostDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdFmActHDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdFmActHDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdFmActPlanDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdFmActPlanDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdFmActPlanDtDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdFmActPlanDtDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdFmActSubDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdFmActSubDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdFmactSubLabToolDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Products\ProdFmactSubLabToolDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Products\ProdFmInfoDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdFmInfoDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdPackDtlDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Products\ProdPackDtlDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\ProgramDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\ProgramDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Reports\1268\RP1268DDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Reports\1268\RP1268DDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Reports\1268\RP1268HDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Reports\1268\RP1268HDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Reports\1268\RP1268SDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Reports\1268\RP1268SDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Sales\PackSlips\BolmDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Sales\PackSlips\BolmDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Sales\PackSlips\OePsDtlDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Sales\PackSlips\OePsDtlDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Sales\PackSlips\OePSHdrDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Sales\PackSlips\OePSHdrDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\SchDemDetailDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\SchDemDetailDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleDownDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleDownDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleMaterialConsumPartViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleMaterialConsumPartViewDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\SchedulePartInventoryViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\SchedulePartInventoryViewDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleReceiptPartViewDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleReceiptPartViewDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleHdrDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleHdrDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleMaterialConsumPartDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleMaterialConsumPartDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\SchedulePartDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\SchedulePartDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\SchedulePartDtlDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\SchedulePartDtlDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleReceiptPartDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleReceiptPartDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleTaskDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\Demand\ScheduleTaskDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\Schedule\SchMachDayDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchMachDayDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchMachHrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchMachHrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchMachShfDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchMachShfDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchMachWkDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchMachWkDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchMatReqDayDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchMatReqDayDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchMatReqHrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchMatReqHrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchMatReqShfDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchMatReqShfDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchOrdMasDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchOrdMasDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchPrFmHrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchPrFmHrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchPrFmHrDtDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchPrFmHrDtDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchPrMasDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchPrMasDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchPrOrdDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchPrOrdDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchPrOrdDetDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchPrOrdDetDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchPrOrdMatDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchPrOrdMatDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchQohAssignDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchQohAssignDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchVersionDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\Schedule\SchVersionDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\SuppProductCrossDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\SuppProductCrossDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\SuppReleaseDtlDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\SuppReleaseDtlDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\SuppReleaseHdrDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\SuppReleaseHdrDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\SuppRelProfilesDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\SuppRelProfilesDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\TaskConfigurationDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\TaskConfigurationDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\TaskDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\TaskDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\TaskLogDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\TimeTypeDataBase.cs" />
+    <Compile Include="DataAccess\Persistence\TimeTypeDataBaseContainer.cs" />
+    <Compile Include="DataAccess\Persistence\TPartnerDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\TPartnerDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\TPartnerLocDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\TPartnerLocDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\TPartnerPartCrossRefDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\TPartnerPartCrossRefDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\TPPartCrossRefDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\TPPartCrossRefDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\UserDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\UserDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\UserSigninDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\UserSigninDataBaseContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\UtilDB\Converter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\UtilDB\DateUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\UtilDB\DBFormatter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Persistence\UtilDB\NumberUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataGrid\AutoResizeDataGridTableStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataGrid\DataGridNoActiveCellColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataGrid\DataGridUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataGrid\SingleSelectDataGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Encryption\Blowfish.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Encryption\BlowfishCbc.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Encryption\BlowfishSimple.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exception\NujitException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\SqlHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Register\SerializableSN.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reports\GenerateHotListReport .cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reports\GenerateReportFormat.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reports\GenerateTotalsHotList .cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotList1.cs">
+      <DependentUpon>rptHotList.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListBom1.cs">
+      <DependentUpon>rptHotListBom.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListBomMartinRea.cs">
+      <DependentUpon>rptHotListBomMartinRea.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListHoursPart1.cs">
+      <DependentUpon>rptHotListHoursPart.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListHoursPartMartinRea.cs">
+      <DependentUpon>rptHotListHoursPartMartinRea.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListMainMaterial1.cs">
+      <DependentUpon>rptHotListMainMaterial.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListMainMaterialMartinRea.cs">
+      <DependentUpon>rptHotListMainMaterialMartinRea.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListMajMinGroup1.cs">
+      <DependentUpon>rptHotListMajMinGroup.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListMajMinGroupMartinRea.cs">
+      <DependentUpon>rptHotListMajMinGroupMartinRea.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListMartinRea.cs">
+      <DependentUpon>rptHotListMartinRea.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListMinGroup1.cs">
+      <DependentUpon>rptHotListMinGroup.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListMinGroupMartinRea.cs">
+      <DependentUpon>rptHotListMinGroupMartinRea.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListMinGroupMM1.cs">
+      <DependentUpon>rptHotListMinGroupMM.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListMinGroupMMMartinRea.cs">
+      <DependentUpon>rptHotListMinGroupMMMartinRea.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListResource1.cs">
+      <DependentUpon>rptHotListResource.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\HotList\rptHotListResourceMartinRea.cs">
+      <DependentUpon>rptHotListResourceMartinRea.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\rptHotListTotal.cs">
+      <DependentUpon>rptHotListTotal.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\rptHotListTotalResume.cs">
+      <DependentUpon>rptHotListTotalResume.rpx</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\UtilReports\NumberUtilReports.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="util\Converter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="util\DateUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="util\NumberUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="util\ShellApi.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="util\ShellExecute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="util\ShellPrint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="Reports\HotList\license.exe" />
+    <EmbeddedResource Include="DataGrid\AutoResizeDataGridTableStyle.resx">
+      <DependentUpon>AutoResizeDataGridTableStyle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGrid\DataGridColoredTextBoxColumn.resx" />
+    <EmbeddedResource Include="DataGrid\DataGridNoActiveCellColumn.resx">
+      <DependentUpon>DataGridNoActiveCellColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGrid\SingleSelectDataGrid.resx">
+      <DependentUpon>SingleSelectDataGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotList.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotList1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListBom.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListBom1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListBomMartinRea.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListBomMartinRea.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListHoursPart.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListHoursPart1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListHoursPartMartinRea.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListHoursPartMartinRea.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListMainMaterial.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListMainMaterial1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListMainMaterialMartinRea.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListMainMaterialMartinRea.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListMajMinGroup.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListMajMinGroup1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListMajMinGroupMartinRea.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListMajMinGroupMartinRea.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListMartinRea.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListMartinRea.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListMinGroup.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListMinGroup1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListMinGroupMartinRea.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListMinGroupMartinRea.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListMinGroupMM.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListMinGroupMM1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListMinGroupMMMartinRea.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListMinGroupMMMartinRea.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListResource.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListResource1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HotList\rptHotListResourceMartinRea.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListResourceMartinRea.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptHotListTotal.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListTotal.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptHotListTotalResume.rpx">
+      <Generator>ARVSPackage.CodeGenerator</Generator>
+      <LastGenOutput>rptHotListTotalResume.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Master\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

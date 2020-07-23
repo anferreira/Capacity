@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3" PrintWidth="10995" DocumentName="ActiveReports Document" ScriptLang="C#" CodeFile="rptPosMaterialsReport1.cs">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0; " />
+    <Style Name="Heading1" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading3" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; " />
+  </StyleSheet>
+  <Sections>
+    <Section Type="ReportHeader" Name="ReportHeader" Height="570" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="labelTitle" MOD="4" Left="90" Top="180" Width="1620" Height="270" Caption="Products for: " Style="font-weight: bold; font-size: 12pt; " />
+      <Control Type="AR.Label" Name="Label20" MOD="4" Left="6570" Top="180" Width="900" Height="288" Caption="# Parts" />
+      <Control Type="AR.Field" Name="nroPartsTextBox" MOD="4" Left="7470" Top="180" Width="1440" Height="288" Text="# Parts" />
+      <Control Type="AR.Field" Name="productTextBox" MOD="4" Left="1800" Top="180" Width="1530" Height="288" Text="TextBox1" />
+      <Control Type="AR.Field" Name="sequenceTextBox" MOD="4" Left="3330" Top="180" Width="2880" Height="288" Text="TextBox2" />
+    </Section>
+    <Section Type="PageHeader" Name="PageHeader" Height="705" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label12" MOD="4" Left="180" Top="360" Width="1440" Height="270" Caption="Departament" />
+      <Control Type="AR.Label" Name="Label13" MOD="4" Left="1890" Top="360" Width="990" Height="270" Caption="Part" />
+      <Control Type="AR.Label" Name="Label14" MOD="4" Left="3420" Top="360" Width="990" Height="270" Caption="Sequence" />
+      <Control Type="AR.Label" Name="Label15" MOD="4" Left="6210" Top="360" Width="1710" Height="270" Caption="Qty Rel" Style="text-align: center; " />
+      <Control Type="AR.Label" Name="Label16" MOD="4" Left="8370" Top="360" Width="1530" Height="270" Caption="Qoh" Style="text-align: center; " />
+      <Control Type="AR.Label" Name="Label19" MOD="4" Left="4950" Top="360" Width="990" Height="270" Caption="Type" />
+      <Control Type="AR.Line" Name="Line2" MOD="4" X1="90" Y1="630" X2="10710" Y2="630" />
+      <Control Type="AR.Field" Name="txtDataHour" MOD="4" Left="9180" Top="0" Width="1440" Height="270" Text="Data+Hour" Style="text-align: right; " />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="374" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="txtType" DataField="Type" MOD="4" Left="4950" Top="0" Width="1350" Height="270" Text="Type" />
+      <Control Type="AR.Field" Name="txtDepartament" DataField="Dep" MOD="4" Left="270" Top="0" Width="990" Height="270" Text="Departament" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtPart" DataField="Part" MOD="4" Left="1800" Top="0" Width="1080" Height="270" Text="Part" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtSequence" DataField="Sequence" MOD="4" Left="3030" Top="0" Width="1710" Height="270" Text="Sequence" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtQtyRel" DataField="Qty" MOD="4" Left="6315" Top="0" Width="1530" Height="270" Text="QtyRel" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="txtQoh" DataField="Qoh" MOD="4" Left="8460" Top="0" Width="1620" Height="270" Text="Qoh" Style="font-size: 8pt; " />
+    </Section>
+    <Section Type="PageFooter" Name="PageFooter" Height="0" BackColor="16777215" CanShrink="0" />
+    <Section Type="ReportFooter" Name="ReportFooter" Height="209" BackColor="16777215" CanShrink="0" />
+  </Sections>
+  <PageSettings Orientation="2" />
+</ActiveReportsLayout>

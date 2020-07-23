@@ -1,0 +1,6 @@
+
+ select (case when mh2.AQQPPC IS NULL then ifnull(mh.AQQPPC, 1) ELSE ifnull(mh2.AQQPPC, 1) END) as Tot 
+                             from cmsdat.methdm mh 
+                                 left outer join cmsdat.methdm mh2 on  mh2.AQPART = 'CC1668' and mh2.AQPART = mh.AQPART and mh2.AQMTLP ='RTA6225'
+                             where mh.AQPART = 'CC1668'
+                              limit 1 

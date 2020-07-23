@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3" PrintWidth="14880" DocumentName="ActiveReports Document" ScriptLang="C#" CodeFile="rptHotList1.cs">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0; " />
+    <Style Name="Heading1" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading3" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; " />
+  </StyleSheet>
+  <Sections>
+    <Section Type="ReportHeader" Name="ReportHeader" Height="360" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="lblHeader" MOD="4" Left="90" Top="0" Width="4680" Height="270" Caption="Total View - Day Resolution" Style="font-weight: bold; font-size: 10pt; " />
+    </Section>
+    <Section Type="PageHeader" Name="PageHeader" Height="1785" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label1" MOD="4" Left="1080" Top="1080" Width="1350" Height="270.72" Caption="Part #" Style="ddo-char-set: 0; text-decoration: none; text-align: left; font-weight: bold; font-size: 7pt; vertical-align: bottom; " />
+      <Control Type="AR.Label" Name="Label3" MOD="4" Left="2430" Top="1080" Width="360" Height="270.72" Caption="Seq" Style="text-decoration: none; text-align: left; font-weight: bold; font-size: 7pt; vertical-align: bottom; " />
+      <Control Type="AR.Label" Name="Label5" MOD="4" Left="4050" Top="1080" Width="540" Height="270" Caption="Res" Style="text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; vertical-align: bottom; " />
+      <Control Type="AR.Label" Name="lblPastDue" MOD="4" Left="4590" Top="1080" Width="755.9999" Height="270.72" Caption="Past Due" Style="text-decoration: none; text-align: right; font-weight: bold; font-size: 7pt; vertical-align: bottom; " />
+      <Control Type="AR.Label" Name="Label9" MOD="4" Left="5310" Top="1440" Width="630" Height="270.72" Caption="Today" Style="text-decoration: none; text-align: right; font-weight: bold; font-size: 7pt; vertical-align: bottom; " />
+      <Control Type="AR.Label" Name="lblDay002" MOD="0" Left="6030" Top="1350" Width="540" Height="360" Caption="day002" Style="ddo-char-set: 0; text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblDay003" MOD="0" Left="6750" Top="1350" Width="540" Height="360" Caption="day003" Style="ddo-char-set: 0; text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblDay004" MOD="4" Left="7380" Top="1350" Width="540" Height="360" Caption="day004" Style="ddo-char-set: 0; text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblDay005" MOD="4" Left="8010" Top="1350" Width="540" Height="360" Caption="day005" Style="ddo-char-set: 0; text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblDay006" MOD="4" Left="8730" Top="1350" Width="540" Height="360" Caption="day006" Style="ddo-char-set: 0; text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblDay007" MOD="4" Left="9540" Top="1350" Width="540" Height="360" Caption="day007" Style="ddo-char-set: 0; text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblDay008" MOD="4" Left="10170" Top="1350" Width="540" Height="360" Caption="day008" Style="ddo-char-set: 0; text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblDay009" MOD="4" Left="10800" Top="1350" Width="540" Height="360" Caption="day009" Style="ddo-char-set: 0; text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblDay010" MOD="4" Left="11520" Top="1350" Width="540" Height="360" Caption="day010" Style="ddo-char-set: 0; text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblDay011" MOD="4" Left="12240" Top="1350" Width="540" Height="360" Caption="day011" Style="ddo-char-set: 0; text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblDay012" MOD="4" Left="12960" Top="1350" Width="540" Height="360" Caption="day012" Style="ddo-char-set: 0; text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblDay013" MOD="4" Left="13590" Top="1350" Width="540" Height="360" Caption="day013" Style="ddo-char-set: 0; text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblDay014" MOD="4" Left="14310" Top="1350" Width="540" Height="360" Caption="day014" Style="ddo-char-set: 0; text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Field" Name="TextBox2" MOD="4" Left="360" Top="990" Width="720" Height="360" Text=" Minor Group" Style="text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label4" MOD="4" Left="3510" Top="990" Width="540" Height="360" Caption="Qty On Hand" Style="text-decoration: none; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Line" Name="Line1" MOD="4" X1="90" Y1="1740" X2="14850" Y2="1740.24" />
+      <Control Type="AR.Label" Name="Label30" MOD="4" Left="2790" Top="1080" Width="720" Height="288" Caption="Finished" Style="ddo-char-set: 1; font-weight: bold; font-size: 7pt; vertical-align: bottom; " />
+      <Control Type="AR.Label" Name="lblTitulo" MOD="4" Left="4320" Top="630" Width="5580" Height="288" Caption="Label31" Style="ddo-char-set: 1; font-weight: bold; font-style: italic; " />
+      <Control Type="AR.Label" Name="Label32" MOD="4" Left="5400" Top="1080" Width="540" Height="288" Caption="Day 1" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label33" MOD="4" Left="6030" Top="1080" Width="540" Height="288" Caption="Day 2" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label34" MOD="4" Left="6750" Top="1080" Width="540" Height="288" Caption="Day 3" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label35" MOD="4" Left="7380" Top="1080" Width="540" Height="288" Caption="Day 4" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label36" MOD="4" Left="8010" Top="1080" Width="540" Height="288" Caption="Day 5" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label37" MOD="4" Left="8730" Top="1080" Width="540" Height="288" Caption="Day 6" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label38" MOD="4" Left="9540" Top="1080" Width="540" Height="288" Caption="Day 7" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label39" MOD="4" Left="10170" Top="1080" Width="540" Height="288" Caption="Day 8" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label40" MOD="4" Left="10800" Top="1080" Width="540" Height="288" Caption="Day 9" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label41" MOD="4" Left="11430" Top="1080" Width="630" Height="288" Caption="Day 10" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label42" MOD="4" Left="12150" Top="1080" Width="630" Height="288" Caption="Day 11" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label43" MOD="4" Left="12870" Top="1080" Width="630" Height="288" Caption="Day 12" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label44" MOD="4" Left="13500" Top="1080" Width="630" Height="288" Caption="Day 13" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label45" MOD="4" Left="14188.32" Top="1080.72" Width="630" Height="288" Caption="Day 14" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="lvlTitle" MOD="4" Left="0" Top="1080" Width="360" Height="270" Text="LVL" Style="text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblTit1" MOD="4" Left="10440" Top="180" Width="4140" Height="288" Caption="" />
+      <Control Type="AR.Label" Name="lblTit2" MOD="4" Left="10440" Top="540" Width="4140" Height="288" Caption="" />
+    </Section>
+    <Section Type="GroupHeader" Name="GroupHeader1" Height="315" DataField="HOT_Dept" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label13" MOD="4" Left="180" Top="0" Width="900" Height="270" Caption="Dept: " Style="font-size: 7pt; " />
+      <Control Type="AR.Field" Name="TextBox29" DataField="HOT_Dept" MOD="4" Left="1080" Top="0" Width="990" Height="270" Text="Hot_Dept" Style="font-size: 7pt; " />
+      <Control Type="AR.Label" Name="lblDescDeptHeader" MOD="4" Left="2160" Top="0" Width="2520" Height="270.72" Caption="Label29" Style="ddo-char-set: 1; font-size: 7pt; " />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="330" BackColor="16777215" CanShrink="1">
+      <Control Type="AR.Field" Name="txtHOT_Mach" DataField="HOT_Mach" MOD="4" Left="3870" Top="0" Width="705.0001" Height="270" Text="Hot_Mach" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="txtHOT_PastDue" DataField="HOT_PastDue" MOD="4" Left="4590" Top="0" Width="648" Height="270.72" Text="HOT_PastDue" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Day001" DataField="HOT_Day001" MOD="4" Left="5250" Top="0" Width="648" Height="270.72" Text="HOT_Day001" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Day003" DataField="HOT_Day003" MOD="4" Left="6630" Top="0" Width="648" Height="270.72" Text="HOT_Day003" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Day004" DataField="HOT_Day004" MOD="4" Left="7290" Top="0" Width="648" Height="270.72" Text="HOT_Day004" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Day005" DataField="HOT_Day005" MOD="4" Left="7950" Top="0" Width="648" Height="270.72" Text="HOT_Day005" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Day006" DataField="HOT_Day006" MOD="4" Left="8640" Top="0" Width="648" Height="270.72" Text="HOT_Day006" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Day007" DataField="HOT_Day007" MOD="4" Left="9330" Top="0" Width="648" Height="270.72" Text="HOT_Day007" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Day008" DataField="HOT_Day008" MOD="4" Left="10016.64" Top="0" Width="648" Height="270.72" Text="HOT_Day008" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Day009" DataField="HOT_Day009" MOD="4" Left="10710" Top="0" Width="648" Height="270.72" Text="HOT_Day009" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Day010" DataField="HOT_Day010" MOD="4" Left="11385" Top="0" Width="648" Height="270.72" Text="HOT_Day010" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Day011" DataField="HOT_Day011" MOD="4" Left="12060" Top="0" Width="648" Height="270.72" Text="HOT_Day011" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Day012" DataField="HOT_Day012" MOD="4" Left="12794.4" Top="0" Width="648" Height="270.72" Text="HOT_Day012" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Day013" DataField="HOT_Day013" MOD="4" Left="13469.76" Top="0" Width="648" Height="270.72" Text="HOT_Day013" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Day014" DataField="HOT_Day014" MOD="4" Left="14159.52" Top="0" Width="648" Height="270.72" Text="HOT_Day014" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="HOT_Seq2" DataField="HOT_Seq" MOD="4" Left="2430" Top="0" Width="270" Height="270" Text="Seq" Style="text-align: left; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="HOT_Day0021" DataField="HOT_Day002" MOD="4" Left="5940" Top="0" Width="648" Height="270.72" Text="HOT_Day002" OutputFormat="0" Style="text-align: right; font-size: 5pt; " />
+      <Control Type="AR.Field" Name="TextBox30" DataField="HOT_MinorGroup" MOD="4" Left="270" Top="0" Width="720" Height="270" Text="MinorGroup" Style="font-size: 6pt; " />
+      <Control Type="AR.Field" Name="HOT_ProdID2" DataField="HOT_ProdID" MOD="4" Left="990" Top="0" Width="1440" Height="270" Text="HOT_ProdID" Style="font-weight: normal; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="TextBox31" DataField="Hot_QoH" MOD="4" Left="3060" Top="0" Width="810" Height="270" Text="HOT_QtyOnHand" Style="text-align: right; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="typeTextBox" DataField="HOT_Finalized" MOD="4" Left="2700" Top="0" Width="360" Height="270" Text="Type" Style="ddo-char-set: 1; font-size: 6pt; " />
+      <Control Type="AR.Field" Name="lvlTextBox" DataField="HOT_Level" MOD="4" Left="0" Top="0" Width="270" Height="270.72" Text="LVL" Style="font-size: 6pt; " />
+    </Section>
+    <Section Type="GroupFooter" Name="GroupFooter1" Height="377" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="TextBox32" MOD="4" Left="270" Top="0" Width="1080" Height="270" Text="Total for Dept: " Style="font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Field" Name="HOT_Dept1" DataField="HOT_Dept" MOD="4" Left="1350" Top="0" Width="810" Height="270" Text="Hot_Dept" Style="font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Field" Name="HOT_PastDue1" DataField="HOT_PastDue" MOD="4" Left="4590" Top="0" Width="648" Height="270.72" Text="HOT_PastDue1" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0011" DataField="HOT_Day001" MOD="4" Left="5265" Top="0" Width="648" Height="270.72" Text="HOT_Day0011" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0031" DataField="HOT_Day003" MOD="4" Left="6630" Top="0" Width="648" Height="270.72" Text="HOT_Day0031" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0045" DataField="HOT_Day004" MOD="4" Left="7320" Top="0" Width="648" Height="270.72" Text="HOT_Day0045" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0051" DataField="HOT_Day005" MOD="4" Left="7950.241" Top="0" Width="648" Height="270.72" Text="HOT_Day0051" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0061" DataField="HOT_Day006" MOD="4" Left="8640" Top="0" Width="648" Height="270.72" Text="HOT_Day0061" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0071" DataField="HOT_Day007" MOD="4" Left="9330" Top="0" Width="648" Height="270.72" Text="HOT_Day0071" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0082" DataField="HOT_Day008" MOD="4" Left="10016.64" Top="0" Width="648" Height="270.72" Text="HOT_Day0082" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0093" DataField="HOT_Day009" MOD="4" Left="10710" Top="0" Width="648" Height="270.72" Text="HOT_Day0093" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0101" DataField="HOT_Day010" MOD="4" Left="11400" Top="0" Width="648" Height="270.72" Text="HOT_Day0101" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0112" DataField="HOT_Day011" MOD="4" Left="12105" Top="0" Width="648" Height="270.72" Text="HOT_Day0112" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0125" DataField="HOT_Day012" MOD="4" Left="12795" Top="0" Width="648" Height="270.72" Text="HOT_Day0125" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0132" DataField="HOT_Day013" MOD="4" Left="13470" Top="0" Width="648" Height="270.72" Text="HOT_Day0132" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0133" DataField="HOT_Day014" MOD="4" Left="14160" Top="0" Width="648" Height="270.72" Text="HOT_Day0133" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="HOT_Day0022" DataField="HOT_Day002" MOD="4" Left="5940" Top="0" Width="648" Height="270.72" Text="HOT_Day0022" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="3" SummaryRunning="2" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Label" Name="lblDescDept" MOD="4" Left="2160" Top="0" Width="2340" Height="270.72" Caption="Label29" Style="ddo-char-set: 1; font-size: 7pt; " />
+    </Section>
+    <Section Type="PageFooter" Name="PageFooter" Height="435" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label29" MOD="4" Left="11790" Top="90" Width="540" Height="288" Caption="Page" />
+      <Control Type="AR.Field" Name="pageTextBox" MOD="4" Left="12420" Top="90" Width="1440" Height="288" Text="" />
+    </Section>
+    <Section Type="ReportFooter" Name="ReportFooter" Height="1378" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label10" MOD="4" Left="180" Top="630" Width="1710" Height="270" Caption="Totals:" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label11" MOD="4" Left="180" Top="990" Width="1710" Height="270" Caption="Cumulative Shortage" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="HOT_Day0121" DataField="HOT_Day012" MOD="4" Left="29160" Top="5040" Width="1350" Height="270" Text="HOT_Day0121" Style="color: #FF8000; " SummaryType="1" SummaryGroup="PageHeader" />
+      <Control Type="AR.Field" Name="HOT_Day0122" DataField="HOT_Day012" MOD="4" Left="29520" Top="5400" Width="1350" Height="270" Text="HOT_Day0122" Style="color: #FF8000; " SummaryType="1" SummaryGroup="PageHeader" />
+      <Control Type="AR.Field" Name="HOT_Day0123" DataField="HOT_Day012" MOD="4" Left="29880" Top="5760" Width="1350" Height="270" Text="HOT_Day0123" Style="color: #FF8000; " SummaryType="1" SummaryGroup="PageHeader" />
+      <Control Type="AR.Field" Name="HOT_Day0124" DataField="HOT_Day012" MOD="4" Left="30240" Top="6120" Width="1350" Height="270" Text="HOT_Day0124" Style="color: #FF8000; " SummaryType="1" SummaryGroup="PageHeader" />
+      <Control Type="AR.Field" Name="HOT_Day0131" DataField="HOT_Day013" MOD="4" Left="32040" Top="6480" Width="1350" Height="270" Text="HOT_Day0131" Style="color: #FF8000; " />
+      <Control Type="AR.Line" Name="Line2" MOD="4" X1="90" Y1="0" X2="14760" Y2="0" />
+      <Control Type="AR.Field" Name="TextBox5" DataField="HOT_PastDue" MOD="4" Left="1890" Top="990" Width="720" Height="270" Text="TextBox5" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" SummaryGroup="PageHeader" />
+      <Control Type="AR.Field" Name="TextBox15" DataField="HOT_Day001" MOD="4" Left="2610" Top="990" Width="720" Height="270.72" Text="TextBox15" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Field" Name="TextBox16" DataField="HOT_Day002" MOD="4" Left="3330" Top="990" Width="720" Height="270.72" Text="TextBox16" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Field" Name="TextBox17" DataField="HOT_Day003" MOD="4" Left="4050" Top="990" Width="720" Height="270.72" Text="TextBox17" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Field" Name="TextBox18" DataField="HOT_Day004" MOD="4" Left="4770" Top="990" Width="720" Height="270.72" Text="TextBox18" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Field" Name="TextBox19" DataField="HOT_Day005" MOD="4" Left="5490" Top="990" Width="720" Height="270.72" Text="TextBox19" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Field" Name="TextBox20" DataField="HOT_Day006" MOD="4" Left="6210" Top="990" Width="720" Height="270.72" Text="TextBox20" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Field" Name="TextBox21" DataField="HOT_Day007" MOD="4" Left="6930" Top="990" Width="720" Height="270.72" Text="TextBox21" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Field" Name="TextBox22" DataField="HOT_Day008" MOD="4" Left="7650" Top="990" Width="720" Height="270.72" Text="TextBox22" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Field" Name="TextBox23" DataField="HOT_Day009" MOD="4" Left="8370" Top="990" Width="720" Height="270.72" Text="TextBox23" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Field" Name="TextBox24" DataField="HOT_Day010" MOD="4" Left="9090" Top="990" Width="720" Height="270.72" Text="TextBox24" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Field" Name="TextBox25" DataField="HOT_Day011" MOD="4" Left="9810" Top="990" Width="720" Height="270.72" Text="TextBox25" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Field" Name="TextBox26" DataField="HOT_Day012" MOD="4" Left="10530" Top="990" Width="720" Height="270.72" Text="TextBox26" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Field" Name="TextBox27" DataField="HOT_Day013" MOD="4" Left="11250" Top="990" Width="720" Height="270.72" Text="TextBox27" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Field" Name="TextBox28" DataField="HOT_Day014" MOD="4" Left="11970" Top="990" Width="720" Height="270.72" Text="TextBox28" OutputFormat="0" Style="text-align: right; font-size: 5pt; " SummaryType="1" />
+      <Control Type="AR.Label" Name="Label14" MOD="4" Left="1890" Top="630" Width="720" Height="270.72" Caption="Past Due" Style="text-decoration: none; text-align: right; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label15" MOD="4" Left="2610" Top="630" Width="720" Height="270.72" Caption="Today" Style="text-decoration: none; text-align: right; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label16" MOD="4" Left="3420" Top="540" Width="540" Height="360" Caption="   Fri 08-06" Style="text-decoration: none; ddo-char-set: 0; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label17" MOD="4" Left="4140" Top="540" Width="540" Height="360" Caption="day003" Style="text-decoration: none; ddo-char-set: 0; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label18" MOD="4" Left="4860" Top="540" Width="540" Height="360" Caption="day004" Style="text-decoration: none; ddo-char-set: 0; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label19" MOD="4" Left="5580" Top="540" Width="540" Height="360" Caption="day005" Style="text-decoration: none; ddo-char-set: 0; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label20" MOD="4" Left="6300" Top="540" Width="540" Height="360" Caption="day006" Style="text-decoration: none; ddo-char-set: 0; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label21" MOD="4" Left="7020" Top="540" Width="540" Height="360" Caption="day007" Style="text-decoration: none; ddo-char-set: 0; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label22" MOD="4" Left="7740" Top="540" Width="540" Height="360" Caption="day008" Style="text-decoration: none; ddo-char-set: 0; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label23" MOD="4" Left="8460" Top="540" Width="540" Height="360" Caption="day009" Style="text-decoration: none; ddo-char-set: 0; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label24" MOD="4" Left="9180" Top="540" Width="540" Height="360" Caption="day010" Style="text-decoration: none; ddo-char-set: 0; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label25" MOD="4" Left="9900" Top="540" Width="540" Height="360" Caption="day011" Style="text-decoration: none; ddo-char-set: 0; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label26" MOD="4" Left="10620" Top="540" Width="540" Height="360" Caption="day012" Style="text-decoration: none; ddo-char-set: 0; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label27" MOD="4" Left="11340" Top="540" Width="540" Height="360" Caption="day013" Style="text-decoration: none; ddo-char-set: 0; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label28" MOD="4" Left="12060" Top="540" Width="540" Height="360" Caption="day014" Style="text-decoration: none; ddo-char-set: 0; text-align: center; font-weight: bold; font-size: 7pt; " />
+      <Control Type="AR.Line" Name="Line3" MOD="4" X1="180" Y1="900" X2="14760" Y2="900" />
+    </Section>
+  </Sections>
+  <Script><![CDATA[
+
+
+
+//---------------------------------------------------------------------------------------------------------
+public void ReportFooter_BeforePrint()
+{
+}
+]]></Script>
+  <PageSettings LeftMargin="144" RightMargin="144" TopMargin="432" BottomMargin="144" Orientation="2" />
+</ActiveReportsLayout>

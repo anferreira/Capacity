@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3" PrintWidth="13515" DocumentName="ActiveReports Document" ScriptLang="C#" CodeFile="rptShortageReport1.cs">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0; " />
+    <Style Name="Heading1" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading3" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; " />
+  </StyleSheet>
+  <Sections>
+    <Section Type="ReportHeader" Name="ReportHeader" Height="884" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label1" MOD="4" Left="4140" Top="90" Width="5040" Height="288" Caption="New Shortage Report for &quot;Non-Inventory&quot;" Style="font-weight: bold; " />
+      <Control Type="AR.Field" Name="tBoxDateFrom" MOD="4" Left="90" Top="450" Width="2970" Height="288" Text="DateFrom" Style="font-weight: bold; font-size: 8pt; " />
+    </Section>
+    <Section Type="PageHeader" Name="PageHeader" Height="1140" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label2" MOD="4" Left="5220" Top="270" Width="1440" Height="288" Caption="Amount Below" Style="color: White; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label3" MOD="4" Left="6660" Top="270" Width="1170" Height="288" Caption="Antipated" Style="color: White; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label4" MOD="4" Left="7830" Top="270" Width="1350" Height="288" Caption="Usage" Style="color: White; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label5" MOD="4" Left="90" Top="540" Width="900" Height="288" Caption="Major Grp" Style="color: White; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label6" MOD="4" Left="990" Top="540" Width="2070" Height="288" Caption="Part" Style="color: White; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label7" MOD="4" Left="3060" Top="540" Width="1080" Height="288" Caption="Qoh" Style="color: White; text-align: center; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label13" MOD="4" Left="4140" Top="540" Width="1080" Height="288" Caption="Min Qty." Style="color: White; text-align: center; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label16" MOD="4" Left="5220" Top="540" Width="1440" Height="288" Caption="Below Minimum" Style="color: White; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label17" MOD="4" Left="6660" Top="540" Width="1170" Height="288" Caption="Order Date" Style="color: White; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label18" MOD="4" Left="7830" Top="540" Width="1260" Height="288" Caption="Week 1" Style="color: White; text-align: right; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label10" MOD="4" Left="9090" Top="540" Width="1440" Height="288" Caption="Week 2" Style="color: White; text-align: right; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label9" MOD="4" Left="10530" Top="540" Width="1440" Height="288" Caption="Week 3" Style="color: White; text-align: right; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label15" MOD="4" Left="11970" Top="540" Width="1440" Height="288" Caption="Week 4" Style="color: White; text-align: right; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label25" MOD="4" Left="90" Top="810" Width="900" Height="288" Caption="" Style="color: White; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label24" MOD="4" Left="990" Top="810" Width="2070" Height="288" Caption="" Style="color: White; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label23" MOD="4" Left="3060" Top="810" Width="1080" Height="288" Caption="" Style="color: White; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label22" MOD="4" Left="4140" Top="810" Width="1080" Height="288" Caption="" Style="color: White; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label21" MOD="4" Left="5220" Top="810" Width="1440" Height="288" Caption="" Style="color: White; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="Label20" MOD="4" Left="6660" Top="810" Width="1170" Height="288" Caption="" Style="color: White; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="labelWeek1" MOD="4" Left="7830" Top="810" Width="1260" Height="288" Caption="Week 1" Style="color: White; text-align: right; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="labelWeek2" MOD="4" Left="9090" Top="810" Width="1440" Height="288" Caption="Week 2" Style="color: White; text-align: right; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="labelWeek3" MOD="4" Left="10530" Top="810" Width="1440" Height="288" Caption="Week 3" Style="color: White; text-align: right; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Label" Name="labelWeek4" MOD="4" Left="11970" Top="810" Width="1440" Height="288" Caption="Week 4" Style="color: White; text-align: right; background-color: Black; font-size: 7pt; " />
+      <Control Type="AR.Field" Name="tBoxDate" MOD="4" Left="9900" Top="90" Width="2880" Height="288" Text="Date" Style="text-align: right; " />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="270" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="TextBox1" DataField="majorGrp" MOD="4" Left="90" Top="0" Width="900" Height="270" Text="MajorGrp" Style="font-size: 7pt; " />
+      <Control Type="AR.Field" Name="TextBox2" DataField="part" MOD="4" Left="990" Top="0" Width="2070" Height="270" Text="Part" Style="font-size: 7pt; " />
+      <Control Type="AR.Field" Name="TextBox3" DataField="qoh" MOD="4" Left="3060" Top="0" Width="1080" Height="270" Text="Qoh" Style="text-align: right; font-size: 7pt; " />
+      <Control Type="AR.Field" Name="TextBox4" DataField="minqty" MOD="4" Left="4140" Top="0" Width="1080" Height="270" Text="Min Qty" Style="text-align: right; font-size: 7pt; " />
+      <Control Type="AR.Field" Name="TextBox5" DataField="below" MOD="4" Left="5220" Top="0" Width="1440" Height="270" Text="" OutputFormat="#,##0.00" Style="font-size: 7pt; " />
+      <Control Type="AR.Field" Name="TextBox6" MOD="4" Left="6660" Top="0" Width="1170" Height="270" Text="" OutputFormat="" Style="font-size: 7pt; " />
+      <Control Type="AR.Field" Name="TextBox7" DataField="week2" MOD="4" Left="9090" Top="0" Width="1440" Height="270" Text="week2" OutputFormat="#,##0.00" Style="text-align: right; font-size: 7pt; " />
+      <Control Type="AR.Field" Name="TextBox8" DataField="week1" MOD="4" Left="7830" Top="0" Width="1260" Height="270" Text="week1" OutputFormat="#,##0.00" Style="text-align: right; font-size: 7pt; " />
+      <Control Type="AR.Field" Name="TextBox9" DataField="week3" MOD="4" Left="10530" Top="0" Width="1440" Height="270" Text="week3" OutputFormat="#,##0.00" Style="text-align: right; font-size: 7pt; " />
+      <Control Type="AR.Field" Name="TextBox10" DataField="week4" MOD="4" Left="11970" Top="0" Width="1440" Height="270" Text="week4" OutputFormat="#,##0.00" Style="text-align: right; font-size: 7pt; " />
+    </Section>
+    <Section Type="PageFooter" Name="PageFooter" Height="330" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="lPageNum" MOD="4" Left="11970" Top="0" Width="1440" Height="288" Caption="Page:" Style="text-align: right; font-size: 8pt; " />
+    </Section>
+    <Section Type="ReportFooter" Name="ReportFooter" Height="570" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="TextBox15" DataField="week2" MOD="4" Left="9090" Top="90" Width="1440" Height="288" Text="" OutputFormat="#,##0.00" Style="text-align: right; font-size: 6.75pt; font-family: Microsoft Sans Serif; " SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="TextBox16" DataField="week1" MOD="4" Left="7830" Top="90" Width="1260" Height="288" Text="week1" OutputFormat="#,##0.00" Style="text-align: right; font-size: 6.75pt; font-family: Microsoft Sans Serif; " SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="TextBox17" DataField="week3" MOD="4" Left="10530" Top="90" Width="1440" Height="288" Text="" OutputFormat="#,##0.00" Style="text-align: right; font-size: 6.75pt; font-family: Microsoft Sans Serif; " SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="TextBox18" DataField="week4" MOD="4" Left="11970" Top="90" Width="1440" Height="288" Text="" OutputFormat="#,##0.00" Style="text-align: right; font-size: 6.75pt; font-family: Microsoft Sans Serif; " SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Label" Name="Label19" MOD="4" Left="6660" Top="90" Width="1170" Height="288" Caption="Totals" Style="font-weight: bold; font-size: 6.75pt; font-family: Microsoft Sans Serif; " />
+    </Section>
+  </Sections>
+  <PageSettings LeftMargin="1152" RightMargin="1152" Orientation="2" />
+</ActiveReportsLayout>

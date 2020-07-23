@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<WindowsApplication>
+
+	<!--
+	SQL Server
+	<DataBase.SqlRepositoryType value="SQLServer" />
+	<DataBase.SqlDBConnectionstring value =Server=Nujit-server;uid=NujitUser;pwd=User;database=Nujit;Pooling=false;" /> 
+
+	MySQL
+	<DataBase.SqlRepositoryType value="MySQL" /> 
+	<DataBase.SqlDBConnectionstring value="Server=localhost;Database=Nujit;User ID=NujitUser;Password=User;" />
+	-->
+	
+	<DataBase.SqlRepositoryType value="MySQL" />
+	<DataBase.SqlDBConnectionstring value="Server=192.0.1.183;Database=funnel;User ID=root;Password=funnel;" />
+	<DataBase.RepositoryType value="MySQL" />
+	<DataBase.DBConnectionstring value="Server=10.0.1.11;Database=nujit;User ID=NujitUser;Password=Zeus2006;" />
+	<DataBase.CMSTEMPConnectionstring value="Server=192.0.1.183;Database=cmstemp;User ID=root;Password=funnel;" />
+
+	<!-- 
+	Valid in Windows
+	<DataBase.CMSRepositoryType value="OLEDB" />
+
+	Valid in Linux
+	<DataBase.CMSRepositoryType value="ODBC" />
+	-->
+
+	<DataBase.CMSRepositoryType value="ODBC" />
+	<!--<DataBase.CMSConnectionstring value="Provider=IBMDA400;Data Source=209.183.136.195;User ID=TOPDOG;Password=TOPDOGGP" />-->
+	<DataBase.CMSConnectionstring value="Driver={Client Access ODBC Driver (32-bit)};System=10.137.252.99;Uid=CCRAWFORD;Pwd=WORKING1;" encrypted="false" />
+	<!-- 
+	<DataBase.CMSLibrary value="ALFIELD" />
+	-->
+
+	<DataBase.CMSLibrary value="PLCORP" />
+	<!-- 
+		<DataBase.CMSLibrary_2nd value="TESTDAT" />	
+	-->
+	<DataBase.CMSLibrary_2nd value="PLCORP" />	
+	<DataBase.CMSLibrary_3rd value="FUNNEL" />	
+	<DataBase.CMSProgramLibrary value="ALFIELD" />
+	<DataBase.SystemName value="CMS" />
+	
+	<DataBase.DftDataBase value="Dft" />
+
+	<!-- 
+	Alfield
+	<Cms.Version value="5.0" />
+
+	Claire
+	<Cms.Version value="5.1" />
+	-->
+	
+	<Cms.Version value="5.2" />
+
+	<Report.Path value="c:/temp/" />
+
+	<Error.EnableErrorEmail value="" />
+	<Error.ErrorEmailFrom value="" />
+	<Error.ErrorEmailTo value="" />
+		
+	<Mail.SmtpServer value="adinet.com.uy" />
+		
+	<CleanImages.ImageURL value="http://images.nujit.com" />
+	<CleanImages.RedetailSiteURL value="http://www.nujit.com" />
+	
+	<HotList.ControlUsers value="Y" />
+	<HotList.PlanDays value="1" />
+	<HotList.MinPlanDays value="3" />
+	<HotList.MaxPlanDays value="3" />
+
+    <!--- RunMode can be Local, Server, Client -->
+	<Remote.RunMode value="Local" />
+	<Remote.ServerIp value="10.0.2.101" />
+	<Remote.ServerPort value="" />
+	<Remote.ServiceName value="nujit.rem" />
+
+    <!--- Search Windows -->
+	<Search.DefaultMaxRecords value="50" />
+	<Search.UserChangeDefaultMaxRecords value="true" />
+
+	<Company.Name value="alfield" />
+	<Company.IgnorePastDue value="Y" />
+	<!--<Company.StkLocsMaterials value="QIA,WH1" />-->
+	<Company.StkLocsMaterials value="70 CON,70 CUA" />
+	
+	<!--- Default values for company and plant -->
+	<Company.DftCompany value="06" />
+	<Plant.DftPlant value="DFT" />
+	<Department.DftDepartment value="DFT2" />
+	
+        <Report.StartMajorGroup value="000" />
+        <Report.EndMajorGroup value="400" />
+        <Report.ShowOnlyWithDemand value="Y" />   
+        <Report.ExportPath value="N:\PRODUCTION" />
+</WindowsApplication>

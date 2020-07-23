@@ -1,0 +1,110 @@
+﻿<Window x:Class="HotListReports.Windows.Customers.CustomViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:HotListReports.Windows.Demand"
+        xmlns:localUtil="clr-namespace:HotListReports.Windows.Util"  
+        xmlns:localConverters="clr-namespace:Nujit.NujitWms.WinForms.Util.Converters;assembly=Utilities"          
+        mc:Ignorable="d"
+        Title="Custom View" Height="700" Width="700" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <localUtil:ConstantYesNoToBoolConverterNew x:Key="yesNoToBoolConverterNew" />
+        <localUtil:DecimalToStringConverterNew x:Key="decimalConverterNew" />
+        <localUtil:DateTimeToStringConverterNew x:Key="dateTimeToStringConverterNew" />
+    </Window.Resources>
+
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Name="bolGrid" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <GroupBox Name="bolGroupBox" Header="Bol">
+                <Canvas Name="bolGroupBoxCanvas">
+
+                    <Label x:Name="bolNLabel" Content="Bol#" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Width="66"/>
+                    <TextBox x:Name="bolNTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FGBOL}" Width="95" Canvas.Left="81" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" />
+
+                    <Label x:Name="shipDateLabel" Content="Ship Date" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="196" Canvas.Top="0.04" Width="66"/>
+                    <TextBox x:Name="shipDateTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FESDAT, ConverterParameter='Date', Converter={StaticResource dateTimeToStringConverterNew}}" Width="127" Canvas.Left="262" Canvas.Top="-0.04" MaxLength="50" IsEnabled="False"/>
+
+                    <Label x:Name="plantLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="404" Width="66" Canvas.Top="-0.08"/>
+                    <TextBox x:Name="plantTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FEPLTC}" Width="68" Canvas.Left="470" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="0.04" />
+
+                    <Label x:Name="typeLabel" Content="Type" HorizontalAlignment="Left" Canvas.Left="538" Canvas.Top="-0.04" Width="36"/>
+                    <TextBox x:Name="typeTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FEBTYP}" Width="25" Canvas.Left="574" Canvas.Top="-0.08" MaxLength="50" IsEnabled="False"/>
+
+                    <Label x:Name="shippedLabel" Content="Ship" HorizontalAlignment="Left" Canvas.Left="602" Canvas.Top="-0.04" Width="36"/>
+                    <TextBox x:Name="shippedTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FESIND}" Width="25" Canvas.Left="638" Canvas.Top="0.04" MaxLength="50" IsEnabled="False"/>
+
+
+                    <Label x:Name="billToLabel" Content="BillTo" HorizontalAlignment="Left" Canvas.Left="10" Width="66" Canvas.Top="26"/>
+                    <TextBox x:Name="billToTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FEBCS}" Width="95" Canvas.Left="81" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="26" RenderTransformOrigin="-5.456,1.269" />
+
+                    <Label x:Name="shipToLabel" Content="ShipTo" HorizontalAlignment="Left" Canvas.Left="196" Width="66" Canvas.Top="26"/>
+                    <TextBox x:Name="shipToTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FESCS}" Width="95" Canvas.Left="262" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="25.96" RenderTransformOrigin="-5.456,1.269" />
+
+                </Canvas>
+            </GroupBox>
+
+        </Grid>
+
+
+        <Grid Name="partGrid" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <GroupBox Name="partGroupBox" Header="Part">
+                <Canvas Name="partGroupBoxCanvas">
+
+                    <Label x:Name="bolDLabel" Content="Lin#" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Width="66"/>
+                    <TextBox x:Name="bolDTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FGENT}" Width="95" Canvas.Left="81" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" />
+
+                    <Label x:Name="partLabel" Content="Part" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="196" Canvas.Top="0.04" Width="66"/>
+                    <TextBox x:Name="partTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FGPART}" Width="132" Canvas.Left="262" Canvas.Top="-0.04" IsEnabled="False"/>
+
+                    <Label x:Name="custPartLabel" Content="Cust.Part" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="413" Width="66" Canvas.Top="-0.04"/>
+                    <TextBox x:Name="custPartTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FGCPT}" Width="196" Canvas.Left="484" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="0.04" />
+
+                    <Label x:Name="orderLabel" Content="Order#" HorizontalAlignment="Left" Canvas.Left="10" Canvas.Top="26.04" Width="66"/>
+                    <TextBox x:Name="orderTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FGORD, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="95" Canvas.Left="81" Canvas.Top="26" MaxLength="50" IsEnabled="False" RenderTransformOrigin="2.36,0.66"/>
+
+                    <Label x:Name="orderDtlLabel" Content="Itm#" HorizontalAlignment="Left" Canvas.Left="196" Canvas.Top="25.92" Width="36"/>
+                    <TextBox x:Name="orderDtlTextBox" Height="23" TextWrapping="Wrap" Text="{Binding FGITEM, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="30" Canvas.Left="232" Canvas.Top="25.88" MaxLength="50" IsEnabled="False"/>
+
+
+                    <Label x:Name="ordRelLabel" Content="Ord.Rel" HorizontalAlignment="Left" Canvas.Left="263" Width="51" Canvas.Top="25.96"/>
+                    <TextBox x:Name="ordRelTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FGCREL}" Width="80" Canvas.Left="314" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="25.88" RenderTransformOrigin="-5.456,1.269" />
+
+                    <Label x:Name="qtyShipLabel" Content="QtyShip" HorizontalAlignment="Left" Canvas.Left="10" Width="66" Canvas.Top="51.96"/>
+                    <TextBox x:Name="qtyShipTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FGQSHP, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="70" Canvas.Left="81" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="51.92"/>
+
+                    <Label x:Name="qtyBackLabel" Content="QtyBack" HorizontalAlignment="Left" Canvas.Left="196" Width="66" Canvas.Top="51.96" RenderTransformOrigin="3.318,0.427"/>
+                    <TextBox x:Name="qtyBackTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding DDQTBI, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="70" Canvas.Left="263" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="51.92"/>
+
+                    <Label x:Name="expecQtyLabel" Content="ExpecQty" HorizontalAlignment="Left" Canvas.Left="413" Width="66" Canvas.Top="51.96" RenderTransformOrigin="3.318,0.427"/>
+                    <TextBox x:Name="expecQtyTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding UPEXNQ, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="70" Canvas.Left="479" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="51.96"/>
+
+                    <Label x:Name="cumQtyLabel" Content="CumQty" HorizontalAlignment="Left" Canvas.Left="549" Width="60" Canvas.Top="51.92" RenderTransformOrigin="3.318,0.427"/>
+                    <TextBox x:Name="cumQtyTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FGCCUM, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="70" Canvas.Left="609" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="51.88"/>
+
+                    <Label x:Name="preCumQtyLabel" Content="PreCuQty" HorizontalAlignment="Left" Canvas.Left="10" Width="66" Canvas.Top="77.92" RenderTransformOrigin="3.318,0.427"/>
+                    <TextBox x:Name="preCumQtyTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding FGPCUM, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="70" Canvas.Left="81" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="77.92"/>
+
+
+                    <Label x:Name="majGrpLabel" Content="MajGrp" HorizontalAlignment="Left" Canvas.Left="10" Canvas.Top="103.88" Width="66"/>
+                    <TextBox x:Name="majGrpTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding AVMAJG}" Width="70" Canvas.Left="81" Canvas.Top="103.84" MaxLength="50" IsEnabled="False"/>
+
+                    <Label x:Name="minGrpLabel" Content="MinGrp" HorizontalAlignment="Left" Canvas.Left="10" Canvas.Top="26.04" Width="66"/>
+                    <TextBox x:Name="minGrpTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding AVMAJG}" Width="95" Canvas.Left="81" Canvas.Top="26" MaxLength="50" IsEnabled="False"/>
+
+
+                </Canvas>
+            </GroupBox>
+
+        </Grid>
+
+    </Grid>
+</Window>

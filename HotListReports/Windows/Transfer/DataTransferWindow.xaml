@@ -1,0 +1,82 @@
+﻿<Window  x:Class="HotListReports.Windows.Transfer.DataTransferWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:HotListReports.Windows.Demand"
+        mc:Ignorable="d"
+        Title="Data Transfer" Height="500" Width="400" Closing="Window_Closing" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="343*"/>
+            <RowDefinition Height="26*"/>
+        </Grid.RowDefinitions>
+        <TabControl x:Name="mainTabControl">
+            <TabItem x:Name="itemsTabItem" Header="Items">
+                <Grid x:Name="itemsGrid" Background="#FFE5E5E5">
+                    <Button x:Name="itemMasterButton" Content="Item Master" HorizontalAlignment="Left" Width="114" Click="itemMasterButton_Click" Canvas.Left="677" FontWeight="Bold" Height="23.994" VerticalAlignment="Top" Margin="10,38,0,0"/>
+                    <Button x:Name="familyPartsButton" Content="Family Parts" HorizontalAlignment="Left" Width="114" Click="familyPartsButton_Click" FontWeight="Bold" Height="23.994" VerticalAlignment="Top" Margin="10,90,0,0"/>
+
+                    <Button x:Name="psscButton" Content="Pssc" HorizontalAlignment="Left" Width="114" Click="psscButton_Click" FontWeight="Bold" Height="23.994" VerticalAlignment="Top" Margin="10,144,0,0"/>
+                    <Button x:Name="mmgpButton" Content="Mmgp" HorizontalAlignment="Left" Width="114" Click="mmgpButton_Click" FontWeight="Bold" Height="23.994" Margin="10,195,0,186.994" RenderTransformOrigin="0.553,1.925"/>
+
+                    <Button x:Name="mainMaterialButton" Content="Main Material" HorizontalAlignment="Right" Width="114" Click="mainMaterialButton_Click" FontWeight="Bold" Height="23.994" Margin="0,38,51,0" RenderTransformOrigin="0.553,1.925" VerticalAlignment="Top"/>
+
+                    <Button x:Name="custPartButton" Content="Cust Part" HorizontalAlignment="Right" Width="114" Click="custPartButton_Click" FontWeight="Bold" Height="23.994" Margin="0,90,51,0" VerticalAlignment="Top"/>
+
+
+                </Grid>
+
+            </TabItem>
+
+            <TabItem x:Name="historyTabItem" Header="History">
+                <Grid x:Name="historyGrid" Background="#FFE5E5E5">
+                    <Button x:Name="scrapButton" Content="Scrap" HorizontalAlignment="Left" Width="114" Click="scrapButton_Click" Canvas.Left="677" FontWeight="Bold" Height="23.994" VerticalAlignment="Top" Margin="10,38,0,0"/>
+                    <Button x:Name="sprsnButton" Content="Sprsn" HorizontalAlignment="Left" Width="114" Click="sprsnButton_Click" FontWeight="Bold" Height="23.994" VerticalAlignment="Top" Margin="10,90,0,0"/>
+
+                    <Button x:Name="prhHistButton" Content="Pr.Hist" HorizontalAlignment="Left" Width="114" Click="prhHistButton_Click" FontWeight="Bold" Height="23.994" VerticalAlignment="Top" Margin="10,144,0,0"/>
+
+                    <Button x:Name="rprdButton" Content="Rprd" HorizontalAlignment="Right" Width="114" Click="rprdButton_Click" FontWeight="Bold" Height="23.994" Margin="0,38,51,0" RenderTransformOrigin="0.553,1.925" VerticalAlignment="Top"/>
+                    <Button x:Name="rprrButton" Content="Rprr" HorizontalAlignment="Right" Width="114" Click="rprrButton_Click" FontWeight="Bold" Height="23.994" Margin="0,90,51,0" RenderTransformOrigin="0.553,1.925" VerticalAlignment="Top"/>
+                    <Button x:Name="rprsButton" Content="Rprs" HorizontalAlignment="Right" Width="114" Click="rprsButton_Click" FontWeight="Bold" Height="23.994" Margin="0,144,51,0" RenderTransformOrigin="0.553,1.925" VerticalAlignment="Top"/>
+                    <Button x:Name="rprhButton" Content="Rprh" HorizontalAlignment="Right" Width="114" Click="rprhButton_Click" FontWeight="Bold" Height="23.994" Margin="0,203,51,178.994" RenderTransformOrigin="0.553,1.925"/>
+                    <Button x:Name="rprpButton" Content="Rprp" HorizontalAlignment="Right" Width="114" Click="rprpButton_Click" FontWeight="Bold" Height="23.994" Margin="0,0,51,123.994" RenderTransformOrigin="0.553,1.925" VerticalAlignment="Bottom"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="inventoryTabItem" Header="Inventory">
+                <Grid x:Name="inventoryGrid" Background="#FFE5E5E5">
+                    <Button x:Name="shippingScheduleButton" Content="Shipping Sched." HorizontalAlignment="Left" Width="114" Click="shippingScheduleButton_Click" Canvas.Left="677" FontWeight="Bold" Height="23.994" VerticalAlignment="Top" Margin="10,38,0,0"/>
+                    <Button x:Name="materialReleaseButton" Content="Material Rel." HorizontalAlignment="Left" Width="114" Click="materialReleaseButton_Click" FontWeight="Bold" Height="23.994" VerticalAlignment="Top" Margin="10,90,0,0"/>
+
+                    <Button x:Name="ediCrossRefButton" Content="Edi CrossRef" HorizontalAlignment="Left" Width="114" Click="ediCrossRefButton_Click" FontWeight="Bold" Height="23.994" VerticalAlignment="Top" Margin="10,144,0,0"/>
+                    <Button x:Name="icstmButton" Content="Icstm" HorizontalAlignment="Left" Width="114" Click="icstmButton_Click" FontWeight="Bold" Height="23.994" Margin="10,195,0,186.994" RenderTransformOrigin="0.553,1.925"/>
+
+                    <Button x:Name="icstpButton" Content="Icstp" HorizontalAlignment="Right" Width="114" Click="icstpButton_Click" FontWeight="Bold" Height="23.994" Margin="0,38,51,0" RenderTransformOrigin="0.553,1.925" VerticalAlignment="Top"/>
+                    <Button x:Name="stktButton" Content="Stkt" HorizontalAlignment="Right" Width="114" Click="stktButton_Click" FontWeight="Bold" Height="23.994" Margin="0,90,51,0" RenderTransformOrigin="0.553,1.925" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="infraestructureTabItem" Header="Infraestructure">
+                <Grid x:Name="infraestructureGrid" Background="#FFE5E5E5">
+                    <Button x:Name="plantsDeptsButton" Content="Plants / Depts" HorizontalAlignment="Left" Width="114" Click="plantsDeptsButton_Click" Canvas.Left="677" FontWeight="Bold" Height="23.994" VerticalAlignment="Top" Margin="10,38,0,0"/>
+                    <Button x:Name="machinesButton" Content="Machines" HorizontalAlignment="Left" Width="114" Click="machinesButton_Click" FontWeight="Bold" Height="23.994" VerticalAlignment="Top" Margin="10,90,0,0"/>
+
+                    <Button x:Name="stockRoomsButton" Content="Stock Rooms" HorizontalAlignment="Left" Width="114" Click="stockRoomsButton_Click" FontWeight="Bold" Height="23.994" VerticalAlignment="Top" Margin="10,144,0,0"/>
+                    <Button x:Name="suppliersButton" Content="Suppliers" HorizontalAlignment="Left" Width="114" Click="suppliersButton_Click" FontWeight="Bold" Height="23.994" Margin="10,195,0,186.994" RenderTransformOrigin="0.553,1.925"/>
+
+                    <Button x:Name="toolingButton" Content="Tooling" HorizontalAlignment="Right" Width="114" Click="toolingButton_Click" FontWeight="Bold" Height="23.994" Margin="0,38,51,0" RenderTransformOrigin="0.553,1.925" VerticalAlignment="Top"/>
+                    <Button x:Name="toolMasterButton" Content="Tool Master" HorizontalAlignment="Right" Width="114" Click="toolMasterButton_Click" FontWeight="Bold" Height="23.994" Margin="0,90,51,0" RenderTransformOrigin="0.553,1.925" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <Canvas x:Name="partBottomCanvas" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Width="75" Click="cancelButton_Click" RenderTransformOrigin="-0.467,0.769" FontWeight="Bold" Height="16" Canvas.Top="3" />
+
+            <Label x:Name="plantLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="109"  Canvas.Top="2.821"/>
+            <ComboBox x:Name="plantComboBox" HorizontalAlignment="Left" Width="75" Canvas.Left="150" Canvas.Top="3.821" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+        </Canvas>
+    </Grid>
+</Window>

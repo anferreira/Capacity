@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3" PrintWidth="11595" DocumentName="ActiveReports Document" ScriptLang="C#" CodeFile="rptVRIReport2.cs">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0; " />
+    <Style Name="Heading1" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading3" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; " />
+  </StyleSheet>
+  <Sections>
+    <Section Type="ReportHeader" Name="ReportHeader" Height="705" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label1" MOD="4" Left="3060" Top="90" Width="3780" Height="270" Caption="Vendor Release Inquiry Report" Style="font-weight: bold; font-size: 12pt; " />
+      <Control Type="AR.Line" Name="Line1" MOD="4" X1="0" Y1="540" X2="11340" Y2="540" />
+      <Control Type="AR.Label" Name="dateLbl" MOD="4" Left="9540" Top="180" Width="1800" Height="288" Caption="DATE" Style="text-align: right; " />
+    </Section>
+    <Section Type="PageHeader" Name="PageHeader" Height="540" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label2" MOD="4" Left="1620" Top="90" Width="900" Height="288" Caption="Product" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label3" MOD="4" Left="2790" Top="90" Width="450" Height="288" Caption="Seq" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label4" MOD="4" Left="3240" Top="90" Width="1170" Height="288" Caption="Description" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label8" MOD="4" Left="0" Top="90" Width="900" Height="288" Caption="Supplier" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label9" MOD="4" Left="900" Top="90" Width="630" Height="288" Caption="Cat" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label10" MOD="4" Left="4950" Top="90" Width="1080" Height="288" Caption="Release #" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label11" MOD="4" Left="6030" Top="90" Width="900" Height="288" Caption="Past Due" Style="ddo-char-set: 1; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label12" MOD="4" Left="7020" Top="90" Width="630" Height="288" Caption="E1" Style="ddo-char-set: 1; text-align: right; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label13" MOD="4" Left="7650" Top="90" Width="630" Height="288" Caption="E2" Style="ddo-char-set: 1; text-align: right; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label14" MOD="4" Left="8280" Top="90" Width="630" Height="288" Caption="E3" Style="ddo-char-set: 1; text-align: right; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label15" MOD="4" Left="8910" Top="90" Width="630" Height="288" Caption="E4" Style="ddo-char-set: 1; text-align: right; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label16" MOD="4" Left="9540" Top="90" Width="630" Height="288" Caption="E5" Style="ddo-char-set: 1; text-align: right; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label17" MOD="4" Left="10170" Top="90" Width="630" Height="288" Caption="E6" Style="ddo-char-set: 1; text-align: right; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label18" MOD="4" Left="14940" Top="4050" Width="540" Height="288" Caption="E6" Style="ddo-char-set: 1; font-weight: bold; " />
+      <Control Type="AR.Label" Name="Label19" MOD="4" Left="15300" Top="4410" Width="540" Height="288" Caption="E6" Style="ddo-char-set: 1; font-weight: bold; " />
+      <Control Type="AR.Label" Name="Label20" MOD="4" Left="10800" Top="90" Width="630" Height="288" Caption="E7" Style="ddo-char-set: 1; text-align: right; font-weight: bold; font-size: 8pt; " />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="480" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="supplierText" DataField="Supplier" MOD="4" Left="0" Top="0" Width="810" Height="270" Text="Supplier" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="seqText" DataField="Seq" MOD="4" Left="2790" Top="0" Width="450" Height="270" Text="Seq" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="descText" DataField="Description" MOD="4" Left="3270" Top="0" Width="1590" Height="270" Text="Desc" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="PastDue" DataField="PastDue" MOD="4" Left="6120" Top="0" Width="720" Height="270" Text="PastDue" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="Product" DataField="Product" MOD="4" Left="1620" Top="0" Width="1170" Height="270" Text="Product" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="Cat" DataField="Cat" MOD="4" Left="810" Top="0" Width="630" Height="270" Text="Cat" Style="font-size: 8pt; " />
+      <Control Type="AR.Field" Name="Release" DataField="Release" MOD="4" Left="4950" Top="0" Width="1080" Height="270" Text="Release" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="E1" DataField="E1" MOD="4" Left="7020" Top="0" Width="630" Height="270" Text="E1" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="E2" DataField="E2" MOD="4" Left="7650" Top="0" Width="630" Height="270" Text="E2" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="E3" DataField="E3" MOD="4" Left="8280" Top="0" Width="630" Height="270" Text="E3" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="E4" DataField="E4" MOD="4" Left="8910" Top="0" Width="630" Height="270" Text="E4" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="E5" DataField="E5" MOD="4" Left="9555" Top="0" Width="630" Height="270" Text="E5" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="E6" DataField="E6" MOD="4" Left="10170" Top="0" Width="630" Height="270" Text="E6" Style="text-align: right; font-size: 8pt; " />
+      <Control Type="AR.Field" Name="E7" DataField="E7" MOD="4" Left="10815" Top="0" Width="630" Height="270" Text="E7" Style="text-align: right; font-size: 8pt; " />
+    </Section>
+    <Section Type="PageFooter" Name="PageFooter" Height="928" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="pageLbl" MOD="4" Left="10530" Top="450" Width="810" Height="288" Caption="Pagina" Style="ddo-char-set: 1; text-align: right; font-weight: bold; font-size: 8pt; " />
+      <Control Type="AR.Label" Name="Label7" MOD="4" Left="9900" Top="450" Width="630" Height="288" Caption="Page" Style="ddo-char-set: 1; text-align: right; font-weight: bold; font-size: 8pt; " />
+    </Section>
+    <Section Type="ReportFooter" Name="ReportFooter" Height="360" BackColor="16777215" CanShrink="0" />
+  </Sections>
+  <PageSettings LeftMargin="144" RightMargin="144" TopMargin="1008" Orientation="1" />
+</ActiveReportsLayout>

@@ -1,0 +1,58 @@
+﻿<Window x:Class="HotListReports.Windows.Customers.CustLeadWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:HotListReports.Windows.Demand"
+        xmlns:localUtil="clr-namespace:HotListReports.Windows.Util"  
+        xmlns:localConverters="clr-namespace:Nujit.NujitWms.WinForms.Util.Converters;assembly=Utilities"          
+        mc:Ignorable="d"
+        Title="Customer Lead Time" Height="250" Width="300" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <localUtil:ConstantYesNoToBoolConverterNew x:Key="yesNoToBoolConverterNew" />
+        <localUtil:DecimalToStringConverterNew x:Key="decimalConverterNew" />
+        <localUtil:DateTimeToStringConverterNew x:Key="dateTimeToStringConverterNew" />
+    </Window.Resources>
+
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="190*"/>
+            <RowDefinition Height="29"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="custGrid" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+
+            <Canvas Name="custTopCanvas" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                <Label x:Name="idLabel" Content="Customer" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Width="66"/>
+                <TextBox x:Name="idTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Id}" Width="119" Canvas.Left="81" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" />
+            </Canvas>
+
+            <GroupBox Name="groupsGroupBox" Header="Sales Codes" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" FontWeight="Bold">
+                <Canvas Name="groupsGroupBoxCanvas">
+                    <Label x:Name="majLabel" Content="Major Sales" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="39" Width="85" Canvas.Top="22.08"/>
+                    <TextBox x:Name="majTextBox" CharacterCasing="Upper" Height="23" TextWrapping="Wrap"  Text="{Binding MajSalesCode}" Width="50" Canvas.Left="124" IsEnabled="True" FontWeight="Bold" Canvas.Top="22.08" MaxLength="3"/>
+
+                    <Label x:Name="minLabel" Content="Minor Sales" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="39" Width="85" Canvas.Top="48.04"/>
+                    <TextBox x:Name="minTextBox" CharacterCasing="Upper" Height="23" TextWrapping="Wrap"  Text="{Binding MinSalesCode}" Width="50" Canvas.Left="124" IsEnabled="True" FontWeight="Bold" Canvas.Top="48.08" MaxLength="3"/>
+
+                    <Label x:Name="leadTLabel" Content="Lead Time" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="39" Width="85" Canvas.Top="74"/>
+                    <TextBox x:Name="leadTTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding LeadTime, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="50" Canvas.Left="124" IsEnabled="True" FontWeight="Bold" Canvas.Top="74" MaxLength="5" TextAlignment="Right"/>
+
+
+                </Canvas>
+            </GroupBox>
+
+        </Grid>
+
+        <Canvas x:Name="bottomCanvas" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <Button x:Name="okButton" Content="OK" HorizontalAlignment="Left" Width="75" Click="okDefaultsButton_Click" FontWeight="Bold" />
+            <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Width="75" Click="cancelDefaultsButton_Click" Canvas.Left="80" FontWeight="Bold" />
+        </Canvas>
+
+    </Grid>
+</Window>

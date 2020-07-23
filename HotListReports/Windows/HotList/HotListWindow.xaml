@@ -1,0 +1,147 @@
+﻿<Window x:Class="HotListReports.Windows.HotLists.HotListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:localUtil="clr-namespace:HotListReports.Windows.Util"   
+        xmlns:NujitWPFUtilities="clr-namespace:NujitWPFUtilities;assembly=NujitWPFUtilities"       
+        xmlns:local="clr-namespace:HotListReports.Windows.Demand"
+        mc:Ignorable="d"
+        Title="HotList" Height="700" Width="1300" Closing="Window_Closing" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen"  KeyDown="Window_KeyDown" KeyUp="Window_KeyUp" >
+
+
+    <Window.Resources>
+        <localUtil:DecimalToStringConverterNew x:Key="decimalConverterNew" />
+
+        <Style TargetType="TextBlock" x:Key="TextBlockStyle">
+            <Setter Property="Background" Value="#027802"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Padding" Value="10,5"></Setter>
+            <Setter Property="Margin" Value="5,2,5,0"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="Focusable" Value="true"/>
+            <Setter Property="Cursor" Value="Hand"></Setter>
+            <!-- Trigger-->
+            <Style.Triggers>
+                <!--Does not pick up a IsFucused State-Alternative?-->
+
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="Background" Value="Blue"></Setter>
+                    <Setter Property="FontSize" Value="18"></Setter>
+                    <Setter Property="Foreground" Value="Orange"></Setter>
+                </Trigger>
+
+            </Style.Triggers>
+            <!--<Setter Property="Background" Value="White" />-->
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="610*"/>
+            <RowDefinition Height="59*"/>
+        </Grid.RowDefinitions>
+        <TabControl x:Name="mainTabControl" SelectionChanged="mainTabControl_SelectionChanged" Grid.Row="0">
+
+            <TabItem Header="Weekly" x:Name="weeklyTabItem">
+                <Grid x:Name="weeklyGrid" Background="#FFE5E5E5">
+                    <ListView x:Name="weeklyListView" MouseDoubleClick="weeklyListView_MouseDoubleClick">
+                        <ListView.View>
+                            <GridView/>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Daily" x:Name="dailyTabItem">
+                <Grid x:Name="dailyGrid" Background="#FFE5E5E5">
+                    <ListView x:Name="dailyListView" SelectionMode="Single" MouseDoubleClick="dailyListView_MouseDoubleClick"
+                            MaxHeight="2000"
+                            VirtualizingPanel.IsContainerVirtualizable="True"
+                            VirtualizingPanel.IsVirtualizing="True"
+                            ScrollViewer.CanContentScroll="True">
+                        <ListView.View>
+                            <GridView/>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Bom/Demand" x:Name="bomHotListTabItem">
+                <Grid x:Name="bomHotListGrid" Background="#FFE5E5E5">
+                    <ListView x:Name="bomHotListListView" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <ListView.View>
+                            <GridView/>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+
+
+
+        </TabControl>
+
+        <Canvas x:Name="bottomCanvas" Margin="-7,1.528,0,0" Grid.Row="1" d:LayoutOverrides="VerticalAlignment, LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+            <Label x:Name="searchForLabel" Content="Search For" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="444.613" Canvas.Top="2"/>
+            <ComboBox x:Name="searchByComboBox" HorizontalAlignment="Left" Width="101.639" Canvas.Left="337.974" Canvas.Top="3"/>
+            <Label x:Name="searchByLabel" Content="Search By" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="257.966" Canvas.Top="2"/>
+            <TextBox x:Name="searchForTextBox" TextWrapping="Wrap" Canvas.Left="512.227" Canvas.Top="-0.267" Width="101.64"/>
+            <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Width="75" Click="searchButton_Click" Canvas.Left="167" FontWeight="Bold" Canvas.Top="1"/>
+
+            <Label x:Name="daysWithQohLabel" Content="DaysWQty" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="444.613" Canvas.Top="28.316"/>
+            <TextBox x:Name="daysWithQoTextBox" TextWrapping="Wrap" Canvas.Left="512.227" Canvas.Top="27.96" Width="44.773"  Text="{Binding Days, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" TextAlignment="Right" MaxLength="2"/>
+
+            <Button x:Name="bomButton" Content="ShowBom" HorizontalAlignment="Left" Width="75" Click="bomButton_Click" Canvas.Left="167" FontWeight="Bold" Canvas.Top="28.138"/>
+            <Button x:Name="scheduleButton" Content="Schedule" HorizontalAlignment="Left" Width="75" Click="scheduleButton_Click" Canvas.Left="167" FontWeight="Bold" Canvas.Top="28.138"/>
+            <Button x:Name="exportButton" Content="Export" HorizontalAlignment="Left" Width="75" Click="exportButton_Click" Canvas.Left="5" FontWeight="Bold" Canvas.Top="28.316"/>
+            <Button x:Name="matAvailabilitytButton" Content="Mat.Avail" HorizontalAlignment="Left" Width="75" Click="matAvailabilitytButton_Click" Canvas.Left="87" FontWeight="Bold" Canvas.Top="28.316"/>
+
+            <Button x:Name="firstButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+            <Button x:Name="prevButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="28" Canvas.Top="1" />
+            <Button x:Name="nextButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+            <Button x:Name="lastButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+            <Button x:Name="firstDButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+            <Button x:Name="prevDButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="28" Canvas.Top="1" />
+            <Button x:Name="nextDButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+            <Button x:Name="lastDButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+            <Button x:Name="firstBButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+            <Button x:Name="prevBButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="28" Canvas.Top="1" />
+            <Button x:Name="nextBButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+            <Button x:Name="lastBButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+            <Button x:Name="addButton" Width="23" Content="+" Height="21.277" Canvas.Left="97" Canvas.Top="1" Click="addButton_Click" Visibility="Hidden"/>
+            <Button x:Name="delButton" Width="23" Content="-" Height="21.277" Canvas.Left="120" Canvas.Top="1" Click="delButton_Click" Visibility="Hidden"/>
+
+            <Label x:Name="plantLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="613.867" Canvas.Top="3"/>
+            <ComboBox x:Name="plantComboBox" HorizontalAlignment="Left" Width="95" Canvas.Left="653" Canvas.Top="4"  SelectedValuePath="Content" DisplayMemberPath="Display"  SelectionChanged="plantComboBox_SelectionChanged"/>
+
+            <Label x:Name="deptLabel" Content="Dept" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="613.867" Canvas.Top="28"/>
+            <ComboBox x:Name="deptComboBox" HorizontalAlignment="Left" Width="95" Canvas.Left="653" Canvas.Top="28" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+            <Label x:Name="partLabel" Content="Part" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="749" Canvas.Top="1" Width="47.097"/>
+            <TextBox x:Name="partTextBox" TextWrapping="Wrap" Canvas.Left="801.097" Width="129.64" Canvas.Top="-0.485"/>
+
+            <Label x:Name="majorGroupLabel" Content="MajGrp" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="749" RenderTransformOrigin="0.964,0.428" Canvas.Top="28.138"/>
+            <ComboBox x:Name="majorGroupComboBox" HorizontalAlignment="Left" Width="75" Canvas.Left="801.097" Canvas.Top="28" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+            <Label x:Name="glExpsLabel" Content="GlExp" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="881.097" RenderTransformOrigin="0.964,0.428" Canvas.Top="28"/>
+            <ComboBox x:Name="glExpsComboBox" HorizontalAlignment="Left" Width="75" Canvas.Left="935.737" Canvas.Top="28.138" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+            <Label x:Name="reportedPointLabel" Content="RepPoint" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="1015.737" RenderTransformOrigin="0.964,0.428" Canvas.Top="28.316"/>
+            <ComboBox x:Name="reportedPointComboBox" HorizontalAlignment="Left" Width="50" Canvas.Left="1076.897" Canvas.Top="28.138" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+
+            <Label x:Name="timeLabel" Content="Label" Canvas.Left="257.966" Canvas.Top="32" Width="181.647" FontWeight="Bold"/>
+
+            <CheckBox Name="qtyCumulativeHotListCheckBox" Content="Qty Cumulative" Canvas.Left="935.737" Canvas.Top="0.9" Width="126" FontWeight="Bold" Click="qtyCumulativeHotListCheckBox_Click" IsChecked="True"/>
+            <CheckBox Name="qohAffectsCheckBox" Content="Qoh.Affects" Canvas.Left="1066.737" Canvas.Top="0.9" Width="105.263" FontWeight="Bold" Click="qohAffectsCheckBox_Click" IsChecked="False"/>
+            <CheckBox Name="includePlannedCheckBox" Content="IncludePlanned" Canvas.Left="1177"  Width="126" FontWeight="Bold" Click="qtyCumulativeHotListCheckBox_Click" IsChecked="False" Canvas.Top="0.9" RenderTransformOrigin="0.074,0.29"/>
+
+            <Button x:Name="createHotListButton" Content="Create Hot-List" HorizontalAlignment="Left" Width="110" Click="createHotListButton_Click" Canvas.Left="1131.897" Canvas.Top="27.31" FontWeight="Bold"/>
+        </Canvas>
+
+    </Grid>
+</Window>

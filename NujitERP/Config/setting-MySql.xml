@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<WindowsApplication>
+
+		
+	<DataBase.SqlRepositoryType value="MySQL" />
+	<DataBase.SqlDBConnectionstring value="Server=DESKTOP-391HS7B;Database=funnelt;User ID=root;Password=funnel;" />
+	<DataBase.RepositoryType value="MySQL" />
+	<DataBase.DBConnectionstring value="Server=DESKTOP-391HS7B;Database=nujit;User ID=NujitUser;Password=Zeus2006;" />
+	<DataBase.CMSTEMPConnectionstring value="Server=DESKTOP-391HS7B;Database=cmstemp;User ID=root;Password=funnel;" />
+
+	<DataBase.CMSRepositoryType value="ODBC" />
+	<DataBase.CMSConnectionstring value="Driver={Client Access ODBC Driver (32-bit)};System=10.33.0.47;Uid=funnel;Pwd=funnel;" encrypted="false" />
+	
+
+	<DataBase.CMSLibrary value="CMSDAT" />
+	<!-- 
+		<DataBase.CMSLibrary_2nd value="TESTDAT" />	
+	-->
+	<DataBase.CMSLibrary_2nd value="CMSDAT" />	
+        <DataBase.CMSLibrary_3rd value="FUNNEL" />	
+	<DataBase.CMSProgramLibrary value="IVPDAT" />
+	<DataBase.SystemName value="CMS" />
+	
+	<DataBase.DftDataBase value="Dft" />
+
+	<!-- 
+	Alfield
+	<Cms.Version value="5.0" />
+
+	Claire
+	<Cms.Version value="5.1" />
+	-->
+	
+	<Cms.Version value="5.2" />
+
+	<Report.Path value="c:/temp/" />
+
+	<Error.EnableErrorEmail value="" />
+	<Error.ErrorEmailFrom value="" />
+	<Error.ErrorEmailTo value="" />
+		
+	<Mail.SmtpServer value="adinet.com.uy" />
+		
+	<CleanImages.ImageURL value="http://images.nujit.com" />
+	<CleanImages.RedetailSiteURL value="http://www.nujit.com" />
+	
+	<HotList.ControlUsers value="Y" />
+	<HotList.PlanDays value="1" />
+	<HotList.MinPlanDays value="3" />
+	<HotList.MaxPlanDays value="3" />
+
+    <!--- RunMode can be Local, Server, Client -->
+	<Remote.RunMode value="Local" />
+	<Remote.ServerIp value="10.0.2.101" />
+	<Remote.ServerPort value="" />
+	<Remote.ServiceName value="nujit.rem" />
+
+    <!--- Search Windows -->
+	<Search.DefaultMaxRecords value="50" />
+	<Search.UserChangeDefaultMaxRecords value="true" />
+
+	<Company.Name value="Metelix" />
+	<Company.IgnorePastDue value="Y" />
+	<Company.StkLocsMaterials value="" />
+	
+	<!--- Default values for company and plant -->
+	<Company.DftCompany value="01" />
+	<Plant.DftPlant value="UFM" />
+	<Department.DftDepartment value="MD" />
+
+        <Report.StartMajorGroup value="000" />
+        <Report.EndMajorGroup value="400" />
+        <Report.ShowOnlyWithDemand value="Y" />
+        <Report.WipStartMajorGroup value="000" />
+        <Report.WipEndMajorGroup value="999" />   
+        <Report.ExportPath value="N:\Production\NEW 1268\CSV Reports" />
+	
+</WindowsApplication>

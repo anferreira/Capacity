@@ -1,0 +1,63 @@
+﻿<Window x:Class="HotListReports.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotListReports"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo/>
+    </Window.TaskbarItemInfo>
+    <Grid>
+        <Menu x:Name="mainMenu" Height="100" VerticalAlignment="Top" Margin="1,9,0,0">
+            <MenuItem  x:Name="mainMenuITem" Header="Menu" FontWeight="Bold">
+                <MenuItem  x:Name="hotList1268MenuITem" Header="HotList 1268" FontWeight="Bold" Click="hotList1268MenuITem_Click"/>
+
+                <MenuItem  x:Name="mainMatMenuITem" Header="Main Material" FontWeight="Bold" Click="mainMaterialMenuITem_Click"/>
+
+                <MenuItem  x:Name="demandMenuGenericITem" Header="Demand" FontWeight="Bold">
+                    <MenuItem  x:Name="demandMenuITem" Header="Demand" FontWeight="Bold" Click="demandMenuITem_Click"/>
+                    <MenuItem  x:Name="compareDemandMenuITem" Header="Compare Demand" FontWeight="Bold" Click="compareDemandMenuITem_Click"/>
+                </MenuItem>
+
+                <MenuItem  x:Name="capacityMainMenuITem" Header="Capacity" FontWeight="Bold">
+                    <MenuItem  x:Name="capacityMenuITem" Header="Capacity" FontWeight="Bold" Click="capacityMenuITem_Click"/>
+                    <MenuItem  x:Name="capacityShiftProfileMenuITem" Header="Shift Profile" FontWeight="Bold" Click="capacityShiftProfileMenuITem_Click"/>
+                    <MenuItem  x:Name="capacityShiftTaskMenuITem" Header="Shift Task" FontWeight="Bold" Click="capacityShiftTaskMenuITem_Click"/>
+                    <MenuItem  x:Name="capProfileHolidayMenuITem" Header="Profile Holidays" FontWeight="Bold" Click="capProfileHolidayMenuITem_Click"/>
+                </MenuItem>
+
+                <MenuItem  x:Name="scheduleMenuITem" Header="Schedule" FontWeight="Bold" Click="scheduleMenuITem_Click"/>
+
+
+                <MenuItem  x:Name="productMainMenuITem" Header="Products" FontWeight="Bold">
+                    <MenuItem  x:Name="productMenuITem" Header="Product" FontWeight="Bold" Click="productMenuITem_Click"/>
+                    <MenuItem  x:Name="routingMenuITem" Header="Routing" FontWeight="Bold" Click="routingMenuITem_Click"/>
+                    <MenuItem  x:Name="labourTypeMenuITem" Header="Labour Type" FontWeight="Bold" Click="labourTypeMenuITem_Click"/>
+                    <MenuItem  x:Name="toolMenuITem" Header="Tool" FontWeight="Bold" Click="toolMenuITem_Click"/>
+                    <MenuItem  x:Name="machineMenuITem" Header="Machine" FontWeight="Bold" Click="machineMenuITem_Click"/>
+                    <MenuItem  x:Name="machineViewsMenuITem" Header="Machine Views" FontWeight="Bold" Click="machineViewsMenuITem_Click"/>
+                </MenuItem>
+                
+
+                <MenuItem  x:Name="dataTransferMenuITem" Header="Data Transfer" FontWeight="Bold" Click="dataTransferMenuITem_Click"/>
+
+                <MenuItem  x:Name="hotListMenuITem" Header="HotList" FontWeight="Bold" Click="hotListMenuITem_Click"/>
+                <MenuItem  x:Name="bomMenuITem" Header="Bom" FontWeight="Bold" Click="bomMenuITem_Click"/>
+
+                <MenuItem  x:Name="labourMenuITem" Header="Labour" FontWeight="Bold" Click="labourMenuITem_Click"/>
+
+                <MenuItem  x:Name="inventoryObjMenuITem" Header="Inventory Objectives" FontWeight="Bold" Click="inventoryObjMenuITem_Click"/>
+                <MenuItem  x:Name="deptsMenuITem" Header="Depts" FontWeight="Bold" Click="deptsMenuITem_Click"/>
+
+                <MenuItem  x:Name="employeeMenuITem" Header="Employee" FontWeight="Bold" Click="employeeMenuITem_Click"/>
+                <MenuItem  x:Name="customerMenuITem" Header="Customer" FontWeight="Bold" Click="customerMenuITem_Click"/>
+
+                <MenuItem  x:Name="employeeScheduleMenuITem" Header="Employee Schedule" FontWeight="Bold" Click="employeeScheduleMenuITem_Click"/>
+                <MenuItem  x:Name="machScheduleMenuITem" Header="Machine Schedule" FontWeight="Bold" Click="machScheduleMenuITem_Click"/>
+            </MenuItem>
+                        
+        </Menu>
+    </Grid>
+</Window>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Adding Telerik Windows Forms Report Viewer form log</title>
+    <style>
+        body {
+            background: #fff;
+            color: #505050;
+            font: 14px 'Segoe UI', tahoma, arial, helvetica, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+
+        #header {
+            background: #efefef;
+            padding: 0;
+        }
+
+        /* Start: Toggle details */
+        label { 
+            top:0; 
+            left:0; 
+            font-weight:700; 
+            margin-top: 10px;
+            user-select: none;
+            -ms-user-select: none;
+        }
+
+            label:hover{
+                color: cadetblue;
+                border-color: #505050;
+            }
+
+        input#show, input#hide {
+            display:none;
+        }
+
+        ul#details {
+            transition: opacity 1s ease-out;
+            opacity: 0; 
+            height: 0;
+            font-size: 0;
+            overflow: hidden;
+        }
+
+        input#show:checked ~ .show:before {
+            content: "";
+        }
+
+        input#show:checked ~ .hide:before {
+            content: "Hide details";
+            border: solid;
+            padding: 3px;
+        }
+
+        input#hide:checked ~ .hide:before {
+            content: "";
+        }
+
+        input#hide:checked ~ .show:before {
+            content: "Show details"; 
+            border: solid;
+            padding: 3px;
+        }
+
+        input#show:checked ~ ul#details {
+            opacity: 1;
+            font-size: 100%;
+            height: auto;
+            padding: 10px;
+        }
+
+        input#hide:checked ~ ul#details {
+            transition: opacity 1s ease-out;
+            opacity: 0; 
+            height: 0;
+            font-size: 0;
+            overflow: hidden;
+        }
+
+        /* End: toggle details */
+
+
+        h1 {
+            font-size: 48px;
+            font-weight: normal;
+            margin: 0;
+            padding: 0 30px;
+            line-height: 150px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #fff;
+            background: #969696;
+            padding: 0 30px;
+            line-height: 50px;
+        }
+
+        #main {
+            padding: 5px 30px;
+        }
+
+        .section {
+            width: 21.7%;
+            float: left;
+            margin: 0 0 0 40px;
+        }
+
+            .section h2 {
+                font-size: 13px;
+                text-transform: uppercase;
+                margin: 0;
+                border-bottom: 1px solid silver;
+                padding-bottom: 12px;
+                margin-bottom: 8px;
+            }
+
+            .section.first {
+                margin-left: 0;
+                width: 25%
+            }
+
+                .section.first h2 {
+                    font-size: 20px;
+                    text-transform: none;
+                    margin-bottom: 16px;
+                    border: none;
+                }
+
+                .section.first li {
+                    border-top: 1px solid silver;
+                    padding: 8px 0;
+                }
+
+            .section.last {
+                margin-right: 0;
+                width: 70%;
+            }
+            
+            .section.last h2 {
+                    font-size: 20px;
+                    text-transform: none;
+                    margin-bottom: 5px;
+                    border: none;
+                }
+
+            .section.last li {
+                padding: 4px 0;
+                border-bottom: solid;
+                border-bottom-width: 1px;
+                border-color: lightgray;
+            }
+            
+            .section.last ul{
+                padding-bottom:10px;   
+                margin-bottom: 10px; 
+            }
+            
+                
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            line-height: 20px;
+        }
+
+
+
+        a {
+            color: #267cb2;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <p>Congratulations! You've successfully added a Form with Windows Forms Report Viewer</p>
+    </div>
+
+    <div id="main">
+        <div class="section first">
+            <h2>Telerik Windows Form Report Viewer enabled application consists of: </h2>
+            <ul>
+                <li>Reference to Telerik.ReportViewer.WinForms</li>
+                <li>Form with <a href="http://www.telerik.com/help/reporting/winforms-report-viewer.html">Windows Form Report Viewer</a></li>
+            </ul>
+        </div>
+
+        <div class="section last">
+            <h2>Summary</h2>
+            <ul style="padding-bottom: 10px; padding-left: 7px;">
+                <li style="color: #FF6600;">Warning: No project is found that contains {0}.</li>
+<li style="color: #FF6600;">Warning: Can not add connection strings to the configuration file.</li>
+<li style="color: none;">Reference added: Telerik.Reporting</li>
+<li style="color: none;">Reference added: Telerik.ReportViewer.WinForms</li>
+<li style="color: none;">Reference added: Telerik.Reporting.XpsRendering</li>
+<li style="color: none;">Added HotList1268ReportViewerForm.cs</li>
+<li style="color: none;">Added HotList1268ReportViewerForm.Designer.cs</li>
+<li style="color: none;">Added HotList1268ReportViewerForm.resx</li>
+
+            </ul>
+
+            <input type="radio" id="show" name="group" />   
+            <input type="radio" id="hide" name="group" checked />
+            <label for="hide" class="hide" unselectable="on"></label>
+            <label for="show" class="show" unselectable="on"></label> 
+
+            <ul id="details">
+                17/10/2018 11:57:10 AM
+<li style="color: none;">Check Framework Support</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ActiveReports.HtmlExport</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ActiveReports.Interop</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ActiveReports.PdfExport</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ActiveReports.RtfExport</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ActiveReports.TextExport</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ActiveReports.TiffExport</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ActiveReports.Viewer3</li>
+<li style="color: none;">Assembly Version: 5.2.983.2</li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ActiveReports.Web</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ActiveReports.Web.Design</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ActiveReports.Wizards.Addin</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ActiveReports.XlsExport</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ActiveReports3</li>
+<li style="color: none;">Assembly Version: 5.2.983.2</li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ADODB</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : AGVBN20</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : AppUpdater</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : CrystalDecisions.CrystalReports.Engine</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : CrystalDecisions.ReportSource</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : CrystalDecisions.Shared</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : ICSharpCode.SharpZipLib</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : netchartdir</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : netchartdir_internal</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : NujitCustomWinControls</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : Office</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : System</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : System.Data</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : System.Drawing</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : System.EnterpriseServices</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : System.Web</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : System.Web.Services</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : System.Windows.Forms</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : System.Xml</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : TimeCtrl</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : WinFormsControls</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : WizardControlLibrary</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 9.2.15.1216</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Initialize available report types.</li>
+<li style="color: none;">Class with name HotList1268Report is not found</li>
+<li style="color: none;">Class with name HotList1268Report is not found</li>
+<li style="color: none;">Class with name HotList1268Report is not found</li>
+<li style="color: #FF6600;">Warning: No project is found that contains {0}.</li>
+<li style="color: none;">Get project references.</li>
+<li style="color: #FF6600;">Warning: Can not add connection strings to the configuration file.</li>
+<li style="color: none;">System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---&gt; System.IO.FileNotFoundException: Could not load file or assembly 'Telerik.OpenAccess, Version=2018.0.911.1, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342' or one of its dependencies. The system cannot find the file specified.
+   at System.ModuleHandle.ResolveType(RuntimeModule module, Int32 typeToken, IntPtr* typeInstArgs, Int32 typeInstCount, IntPtr* methodInstArgs, Int32 methodInstCount, ObjectHandleOnStack type)
+   at System.ModuleHandle.ResolveTypeHandleInternal(RuntimeModule module, Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   at System.Reflection.RuntimeModule.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   at System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly&amp; lastAptcaOkAssembly, RuntimeModule decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType&amp; attributeType, IRuntimeMethodInfo&amp; ctor, Boolean&amp; ctorHasParameters, Boolean&amp; isVarArg)
+   at System.Reflection.CustomAttribute.GetCustomAttributes(RuntimeModule decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes, Boolean isDecoratedTargetSecurityTransparent)
+   at System.Reflection.CustomAttribute.GetCustomAttributes(RuntimeAssembly assembly, RuntimeType caType)
+   at System.Reflection.RuntimeAssembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   at System.Resources.ResourceManager.GetSatelliteContractVersion(Assembly a)
+   at System.Resources.ManifestBasedResourceGroveler.GetSatelliteAssembly(CultureInfo lookForCulture, StackCrawlMark&amp; stackMark)
+   at System.Resources.ManifestBasedResourceGroveler.GrovelForResourceSet(CultureInfo culture, Dictionary`2 localResourceSets, Boolean tryParents, Boolean createIfNotExists, StackCrawlMark&amp; stackMark)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo requestedCulture, Boolean createIfNotExists, Boolean tryParents, StackCrawlMark&amp; stackMark)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.GetString(String name, CultureInfo culture)
+   at System.Resources.ResourceManager.GetString(String name)
+   at NujitWms.ReportLibrary.Metelix.HotList.HotList1268Report.InitializeComponent()
+   at NujitWms.ReportLibrary.Metelix.HotList.HotList1268Report..ctor()
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean&amp; canBeCached, RuntimeMethodHandleInternal&amp; ctor, Boolean&amp; bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark&amp; stackMark)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark&amp; stackMark)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at Telerik.ReportViewer.Design.Common.ConnectionStringManager.InsertConnectionsForReport(Type type, Project targetProject)
+   at Telerik.ReportViewer.Design.Common.ExistingReportEditorViewModel.HandleTypeReport()</li>
+<li style="color: none;">Cancel the form closing: False</li>
+<li style="color: none;">Add project references</li>
+<li style="color: none;">Reference added: Telerik.Reporting</li>
+<li style="color: none;">Reference added: Telerik.ReportViewer.WinForms</li>
+<li style="color: none;">Reference added: Telerik.Reporting.XpsRendering</li>
+<li style="color: none;">Adding TelerikViewerForm.cs project item</li>
+<li style="color: none;">Added HotList1268ReportViewerForm.cs</li>
+<li style="color: none;">Adding TelerikViewerForm.Designer.cs.Type project item</li>
+<li style="color: none;">Added HotList1268ReportViewerForm.Designer.cs</li>
+<li style="color: none;">Adding TelerikViewerForm.Designer.cs.Trdx project item</li>
+<li style="color: none;">Adding TelerikViewerForm.resx project item</li>
+<li style="color: none;">Added HotList1268ReportViewerForm.resx</li>
+
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

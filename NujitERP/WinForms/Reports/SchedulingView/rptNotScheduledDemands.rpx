@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3" PrintWidth="9000" DocumentName="ActiveReports Document" ScriptLang="C#" CodeFile="rptNotScheduledDemands.cs">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-repeat: inherit; background-attachment: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-char-set: 0; " />
+    <Style Name="Heading1" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; " />
+    <Style Name="Heading3" Value="font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; " />
+  </StyleSheet>
+  <Sections>
+    <Section Type="ReportHeader" Name="ReportHeader" Height="1650" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label4" MOD="4" Left="0" Top="90" Width="9000" Height="360" Caption="Not Schedulled Demands" Style="text-align: center; font-weight: bold; font-style: normal; font-size: 11.25pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label5" MOD="4" Left="5940" Top="630" Width="1440" Height="360" Caption="From Date: " Style="text-align: right; font-weight: bold; font-style: normal; font-size: 11.25pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label6" MOD="4" Left="6120" Top="990" Width="1260" Height="360" Caption="To Date:" Style="text-align: right; font-weight: bold; font-style: normal; font-size: 11.25pt; vertical-align: middle; " />
+      <Control Type="AR.Field" Name="txtDateFrom" MOD="4" Left="7560" Top="630" Width="1440" Height="360" Text="dtFrom" Style="text-align: center; font-weight: bold; font-style: italic; font-size: 11.25pt; vertical-align: middle; " />
+      <Control Type="AR.Field" Name="txtDateTo" MOD="4" Left="7560" Top="990" Width="1440" Height="360" Text="dtTo" Style="text-align: center; font-weight: bold; font-style: italic; font-size: 11.25pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label9" MOD="4" Left="0" Top="630" Width="1440" Height="360" Caption="Plant:" Style="text-align: right; font-weight: bold; font-style: normal; font-size: 11.25pt; vertical-align: middle; " />
+      <Control Type="AR.Field" Name="txtPlant" MOD="4" Left="1620" Top="630" Width="2520" Height="360" Text="txtPlant" Style="text-align: left; font-weight: bold; font-style: italic; font-size: 11.25pt; vertical-align: middle; " />
+      <Control Type="AR.Line" Name="Line1" MOD="4" X1="9090" Y1="1440" X2="90" Y2="1440" />
+      <Control Type="AR.Line" Name="Line2" MOD="4" X1="9090" Y1="1440" X2="90" Y2="1440" />
+      <Control Type="AR.Line" Name="Line3" MOD="4" X1="9090" Y1="1530" X2="90" Y2="1530" LineWeight="7" />
+      <Control Type="AR.Line" Name="Line4" MOD="4" X1="9090" Y1="1620" X2="90" Y2="1620" />
+      <Control Type="AR.Label" Name="Label19" MOD="4" Left="0" Top="630" Width="1440" Height="360" Caption="Plant:" Style="text-align: right; font-weight: bold; font-style: normal; font-size: 11.25pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label20" MOD="4" Left="0" Top="990" Width="1440" Height="360" Caption="Version:" Style="text-align: right; font-weight: bold; font-style: normal; font-size: 11.25pt; vertical-align: middle; " />
+      <Control Type="AR.Field" Name="txtVersion" MOD="4" Left="1620" Top="990" Width="2520" Height="360" Text="txtVersion" Style="text-align: left; font-weight: bold; font-style: italic; font-size: 11.25pt; vertical-align: middle; " />
+    </Section>
+    <Section Type="PageHeader" Name="PageHeader" Height="390" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Label" Name="Label21" MOD="4" Left="270" Top="90" Width="810" Height="270" Caption="Order ID" Style="text-align: left; font-weight: bold; font-style: normal; font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label22" MOD="4" Left="1170" Top="90" Width="810" Height="270" Caption="Item ID" Style="text-align: left; font-weight: bold; font-style: normal; font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label23" MOD="4" Left="2070" Top="90" Width="990" Height="270" Caption="Release ID" Style="text-align: left; font-weight: bold; font-style: normal; font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label24" MOD="4" Left="4410" Top="90" Width="1440" Height="270" Caption="Customer Name" Style="text-align: left; font-weight: bold; font-style: normal; font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label26" MOD="4" Left="3150" Top="90" Width="1170" Height="270" Caption="Customer ID" Style="text-align: left; font-weight: bold; font-style: normal; font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label11" MOD="4" Left="5940" Top="90" Width="1260" Height="270" Caption="Part" Style="text-align: left; font-weight: bold; font-style: normal; font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label12" MOD="4" Left="7290" Top="90" Width="540" Height="270" Caption="Seq" Style="text-align: left; font-weight: bold; font-style: normal; font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Label" Name="Label27" MOD="4" Left="7920" Top="90" Width="1080" Height="270" Caption="Qty" Style="text-align: right; font-weight: bold; font-style: normal; font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Line" Name="Line5" MOD="4" X1="9000" Y1="360" X2="0" Y2="360" LineStyle="3" />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="270" BackColor="16777215" CanShrink="0">
+      <Control Type="AR.Field" Name="txtOrderID" DataField="OrderID" MOD="4" Left="270" Top="0" Width="810" Height="270" Text="txtOrderID" Style="font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Field" Name="txtItemID" DataField="ItemID" MOD="4" Left="1170" Top="0" Width="810" Height="270" Text="txtItemID" Style="font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Field" Name="txtReleaseID" DataField="ReleaseID" MOD="4" Left="2070" Top="0" Width="990" Height="270" Text="txtReleaseID" Style="font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Field" Name="txtCustomerID" DataField="CustomerID" MOD="4" Left="3150" Top="0" Width="1170" Height="270" Text="txtCustomerID" Style="font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Field" Name="txtCustomerName" DataField="CustomerName" MOD="4" Left="4410" Top="0" Width="1440" Height="270" Text="txtCustomerName" OutputFormat="" Style="text-align: left; font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Field" Name="txtProdID" DataField="ProdID" MOD="4" Left="5940" Top="0" Width="1260" Height="270" Text="txtProdID" OutputFormat="" Style="text-align: left; font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Field" Name="txtQty" DataField="Qty" MOD="4" Left="7920" Top="0" Width="1080" Height="270" Text="txtQty" OutputFormat="#,###,##0.00;(#,###,##0.00)" Style="text-align: right; font-size: 8.25pt; vertical-align: middle; " />
+      <Control Type="AR.Field" Name="txtSeq" DataField="Seq" MOD="4" Left="7290" Top="0" Width="540" Height="270" Text="txtSeq" OutputFormat="" Style="text-align: left; font-size: 8.25pt; vertical-align: middle; " />
+    </Section>
+    <Section Type="PageFooter" Name="PageFooter" Height="0" BackColor="16777215" CanShrink="0" />
+    <Section Type="ReportFooter" Name="ReportFooter" Height="0" BackColor="16777215" CanShrink="0" />
+  </Sections>
+  <PageSettings />
+</ActiveReportsLayout>

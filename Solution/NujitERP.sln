@@ -1,0 +1,39 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NujitERP", "..\NujitERP\NujitERP.csproj", "{7EF6DD66-030B-479F-B81C-CDE85076D945}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLib", "..\ClassLib\ClassLib.csproj", "{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGen", "..\CodeGen\CodeGen.csproj", "{D028C8AD-236D-4589-83E7-050281B06470}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotListReports", "..\HotListReports\HotListReports.csproj", "{264E7370-97E5-4AE1-9CC0-F88FBF9C964B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EF6DD66-030B-479F-B81C-CDE85076D945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EF6DD66-030B-479F-B81C-CDE85076D945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EF6DD66-030B-479F-B81C-CDE85076D945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EF6DD66-030B-479F-B81C-CDE85076D945}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88ED0DD9-04F8-4EDA-98AF-F8B8982DEA09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D028C8AD-236D-4589-83E7-050281B06470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D028C8AD-236D-4589-83E7-050281B06470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D028C8AD-236D-4589-83E7-050281B06470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D028C8AD-236D-4589-83E7-050281B06470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{264E7370-97E5-4AE1-9CC0-F88FBF9C964B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{264E7370-97E5-4AE1-9CC0-F88FBF9C964B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{264E7370-97E5-4AE1-9CC0-F88FBF9C964B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{264E7370-97E5-4AE1-9CC0-F88FBF9C964B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

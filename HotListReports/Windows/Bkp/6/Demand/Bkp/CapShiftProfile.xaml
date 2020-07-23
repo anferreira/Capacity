@@ -1,0 +1,599 @@
+﻿<Window x:Class="HotListReports.Windows.Demand.CapShiftProfileWindow"        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:localUtil="clr-namespace:HotListReports.Windows.Util"          
+        xmlns:localConverters="clr-namespace:Nujit.NujitWms.WinForms.Util.Converters;assembly=Utilities"         
+        xmlns:local="clr-namespace:HotListReports.Windows"
+         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        mc:Ignorable="d"
+        Title="Shift Management" Height="700" Width="1200" Closing="Window_Closing" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+
+    <Window.Resources>
+        <localConverters:DateTimeToStringConverter x:Key="dateTimeConverter" />
+        <localConverters:DecimalToStringConverter x:Key="decimalConverter" />
+        <localConverters:ConstantYesNoToStringConverter x:Key="yesNoToStringConverter" />
+        <localConverters:ConstantYesNoToBoolConverter x:Key="yesNoToBoolConverter" />
+        <localUtil:DecimalToStringConverterNew x:Key="decimalConverterNew" />
+    </Window.Resources>
+
+
+    <Grid x:Name="mainGrid">
+        <TabControl x:Name="mainTabControl" SelectionChanged="mainTabControl_SelectionChanged">
+            <TabItem Header="View" Name="viewTabItem">
+                <Grid x:Name="viewTabGrid" Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="154*"/>
+                        <RowDefinition Height="315*"/>
+                        <RowDefinition Height="30*"/>
+                        <RowDefinition Height="88*"/>
+                        <RowDefinition Height="53*"/>
+                    </Grid.RowDefinitions>
+
+                    <GroupBox x:Name="plannedVsShiftProfileGroupBox" Header="Labour/People" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Grid x:Name="plannedVsShiftProfileGroupBoxGrid" Margin="0,0,-12,-11.458">
+                            <ListView x:Name="plannedVsShiftProfileListView" Margin="0,0,10,10">
+                                <ListView.View>
+                                    <GridView>
+
+
+
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox x:Name="dtlPlannedVsShiftProfileGroupBox" Header="Labour/People/Details" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Grid x:Name="dtPlannedVsShiftProfileGroupBoxGrid" Margin="0,0,-12,-11.458">
+                            <ListView x:Name="dtPlannedVsShiftProfileListView" Margin="0,0,10,10">
+                                <ListView.View>
+                                    <GridView>
+
+
+
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </GroupBox>
+
+                    <Canvas x:Name="viewTabItemTopCanvas" Grid.Row="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Label x:Name="recordsLabel" Content="Records :" HorizontalAlignment="Left" Margin="0,0.474,0,-0.474" Width="55" FontWeight="Bold"/>
+                        <TextBox x:Name="recordsTextBox" HorizontalAlignment="Left" Margin="70,0.474,0,0" TextWrapping="Wrap" Text="" Width="65" MaxLength="8"/>
+                    </Canvas>
+
+                    <ListView x:Name="hdrListView" Grid.Row="3" MouseDoubleClick="hdrListView_MouseDoubleClick" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Margin="0,0,0,-0.001">
+                        <ListView.View>
+                            <GridView>
+
+                                <GridViewColumn Header="Id" Width="60" x:Name="endDateGridColumn">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Width="60" Text="{Binding EndDate}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <Canvas x:Name="bottomCanvas" Margin="0,0.417,-10,3.472" Grid.Row="4" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+                        <Label x:Name="searchForLabel" Content="Search For" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="465.032" Canvas.Top="0.179"/>
+                        <ComboBox x:Name="searchByComboBox" HorizontalAlignment="Left" Width="101.639" Canvas.Left="358.393" Canvas.Top="4"/>
+                        <Label x:Name="searchByLabel" Content="Search By" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="278.386" Canvas.Top="0.357"/>
+                        <TextBox x:Name="searchForTextBox" TextWrapping="Wrap" Canvas.Left="532.646" Canvas.Top="0.357" Width="101.64"/>
+                        <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Width="111" Click="searchButton_Click" Canvas.Left="162.386" FontWeight="Bold"/>
+
+
+                        <Label x:Name="statusFilterLabel" Content="Status" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="639.286" Canvas.Top="1"/>
+                        <ComboBox x:Name="statusFilterComboBox" HorizontalAlignment="Left" Width="76.867" Canvas.Left="690.133" Canvas.Top="3" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+                        <Label x:Name="shiftNumFilterLabel" Content="Shift Num" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="769.326" RenderTransformOrigin="0.964,0.428"/>
+                        <ComboBox x:Name="shiftNumFilterComboBox" HorizontalAlignment="Left" Width="55.032"  Canvas.Top="3" Canvas.Left="836.999" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+                        <Button x:Name="firstButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                        <Button x:Name="prevButton" Width="23" Content="&lt;" Height="21.27" Canvas.Left="28" Canvas.Top="1" />
+                        <Button x:Name="nextButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                        <Button x:Name="lastButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+                        <Button x:Name="addButton" Width="23" Content="+" Height="21.277" Canvas.Left="97" Canvas.Top="1" Click="addButton_Click"/>
+                        <Button x:Name="delButton" Width="23" Content="-" Height="21.277" Canvas.Left="120" Canvas.Top="1" Click="delButton_Click"/>
+
+                        <Button x:Name="createCapCurrYearButton" Content="Create Curr.Year" HorizontalAlignment="Left" Width="111" Click="createCapCurrYearButton_Click" Canvas.Left="162.386" FontWeight="Bold" Canvas.Top="26" RenderTransformOrigin="0.324,0.446"/>
+
+                        <Label x:Name="plantLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="639.286" RenderTransformOrigin="0.964,0.428" Canvas.Top="26" Width="52.714"/>
+                        <ComboBox x:Name="plantComboBox" HorizontalAlignment="Left" Width="77.951" Canvas.Left="689.049" SelectedValuePath="Content" DisplayMemberPath="Display"  Canvas.Top="28"/>
+                        <Label x:Name="timeLabel" Content="Time 0 secs" Canvas.Left="278.386" Canvas.Top="26.317" Width="164.01" FontWeight="Bold"/>
+                    </Canvas>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="dayLabourTabItem" Header="Detail Old">
+                <Grid Name="dayLabourTabItemGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="44*"/>
+                        <RowDefinition Height="190*"/>
+                        <RowDefinition Height="190*"/>
+                        <RowDefinition Height="190*"/>
+                    </Grid.RowDefinitions>
+
+                    <Canvas Name="dayLabourTopCanvas" Grid.Row="0">
+                        <Label x:Name="plantWeekLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="9" RenderTransformOrigin="0.964,0.428" Canvas.Top="9.906" Width="52.714"/>
+                        <ComboBox x:Name="plantWeekComboBox" HorizontalAlignment="Left" Width="77.951" Canvas.Left="58.763" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display"  Canvas.Top="11.905" SelectionChanged="plantWeekComboBox_SelectionChanged"/>
+
+                        <Label x:Name="statusLabel" Content="Status" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="141.714" RenderTransformOrigin="0.964,0.428" Canvas.Top="10"/>
+                        <ComboBox x:Name="statusComboBox" HorizontalAlignment="Left" Width="76.867" Canvas.Left="186.477" Canvas.Top="11.905" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display" SelectionChanged="statusComboBox_SelectionChanged"/>
+
+                    </Canvas>
+
+                    <GroupBox Name="dayLabourShift1GroupBox" Grid.Row="1" Header="Shift 1" Margin="0,0,0,0.001">
+
+
+                        <Grid Name="dayLabourShift1Grid" Grid.Row="0">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="179*"/>
+                                <RowDefinition Height="34*"/>
+                            </Grid.RowDefinitions>
+
+                            <ListView x:Name="dayLabourShift1ListView" Grid.Row="0" MouseDoubleClick="dayLabourShift1ListView_MouseDoubleClick">
+                                <ListView.View>
+                                    <GridView>
+
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+
+                            <Canvas Name="dayLabourShift1BottomCanvas" Grid.Row="1">
+                                <Button x:Name="firstS1Button" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                                <Button x:Name="prevS1Button" Width="23" Content="&lt;" Height="21.27" Canvas.Left="28" Canvas.Top="1" />
+                                <Button x:Name="nextS1Button" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                                <Button x:Name="lastS1Button" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+                                <Button x:Name="addS1Button" Width="23" Content="+" Height="21.277" Canvas.Left="97" Canvas.Top="1" Click="addS1Button_Click"/>
+                                <Button x:Name="delS1Button" Width="23" Content="-" Height="21.277" Canvas.Left="120" Canvas.Top="1" Click="delS1Button_Click"/>
+
+                                <Label x:Name="shift1StDateLabel" Content="Start Date" Canvas.Left="209.006" Width="67.217" FontWeight="Bold"/>
+                                <ComboBox x:Name="shift1StComboBox" HorizontalAlignment="Left" Width="99.778" Canvas.Left="276.223" Canvas.Top="1.178" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Path=StartDateString}" DisplayMemberPath="Display" SelectionChanged="shift1StComboBox_SelectionChanged"/>
+
+                                <Label x:Name="shift1EndDateLabel" Content="End Date" Canvas.Left="448.783" Width="67.217" FontWeight="Bold" Canvas.Top="1.178"/>
+                                <ComboBox x:Name="shift1EndComboBox" HorizontalAlignment="Left" Width="100" Canvas.Left="516" Canvas.Top="1" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Path=EndDateString}" DisplayMemberPath="Display" IsEnabled="False"/>
+
+                            </Canvas>
+
+
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Name="dayLabourShift2GroupBox" Grid.Row="2" Header="Shift 2" Margin="0,0,0,0.001">
+                        <Grid Name="dayLabourShift2Grid" Grid.Row="0">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="179*"/>
+                                <RowDefinition Height="34*"/>
+                            </Grid.RowDefinitions>
+
+                            <ListView x:Name="dayLabourShift2ListView" Grid.Row="0"  MouseDoubleClick="dayLabourShift2ListView_MouseDoubleClick">
+                                <ListView.View>
+                                    <GridView>
+
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+
+                            <Canvas Name="dayLabourShift2BottomCanvas" Grid.Row="1">
+                                <Button x:Name="firstS2Button" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                                <Button x:Name="prevS2Button" Width="23" Content="&lt;" Height="21.27" Canvas.Left="28" Canvas.Top="1" />
+                                <Button x:Name="nextS2Button" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                                <Button x:Name="lastS2Button" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+                                <Button x:Name="addS2Button" Width="23" Content="+" Height="21.277" Canvas.Left="97" Canvas.Top="1" Click="addS2Button_Click"/>
+                                <Button x:Name="delS2Button" Width="23" Content="-" Height="21.277" Canvas.Left="120" Canvas.Top="1" Click="delS2Button_Click"/>
+
+                                <Label x:Name="shift2StDateLabel" Content="Start Date" Canvas.Left="209.006" Width="67.217" FontWeight="Bold"/>
+                                <ComboBox x:Name="shift2StComboBox" HorizontalAlignment="Left" Width="99.778" Canvas.Left="276.223" Canvas.Top="1.178" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Path=StartDateString}" DisplayMemberPath="Display" SelectionChanged="shift2StComboBox_SelectionChanged"/>
+
+                                <Label x:Name="shift2EndDateLabel" Content="End Date" Canvas.Left="448.783" Width="67.217" FontWeight="Bold" Canvas.Top="1.178"/>
+                                <ComboBox x:Name="shift2EndComboBox" HorizontalAlignment="Left" Width="100" Canvas.Left="516" Canvas.Top="1" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Path=EndDateString}" DisplayMemberPath="Display" IsEnabled="False"/>
+
+                            </Canvas>
+
+
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Name="dayLabourShift3GroupBox" Grid.Row="3" Header="Shift 3" Margin="0,-0.001,0,0">
+                        <Grid Name="dayLabourShift3Grid" Grid.Row="0">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="179*"/>
+                                <RowDefinition Height="34*"/>
+                            </Grid.RowDefinitions>
+
+                            <ListView x:Name="dayLabourShift3ListView" Grid.Row="0" MouseDoubleClick="dayLabourShift3ListView_MouseDoubleClick">
+                                <ListView.View>
+                                    <GridView>
+
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+
+                            <Canvas Name="dayLabourShift3BottomCanvas" Grid.Row="1">
+                                <Button x:Name="firstS3Button" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                                <Button x:Name="prevS3Button" Width="23" Content="&lt;" Height="21.27" Canvas.Left="28" Canvas.Top="1" />
+                                <Button x:Name="nextS3Button" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                                <Button x:Name="lastS3Button" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+                                <Button x:Name="addS3Button" Width="23" Content="+" Height="21.277" Canvas.Left="97" Canvas.Top="1" Click="addS3Button_Click"/>
+                                <Button x:Name="delS3Button" Width="23" Content="-" Height="21.277" Canvas.Left="120" Canvas.Top="1" Click="delS3Button_Click"/>
+
+                                <Label x:Name="shift3StDateLabel" Content="Start Date" Canvas.Left="209.006" Width="67.217" FontWeight="Bold"/>
+                                <ComboBox x:Name="shift3StComboBox" HorizontalAlignment="Left" Width="99.778" Canvas.Left="276.223" Canvas.Top="1.178" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Path=StartDateString}" DisplayMemberPath="Display" SelectionChanged="shift3StComboBox_SelectionChanged"/>
+
+                                <Label x:Name="shift3EndDateLabel" Content="End Date" Canvas.Left="448.783" Width="67.217" FontWeight="Bold" Canvas.Top="1.178"/>
+                                <ComboBox x:Name="shift3EndComboBox" HorizontalAlignment="Left" Width="100" Canvas.Left="516" Canvas.Top="1" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Path=EndDateString}" DisplayMemberPath="Display" IsEnabled="False"/>
+
+
+                                <ComboBox x:Name="holidayTypeComboBox" HorizontalAlignment="Left" Width="329.778" Canvas.Left="806.222" Canvas.Top="1" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Path=HolidayText}" DisplayMemberPath="Display"/>
+
+                            </Canvas>
+
+
+                        </Grid>
+                    </GroupBox>
+
+
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Header="Details" Name="dtlsTabItem">
+                <Grid Name="dtlsGridTabItem">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="563*"/>
+                        <RowDefinition Height="40*"/>
+                    </Grid.RowDefinitions>
+
+                    <GroupBox x:Name="dtlsTopGroupBox" Header="" Grid.Row="0" Margin="0,0,417,0" Height="133.04" VerticalAlignment="Top">
+                        <Canvas x:Name="dtlsTopGroupBoxCanvas" Margin="0,0,-2,-2.963">
+
+                            <Label x:Name="detailShiftLabel" Content="Shift" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="7" Canvas.Top="5.2" Width="60" RenderTransformOrigin="0.483,-0.735"/>
+                            <TextBox x:Name="detailShiftTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding ShiftNumShow}" Width="80" Canvas.Left="87" Canvas.Top="5.16" IsReadOnly="True" IsEnabled="False"/>
+
+                            <Label x:Name="detailLabel" Content="Dtl#" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="7" Canvas.Top="36.16" Width="60"/>
+                            <TextBox x:Name="detailTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Detail}" Width="80" Canvas.Left="87" Canvas.Top="36.16" IsReadOnly="True" IsEnabled="False"/>
+
+
+                            <Label x:Name="shiftTaskLabel" Content="Shift Task" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="206" Canvas.Top="36.04" Width="75"/>
+                            <ComboBox x:Name="shiftTaskComboBox" HorizontalAlignment="Left" Width="280" Canvas.Left="286" Canvas.Top="36.12" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Path=ShiftTaskId}" DisplayMemberPath="Display"/>
+
+                            <Label x:Name="numPeopleLabel" Content="Num.People" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="7" Canvas.Top="67.12" Width="80"/>
+                            <TextBox x:Name="numPeopleTextBox" Height="23" TextWrapping="Wrap" Text="{Binding NumPeople, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="87" Canvas.Top="67.08" MaxLength="5"/>
+
+                            <Label x:Name="newPeopleLabel" Content="New People" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="206" Canvas.Top="67.08" Width="80"/>
+                            <TextBox x:Name="newPeopleTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding NewPeople, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="286" Canvas.Top="67.04" MaxLength="6"/>
+
+                            <Label x:Name="hoursLabel" Content="Hours" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="406" Canvas.Top="67.12" Width="80"/>
+                            <TextBox x:Name="hoursTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Hours, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="486" Canvas.Top="67.08" MaxLength="6"/>
+
+
+                        </Canvas>
+
+                    </GroupBox>
+
+                    <Canvas x:Name="dtlsbottomCanvas" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Button x:Name="okDtlsButton" Content="OK" HorizontalAlignment="Left" Width="75" Click="okDtlsButton_Click" RenderTransformOrigin="-0.467,0.769" FontWeight="Bold" />
+                        <Button x:Name="cancelDtlsButton" Content="Cancel" HorizontalAlignment="Left" Width="75" Click="cancelDtlsButton_Click" RenderTransformOrigin="-0.467,0.769" Canvas.Left="80" FontWeight="Bold" />
+                    </Canvas>
+
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Header="OverTime" Name="machPlanTabItem">
+                <Grid Name="machPlanTabItemGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="563*"/>
+                        <RowDefinition Height="40*"/>
+                    </Grid.RowDefinitions>
+
+                    <GroupBox x:Name="machPlanTopGroupBox" Header="" Grid.Row="0" Margin="0,0,417,0" Height="133.04" VerticalAlignment="Top">
+                        <Canvas x:Name="machPlanTopGroupBoxCanvas" Margin="0,0,-2,-2.963">
+
+                            <Label x:Name="machPlanShiftLabel" Content="Shift" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="7" Canvas.Top="5.2" Width="80"/>
+                            <TextBox x:Name="machPlanShiftTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding ShiftNumShow}" Width="80" Canvas.Left="87" Canvas.Top="5.16" IsReadOnly="True" IsEnabled="False"/>
+
+
+                            <Label x:Name="machIdLabel" Content="Machine Id" HorizontalAlignment="Left" Canvas.Top="36.16" Width="80" Canvas.Left="7" FontWeight="Bold"/>
+                            <TextBox x:Name="machIdTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding MachId}" Width="80" Canvas.Left="87" Canvas.Top="36.2" IsReadOnly="True" IsEnabled="False" RenderTransformOrigin="0.8,0.426"/>
+                            <Button x:Name="machIdButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="167" Canvas.Top="36.021" RenderTransformOrigin="10.783,0.772" Click="machIdButton_Click" FontWeight="Bold"/>
+
+                            <Label x:Name="machDescLabel" Content="Description" HorizontalAlignment="Left" Canvas.Left="387" Canvas.Top="35.802" Width="89"/>
+                            <TextBox x:Name="machDescTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding MachNameShow}" Width="228" Canvas.Left="476" Canvas.Top="35.981" IsReadOnly="True" IsEnabled="False" />
+
+
+                            <Label x:Name="dateMachPlanLabel" Content="Date" Canvas.Left="199" Width="82" FontWeight="Bold" Canvas.Top="5.2"/>
+                            <ComboBox x:Name="dateMachPlanComboBox" HorizontalAlignment="Left" Width="99.778" Canvas.Left="281" Canvas.Top="9.2" SelectedValuePath="Content" SelectedValue="{Binding SDate}"  DisplayMemberPath="Display"/>
+
+                            <Label x:Name="machCodeLabel" Content="Machine" Canvas.Left="199" Width="67.217" FontWeight="Bold" Canvas.Top="36.2"/>
+                            <TextBox x:Name="machCodeTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding MachShow}" Width="80" Canvas.Left="281" Canvas.Top="36.2" IsReadOnly="True" IsEnabled="False" />
+
+                            <Label x:Name="shiftTypeLabel" Content="Shift Type" HorizontalAlignment="Left" Canvas.Top="67.12" Width="77" Canvas.Left="7" RenderTransformOrigin="0.5,0.729"/>
+                            <ComboBox x:Name="shiftTypeComboBox" HorizontalAlignment="Left" Width="52" Canvas.Left="89" Canvas.Top="67.16" SelectedValuePath="Content" SelectedValue="{Binding Path=ShiftType}" DisplayMemberPath="Display"/>
+
+                            <Label x:Name="fullShiftLabel" Content="Full Shift" HorizontalAlignment="Left" Canvas.Top="67.16" Width="77" Canvas.Left="199" RenderTransformOrigin="0.5,0.729"/>
+                            <ComboBox x:Name="fullShiftComboBox" HorizontalAlignment="Left" Width="52" Canvas.Left="281" Canvas.Top="67.2" SelectedValuePath="Content" SelectedValue="{Binding Path=FullShift}" DisplayMemberPath="Display"/>
+
+
+                        </Canvas>
+
+                    </GroupBox>
+
+                    <Canvas x:Name="machPlanBbottomCanvas" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Button x:Name="okMachPlanButton" Content="OK" HorizontalAlignment="Left" Width="75" Click="okMachPlanButton_Click" RenderTransformOrigin="-0.467,0.769" FontWeight="Bold" />
+                        <Button x:Name="cancelMachPlanButton" Content="Cancel" HorizontalAlignment="Left" Width="75" Click="cancelMachPlanButton_Click" RenderTransformOrigin="-0.467,0.769" Canvas.Left="80" FontWeight="Bold" />
+
+                    </Canvas>
+
+                </Grid>
+            </TabItem>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <TabItem Name="addTabItem" Header="Detail">
+
+                <Grid Name="addTabItemGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="44*"/>
+                        <RowDefinition Height="570*"/>
+                    </Grid.RowDefinitions>
+
+                    <Canvas Name="addTopMainCanvas" Grid.Row="0">
+                        <Label x:Name="plantAddWeekLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="9" RenderTransformOrigin="0.964,0.428" Canvas.Top="9.906" Width="52.714"/>
+                        <ComboBox x:Name="plantAddWeekComboBox" HorizontalAlignment="Left" Width="95" Canvas.Left="58.763" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display"  Canvas.Top="11.905" SelectionChanged="plantWeekComboBox_SelectionChanged"/>
+
+                        <Label x:Name="statusAddLabel" Content="Status" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="156.763" RenderTransformOrigin="0.964,0.428" Canvas.Top="9.906"/>
+                        <ComboBox x:Name="statusAddComboBox" HorizontalAlignment="Left" Width="76.867" Canvas.Left="203.526" Canvas.Top="11.811" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display" SelectionChanged="statusComboBox_SelectionChanged"/>
+
+
+                        <Label x:Name="shiftAddDateLabel" Content="Start Date" Canvas.Left="298.837" Width="67.217" FontWeight="Bold" Canvas.Top="8.634"/>
+                        <ComboBox x:Name="shiftAddStComboBox" HorizontalAlignment="Left" Width="99.778" Canvas.Left="366.054" Canvas.Top="9.812" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="" DisplayMemberPath="Display" SelectionChanged="shiftAddStComboBox_SelectionChanged"/>
+
+                        <Label x:Name="shiftAddEndDateLabel" Content="End Date" Canvas.Left="466.832" Width="67.217" FontWeight="Bold" Canvas.Top="8.812"/>
+                        <ComboBox x:Name="shiftAddEndComboBox" HorizontalAlignment="Left" Width="100" Canvas.Left="534.049" Canvas.Top="8.634" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="" DisplayMemberPath="Display" IsEnabled="False"/>
+                    </Canvas>
+
+
+                    <Grid Name="addBottomMainGrid" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="286*"/>
+                            <ColumnDefinition Width="307*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Name="addLeftMainGrid" Grid.Column="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="61*"/>
+                                <RowDefinition Height="137*"/>
+                            </Grid.RowDefinitions>
+
+                            <TabControl Name="addShiftsTabControl" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                <TabItem Name="addShiftsTabItem" Header="Shifts" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="49*"/>
+                                            <RowDefinition Height="9*"/>
+                                        </Grid.RowDefinitions>
+                                        <ListView x:Name="addShiftsListView"  Grid.Row="0" SelectionChanged="addShiftsListView_SelectionChanged" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" >
+                                            <ListView.View>
+                                                <GridView>
+
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+
+                                        <Canvas Name="addShiftsBottomCanvas" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                            <Button x:Name="firstASButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                                            <Button x:Name="prevASButton" Width="23" Content="&lt;" Height="21.27" Canvas.Left="28" Canvas.Top="1" />
+                                            <Button x:Name="nextASButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                                            <Button x:Name="lastASButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+                                            <Button x:Name="addASButton" Width="23" Content="+" Height="21.277" Canvas.Left="97" Canvas.Top="1" Click="addASButton_Click"/>
+                                            <Button x:Name="delASButton" Width="23" Content="-" Height="21.277" Canvas.Left="120" Canvas.Top="1" Click="delASButton_Click"/>
+
+                                        </Canvas>
+
+                                    </Grid>
+
+                                </TabItem>
+
+
+                            </TabControl>
+
+                            <TabControl Name="addMachPlanTabControl" Grid.Row="1" SelectionChanged="addMachPlanTabControl_SelectionChanged">
+
+                                <TabItem Name="machPlanEmployeeTabItem"  Header="Employees" >
+                                    <Grid Name="machPlanEmployeeTabItemGrid">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="177*"/>
+                                            <RowDefinition Height="14*"/>
+                                        </Grid.RowDefinitions>
+                                        
+                                        <ListView x:Name="machPlanEmployeeListView" Grid.Row="0">
+                                            <ListView.View>
+                                                <GridView>
+
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+
+                                        <Canvas Name="achPlanEmployeeBottomCanvas" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                            <Button x:Name="firstMPEMPButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                                            <Button x:Name="prevMPEMPButton" Width="23" Content="&lt;" Height="21.27" Canvas.Left="28" Canvas.Top="1" />
+                                            <Button x:Name="nextMPEMPButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                                            <Button x:Name="lastMPEMPButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+                                            <Button x:Name="addMPEMPButton" Width="23" Content="+" Height="21.277" Canvas.Left="97" Canvas.Top="1" Click="addMPEMPButtonButton_Click"/>
+                                            <Button x:Name="delMPEMPButton" Width="23" Content="-" Height="21.277" Canvas.Left="120" Canvas.Top="1" Click="delMPEMPButtonMPButton_Click"/>
+
+                                        </Canvas>
+                                    </Grid>
+                                </TabItem>
+                                
+                                <TabItem Name="addMachPlanTabItem"  Header="OverTime">
+                                    <Grid Name="addMachPlanTabItemGrid">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="177*"/>
+                                            <RowDefinition Height="14*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <ListView x:Name="addMachPlanListView"  Grid.Row="0" MouseDoubleClick="addMachPlanListView_MouseDoubleClick">
+                                            <ListView.View>
+                                                <GridView>
+
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+
+                                        <Canvas Name="addMachPlanBottomCanvas" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                            <Button x:Name="firstMPButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                                            <Button x:Name="prevMPButton" Width="23" Content="&lt;" Height="21.27" Canvas.Left="28" Canvas.Top="1" />
+                                            <Button x:Name="nextMPButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                                            <Button x:Name="lastMPButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+                                            <Button x:Name="addMPButton" Width="23" Content="+" Height="21.277" Canvas.Left="97" Canvas.Top="1" Click="addMPButton_Click"/>
+                                            <Button x:Name="delMPButton" Width="23" Content="-" Height="21.277" Canvas.Left="120" Canvas.Top="1" Click="delMPButton_Click"/>
+
+                                        </Canvas>
+
+                                    </Grid>
+
+                                </TabItem>
+
+                                <TabItem Name="addMachPlanEmployeeTabItem"  Header="Employees" >
+                                    <Grid Name="addMachPlanEmployeeTabItemGrid">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="177*"/>
+                                            <RowDefinition Height="14*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid Name="addMachPlanEmployeeTabSubGrid" Grid.Row="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="4*"/>
+                                                <RowDefinition Height="55*"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Canvas Name="addMachPlanEmployeeTopCanvas" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                                <Label x:Name="machPlanEmployeeTopLabel" Content="Title" HorizontalAlignment="Left" FontWeight="Bold" />
+                                            </Canvas>
+
+                                            <ListView x:Name="addMachPlanEmployeeListView"  Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                                <ListView.View>
+                                                    <GridView>
+
+                                                    </GridView>
+                                                </ListView.View>
+                                            </ListView>
+                                        </Grid>
+
+                                        <Canvas Name="addMachPlanEmployeeBottomCanvas" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                            <Button x:Name="firstMPEButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                                            <Button x:Name="prevMPEButton" Width="23" Content="&lt;" Height="21.27" Canvas.Left="28" Canvas.Top="1" />
+                                            <Button x:Name="nextMPEButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                                            <Button x:Name="lastMPEButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+                                            <Button x:Name="addMPEButton" Width="23" Content="+" Height="21.277" Canvas.Left="97" Canvas.Top="1" Click="addMPEButton_Click"/>
+                                            <Button x:Name="delMPEButton" Width="23" Content="-" Height="21.277" Canvas.Left="120" Canvas.Top="1" Click="delMPEButton_Click"/>
+
+                                        </Canvas>
+
+                                    </Grid>
+
+                                </TabItem>
+                            </TabControl>
+
+
+
+                        </Grid>
+
+                        <Grid Name="addRightMainGrid" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="79*"/>
+                                <RowDefinition Height="200*"/>
+                            </Grid.RowDefinitions>
+
+                            <TabControl Name="addShiftsTotalRTabControl" Grid.Row="0">
+                                <TabItem Name="addShiftsTotalRTabItem" Header="Labour Tasks Totals">
+                                    <Grid>
+                                        <ListView x:Name="addShiftsTotalRListView" >
+                                            <ListView.View>
+                                                <GridView>
+
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                    </Grid>
+                                </TabItem>
+                            </TabControl>
+
+                            <TabControl Name="addShiftsRTabControl" Grid.Row="1" >
+                                <TabItem Name="addShiftsRTabItem" Header="Labour Tasks">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="369*"/>
+                                            <RowDefinition Height="28*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <ListView x:Name="addShiftsRListView" MouseDoubleClick="addShiftsRListView_MouseDoubleClick" Grid.Row="0"  >
+                                            <ListView.View>
+                                                <GridView>
+
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+
+                                        <Canvas Name="addShiftsRBottomCanvas" Grid.Row="1">
+                                            <Button x:Name="firstASRButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                                            <Button x:Name="prevASRButton" Width="23" Content="&lt;" Height="21.27" Canvas.Left="28" Canvas.Top="1" />
+                                            <Button x:Name="nextASRButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                                            <Button x:Name="lastASRButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+                                            <Button x:Name="addASRButton" Width="23" Content="+" Height="21.277" Canvas.Left="97" Canvas.Top="1" Click="addASRButton_Click"/>
+                                            <Button x:Name="delASRButton" Width="23" Content="-" Height="21.277" Canvas.Left="120" Canvas.Top="1" Click="delASRButton_Click"/>
+
+                                        </Canvas>
+
+                                    </Grid>
+                                </TabItem>
+                            </TabControl>
+
+
+                        </Grid>
+
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+
+
+        </TabControl>
+
+    </Grid>
+</Window>

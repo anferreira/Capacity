@@ -1,0 +1,8 @@
+
+select * /*ifnull(SUM(w.VDQTOH), 0)*/  
+from cmsdat.wipb w 
+where w.VDPART = 'G2186'  and ( w.VDSEQ# >=20 and w.VDSEQ# < 30)
+
+and  ( exists ( select *  from cmsdat.methdr m  where  m.AOPART = VDPART and  w.VDSEQ#=m.AOSEQ# and m.AOREPP='Y' )  or 
+         exists ( select *  from cmsdat.methda m  where  m.ARPART = VDPART and  w.VDSEQ#=m.ARSEQ# and m.ARREPP='Y' ) 
+)

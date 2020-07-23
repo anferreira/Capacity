@@ -1,0 +1,795 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"                
+        xmlns:local="clr-namespace:HotListReports.Windows.Demand"        
+        xmlns:localUtil="clr-namespace:HotListReports.Windows.Util"               
+        xmlns:my="clr-namespace:NujitWPFUtilities;assembly=NujitWPFUtilities"   
+        xmlns:localConverters="clr-namespace:Nujit.NujitWms.WinForms.Util.Converters;assembly=Utilities" 
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:Util="clr-namespace:HotListReports.Windows.Util" xmlns:viblendEditors="clr-namespace:VIBlend.WPF.Controls;assembly=VIBlend.WPF.Editors" x:Class="HotListReports.Windows.Demand.ScheduleHdWindow"       
+        mc:Ignorable="d"        
+        Title="Schedule" Height="700" Width="1200" Closing="Window_Closing" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" >
+
+
+    <Window.Resources>
+        <localConverters:DateTimeToStringConverter x:Key="dateTimeConverter" />
+        <localConverters:DecimalToStringConverter x:Key="decimalConverter" />
+        <localConverters:ConstantYesNoToStringConverter x:Key="yesNoToStringConverter" />
+        <localConverters:ConstantYesNoToBoolConverter x:Key="yesNoToBoolConverter" />
+        <localUtil:DecimalToStringConverterNew x:Key="decimalConverterNew" />
+
+        <localConverters:SelectedItemToTimeConverter x:Key="selectedItemToTimeConverter" />
+
+        <Style  x:Key="CustomizedGanttStyle" TargetType="{x:Type my:CustomizedGantt}">
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="Red" />
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="mainGrid">
+        <TabControl x:Name="mainTabControl" SelectionChanged="mainTabControl_SelectionChanged">
+            <TabItem Header="View" x:Name="hdrTabItem">
+                <Grid x:Name="viewGrid" Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28*"/>
+                        <RowDefinition Height="557*"/>
+                        <RowDefinition Height="53*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid x:Name="viewTabItemTopGrid" Margin="0,0,0,1.528" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Label x:Name="recordsLabel" Content="Records :" HorizontalAlignment="Left" Margin="0,0.474,0,-0.474" Width="55" FontWeight="Bold"/>
+                        <TextBox x:Name="recordsTextBox" HorizontalAlignment="Left" Margin="70,0.474,0,0" TextWrapping="Wrap" Text="" Width="65" MaxLength="8"/>
+                    </Grid>
+
+                    <ListView x:Name="hdrListView" Grid.Row="1" MouseDoubleClick="hdrListView_MouseDoubleClick" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <ListView.View>
+                            <GridView/>
+                        </ListView.View>
+                    </ListView>
+                    <Canvas x:Name="bottomCanvas" Margin="-7,1.528,0,0" Grid.Row="2" d:LayoutOverrides="VerticalAlignment, LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+                        <Label x:Name="searchForLabel" Content="Search For" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="444.613" Canvas.Top="-0.445"/>
+                        <ComboBox x:Name="searchByComboBox" HorizontalAlignment="Left" Width="101.639" Canvas.Left="337.974" Canvas.Top="4"/>
+                        <Label x:Name="searchByLabel" Content="Search By" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="257.966" Canvas.Top="-0.268"/>
+                        <TextBox x:Name="searchForTextBox" TextWrapping="Wrap" Canvas.Left="512.227" Canvas.Top="-0.267" Width="101.64"/>
+                        <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Width="75" Click="searchButton_Click" Canvas.Left="167" FontWeight="Bold" Canvas.Top="1"/>
+
+
+                        <Label x:Name="stsLabel" Content="Sts" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="757.623" RenderTransformOrigin="0.964,0.428" Width="31.377"/>
+                        <ComboBox x:Name="stsComboBox" HorizontalAlignment="Left" Width="55.032" Canvas.Left="789" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display" Canvas.Top="3"/>
+
+                        <Label x:Name="plantFilterLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="624.833" RenderTransformOrigin="0.964,0.428"/>
+                        <ComboBox x:Name="plantFilterComboBox" HorizontalAlignment="Left" Width="75" Canvas.Left="669" Canvas.Top="3" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+
+                        <Label x:Name="fromCretedLabel" Content="From Create" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="257.966" Canvas.Top="24.515" RenderTransformOrigin="0.5,0.5"/>
+                        <DatePicker x:Name="fromDatePicker" Canvas.Left="337.972" Canvas.Top="24.515" Width="100"/>
+                        <Label x:Name="toCretedLabel" Content="To Create" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="444.613" Canvas.Top="25.515"/>
+                        <DatePicker x:Name="toDatePicker" Canvas.Left="512.227" Canvas.Top="24.516" RenderTransformOrigin="1.885,0.505" Width="100"/>
+
+                        <Button x:Name="firstButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                        <Button x:Name="prevButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="28" Canvas.Top="1" />
+                        <Button x:Name="nextButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                        <Button x:Name="lastButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+                        <Button x:Name="addButton" Width="23" Content="+" Height="21.277" Canvas.Left="97" Canvas.Top="1" Click="addButton_Click"/>
+                        <Button x:Name="delButton" Width="23" Content="-" Height="21.277" Canvas.Left="120" Canvas.Top="1" Click="delButton_Click"/>
+
+                    </Canvas>
+
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Detail" x:Name="dtlTabItem">
+                <Grid x:Name="dtlTabItemGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="38*"/>
+                        <RowDefinition Height="565*"/>
+                        <RowDefinition Height="35*"/>
+                    </Grid.RowDefinitions>
+
+                    <Canvas x:Name="dtlTopCanvas" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Label x:Name="idLabel" Content="Id" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="1" Width="26"/>
+                        <TextBox x:Name="idTextBox" TextWrapping="Wrap" Canvas.Left="20" Width="54" IsEnabled="False" IsReadOnly="True" Text="{Binding Id}" RenderTransformOrigin="0.118,0.617"/>
+
+                        <Label x:Name="dateTimeLabel" Content="Created" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="70" Width="59" Canvas.Top="0.04"/>
+                        <TextBox x:Name="dateTimeTextBox" TextWrapping="Wrap" Canvas.Left="121" Width="150" IsEnabled="False" IsReadOnly="True" Text="{Binding DateCreated, ConverterParameter=DateTime, Converter={StaticResource dateTimeConverter}}" Canvas.Top="1"/>
+
+                        <Label x:Name="statusLabel" Content="Sts" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="268" Width="28"/>
+                        <ComboBox x:Name="statusComboBox" HorizontalAlignment="Left" Width="63" Canvas.Left="293" Canvas.Top="3" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Status}" DisplayMemberPath="Display"/>
+
+                        <Label x:Name="plantLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="255" Width="41" Canvas.Top="20.96"/>
+                        <ComboBox x:Name="plantComboBox" HorizontalAlignment="Left" Width="63" Canvas.Left="293" Canvas.Top="24.96" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Plant}" DisplayMemberPath="Display"/>
+
+                        <GroupBox x:Name="filterGroup" Canvas.Left="358" Height="40.402" Width="694" Header="Filters" FontWeight="Bold" >
+                            <Canvas x:Name="filterCanvas" Margin="0,-10,0,0">
+                                <Label x:Name="reqFilterLbel" Content="Request" HorizontalAlignment="Left" FontWeight="Bold" Width="80" Canvas.Top="3.482" Canvas.Left="-4"/>
+                                <ComboBox x:Name="reqFilterComboBox" HorizontalAlignment="Left" Width="80" Canvas.Left="69" Canvas.Top="5.482" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+
+                                <Label x:Name="startDateFilterLabel" Content="Start" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="147" Canvas.Top="3.482" RenderTransformOrigin="0.616,0.301"/>
+                                <telerik:RadDateTimePicker x:Name="startFilterRadDateTimePicker" SelectedValue="{Binding StartDateFilter, Mode=TwoWay}" Canvas.Left="182.343" Width="130" Canvas.Top="4.482"/>
+
+
+                                <Label x:Name="stopDateFilterLabel" Content="Stop" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="309.343" RenderTransformOrigin="0.192,0.562" Canvas.Top="2"/>
+                                <telerik:RadDateTimePicker x:Name="stopFilterRadDateTimePicker" SelectedValue="{Binding StopDateFilter, Mode=TwoWay}" Canvas.Left="343.17" Width="130" Canvas.Top="4.442"/>
+
+                                <CheckBox x:Name="shiftFilterCheckBox" Content="Shift" Canvas.Left="478.17" Canvas.Top="4.287" Checked="shiftFilterCheckBox_Checked" Click="shiftFilterCheckBox_Click"/>
+                                <ComboBox x:Name="shiftFilterComboBox" HorizontalAlignment="Left" Width="37.47" Canvas.Left="533.53" Canvas.Top="4.442" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display" IsEnabled="False" SelectionChanged="shiftFilterComboBox_SelectionChanged"/>
+
+                                <Button x:Name="applyFilterButton" Content="Search" HorizontalAlignment="Left" Width="90" Click="applyFilterButton_Click" Canvas.Left="577" FontWeight="Bold" Canvas.Top="3.442"/>
+
+                            </Canvas>
+                        </GroupBox>
+                    </Canvas>
+
+
+
+                    <Grid Grid.Row="1" x:Name="dtlMiddleGrid">
+
+                        <TabControl x:Name="reqDtlTabControl" Grid.Row="0" >
+                            <TabItem Header="Request" x:Name="reqDtlTabItem">
+                                <Grid Grid.Column="0" x:Name="dtlMiddleRequirmentGrid">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="329*"/>
+                                        <RowDefinition Height="211*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid x:Name="reqMiddleGrid" Grid.Row="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="302*"/>
+                                            <RowDefinition Height="27*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <ListView x:Name="reqListView" Grid.Row="0" Margin="0,5.393,0,0" SelectionChanged="reqListView_SelectionChanged" MouseDoubleClick="reqListView_MouseDoubleClick" FontSize="11" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                            <ListView.View>
+                                                <GridView/>
+                                            </ListView.View>
+                                        </ListView>
+
+                                        <Canvas Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                            <Button x:Name="firstRButton" Width="23" Height="21.277" Content="|&lt;" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-0.001" />
+                                            <Button x:Name="prevRButton" Width="23" Content="&lt;" Height="21.27" HorizontalAlignment="Left" Margin="23,0,0,-0.001" VerticalAlignment="Bottom" />
+                                            <Button x:Name="nextRButton" Width="23" Content="&gt;" Height="21.277" HorizontalAlignment="Left" Margin="46,0,0,-0.001" VerticalAlignment="Bottom" />
+                                            <Button x:Name="lastRButton" Width="23" Content="&gt;|" Height="21.277" HorizontalAlignment="Left" Margin="69,0,0,-0.001" VerticalAlignment="Bottom" />
+
+                                            <Button x:Name="addPButton" Width="23" Content="+" Height="21.277" Click="addPButton_Click" HorizontalAlignment="Left" Margin="92,0,0,-0.001" VerticalAlignment="Bottom"/>
+                                            <Button x:Name="delDButton" Width="23" Content="-" Height="21.277" Click="delPButton_Click" HorizontalAlignment="Left" Margin="115,0,0,-0.001" VerticalAlignment="Bottom"/>
+                                            <Button x:Name="addDownButton" Width="32" Content="Dw" Height="21.277" Click="addDownButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Canvas.Left="148" Canvas.Top="-0.014"/>
+                                            <Button x:Name="addRButton" Width="28" Content="+R" Height="21.277" Click="addRButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="3.174,0.579" Canvas.Left="179" Canvas.Top="-0.014"/>
+                                            <Button x:Name="delRButton" Width="28" Content="-R" Height="21.277" Click="delRButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Canvas.Left="207" Canvas.Top="-0.014"/>
+                                        </Canvas>
+
+                                    </Grid>
+                                    <Grid x:Name="middleTabsGrid" Grid.Row="1">
+                                        <TabControl x:Name="secondTabControl">
+
+
+                                            <TabItem Header="Parts" x:Name="partsDtlTabItem">
+                                                <Grid x:Name="partsDtlTabItemGrid">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="160*"/>
+                                                        <RowDefinition Height="23*"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <ListView x:Name="partReqDtlListView" Grid.Row="0" Margin="0,5.393,10,1.02" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" FontSize="11">
+                                                        <ListView.View>
+                                                            <GridView/>
+                                                        </ListView.View>
+                                                    </ListView>
+
+                                                    <Canvas Grid.Row="1" Grid.Column="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                                        <Button x:Name="firstPButton" Width="23" Height="21.277" Content="|&lt;" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-0.001" />
+                                                        <Button x:Name="prevPButton" Width="23" Content="&lt;" Height="21.27" HorizontalAlignment="Left" Margin="23,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                        <Button x:Name="nextPButton" Width="23" Content="&gt;" Height="21.277" HorizontalAlignment="Left" Margin="46,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                        <Button x:Name="lastPButton" Width="23" Content="&gt;|" Height="21.277" HorizontalAlignment="Left" Margin="69,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                    </Canvas>
+                                                </Grid>
+                                            </TabItem>
+
+
+
+                                            <TabItem Header="Tasks" x:Name="taskDtlTabItem">
+                                                <Grid x:Name="taskDtlTabItemGrid">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="160*"/>
+                                                        <RowDefinition Height="23*"/>
+                                                    </Grid.RowDefinitions>
+
+
+                                                    <ListView x:Name="taskListView" Grid.Row="0" Margin="0,5.393,10,1.02" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" MouseDoubleClick="taskListView_MouseDoubleClick" FontSize="11">
+                                                        <ListView.View>
+                                                            <GridView/>
+                                                        </ListView.View>
+                                                    </ListView>
+
+                                                    <Canvas Grid.Row="1" Grid.Column="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                                        <Button x:Name="firstTButton" Width="23" Height="21.277" Content="|&lt;" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-0.001" />
+                                                        <Button x:Name="prevTButton" Width="23" Content="&lt;" Height="21.27" HorizontalAlignment="Left" Margin="23,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                        <Button x:Name="nextTButton" Width="23" Content="&gt;" Height="21.277" HorizontalAlignment="Left" Margin="46,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                        <Button x:Name="lastTButton" Width="23" Content="&gt;|" Height="21.277" HorizontalAlignment="Left" Margin="69,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                        <Button x:Name="addTButton" Width="23" Content="+" Height="21.277" Click="addTButton_Click" HorizontalAlignment="Left" Margin="92,0,0,-0.001" VerticalAlignment="Bottom"/>
+                                                        <Button x:Name="delTButton" Width="23" Content="-" Height="21.277" Click="delTButton_Click" HorizontalAlignment="Left" Margin="115,0,0,-0.001" VerticalAlignment="Bottom"/>
+                                                    </Canvas>
+
+
+
+                                                </Grid>
+                                            </TabItem>
+
+
+                                            <TabItem Header="Materials" x:Name="materialsTabItem">
+                                                <Grid x:Name="materialsTabItemGrid">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="160*"/>
+                                                        <RowDefinition Height="23*"/>
+                                                    </Grid.RowDefinitions>
+
+
+                                                    <ListView x:Name="materialsListView" Grid.Row="0" Margin="0,5.393,10,1.02" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" MouseDoubleClick="taskListView_MouseDoubleClick" FontSize="11">
+                                                        <ListView.View>
+                                                            <GridView/>
+                                                        </ListView.View>
+                                                    </ListView>
+
+                                                    <Canvas Grid.Row="1" Grid.Column="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                                        <Button x:Name="firstMatButton" Width="23" Height="21.277" Content="|&lt;" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-0.001" />
+                                                        <Button x:Name="prevMatButton" Width="23" Content="&lt;" Height="21.27" HorizontalAlignment="Left" Margin="23,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                        <Button x:Name="nextMatButton" Width="23" Content="&gt;" Height="21.277" HorizontalAlignment="Left" Margin="46,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                        <Button x:Name="lastMatButton" Width="23" Content="&gt;|" Height="21.277" HorizontalAlignment="Left" Margin="69,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                    </Canvas>
+
+                                                </Grid>
+                                            </TabItem>
+
+                                            <TabItem Header="Packaging" x:Name="packagingTabItem">
+                                                <Grid x:Name="packagingTabItemGrid">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="160*"/>
+                                                        <RowDefinition Height="23*"/>
+                                                    </Grid.RowDefinitions>
+
+
+                                                    <ListView x:Name="packagingListView" Grid.Row="0" Margin="0,5.393,10,1.02" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" MouseDoubleClick="taskListView_MouseDoubleClick" FontSize="11">
+                                                        <ListView.View>
+                                                            <GridView/>
+                                                        </ListView.View>
+                                                    </ListView>
+
+                                                    <Canvas Grid.Row="1" Grid.Column="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                                        <Button x:Name="firstPacButton" Width="23" Height="21.277" Content="|&lt;" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-0.001" />
+                                                        <Button x:Name="prevPacButton" Width="23" Content="&lt;" Height="21.27" HorizontalAlignment="Left" Margin="23,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                        <Button x:Name="nextPacButton" Width="23" Content="&gt;" Height="21.277" HorizontalAlignment="Left" Margin="46,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                        <Button x:Name="lastPacButton" Width="23" Content="&gt;|" Height="21.277" HorizontalAlignment="Left" Margin="69,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                    </Canvas>
+
+                                                </Grid>
+                                            </TabItem>
+
+                                            <TabItem Header="Part/Receipts">
+                                                <Grid Background="#FFE5E5E5" x:Name="partReceiptsDtlGrid">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="79*"/>
+                                                        <RowDefinition Height="15*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <ListView x:Name="partReceiptsDtlListView" Grid.Row="0" Margin="0,5.393,0,0" FontSize="11" >
+                                                        <ListView.View>
+                                                            <GridView/>
+                                                        </ListView.View>
+                                                    </ListView>
+
+                                                    <Canvas Grid.Row="1" Grid.Column="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                                        <Button x:Name="firstPRecDtlButton" Width="23" Height="21.277" Content="|&lt;" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-0.001" />
+                                                        <Button x:Name="prevPRecDtlButton" Width="23" Content="&lt;" Height="21.27" HorizontalAlignment="Left" Margin="23,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                        <Button x:Name="nextPRecDtlButton" Width="23" Content="&gt;" Height="21.277" HorizontalAlignment="Left" Margin="46,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                        <Button x:Name="lastPRecDtlButton" Width="23" Content="&gt;|" Height="21.277" HorizontalAlignment="Left" Margin="69,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                    </Canvas>
+                                                </Grid>
+
+                                            </TabItem>
+
+                                            <TabItem Header="Material Consumption">
+                                                <Grid Background="#FFE5E5E5" x:Name="matConsumDtlGrid">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="79*"/>
+                                                        <RowDefinition Height="15*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <ListView x:Name="matConsumDtlListView" Grid.Row="0" Margin="0,5.393,0,0" FontSize="11">
+                                                        <ListView.View>
+                                                            <GridView/>
+                                                        </ListView.View>
+                                                    </ListView>
+
+                                                    <Canvas Grid.Row="1" Grid.Column="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                                        <Button x:Name="firstMCDButton" Width="23" Height="21.277" Content="|&lt;" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-0.001" />
+                                                        <Button x:Name="prevMCDButton" Width="23" Content="&lt;" Height="21.27" HorizontalAlignment="Left" Margin="23,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                        <Button x:Name="nextMCDButton" Width="23" Content="&gt;" Height="21.277" HorizontalAlignment="Left" Margin="46,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                        <Button x:Name="lastMCDButton" Width="23" Content="&gt;|" Height="21.277" HorizontalAlignment="Left" Margin="69,0,0,-0.001" VerticalAlignment="Bottom" />
+                                                    </Canvas>
+                                                </Grid>
+
+                                            </TabItem>
+
+                                        </TabControl>
+                                    </Grid>
+                                </Grid>
+                            </TabItem>
+                        </TabControl>
+
+
+
+                    </Grid>
+
+                    <Canvas Grid.Row="2" x:Name="dtlBottomCanvas">
+                        <Button x:Name="okButton" Content="Ok" HorizontalAlignment="Left" Width="70" Click="okButton_Click" FontWeight="Bold" Canvas.Top="-0.998"/>
+                        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Width="70" Click="cancelButton_Click" FontWeight="Bold" Canvas.Left="75" Canvas.Top="-0.998"/>
+                    </Canvas>
+                </Grid>
+            </TabItem>
+
+
+            <TabItem x:Name="requirmentTabItem" Header="Request">
+                <Grid x:Name="requirmentGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="299*"/>
+                        <RowDefinition Height="20*"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox x:Name="requirmentTopGroupBox" Header="" Grid.Row="0" Margin="0,0,417,0" Height="133.04" VerticalAlignment="Top">
+                        <Canvas x:Name="requirmentTopGroupBoxCanvas" Margin="0,0,-2,-2.963">
+
+                            <Label x:Name="reqDtlLabel" Content="Dtl#" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="10" Width="60"/>
+                            <TextBox x:Name="reqDtlTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Detail}" Width="80" Canvas.Left="99" Canvas.Top="9.96" IsReadOnly="True" IsEnabled="False" RenderTransformOrigin="0.8,0.426"/>
+
+                            <Label x:Name="reqTypeLabel" Content="Type" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="209" Canvas.Top="10" Width="50"/>
+                            <ComboBox x:Name="reqTypeComboBox" HorizontalAlignment="Left" Width="80" Canvas.Left="298" Canvas.Top="10" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Type}" DisplayMemberPath="Display" SelectionChanged="reqTypeComboBox_SelectionChanged"/>
+
+                            <Label x:Name="reqIdLabel" Content="Request Id" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="41" Width="89"/>
+                            <TextBox x:Name="reqIdTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding ReqID}" Width="80" Canvas.Left="99" Canvas.Top="41" IsReadOnly="True" IsEnabled="False" RenderTransformOrigin="0.8,0.426"/>
+                            <Button x:Name="reqIdButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="179" Canvas.Top="40.821" RenderTransformOrigin="10.783,0.772" Click="reqIdButton_Click"/>
+
+                            <Label x:Name="reqDescLabel" Content="Description" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="209" Canvas.Top="40.821" Width="89"/>
+                            <TextBox x:Name="reqDescTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding ReqDescription}" Width="116" Canvas.Left="298" Canvas.Top="41" IsReadOnly="True" IsEnabled="False" RenderTransformOrigin="0.8,0.426"/>
+
+                            <Label x:Name="reqHoursLabel" Content="Hours" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="71.88" Width="50" RenderTransformOrigin="0,0.545"/>
+                            <TextBox x:Name="reqHourTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Hours, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="99" Canvas.Top="71.88"  RenderTransformOrigin="0.8,0.426" MaxLength="4" LostFocus="reqHoursTextBox_LostFocus"/>
+
+                            <Label x:Name="reqTotEmployeesLabel" Content="Tot Employees" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="209" Canvas.Top="71.92" Width="99" RenderTransformOrigin="0,0.545"/>
+                            <TextBox x:Name="reqTotEmployeesTextBox" Height="23" TextWrapping="Wrap"   Text="{Binding TotEmployees, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="298" Canvas.Top="71.92" IsEnabled="False" RenderTransformOrigin="0.8,0.426" MaxLength="5" LostFocus="reqTotEmployeesTextBox_LostFocus"/>
+
+                            <Label x:Name="reqEemployeeHoursLabel" Content="EmployeeHrs." HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="408" Canvas.Top="71.92" Width="85" RenderTransformOrigin="0,0.545"/>
+                            <TextBox x:Name="reqEmployeeHoursTextBox" Height="23" TextWrapping="Wrap"   Text="{Binding EmployeeHours, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="493" Canvas.Top="71.92" IsEnabled="False" RenderTransformOrigin="0.8,0.426" MaxLength="5"/>
+
+                        </Canvas>
+
+                    </GroupBox>
+
+                    <Canvas x:Name="requirmentBottomCanvas" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Button x:Name="okRequirmentButton" Content="OK" HorizontalAlignment="Left" Width="75" Click="okRequirmentButton_Click" RenderTransformOrigin="-0.467,0.769" FontWeight="Bold" />
+                        <Button x:Name="cancelRequirmentButton" Content="Cancel" HorizontalAlignment="Left" Width="75" Click="cancelRequirmentButton_Click" RenderTransformOrigin="-0.467,0.769" Canvas.Left="80" FontWeight="Bold" />
+                    </Canvas>
+                </Grid>
+
+            </TabItem>
+
+            <TabItem x:Name="schedulePartTabItem" Header="Schedule Part">
+                <Grid x:Name="schedulePartGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="165*"/>
+                        <RowDefinition Height="436*"/>
+                        <RowDefinition Height="40*"/>
+                    </Grid.RowDefinitions>
+
+                    <GroupBox x:Name="dtlsTopGroupBox" Header="" Grid.Row="0" Margin="0,0,0,5" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Canvas x:Name="dtlsTopGroupBoxCanvas" Margin="0,0,-2,-2.963">
+
+                            <Label x:Name="detailLabel" Content="Dtl#" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="10" Width="60"/>
+                            <TextBox x:Name="detailTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding SubDetail}" Width="80" Canvas.Left="90" Canvas.Top="10" IsReadOnly="True" IsEnabled="False"/>
+
+                            <Label x:Name="partLabel" Content="Part" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="246" Canvas.Top="10.179" Width="75"/>
+                            <TextBox x:Name="partTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Part}" Width="200" Canvas.Left="326" Canvas.Top="10.139" MaxLength="40" IsEnabled="False"/>
+                            <Button x:Name="partSearchButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="526" Canvas.Top="10" RenderTransformOrigin="10.783,0.772" Click="partSearchButton_Click"/>
+
+                            <Label x:Name="isFamilyLabel" Content="IsFamily" HorizontalAlignment="Left" Canvas.Left="554" Canvas.Top="9.88" Width="60"/>
+                            <TextBox x:Name="isFamilyTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding IsFamily}" Width="30" Canvas.Left="614" Canvas.Top="9.84" MaxLength="6" RenderTransformOrigin="-0.167,0.432" IsEnabled="False"/>
+
+                            <Label x:Name="priorityPartLabel" Content="Priority" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="705" Canvas.Top="7.398" Width="55"/>
+                            <ComboBox x:Name="priorityPartComboBox" HorizontalAlignment="Left" Width="80" Canvas.Left="765" Canvas.Top="10.179" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Priority}" DisplayMemberPath="Display" IsEnabled="True"/>
+
+
+                            <Label x:Name="queuePartLabel" Content="Queue" HorizontalAlignment="Left" Canvas.Left="855" Canvas.Top="6.179" Width="60" RenderTransformOrigin="0.417,0.92"/>
+                            <TextBox x:Name="queuePartTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Queue}" Width="56" Canvas.Left="916" Canvas.Top="7.398" MaxLength="6" RenderTransformOrigin="-0.167,0.432" IsEnabled="False"/>
+
+
+                            <Label x:Name="seqLabel" Content="Sequence" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="40.96" Width="80"/>
+                            <ComboBox x:Name="seqComboBox" HorizontalAlignment="Left" Width="50" Canvas.Left="91" Canvas.Top="42.179" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Seq}" DisplayMemberPath="Display" IsEnabled="True" SelectionChanged="seqComboBox_SelectionChanged"/>
+
+                            <Label x:Name="quantityLabel" Content="Qty. Sched." HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="246" Canvas.Top="41.179" Width="80"/>
+                            <TextBox x:Name="quantityTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding QtyInt64, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="326" Canvas.Top="41.139" MaxLength="6" LostFocus="quantityTextBox_LostFocus"/>
+
+                            <Label x:Name="qtyReportedLabel" Content="Reported" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="406" Canvas.Top="42.179" Width="63"/>
+                            <TextBox x:Name="qtyReportedTextBox" Height="23" TextWrapping="Wrap"  Width="80" Canvas.Left="469" Canvas.Top="41.139" MaxLength="6"  Text="{Binding QtyReportedInt64, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" LostFocus="qtyReportedTextBox_LostFocus"/>
+
+                            <Label x:Name="qtyRemainsLabel" Content="Remains" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="554" Canvas.Top="42.179" Width="60" RenderTransformOrigin="2.762,0.69"/>
+                            <TextBox x:Name="qtyRemainsTextBox" Height="23" TextWrapping="Wrap"  Width="80" Canvas.Left="614" Canvas.Top="41.139" MaxLength="6" Text="{Binding RemainsQty, ConverterParameter='int', Converter={StaticResource decimalConverter}}" IsEnabled="False"/>
+
+                            <Label x:Name="uomLabel" Content="Uom" HorizontalAlignment="Left" Canvas.Left="141" Canvas.Top="42.179" Width="38"/>
+                            <TextBox x:Name="uomTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Uom}" Width="46.777" Canvas.Left="179" Canvas.Top="42.179" MaxLength="6" RenderTransformOrigin="-0.167,0.432" IsEnabled="False"/>
+
+
+                            <Label x:Name="runStdLabel" Content="RunStd" HorizontalAlignment="Left" Canvas.Left="705" Canvas.Top="41.179" Width="60" RenderTransformOrigin="0.417,0.92"/>
+                            <TextBox x:Name="runStdTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding RunStd, ConverterParameter='', Converter={StaticResource decimalConverter}}" Width="56" Canvas.Left="765" Canvas.Top="38.139" MaxLength="6" RenderTransformOrigin="-0.167,0.432" IsEnabled="False"/>
+
+                            <Label x:Name="cavityNumLabel" Content="CavitNum" HorizontalAlignment="Left" Canvas.Left="855" Canvas.Top="41.179" Width="61" RenderTransformOrigin="0.417,0.92"/>
+                            <TextBox x:Name="cavityNumTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding CavityNum, ConverterParameter='', Converter={StaticResource decimalConverter}}" Width="56" Canvas.Left="916" Canvas.Top="38.139" MaxLength="6" RenderTransformOrigin="-0.167,0.432" IsEnabled="False"/>
+
+
+                            <Label x:Name="startDateLabel" Content="Start Date" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="73.221" Width="80"/>
+                            <telerik:RadDateTimePicker x:Name="startDateTimePRadDateTimePicker" SelectedValue="{Binding StartDate, Mode=TwoWay}" Canvas.Left="90" Canvas.Top="73.043" Width="135.777" LostFocus="startDateTimePRadDateTimePicker_LostFocus"/>
+
+                            <Label x:Name="endDateLabel" Content="End Date" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="246" Canvas.Top="72.139" Width="80"/>
+                            <telerik:RadDateTimePicker x:Name="endDateTimePRadDateTimePicker" SelectedValue="{Binding EndDate, Mode=TwoWay}" Canvas.Left="326" Canvas.Top="72.099" Width="135.777" LostFocus="endDateTimePRadDateTimePicker_LostFocus"/>
+
+                            <Label x:Name="partShiftLabel" Content="St.Shift" HorizontalAlignment="Left" Canvas.Left="554" Canvas.Top="72.277" Width="55"/>
+                            <ComboBox x:Name="partShiftComboBox" HorizontalAlignment="Left" Width="56" Canvas.Left="614" Canvas.Top="73.221" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding StartShift}" DisplayMemberPath="Display" IsEnabled="False"/>
+
+                            <Label x:Name="endShiftLabel" Content="EndShift" HorizontalAlignment="Left" Canvas.Left="705" Canvas.Top="72.277" Width="55" RenderTransformOrigin="0.417,0.92"/>
+                            <TextBox x:Name="endShiftTextBox" Height="22" TextWrapping="Wrap"  Text="{Binding EndShift}" Width="56" Canvas.Left="765" Canvas.Top="72.099" MaxLength="6" RenderTransformOrigin="-0.167,0.432" IsEnabled="False"/>
+
+                            <CheckBox Name="createAutomaticReceiptsCheckBox" Content="Automatic Receipts" IsChecked="True" Canvas.Left="17.777" Canvas.Top="110.013" RenderTransformOrigin="-12.177,1.065" Width="194" FontWeight="Bold" Click="createAutomaticReceiptsCheckBox_Click"/>
+
+
+                        </Canvas>
+
+                    </GroupBox>
+
+                    <Grid Name="partDtlBottomGrid" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="191*"/>
+                            <ColumnDefinition Width="402*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TabControl x:Name="partDtlTabControl" Grid.Column="0">
+                            <TabItem Header="Part/Details">
+                                <Grid Background="#FFE5E5E5" x:Name="partDtlGrid">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="27*"/>
+                                        <RowDefinition Height="2*"/>
+                                    </Grid.RowDefinitions>
+                                    <ListView x:Name="partDtlListView" Grid.Row="0" Margin="0,5.393,0,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                        <ListView.View>
+                                            <GridView/>
+                                        </ListView.View>
+                                    </ListView>
+
+                                    <Canvas Grid.Row="1" Grid.Column="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                        <Button x:Name="firstPDButton" Width="23" Height="21.277" Content="|&lt;" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-0.001" />
+                                        <Button x:Name="prevPDButton" Width="23" Content="&lt;" Height="21.27" HorizontalAlignment="Left" Margin="23,0,0,-0.001" VerticalAlignment="Bottom" />
+                                        <Button x:Name="nextPDButton" Width="23" Content="&gt;" Height="21.277" HorizontalAlignment="Left" Margin="46,0,0,-0.001" VerticalAlignment="Bottom" />
+                                        <Button x:Name="lastPDButton" Width="23" Content="&gt;|" Height="21.277" HorizontalAlignment="Left" Margin="69,0,0,-0.001" VerticalAlignment="Bottom" />
+                                    </Canvas>
+                                </Grid>
+
+                            </TabItem>
+                        </TabControl>
+
+
+                        <TabControl x:Name="receiptPartTabControl" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                            <TabItem Header="Part/Receipts">
+                                <Grid Background="#FFE5E5E5" x:Name="partReceiptsGrid">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="27*"/>
+                                        <RowDefinition Height="2*"/>
+                                    </Grid.RowDefinitions>
+                                    <ListView x:Name="partReceiptsListView" Grid.Row="0" Margin="0,5.393,0,0" MouseDoubleClick="partReceiptsListView_MouseDoubleClick" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                        <ListView.View>
+                                            <GridView/>
+                                        </ListView.View>
+                                    </ListView>
+
+                                    <Canvas Grid.Row="1" Grid.Column="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                        <Button x:Name="firstPRecButton" Width="23" Height="21.277" Content="|&lt;" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-0.001" />
+                                        <Button x:Name="prevPRecButton" Width="23" Content="&lt;" Height="21.27" HorizontalAlignment="Left" Margin="23,0,0,-0.001" VerticalAlignment="Bottom" />
+                                        <Button x:Name="nextPRecButton" Width="23" Content="&gt;" Height="21.277" HorizontalAlignment="Left" Margin="46,0,0,-0.001" VerticalAlignment="Bottom" />
+                                        <Button x:Name="lastPRecButton" Width="23" Content="&gt;|" Height="21.277" HorizontalAlignment="Left" Margin="69,0,0,-0.001" VerticalAlignment="Bottom" />
+                                        <Button x:Name="addPRecButton" Width="23" Content="+" Height="21.277" Click="addPRecButton_Click" HorizontalAlignment="Left" Margin="92,0,0,-0.001" VerticalAlignment="Bottom" IsEnabled="True"/>
+                                        <Button x:Name="delPRecButton" Width="23" Content="-" Height="21.277" Click="delPRecButton_Click" HorizontalAlignment="Left" Margin="115,0,0,-0.001" VerticalAlignment="Bottom" IsEnabled="True"/>
+                                    </Canvas>
+                                </Grid>
+
+                            </TabItem>
+
+                            <TabItem Header="Material Consumition">
+                                <Grid Background="#FFE5E5E5" x:Name="matConsumGrid">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="27*"/>
+                                        <RowDefinition Height="2*"/>
+                                    </Grid.RowDefinitions>
+                                    <ListView x:Name="matConsumListView" Grid.Row="0" Margin="0,5.393,0,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" >
+                                        <ListView.View>
+                                            <GridView/>
+                                        </ListView.View>
+                                    </ListView>
+
+                                    <Canvas Grid.Row="1" Grid.Column="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                                        <Button x:Name="firstMCButton" Width="23" Height="21.277" Content="|&lt;" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-0.001" />
+                                        <Button x:Name="prevMCButton" Width="23" Content="&lt;" Height="21.27" HorizontalAlignment="Left" Margin="23,0,0,-0.001" VerticalAlignment="Bottom" />
+                                        <Button x:Name="nextMCButton" Width="23" Content="&gt;" Height="21.277" HorizontalAlignment="Left" Margin="46,0,0,-0.001" VerticalAlignment="Bottom" />
+                                        <Button x:Name="lastMCButton" Width="23" Content="&gt;|" Height="21.277" HorizontalAlignment="Left" Margin="69,0,0,-0.001" VerticalAlignment="Bottom" />
+                                        <Button x:Name="addMCButton" Width="23" Content="+" Height="21.277" Click="addMCButton_Click" HorizontalAlignment="Left" Margin="92,0,0,-0.001" VerticalAlignment="Bottom"/>
+                                        <Button x:Name="delMCButton" Width="23" Content="-" Height="21.277" Click="delMCButton_Click" HorizontalAlignment="Left" Margin="115,0,0,-0.001" VerticalAlignment="Bottom"/>
+                                    </Canvas>
+                                </Grid>
+
+                            </TabItem>
+                        </TabControl>
+
+                    </Grid>
+
+
+                    <Canvas x:Name="partBottomCanvas" Grid.Row="3" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Button x:Name="okPartButton" Content="OK" HorizontalAlignment="Left" Width="75" Click="okPartButton_Click" RenderTransformOrigin="-0.467,0.769" FontWeight="Bold" />
+                        <Button x:Name="cancelPartButton" Content="Cancel" HorizontalAlignment="Left" Width="75" Click="cancelPartButton_Click" RenderTransformOrigin="-0.467,0.769" Canvas.Left="80" FontWeight="Bold" />
+                    </Canvas>
+
+                </Grid>
+
+            </TabItem>
+
+
+
+
+            <TabItem x:Name="scheduleTaskTabItem" Header="Schedule Task">
+                <Grid x:Name="scheduleTaskGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="74*"/>
+                        <RowDefinition Height="225*"/>
+                        <RowDefinition Height="20*"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox x:Name="scheduleTaskTopGroupBox" Header="" Grid.Row="0" Margin="0,0,0,15">
+                        <Canvas x:Name="scheduleTaskTopGroupBoxCanvas" Margin="0,0,-2,-2.963">
+
+                            <Label x:Name="detailSLabel" Content="Dtl#" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="10" Width="60"/>
+                            <TextBox x:Name="detailSTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding SubDetail}" Width="80" Canvas.Left="90" Canvas.Top="10" IsReadOnly="True" IsEnabled="False"/>
+
+                            <Label x:Name="shiftTaskLabel" Content="Shift Task" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="238" Canvas.Top="6" Width="70"/>
+                            <ComboBox x:Name="shiftTaskComboBox" HorizontalAlignment="Left" Width="280" Canvas.Left="328" Canvas.Top="10" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding TaskId}" DisplayMemberPath="Display"/>
+
+                            <Label x:Name="priorityTaskLabel" Content="Priority" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="622" Canvas.Top="6" Width="55"/>
+                            <ComboBox x:Name="priorityTaskComboBox" HorizontalAlignment="Left" Width="80" Canvas.Left="682" Canvas.Top="10" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Priority}" DisplayMemberPath="Display" IsEnabled="True"/>
+
+
+                            <Label x:Name="startSDateLabel" Content="Start Date" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="45.244" Width="69" RenderTransformOrigin="0.5,0.5"/>
+                            <telerik:RadDateTimePicker x:Name="startDateTimeTRadDateTimePicker" SelectedValue="{Binding StartDate, Mode=TwoWay}" Canvas.Left="90" Canvas.Top="42.96" Width="135.777" LostFocus="startDateTimeTRadDateTimePicker_LostFocus"/>
+
+                            <Label x:Name="endSDateLabel" Content="End Date" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="238" Canvas.Top="42.96" Width="60"/>
+                            <telerik:RadDateTimePicker x:Name="endDateTimeTRadDateTimePicker" SelectedValue="{Binding EndDate, Mode=TwoWay}" Canvas.Left="328" Canvas.Top="40.098" Width="135.777" RenderTransformOrigin="2.158,0.62"/>
+
+                            <Label x:Name="taskShiftLabel" Content="St.Shift" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="473" Canvas.Top="40.098" Width="50"/>
+                            <ComboBox x:Name="tasksShiftComboBox" HorizontalAlignment="Left" Width="56" Canvas.Left="528" Canvas.Top="40.96" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding StartShift}" DisplayMemberPath="Display" IsEnabled="False"/>
+
+                            <Label x:Name="endShiftTaskLabel" Content="EndShift" HorizontalAlignment="Left" Canvas.Left="622" Canvas.Top="40.098" Width="55" RenderTransformOrigin="0.417,0.92" Visibility="Hidden"/>
+                            <TextBox x:Name="endShiftTaskTextBox" Height="22" TextWrapping="Wrap"  Text="{Binding EndShift}" Width="56" Canvas.Left="682" Canvas.Top="40.058" MaxLength="6" IsEnabled="False" Visibility="Hidden"/>
+
+
+                            <Label x:Name="queueTaskLabel" Content="Queue" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="777" Canvas.Top="6" Width="55" RenderTransformOrigin="0.417,0.92"/>
+                            <TextBox x:Name="queueTaskTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Queue}" Width="56" Canvas.Left="837" Canvas.Top="5.96" MaxLength="6" IsEnabled="False"/>
+
+
+                            <Label x:Name="taskHoursLabel" Content="Hours" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="71.88" Width="50" RenderTransformOrigin="0,0.545"/>
+                            <TextBox x:Name="taskHourTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Hours, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="90" Canvas.Top="71.84"  MaxLength="4" IsEnabled="False"/>
+
+                            <Label x:Name="taskTotEmployeesLabel" Content="Tot Employees" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="238" Canvas.Top="71.96" Width="99" RenderTransformOrigin="0,0.545"/>
+                            <TextBox x:Name="taskTotEmployeesTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding TotEmployees, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="328" Canvas.Top="71.96" IsEnabled="True" MaxLength="5" LostFocus="taskTotEmployeesTextBox_LostFocus"/>
+
+                            <Label x:Name="taskEemployeeHoursLabel" Content="EmployeeHrs." HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="438" Canvas.Top="71.96" Width="85" RenderTransformOrigin="0,0.545"/>
+                            <TextBox x:Name="taskEmployeeHoursTextBox" Height="23" TextWrapping="Wrap"   Text="{Binding EmployeeHours, ConverterParameter='', Converter={StaticResource decimalConverterNew}}"  Width="80" Canvas.Left="528" Canvas.Top="69.92" IsEnabled="True" MaxLength="5" LostFocus="taskEmployeeHoursTextBox_LostFocus"/>
+
+
+
+                        </Canvas>
+                    </GroupBox>
+
+                    <Canvas x:Name="scheduleTaskBottomCanvas" Grid.Row="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Button x:Name="okSheduleTaskButton" Content="OK" HorizontalAlignment="Left" Width="75" Click="okSheduleTaskButton_Click" RenderTransformOrigin="-0.467,0.769" FontWeight="Bold" />
+                        <Button x:Name="cancelScheduleTaskButton" Content="Cancel" HorizontalAlignment="Left" Width="75" Click="cancelScheduleTaskButton_Click" RenderTransformOrigin="-0.467,0.769" Canvas.Left="80" FontWeight="Bold" />
+                    </Canvas>
+                </Grid>
+
+            </TabItem>
+
+            <TabItem x:Name="scheduleDownTabItem" Header="Schedule Down">
+                <Grid x:Name="scheduleDownTabItemGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="74*"/>
+                        <RowDefinition Height="225*"/>
+                        <RowDefinition Height="20*"/>
+                    </Grid.RowDefinitions>
+
+                    <GroupBox x:Name="scheduleDownTopGroupBox" Header="" Grid.Row="0" Margin="0,0,0,15">
+                        <Canvas x:Name="scheduleDownTopGroupBoxCanvas" Margin="0,0,-2,-2.963">
+
+                            <Label x:Name="detailDLabel" Content="Dtl#" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="10" Width="60"/>
+                            <TextBox x:Name="detailDTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding SubDetail}" Width="80" Canvas.Left="90" Canvas.Top="10" IsReadOnly="True" IsEnabled="False"/>
+
+                            <Label x:Name="downLabel" Content="Down" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="238" Canvas.Top="10" Width="85"/>
+                            <ComboBox x:Name="downComboBox" HorizontalAlignment="Left" Width="93" Canvas.Left="328" Canvas.Top="10" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding Type}" DisplayMemberPath="Display"/>
+
+                            <Label x:Name="downTypeLabel" Content="Down Type" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="438" Canvas.Top="10.04" Width="85"/>
+                            <ComboBox x:Name="downTypeComboBox" HorizontalAlignment="Left" Width="138" Canvas.Left="528" Canvas.Top="10" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding TypeName}" DisplayMemberPath="Display"/>
+
+
+                            <Label x:Name="startDDateLabel" Content="Start Date" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="45.244" Width="69" RenderTransformOrigin="0.5,0.5"/>
+                            <telerik:RadDateTimePicker x:Name="startDateTimeDRadDateTimePicker" SelectedValue="{Binding StartDate, Mode=TwoWay}" Canvas.Left="90" Canvas.Top="42.96" Width="135.777" LostFocus="startDateTimeDRadDateTimePicker_LostFocus"/>
+
+                            <Label x:Name="endDDateLabel" Content="End Date" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="238" Canvas.Top="42.96" Width="60"/>
+                            <telerik:RadDateTimePicker x:Name="endDateTimeDRadDateTimePicker" SelectedValue="{Binding EndDate, Mode=TwoWay}" Canvas.Left="328" Canvas.Top="40.098" Width="135.777" />
+
+                            <Label x:Name="downShiftLabel" Content="St.Shift" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="473" Canvas.Top="40.098" Width="50"/>
+                            <ComboBox x:Name="downShiftComboBox" HorizontalAlignment="Left" Width="56" Canvas.Left="528" Canvas.Top="40.96" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding StartShift}" DisplayMemberPath="Display" IsEnabled="False"/>
+
+                            <Label x:Name="endDownTaskLabel" Content="EndShift" HorizontalAlignment="Left" Canvas.Left="671" Canvas.Top="40.098" Width="55" Visibility="Hidden"/>
+                            <TextBox x:Name="endDownTaskTextBox" Height="22" TextWrapping="Wrap"  Text="{Binding EndShift}" Width="56" Canvas.Left="731" Canvas.Top="40.058" MaxLength="6" IsEnabled="False"  Visibility="Hidden"/>
+
+
+                            <Label x:Name="queueDownLabel" Content="Queue" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="671" Canvas.Top="10" Width="55" />
+                            <TextBox x:Name="queueDownTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Queue}" Width="56" Canvas.Left="731" Canvas.Top="10.04" MaxLength="6" IsEnabled="False" />
+
+
+                            <Label x:Name="downHoursLabel" Content="Hours" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="71.88" Width="50" RenderTransformOrigin="0,0.545"/>
+                            <TextBox x:Name="downHourTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Hours, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="90" Canvas.Top="71.84"  MaxLength="4" IsEnabled="False"/>
+
+                            <Label x:Name="downTotEmployeesLabel" Content="Tot Employees" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="238" Canvas.Top="71.96" Width="99" RenderTransformOrigin="0,0.545"/>
+                            <TextBox x:Name="downTotEmployeesTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding TotEmployees, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="328" Canvas.Top="71.96" IsEnabled="True" MaxLength="5" LostFocus="downTotEmployeesTextBox_LostFocus"/>
+
+                            <Label x:Name="downEemployeeHoursLabel" Content="EmployeeHrs." HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="438" Canvas.Top="71.96" Width="85" RenderTransformOrigin="0,0.545"/>
+                            <TextBox x:Name="downEmployeeHoursTextBox" Height="23" TextWrapping="Wrap"   Text="{Binding EmployeeHours, ConverterParameter='', Converter={StaticResource decimalConverterNew}}"  Width="80" Canvas.Left="528" Canvas.Top="69.92" IsEnabled="True" MaxLength="5" LostFocus="downEmployeeHoursTextBox_LostFocus"/>
+
+                        </Canvas>
+                    </GroupBox>
+
+                    <Canvas x:Name="scheduleDownBottomCanvas" Grid.Row="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Button x:Name="okSheduleDownButton" Content="OK" HorizontalAlignment="Left" Width="75" Click="okSheduleDownButton_Click" RenderTransformOrigin="-0.467,0.769" FontWeight="Bold" />
+                        <Button x:Name="cancelScheduleDownButton" Content="Cancel" HorizontalAlignment="Left" Width="75" Click="cancelScheduleDownButton_Click" RenderTransformOrigin="-0.467,0.769" Canvas.Left="80" FontWeight="Bold" />
+                    </Canvas>
+                </Grid>
+
+            </TabItem>
+
+
+            <TabItem x:Name="receiptPartTabItem" Header="Receipt Part">
+                <Grid x:Name="receiptPartTabItemGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="299*"/>
+                        <RowDefinition Height="20*"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox x:Name="receiptPartTopGroupBox" Header="" Grid.Row="0" Height="133.04" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment">
+                        <Canvas x:Name="receiptPartTopGroupBoxCanvas" Margin="0,0,-2,-2.963">
+
+                            <Label x:Name="receiptPartDtlLabel" Content="Dtl#" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="10" Width="60"/>
+                            <TextBox x:Name="receiptPartDtlTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Detail}" Width="80" Canvas.Left="90" Canvas.Top="9.96" IsReadOnly="True" IsEnabled="False" RenderTransformOrigin="0.8,0.426"/>
+
+                            <Label x:Name="receiptPartPartLabel" Content="Part" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="246" Canvas.Top="10.179" Width="75"/>
+                            <TextBox x:Name="receiptPartPartTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Part}" Width="200" Canvas.Left="326" Canvas.Top="10.139" MaxLength="40" IsEnabled="False"/>
+
+                            <Label x:Name="receiptPartSeqPartLabel" Content="Seq" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="558" Canvas.Top="9.96" Width="75"/>
+                            <TextBox x:Name="receiptPartSeqTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Seq}" Width="56" Canvas.Left="596" Canvas.Top="10.179" MaxLength="40" IsEnabled="False"/>
+
+                            <Label x:Name="receiptPartDate" Content="Receipt Date" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="45.244" Width="91" RenderTransformOrigin="0.5,0.5"/>
+                            <telerik:RadDateTimePicker x:Name="receiptPartDateRadDateTimePicker" SelectedValue="{Binding RecDate, Mode=TwoWay}" Canvas.Left="90" Canvas.Top="42.96" Width="135.777" LostFocus="startDateTimeTRadDateTimePicker_LostFocus"/>
+
+                            <Label x:Name="receiptPartQtyLabel" Content="Rec.Qty" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="246" Canvas.Top="45.244" Width="63"/>
+                            <TextBox x:Name="receiptPartQtyTextBox" Height="23" TextWrapping="Wrap"  Width="80" Canvas.Left="326" Canvas.Top="42.96" MaxLength="6" Text="{Binding RecQty}"/>
+
+                            <Label x:Name="receiptPartShiftLabel" Content="Shift" HorizontalAlignment="Left" Canvas.Left="558" Canvas.Top="43.138" Width="33" RenderTransformOrigin="0.417,0.92"/>
+                            <TextBox x:Name="receiptPartShiftTextBox" Height="22" TextWrapping="Wrap"  Text="{Binding RecShift}" Width="56" Canvas.Left="596" Canvas.Top="43.138" MaxLength="6" RenderTransformOrigin="-0.167,0.432" IsEnabled="False"/>
+
+
+
+                        </Canvas>
+
+                    </GroupBox>
+
+                    <Canvas x:Name="receiptPartBottomCanvas" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Button x:Name="okReceiptPartButton" Content="OK" HorizontalAlignment="Left" Width="75" Click="okReceiptPartButton_Click" RenderTransformOrigin="-0.467,0.769" FontWeight="Bold" />
+                        <Button x:Name="cancelReceiptPartButton" Content="Cancel" HorizontalAlignment="Left" Width="75" Click="cancelReceiptPartButton_Click" RenderTransformOrigin="-0.467,0.769" Canvas.Left="80" FontWeight="Bold" />
+                    </Canvas>
+                </Grid>
+
+            </TabItem>
+
+            <TabItem x:Name="hotListDatesTabItem" Header="Hot List" >
+
+
+                <Grid x:Name="hotListDatesGrid" Margin="0,0,-8,-1.96">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="590*"/>
+                        <RowDefinition Height="53*"/>
+                    </Grid.RowDefinitions>
+                    <TabControl x:Name="hotListTabControl" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" SelectionChanged="hotListTabControl_SelectionChanged">
+                        <TabItem Header="Receipts Parts" Name="hotListReceiptsPartsTab">
+                            <ListView x:Name="hotListDatesView" Grid.Row="0" Margin="0,3.472,0,0"/>
+                        </TabItem>
+
+                        <TabItem Header="Receipts Parts/Consum Materials" Name="hotListConsumPartsTab">
+                            <ListView x:Name="hotListDatesConsumView" Grid.Row="0" Margin="0,3.472,0,0"/>
+                        </TabItem>
+
+                        <TabItem Header="Inventory" Name="inventoryTab">
+                            <ListView x:Name="inventoryView" Grid.Row="0" Margin="0,3.472,0,0"/>
+                        </TabItem>
+
+                        <TabItem Header="Labour Tasks" Name="labourTypeTab">
+                            <ListView x:Name="labourTypeView" Grid.Row="0" Margin="0,3.472,0,0"/>
+                        </TabItem>
+
+                        <TabItem Header="Future Inventory" Name="futureInventoryTab">
+                            <ListView x:Name="futureInventoryView" Grid.Row="0" Margin="0,3.472,0,0"/>
+                        </TabItem>
+
+                        <TabItem Header="Inventory Objectives" Name="inventoryObjetivesTab">
+                            <ListView x:Name="inventoryObjetivesInventoryView" Grid.Row="0" Margin="0,3.472,0,0"/>
+                        </TabItem>
+
+
+                    </TabControl>
+
+                    <Canvas x:Name="hotListbottomCanvas" Margin="-7,1.528,0,0" Grid.Row="1" d:LayoutOverrides="VerticalAlignment">
+                        <Button x:Name="firstHButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Left="10" />
+                        <Button x:Name="prevHButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="33"/>
+                        <Button x:Name="nextHButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="56" />
+                        <Button x:Name="lastHButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="79" />
+
+                        <Label x:Name="searchByHotListLabel" Content="Search By" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="205.386" Canvas.Top="0.178"/>
+                        <ComboBox x:Name="searchByHotListComboBox" HorizontalAlignment="Left" Width="101.639" Canvas.Left="271.107" Canvas.Top="0.821"/>
+
+                        <Label x:Name="searchForHLabel" Content="Search For" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="377.746" Canvas.Top="-0.179"/>
+                        <TextBox x:Name="searchForHotListTextBox" TextWrapping="Wrap" Canvas.Left="445.36" Width="101.64"/>
+                        <Button x:Name="searchHotListButton" Content="Search" HorizontalAlignment="Left" Width="75" Click="searchHotListButton_Click" Canvas.Left="117" FontWeight="Bold"/>
+                        <Button x:Name="scheduleHotListButton" Content="Schedule" HorizontalAlignment="Left" Width="75" Click="scheduleHotListButton_Click" Canvas.Left="117" FontWeight="Bold" Canvas.Top="25.612"/>
+                        <CheckBox x:Name="alternativeMachineCheckBox" Content="Mach Alternative" Canvas.Left="197" Canvas.Top="27.457" FontWeight="Bold"/>
+
+                        <Label x:Name="timeLabel" Content="Time 0 secs" Canvas.Left="336.51" Canvas.Top="25.429" Width="210.49" FontWeight="Bold"/>
+
+                        <Label x:Name="plantHLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="552" RenderTransformOrigin="0.964,0.428" Canvas.Top="-0.179"/>
+                        <ComboBox x:Name="plantHComboBox" HorizontalAlignment="Left" Width="75" Canvas.Left="591.167" Canvas.Top="-0.179" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+                        <Label x:Name="deptHLabel" Content="Dept" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="553.716" RenderTransformOrigin="0.964,0.428" Canvas.Top="20.959"/>
+                        <ComboBox x:Name="deptHComboBox" HorizontalAlignment="Left" Width="75" Canvas.Left="591.167" Canvas.Top="22.781" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+                        <Label x:Name="searchForHotListPartLabel" Content="Part" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="678.746" Canvas.Top="0.821" Width="54.033"/>
+                        <TextBox x:Name="searchForHotListPartTextBox" TextWrapping="Wrap" Canvas.Left="738.066" Width="129.64" Canvas.Top="-3.219"/>
+
+                        <CheckBox Name="qtyCumulativeHotListCheckBox" Content="Qty Cumulative" IsChecked="True" Canvas.Left="887.799" Canvas.Top="-0.179" RenderTransformOrigin="-12.177,1.065" Width="126" FontWeight="Bold" Click="qtyCumulativeHotListCheckBox_Click"/>
+
+                        <Label x:Name="reportedPointLabel" Content="RepPoint" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="677.167" RenderTransformOrigin="0.964,0.428" Canvas.Top="20.959"/>
+                        <ComboBox x:Name="reportedPointComboBox" HorizontalAlignment="Left" Width="50" Canvas.Left="737.779" Canvas.Top="23.959" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+                        <Label x:Name="familyPartLabel" Content="Family/Part" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="792.779" RenderTransformOrigin="0.964,0.428" Canvas.Top="20.959"/>
+                        <ComboBox x:Name="familyPartComboBox" HorizontalAlignment="Left" Width="50" Canvas.Left="872.706" Canvas.Top="22.131" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+                    </Canvas>
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="ganttTab" Header="Gantt Sample">
+                <Grid Name="ganttTabGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="326*"/>
+                        <ColumnDefinition Width="267*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <my:CustomizedGantt  Style="{StaticResource CustomizedGanttStyle}"  Margin="8,0,0,0" Grid.Row="1" Width="Auto" Height="Auto"  x:Name="equipmentCustomizedGantt" ColumnWidth="150" Period="24" SelectedItemChanged="partCustomizedGantt_SelectedItemChanged" FontSize="9" RowHeight="25"  SelectedHeaderChanged="equipmentCustomizedGantt_SelectedHeaderChanged" DragEnter="equipmentCustomizedGantt_DragEnter" DragLeave="equipmentCustomizedGantt_DragLeave" DragOver="equipmentCustomizedGantt_DragOver" Drop="equipmentCustomizedGantt_Drop">
+
+
+                    </my:CustomizedGantt>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+
+    </Grid>
+</Window>

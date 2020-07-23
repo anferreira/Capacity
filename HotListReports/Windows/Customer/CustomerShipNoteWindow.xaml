@@ -1,0 +1,127 @@
+﻿<Window x:Class="HotListReports.Windows.Customers.CustomerShipNoteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:HotListReports.Windows.Demand"
+        xmlns:localUtil="clr-namespace:HotListReports.Windows.Util"  
+        xmlns:localConverters="clr-namespace:Nujit.NujitWms.WinForms.Util.Converters;assembly=Utilities"          
+        mc:Ignorable="d"
+        Title="Export Sum" Height="600" Width="700" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <localUtil:ConstantYesNoToBoolConverterNew x:Key="yesNoToBoolConverterNew" />
+        <localUtil:DecimalToStringConverterNew x:Key="decimalConverterNew" />
+        <localUtil:DateTimeToStringConverterNew x:Key="dateTimeConverterNew" />
+    </Window.Resources>
+
+
+    <Grid Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="195*"/>
+            <RowDefinition Height="339*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Name="mainGroupBox" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <Canvas x:Name="topCanvas">
+                <Label x:Name="orderLabel" Content="Order#" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="5" Width="69" Canvas.Top="5"/>
+                <TextBox x:Name="orderTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding OrderNum}" Width="91" Canvas.Left="74" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="5.04" />
+
+                <Label x:Name="itemLabel" Content="Item#" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="165" Width="45" Canvas.Top="5.08"/>
+                <TextBox x:Name="itemTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Item}" Width="45" Canvas.Left="212" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="5.04" />
+
+                <Label x:Name="relLabel" Content="Release" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="257" Width="66.284" Canvas.Top="5.04"/>
+                <TextBox x:Name="relTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Release}" Width="101.64" Canvas.Left="326.284" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="5.08" />
+
+                <Label x:Name="billToLabel" Content="BillTo" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="5" Width="69" Canvas.Top="30.96"/>
+                <TextBox x:Name="billToTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding BillTo}" Width="136" Canvas.Left="74" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="30.96"/>
+
+                <Label x:Name="shipToLabel" Content="ShipTo" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="5" Width="69" Canvas.Top="56.92" />
+                <TextBox x:Name="shipToTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding ShipTo}" Width="136" Canvas.Left="74" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="56.92" />
+
+                <Label x:Name="partLabel" Content="Product" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="5" Width="69" Canvas.Top="82.88" />
+                <TextBox x:Name="partTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Product}" Width="183" Canvas.Left="74" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="82.92" />
+
+                <Label x:Name="tpartnerLabel" Content="TPartner" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="5" Width="69" Canvas.Top="110.12" />
+                <TextBox x:Name="tpartnerTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding TradPartner}" Width="136" Canvas.Left="74" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" Canvas.Top="109.08" />
+
+                <Label x:Name="fixManualLabel" Content="Approved" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="5" Width="69" Canvas.Top="136.04"/>
+                <ComboBox x:Name="fixManualComboBox" HorizontalAlignment="Left" Width="50" Canvas.Left="74" SelectedValuePath="Content" SelectedValue="{Binding FixManual}" DisplayMemberPath="Display" Canvas.Top="136.04"/>
+
+              
+                <Label x:Name="createDateLabel" Content="Created" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="257" Canvas.Top="32.08" Width="66.284"/>
+                <DatePicker x:Name="createDateDatePicker" Canvas.Left="326.284" Canvas.Top="31.96" Width="101.64" SelectedDate="{Binding CreateDate, Mode=TwoWay}"/>
+
+                <Label x:Name="dateRequestLabel" Content="Request" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="257" Canvas.Top="58.04" Width="66.284"/>
+                <DatePicker x:Name="dateRequestDatePicker" Canvas.Left="326.284" Canvas.Top="56.92" Width="101.64"  SelectedDate="{Binding DateRequest, Mode=TwoWay}"/>
+
+                <Label x:Name="shipDateLabel" Content="Shipped" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="257" Canvas.Top="82.88" Width="66.284"/>
+                <DatePicker x:Name="shipDateDatePicker" Canvas.Left="326.284" Canvas.Top="84" Width="101.64"  SelectedDate="{Binding ShipDate, Mode=TwoWay}" />
+
+                <Label x:Name="changeDateLabel" Content="Changed" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="257" Canvas.Top="108.84" Width="69.284"/>
+                <DatePicker x:Name="changeDateDatePicker" Canvas.Left="326.284" Canvas.Top="107" Width="101.64"  SelectedDate="{Binding ChangeDate, Mode=TwoWay}" />
+
+                <Label x:Name="actualDaysLabel" Content="ActualDays" HorizontalAlignment="Left" Canvas.Left="257.208" Width="69.076" Canvas.Top="136.08"/>
+                <TextBox x:Name="actualDaysTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding ActualDays, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="47.716" Canvas.Left="326.284" IsEnabled="True" FontWeight="Bold" Canvas.Top="136.12" MaxLength="3" TextAlignment="Right" />
+
+                <Label x:Name="cumQtyLabel" Content="QtyCum" HorizontalAlignment="Left" Width="69.284" Canvas.Top="163" Canvas.Left="257" />
+                <TextBox x:Name="cumQtyTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding CumQty, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="72.716" Canvas.Left="326.284" IsEnabled="True" FontWeight="Bold" Canvas.Top="162" MaxLength="7" TextAlignment="Right"/>
+
+                <Label x:Name="qtyOrderLabel" Content="QtyOrder" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="427.924" Width="66.076" Canvas.Top="31.08"/>
+                <TextBox x:Name="qtyOrderTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding QtyOrder, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="60" Canvas.Left="494" IsEnabled="True" FontWeight="Bold" Canvas.Top="32.08" MaxLength="6" TextAlignment="Right"/>
+
+                <Label x:Name="qtyShippedLabel" Content="QtyShip" HorizontalAlignment="Left" FontWeight="Bold" Width="65.076" Canvas.Top="58.04" Canvas.Left="428.924"/>
+                <TextBox x:Name="qtyShippedTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding QtyShipped, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="60" Canvas.Left="494" IsEnabled="True" FontWeight="Bold" Canvas.Top="58.08" MaxLength="6" TextAlignment="Right"/>
+
+                <Label x:Name="qtyOrdCumLabel" Content="QtyOrCum" HorizontalAlignment="Left" Width="67" Canvas.Top="84" Canvas.Left="428.924"/>
+                <TextBox x:Name="qtyOrdCumTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding QtyOrderedFromCum, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="60" Canvas.Left="494" IsEnabled="True" FontWeight="Bold" Canvas.Top="84.16" MaxLength="6" TextAlignment="Right"/>
+
+                <Label x:Name="qtyPpmLabel" Content="QtyPPM" HorizontalAlignment="Left" Width="65.076" Canvas.Top="110.2" Canvas.Left="427.924"/>
+                <TextBox x:Name="qtyPpmTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding QtyPpm, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="60" Canvas.Left="494" IsEnabled="True" FontWeight="Bold" Canvas.Top="110.2" MaxLength="6" TextAlignment="Right"/>
+
+                <Label x:Name="qtyShippedLateLabel" Content="QtyLate" HorizontalAlignment="Left" Width="65.076" Canvas.Top="137.04" Canvas.Left="427.924" />
+                <TextBox x:Name="qtyShippedLateTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding QtyShippedLate, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="60" Canvas.Left="494" IsEnabled="True" FontWeight="Bold" Canvas.Top="136" MaxLength="6" TextAlignment="Right"/>
+
+                <Label x:Name="qtyShippedOnTimeLabel" Content="QtyTime" HorizontalAlignment="Left" Width="66.076" Canvas.Top="163.04" Canvas.Left="427.924" />
+                <TextBox x:Name="qtyShippedOnTimeTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding QtyShippedOnTime, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="60" Canvas.Left="494" IsEnabled="True" FontWeight="Bold" Canvas.Top="162" MaxLength="6" TextAlignment="Right"/>
+
+
+                <Label x:Name="majGroupLabel" Content="MajGroup" HorizontalAlignment="Left" Canvas.Left="554" Width="66.076" Canvas.Top="32.12"/>
+                <TextBox x:Name="majGroupTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding MajGroup}" Width="50" Canvas.Left="620.076" IsEnabled="True" FontWeight="Bold" Canvas.Top="32.08" MaxLength="3" TextAlignment="Left" CharacterCasing="Upper"/>
+
+                <Label x:Name="minGroupLabel" Content="MinGroup" HorizontalAlignment="Left" Canvas.Left="554" Width="66.076" Canvas.Top="58.12"/>
+                <TextBox x:Name="minGroupTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding MinGroup}" Width="50" Canvas.Left="620.076" IsEnabled="True" FontWeight="Bold" Canvas.Top="58.12" MaxLength="3" TextAlignment="Left" CharacterCasing="Upper"/>
+
+                <Label x:Name="majSalesLabel" Content="MajSales" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="554" Width="66.076" Canvas.Top="84.12"/>
+                <TextBox x:Name="majSalesTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding MajSales}" Width="50" Canvas.Left="620.076" IsEnabled="True" FontWeight="Bold" Canvas.Top="84.12" MaxLength="3" TextAlignment="Left" CharacterCasing="Upper"/>
+
+                <Label x:Name="minSalesLabel" Content="MinSales" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="554" Width="66.076" Canvas.Top="110.12"/>
+                <TextBox x:Name="minSalesTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding MinSales}" Width="50" Canvas.Left="620.076" IsEnabled="True" FontWeight="Bold" Canvas.Top="110.12" MaxLength="3" TextAlignment="Left" CharacterCasing="Upper"/>
+
+                <Label x:Name="leadTimeLabel" Content="LeadTime" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="555" Width="65.076" Canvas.Top="136.2"/>
+                <TextBox x:Name="leadTimeTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding LeadTime, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="50" Canvas.Left="620.076" IsEnabled="True" FontWeight="Bold" Canvas.Top="136.16" MaxLength="3" TextAlignment="Right" />
+
+                <Label x:Name="ppapLabel" Content="PPAP" HorizontalAlignment="Left" Canvas.Left="554"  Width="66.076" Canvas.Top="163"/>
+                <ComboBox x:Name="ppapComboBox" HorizontalAlignment="Left" Width="49.924" Canvas.Left="620.076"  SelectedValuePath="Content" SelectedValue="{Binding Ppap}" DisplayMemberPath="Display" Canvas.Top="163"/>
+
+
+            </Canvas>
+        </GroupBox>
+
+        <TabControl Name="mainTabControl" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <TabItem Name="noteTabItem" Header="Note">
+                <Grid Name="noteGrid" Margin="0,3,0,0">
+                    <TextBox x:Name="noteTextBox" Text="{Binding Note}" AcceptsReturn="True" AcceptsTab="True" TextAlignment="Left"  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" VerticalContentAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+
+        <Canvas x:Name="bottomCanvas" Grid.Row="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <Button x:Name="okButton" Content="OK" HorizontalAlignment="Left" Width="75" Click="okButton_Click" FontWeight="Bold" />
+            <Button x:Name="cancelButton" Content="Close" HorizontalAlignment="Left" Width="75" Click="cancelButton_Click" Canvas.Left="80" FontWeight="Bold" />
+        </Canvas>
+
+    </Grid>
+</Window>

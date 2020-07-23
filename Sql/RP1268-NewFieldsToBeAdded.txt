@@ -1,0 +1,11 @@
+RP1268D1
+varchar(11) ENGCHANGE 
+numeric QTYG12
+
+RP1268S
+numeric WK1RECQTY
+numeric WK2RECQTY
+numeric WK3RECQTY
+numeric WK4RECQTY
+Date WK1RECDAT
+Date WK2RECDAT

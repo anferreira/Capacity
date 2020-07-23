@@ -1,0 +1,190 @@
+﻿<Window x:Class="HotListReports.Windows.Machines.MachineWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:HotListReports.Windows.Demand"
+        xmlns:localUtil="clr-namespace:HotListReports.Windows.Util"  
+        xmlns:localConverters="clr-namespace:Nujit.NujitWms.WinForms.Util.Converters;assembly=Utilities" 
+        mc:Ignorable="d"
+        Title="Machines" Height="700" Width="1200" Closing="Window_Closing" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <localUtil:ConstantYesNoToBoolConverterNew x:Key="yesNoToBoolConverterNew" />
+        <localUtil:DecimalToStringConverterNew x:Key="decimalConverterNew" />
+    </Window.Resources>
+
+    <Grid x:Name="mainGrid">
+        <TabControl x:Name="mainTabControl" SelectionChanged="mainTabControl_SelectionChanged">
+            <TabItem x:Name="hdrTabItem" Header="View" >
+                <Grid x:Name="hdrMGrid" Margin="0,0,-3,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28*"/>
+                        <RowDefinition Height="557*"/>
+                        <RowDefinition Height="53*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid x:Name="viewTabItemTopGrid" Margin="0,0,0,1.528" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Label x:Name="recordsLabel" Content="Records :" HorizontalAlignment="Left" Margin="0,0.474,0,-0.474" Width="55" FontWeight="Bold"/>
+                        <TextBox x:Name="recordsTextBox" HorizontalAlignment="Left" Margin="70,0.474,0,0" TextWrapping="Wrap" Text="" Width="65" MaxLength="8"/>
+                    </Grid>
+
+                    <ListView x:Name="hdrListView" Grid.Row="1" MouseDoubleClick="hdrListView_MouseDoubleClick" >
+                        <ListView.View>
+                            <GridView>
+
+
+
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Canvas x:Name="bottomCanvas" Margin="-7,1.528,0,0" Grid.Row="2" d:LayoutOverrides="VerticalAlignment, LeftMargin, RightMargin, TopMargin, BottomMargin">
+
+                        <Label x:Name="searchForLabel" Content="Search For" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="392.032" Canvas.Top="0.3"/>
+                        <ComboBox x:Name="searchByComboBox" HorizontalAlignment="Left" Width="101.639" Canvas.Left="285.393" Canvas.Top="3"/>
+                        <Label x:Name="searchByLabel" Content="Search By" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="205.386" Canvas.Top="2"/>
+
+                        <TextBox x:Name="searchForTextBox" TextWrapping="Wrap" Canvas.Left="459.646" Canvas.Top="0.357" Width="101.64"/>
+                        <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Width="75" Click="searchButton_Click" Canvas.Left="117" FontWeight="Bold"/>
+                        <Button x:Name="routingsButton" Content="Routings" HorizontalAlignment="Left" Width="75" Click="routingsButton_Click" Canvas.Left="117" FontWeight="Bold" Canvas.Top="27.96"/>
+
+                        <Button x:Name="autoPlanButton" Content="AutoPlann" HorizontalAlignment="Left" Width="80" Click="autoPlanButton_Click" Canvas.Left="192" FontWeight="Bold" Canvas.Top="27.662"/>
+
+                        <Label x:Name="plantLabel" Content="Plant" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="577.283" Canvas.Top="2.96"/>
+                        <ComboBox x:Name="plantComboBox" HorizontalAlignment="Left" Width="95" Canvas.Left="616.45" SelectedValuePath="Content" DisplayMemberPath="Display"  SelectionChanged="plantComboBox_SelectionChanged" Canvas.Top="3.96"/>
+
+                        <Label x:Name="deptLabel" Content="Dept" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="579" Canvas.Top="27.96"/>
+                        <ComboBox x:Name="deptComboBox" HorizontalAlignment="Left" Width="95" Canvas.Left="616.45" Canvas.Top="28.96" SelectedValuePath="Content" DisplayMemberPath="Display"/>
+
+                        <Label x:Name="scheduledLabel" Content="Scheduled" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="719.041" Width="67.409" Canvas.Top="2.96"/>
+                        <ComboBox x:Name="scheduledComboBox" HorizontalAlignment="Left" Width="55.032" Canvas.Left="812.45" SelectedValuePath="Content" DisplayMemberPath="Display" Canvas.Top="3.96"/>
+
+                        <CheckBox Name="planDateCheckBox" Content="NoPlanDate" Canvas.Left="718.164" Canvas.Top="30.461" Width="98.254" FontWeight="Bold"  Click="planDateCheckBox_Click" FontSize="14"/>
+                        <DatePicker x:Name="planDatePicker" Canvas.Left="812.45" Canvas.Top="26.641" RenderTransformOrigin="1.885,0.505" Width="86.64" IsEnabled="False" Height="23.239"/>
+
+
+                        <Button x:Name="firstButton" Width="23" Height="21.277" Content="|&lt;" Canvas.Top="1" Canvas.Left="5" />
+                        <Button x:Name="prevButton" Width="23" Content="&lt;" Height="21.2766666666667" Canvas.Left="28" Canvas.Top="1" />
+                        <Button x:Name="nextButton" Width="23" Content="&gt;" Height="21.277" Canvas.Left="51" Canvas.Top="1" />
+                        <Button x:Name="lastButton" Width="23" Content="&gt;|" Height="21.277" Canvas.Left="74" Canvas.Top="1" />
+
+                        <Button x:Name="recalcPriorityButton" Content="RecPriority" HorizontalAlignment="Left" Width="80" Click="recalcPriority_Click" Canvas.Left="924" FontWeight="Bold" Canvas.Top="1"/>
+                        <CheckBox x:Name="includeProductionCheckBox" Content="IncludeProduction" Canvas.Left="924" Canvas.Top="26.641" FontWeight="Bold" Click="includeProductionCheckBox_Click"/>
+                    </Canvas>
+
+
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="defaultTabItem" Header="Detail/Default">
+                <Grid x:Name="defaultTabItemGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="299*"/>
+                        <RowDefinition Height="20*"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox x:Name="defaultTopGroupBox" Header="" Grid.Row="0" d:LayoutOverrides="HorizontalAlignment" Margin="0,0,0,210.872">
+                        <Canvas x:Name="receiptPartTopGroupBoxCanvas" Margin="0,0,-2,-2.963">
+
+                            <GroupBox x:Name="machineTopGroupBox" Header="Machine" Height="94.96" Width="816">
+                                <Canvas>
+                                    <Label x:Name="machIdLabel" Content="Id" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="10" Canvas.Top="10" Width="41"/>
+                                    <TextBox x:Name="machIdTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Id}" Width="80" Canvas.Left="56" Canvas.Top="10" IsReadOnly="True" IsEnabled="False" FontWeight="Bold" />
+
+                                    <Label x:Name="machCodeLabel" Content="Machine" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="136" Canvas.Top="10" Width="60"/>
+                                    <TextBox x:Name="machCodeTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Mach}" Width="95" Canvas.Left="201" Canvas.Top="9.96" IsReadOnly="True" IsEnabled="False" FontWeight="Bold"/>
+
+                                    <Label x:Name="machDescLabel" Content="Desc 1" HorizontalAlignment="Left" FontWeight="Bold" Canvas.Left="296.923" Canvas.Top="9.96" Width="45"/>
+                                    <TextBox x:Name="machDescTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Des1}" Width="284.231" Canvas.Left="346.923" Canvas.Top="9.92" IsReadOnly="True" IsEnabled="False" FontWeight="Bold"/>
+
+                                    <CheckBox Name="scheduledCheckBox" Content="Scheduled" IsChecked="{Binding Scheduled, ConverterParameter='', Converter={StaticResource yesNoToBoolConverterNew}}"   Canvas.Left="651" Canvas.Top="11.626" Width="90" />
+
+                                    <Label x:Name="plantDLabel" Content="Plant" HorizontalAlignment="Left" Canvas.Left="10" Canvas.Top="41.04" Width="41"/>
+                                    <TextBox x:Name="plantDTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Plt}" Width="80" Canvas.Left="56" Canvas.Top="41" IsReadOnly="True" IsEnabled="False" FontWeight="Bold"/>
+
+                                    <Label x:Name="deptDLabel" Content="Dept" HorizontalAlignment="Left" Canvas.Left="136" Canvas.Top="40.96" Width="60"/>
+                                    <TextBox x:Name="deptDTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding Dept}" Width="95" Canvas.Left="201" Canvas.Top="40.92" IsReadOnly="True" IsEnabled="False" FontWeight="Bold"/>
+
+                                </Canvas>
+                            </GroupBox>
+
+                            <GroupBox x:Name="defaultPlanGroupBox" Header="Planning" Grid.Row="0" Height="258.08" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment" Canvas.Top="99.96" Width="204.077" Canvas.Left="3.923">
+                                <Canvas x:Name="defaultPlanGroupBoxCanvas" Margin="0,0,-2,-2.963">
+
+                                    <Label x:Name="planRunHrsLabel" Content="PlanRunHrs" HorizontalAlignment="Left"  Canvas.Left="1" Canvas.Top="10.04" Width="93"/>
+                                    <TextBox x:Name="planRunHrsTextBox" Height="23" TextWrapping="Wrap" Text="{Binding PlanRunHrs, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="94" Canvas.Top="10" IsEnabled="True" MaxLength="10"/>
+
+                                    <Label x:Name="hrsPerShiftLabel" Content="HrsPerShift" HorizontalAlignment="Left" Canvas.Top="41.04" Width="94" FontWeight="Bold"/>
+                                    <TextBox x:Name="hrsPerShiftTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding HrsPerShift, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="94" Canvas.Top="41" IsEnabled="True" MaxLength="10"/>
+
+                                    <Label x:Name="planDownHrsLabel" Content="PlanDownHs" HorizontalAlignment="Left" Canvas.Top="72" Width="94" RenderTransformOrigin="0.48,4.473"/>
+                                    <TextBox x:Name="planDownHrsTextBox" Height="23" TextWrapping="Wrap" Text="{Binding PlanDownHrs, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="94" Canvas.Top="72" IsEnabled="True" MaxLength="10"/>
+
+                                    <Label x:Name="planChanOvHrsLabel" Content="PlChanOverHs" HorizontalAlignment="Left" Canvas.Left="1" Canvas.Top="102.96" Width="93"/>
+                                    <TextBox x:Name="planChanOvHrsTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding PlanChanOvHrs, ConverterParameter='', Converter={StaticResource decimalConverterNew}}"  Width="80" Canvas.Left="94" Canvas.Top="102.96" IsEnabled="True" MaxLength="10"/>
+
+
+                                    <Label x:Name="stdShiftPerWeekLabel" Content="StdShiftPWeek" HorizontalAlignment="Left"  Canvas.Left="1" Canvas.Top="133.92" Width="96" RenderTransformOrigin="0.48,4.473" FontWeight="Bold"/>
+                                    <TextBox x:Name="stdShiftPerWeekTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding StdShiftPerWeek, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="94" Canvas.Top="133.92" IsEnabled="True" MaxLength="10"/>
+
+                                    <Label x:Name="unitChanOverTimeLabel" Content="UniChanOvTime" HorizontalAlignment="Left" Canvas.Top="164.88" Width="97"/>
+                                    <TextBox x:Name="unitChanOverTimeTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding UnitChanOverTime, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="93" Canvas.Top="164.84" IsEnabled="True" MaxLength="10"/>
+
+                                    <Label x:Name="downHrsPerShiftLabel" Content="DownHrsPerShift" HorizontalAlignment="Left" Canvas.Top="195.88" Width="96" Canvas.Left="1"/>
+                                    <TextBox x:Name="downHrsPerShiftTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding DownHrsPerShift, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="93" Canvas.Top="195.84" IsEnabled="True" MaxLength="10" RenderTransformOrigin="0.476,1.935"/>
+
+                                </Canvas>
+                            </GroupBox>
+
+                            <GroupBox x:Name="defaultOeeGroupBox" Header="OEE" Grid.Row="0" Height="258.08" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment" Canvas.Top="99.96" Width="204.077" Canvas.Left="221.923">
+                                <Canvas x:Name="defaultOeeGroupBoxCanvas" Margin="0,0,-2,-2.963">
+
+                                    <Label x:Name="oeeLabel" Content="OEE" HorizontalAlignment="Left"  Canvas.Left="6" Canvas.Top="10.04" Width="75"/>
+                                    <TextBox x:Name="oeeTextBox" Height="23" TextWrapping="Wrap" Text="{Binding Oee, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="86" Canvas.Top="10" IsEnabled="True" MaxLength="10"/>
+
+                                    <Label x:Name="perfOaLabel" Content="Perf/OA" HorizontalAlignment="Left"  Canvas.Left="6" Canvas.Top="41.04" Width="75"/>
+                                    <TextBox x:Name="perfOaTextBox" Height="23" TextWrapping="Wrap" Text="{Binding PerfOa, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="86" Canvas.Top="41" IsEnabled="True" MaxLength="10"/>
+
+                                    <Label x:Name="scrapRateLabel" Content="ScrapRate" HorizontalAlignment="Left"  Canvas.Left="6" Canvas.Top="72" Width="80" RenderTransformOrigin="0.48,4.473"/>
+                                    <TextBox x:Name="scrapRateTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding ScrapRate, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="86" Canvas.Top="72" IsEnabled="True" MaxLength="10"/>
+
+                                    <Label x:Name="netPressRateLabel" Content="NetPressRate" HorizontalAlignment="Left" Canvas.Left="6" Canvas.Top="102.96" Width="80"/>
+                                    <TextBox x:Name="netPressRateTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding NetPressRate, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="86" Canvas.Top="102.96" IsEnabled="True" MaxLength="10"/>
+
+                                </Canvas>
+                            </GroupBox>
+
+                            <GroupBox x:Name="defaultOthersGroupBox" Header="Other" Grid.Row="0" Height="258.08" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment" Canvas.Top="100.963" Width="204.077" Canvas.Left="431">
+                                <Canvas x:Name="defaultOthersGroupBoxCanvas" Margin="0,0,-2,-2.963">
+
+                                    <Label x:Name="directHoursToShiftLabel" Content="DirHrToShift" HorizontalAlignment="Left"  Canvas.Left="6" Canvas.Top="10.04" Width="84"/>
+                                    <TextBox x:Name="directHoursToShiftTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding DirectHoursToShifts, ConverterParameter='', Converter={StaticResource decimalConverterNew}}" Width="79" Canvas.Left="90" Canvas.Top="10.04" IsEnabled="True" MaxLength="10"/>
+
+                                    <Label x:Name="weeklyCapacityLabel" Content="WeekCapacity" HorizontalAlignment="Left"  Canvas.Left="6" Canvas.Top="41" Width="84"/>
+                                    <TextBox x:Name="weeklyCapacityTextBox" Height="23" TextWrapping="Wrap"  Text="{Binding WeeklyCapacity, ConverterParameter='int', Converter={StaticResource decimalConverterNew}}" Width="80" Canvas.Left="89" Canvas.Top="40.96" IsEnabled="True" MaxLength="10"/>
+
+                                    <Label x:Name="showOnTvReportLabel" Content="ShowOnTvRpt." HorizontalAlignment="Left" Canvas.Left="6" Canvas.Top="71.96" Width="85"/>
+                                    <ComboBox x:Name="showOnTvReportComboBox" HorizontalAlignment="Left" Width="56" Canvas.Left="91" Canvas.Top="71.96" RenderTransformOrigin="5.815,0.544" SelectedValuePath="Content" SelectedValue="{Binding ShowOnTvReport}" DisplayMemberPath="Display" IsEnabled="True"/>
+
+
+
+                                </Canvas>
+                            </GroupBox>
+                        </Canvas>
+
+                    </GroupBox>
+
+                    <Canvas x:Name="defaultBottomCanvas" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                        <Button x:Name="okDefaultButton" Content="OK" HorizontalAlignment="Left" Width="75" Click="okDefaultButton_Click" RenderTransformOrigin="-0.467,0.769" FontWeight="Bold" />
+                        <Button x:Name="cancelDefaultButton" Content="Cancel" HorizontalAlignment="Left" Width="75" Click="cancelDefaultButton_Click" RenderTransformOrigin="-0.467,0.769" Canvas.Left="80" FontWeight="Bold" />
+                    </Canvas>
+                </Grid>
+
+            </TabItem>
+
+        </TabControl>
+
+
+    </Grid>
+</Window>
+   

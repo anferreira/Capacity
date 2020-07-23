@@ -1,0 +1,14 @@
+If the aplicattion throws an MySqlException with the text :
+	"Client does not support authentication protocol 
+	requested by server; consider upgrading MySQL client"
+
+You have to run the next script :
+
+use myslq;
+update user set password=old_password('oldrootpassword') where user='root';
+flush privileges;
+
+
+
+MySQL 4.1 and up uses an authentication protocol based on a password 
+hashing algorithm that is incompatible with that used by older clients.

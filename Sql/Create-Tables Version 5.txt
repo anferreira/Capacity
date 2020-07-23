@@ -1,0 +1,19 @@
+/*
+select * from funnel.rp1268h4 
+
+create table funnel.rp1268h5 like  funnel.rp1268h4 
+create table funnel.rp1268h5 as  (select * from funnel.rp1268h) WITH NO DATA
+select * from funnel.rp1268h5
+
+create table funnel.rp1268d5 as   (select * from funnel.rp1268d4)  WITH NO DATA
+
+select * from funnel.rp1268d5
+select * from funnel.rp1268s2
+
+select count(*) from  funnel.rp1268d2  where hdrid>=36   /* 36 */
+create table funnel.rp1268h5 as   (select * from funnel.rp1268h4)  WITH NO DATA
+create table funnel.rp1268d5 as   (select * from funnel.rp1268d4)  WITH NO DATA
+create table funnel.rp1268s5 as   (select * from funnel.rp1268s4)  WITH NO DATA
+*/
+
+select count(*) from funnel.rp1268s5

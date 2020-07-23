@@ -1,0 +1,38 @@
+using System;
+
+namespace Nujit.NujitERP.ClassLib.Common
+{
+
+	public enum LoginStatus : int {
+		LS_SUCCESS					= 0 ,
+		LS_INVALID_USER_PASSWORD	= 1	,
+		LS_ACCOUNT_DEACTIVED		= 2 ,
+		LS_ACCOUNT_FROZEN			= 3 ,
+		LS_ACCOUNT_LOCKED			= 4	
+	}
+
+
+	public enum TreeNodeType:int
+	{
+		PLANT_GROUP_ROOT					= 1,
+        PLANT								= 11,
+
+		DEPARTMENT_GROUP_ROOT				= 111,
+		DEPARTMENT							= 1111,
+
+		CONFIGURATION_GROUP_ROOT			= 11111,
+	    CONFIGURATION						= 111111,
+		MACHINEINCONFIGURATION_GROUP_ROOT	= 1111111,
+		MACHINEINCONFIGURATION				= 11111111,
+
+		MACHINE_GROUP_ROOT					= 11112,
+        MACHINE								= 111121,
+
+		SHIFTHDR_GROUP_ROOT					= 11113,
+		SHIFTHDR							= 111131,
+
+		CAPMACCFG_GROUP_ROOT				= 112,
+
+		CAPMACCFG							= 1121
+	}
+}

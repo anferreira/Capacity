@@ -1,0 +1,561 @@
+/*create VIEW funnel.RP1268VW2  as*/
+
+select Part as PartNumber  
+
+,Concat(Concat(Concat(Concat(Concat(  
+Concat((select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 1)  
+
+,(select CASE WHEN length(ifnull(MAx(MainMat),'')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID=d.HDRID and s.Detail=d.Detail and s.SubDtl=2))  
+
+,(select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 2))  
+,(select CASE WHEN length(ifnull(MAx(MainMat),'')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID=d.HDRID and s.Detail=d.Detail and s.SubDtl=3))  
+,(select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat),'')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID=d.HDRID and s.Detail=d.Detail and s.SubDtl=4))  
+,(select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 4))  
+AS MainMaterial  
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as MTPart  
+
+,CAST(RTPart AS bigint) as RTPart, Part10, Part20, Part30, Part40, Part50, Part60,Part70,Part80,Part90,Part100,Part110,Part120,Part130,Part140,Part150,Part160  
+,QtyHold,FinGood as FG,NetQoh  
+,CDPAST  as PAST ,CDWEEK1 as WEEK1,CDWEEK2 as WEEK2,CDWEEK3 as WEEK3,CDWEEK4 as WEEK4
+                 ,CDWEEK5 as WEEK5,CDWEEK6 as WEEK6,CDWEEK7 as WEEK7,CDWEEK8 as WEEK8
+				 ,CDWEEK9 as WEEK9,CDWEEK10 as WEEK10,CDWEEK11 as WEEK11,CDWEEK12 as WEEK12
+				 ,CDWEEK13 as WEEK13,CDWEEK14 as WEEK14
+				 ,AVMAJG as "MAJGROUP",AVMING as "MINGROUP",ENGCHANGE as "PARTSTATUS",QTYG12 as "QTYG12LOC"
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as "F1ST_WEEK"
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as "S2ND_WEEK" 
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as "T3RD_WEEK"  
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as "F4TH_WEEK" 
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select   CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+          from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+			 
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+			  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+			  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+			  
+)as "DATE_F1STREC"  
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select   CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+          from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+			 
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+			  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+			  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+			  
+)as  "DATE_F1STREC2"  
+
+
+
+from funnel.RP1268H2 h, funnel.RP1268D2 d 
+where h.ID in (select max(id) from funnel.RP1268H2 where Status='A')  and d.HDRID=h.ID
+
+******************************************************************************************************************************************
+create VIEW funnel.RP1268VW2  as
+
+select Part as PartNumber  
+
+,Concat(Concat(Concat(Concat(Concat(  
+Concat((select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 1)  
+
+,(select CASE WHEN length(ifnull(MAx(MainMat),'')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID=d.HDRID and s.Detail=d.Detail and s.SubDtl=2))  
+
+,(select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 2))  
+,(select CASE WHEN length(ifnull(MAx(MainMat),'')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID=d.HDRID and s.Detail=d.Detail and s.SubDtl=3))  
+,(select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat),'')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID=d.HDRID and s.Detail=d.Detail and s.SubDtl=4))  
+,(select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 4))  
+AS MainMaterial  
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as MTPart  
+
+,CAST(RTPart AS bigint) as RTPart, Part10, Part20, Part30, Part40, Part50, Part60,Part70,Part80,Part90,Part100,Part110,Part120,Part130,Part140,Part150,Part160  
+,QtyHold,FinGood as FG,NetQoh  
+,CDPAST  as PAST ,CDWEEK1 as WEEK1,CDWEEK2 as WEEK2,CDWEEK3 as WEEK3,CDWEEK4 as WEEK4
+                 ,CDWEEK5 as WEEK5,CDWEEK6 as WEEK6,CDWEEK7 as WEEK7,CDWEEK8 as WEEK8
+				 ,CDWEEK9 as WEEK9,CDWEEK10 as WEEK10,CDWEEK11 as WEEK11,CDWEEK12 as WEEK12
+				 ,CDWEEK13 as WEEK13,CDWEEK14 as WEEK14
+				 ,AVMAJG as "MAJGROUP",AVMING as "MINGROUP",ENGCHANGE as "PARTSTATUS",QTYG12 as "QTYG12LOC"
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as "F1ST_WEEK"
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as "S2ND_WEEK" 
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as "T3RD_WEEK"  
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as "F4TH_WEEK" 
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select   CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+          from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+			 
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+			  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+			  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+			  
+)as "DATE_F1STREC"  
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select   CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+          from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+			 
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+			  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+			  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+			  
+)as  "DATE_F1STREC2"  
+
+
+
+from funnel.RP1268H2 h, funnel.RP1268D2 d 
+where h.ID in (select max(id) from funnel.RP1268H2 where Status='A')  and d.HDRID=h.ID
+
+**************************************************************************************************************************************
+create VIEW funnel.RP1268VW2  as
+
+select Part as PartNumber  
+
+,Concat(Concat(Concat(Concat(Concat(  
+Concat((select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 1)  
+
+,(select CASE WHEN length(ifnull(MAx(MainMat),'')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID=d.HDRID and s.Detail=d.Detail and s.SubDtl=2))  
+
+,(select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 2))  
+,(select CASE WHEN length(ifnull(MAx(MainMat),'')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID=d.HDRID and s.Detail=d.Detail and s.SubDtl=3))  
+,(select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat),'')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID=d.HDRID and s.Detail=d.Detail and s.SubDtl=4))  
+,(select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 4))  
+AS MainMaterial  
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as MTPart  
+
+,CAST(RTPart AS bigint) as RTPart, Part10, Part20, Part30, Part40, Part50, Part60,Part70,Part80,Part90,Part100,Part110,Part120,Part130,Part140,Part150,Part160  
+,QtyHold,FinGood as FG,NetQoh  
+,CDPAST  as PAST ,CDWEEK1 as WEEK1,CDWEEK2 as WEEK2,CDWEEK3 as WEEK3,CDWEEK4 as WEEK4
+                 ,CDWEEK5 as WEEK5,CDWEEK6 as WEEK6,CDWEEK7 as WEEK7,CDWEEK8 as WEEK8
+				 ,CDWEEK9 as WEEK9,CDWEEK10 as WEEK10,CDWEEK11 as WEEK11,CDWEEK12 as WEEK12
+				 ,CDWEEK13 as WEEK13,CDWEEK14 as WEEK14
+				 ,AVMAJG as "MAJ GROUP",AVMING as "MIN GROUP",ENGCHANGE as "PART STATUS",QTYG12 as "QTY G12 LOC"
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as "1ST WEEK RT"
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as "2ND WEEK RT" 
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as "3RD WEEK RT"  
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as "4TH WEEK RT" 
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select   CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+          from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+			 
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+			  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+			  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+			  
+)as "DATE OF 1ST RECEIPT"  
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select   CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+          from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+			 
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+			  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+			  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+			  
+)as  "DATE OF 1ST RECEIPT W2"  
+
+
+
+from funnel.RP1268H2 h, funnel.RP1268D2 d 
+where h.ID in (select max(id) from funnel.RP1268H2 where Status='A')  and d.HDRID=h.ID
+
+
+
+********************************************************************************************************************************************
+create VIEW funnel.RP1268VW2  as
+
+select Part as PartNumber  
+
+,Concat(Concat(Concat(Concat(Concat(  
+Concat((select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 1)  
+
+,(select CASE WHEN length(ifnull(MAx(MainMat),'')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID=d.HDRID and s.Detail=d.Detail and s.SubDtl=2))  
+
+,(select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 2))  
+,(select CASE WHEN length(ifnull(MAx(MainMat),'')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID=d.HDRID and s.Detail=d.Detail and s.SubDtl=3))  
+,(select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat),'')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID=d.HDRID and s.Detail=d.Detail and s.SubDtl=4))  
+,(select ifnull(MAx(MainMat),'') from funnel.RP1268S2 as s where s.HDRID= d.HDRID and s.Detail= d.Detail  and s.SubDtl= 4))  
+AS MainMaterial  
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.Qty) is not null THEN varchar(  CAST( ifnull(SUM(s.Qty), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as MTPart  
+
+,CAST(RTPart AS bigint) as RTPart, Part10, Part20, Part30, Part40, Part50, Part60,Part70,Part80,Part90,Part100,Part110,Part120,Part130,Part140,Part150,Part160  
+,QtyHold,FinGood as FG,NetQoh  
+,CDPAST  as PAST ,CDWEEK1 as WEEK1,CDWEEK2 as WEEK2,CDWEEK3 as WEEK3,CDWEEK4 as WEEK4
+                 ,CDWEEK5 as WEEK5,CDWEEK6 as WEEK6,CDWEEK7 as WEEK7,CDWEEK8 as WEEK8
+				 ,CDWEEK9 as WEEK9,CDWEEK10 as WEEK10,CDWEEK11 as WEEK11,CDWEEK12 as WEEK12
+				 ,CDWEEK13 as WEEK13,CDWEEK14 as WEEK14
+				 ,AVMAJG,AVMING,ENGCHANGE,QTYG12
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK1RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK1RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as WK1RECQTY 
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK2RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK2RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as wK2RECQTY 
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK3RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK3RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as wK3RECQTY 
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+             from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN SUM(s.wK4RECQTY) is not null THEN varchar(  CAST( ifnull(SUM(s.wK4RECQTY), 0)  AS bigint) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+)as wK4RECQTY 
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select   CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+          from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+			 
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+			  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+			  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN MAx(s.WK1RECDAT) is not null and MAx(s.WK1RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK1RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+			  
+)as WK1RECDAT 
+
+
+,(Concat(Concat(Concat(Concat(Concat(Concat(  
+(select   CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+          from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 1)  
+			 
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+, (select         CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 2))  
+			  
+, (select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+, (select         CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 3))  
+			  
+,(select CASE WHEN length(ifnull(MAx(MainMat), '')) > 0 THEN ''||chr(10) ELSE '' END from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+,(select         CASE WHEN MAx(s.WK2RECDAT) is not null and MAx(s.WK2RECDAT) <> '1901-01-01' THEN varchar( CAST(MAx(s.WK2RECDAT) AS VARCHAR(10)) )  ELSE ''   END  
+              from funnel.RP1268S2 as s where s.HDRID = d.HDRID and s.Detail = d.Detail  and s.SubDtl = 4))  
+			  
+)as WK2RECDAT 
+
+
+
+from funnel.RP1268H2 h, funnel.RP1268D2 d 
+where h.ID in (select max(id) from funnel.RP1268H2 where Status='A')  and d.HDRID=h.ID
+
